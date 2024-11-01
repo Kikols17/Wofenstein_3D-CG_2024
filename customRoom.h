@@ -1,4 +1,6 @@
 #pragma once
+#ifndef CUSTOMROOM_H
+#define CUSTOMROOM_H
 
 #include "customGameObject.h"
 
@@ -15,3 +17,7 @@ class customRoom : public customGameObject {
         void draw3D();
     
 };
+
+
+
+#endif

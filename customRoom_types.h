@@ -1,4 +1,6 @@
 #pragma once
+#ifndef CUSTOMROOM_TYPES_H
+#define CUSTOMROOM_TYPES_H
 
 #include "customGameObject.h"
 #include "customRoom.h"
@@ -111,3 +113,7 @@ class customRoom_fightingroom : public customRoom {
         void draw3D();
     
 };
+
+
+
+#endif
