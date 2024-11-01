@@ -7,7 +7,7 @@
 class customRoom : public customGameObject {
     
     public:
-        customRoom(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale);
+        using customGameObject::customGameObject;
         
         void update();
 

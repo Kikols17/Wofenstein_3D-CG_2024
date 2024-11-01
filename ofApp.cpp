@@ -17,7 +17,7 @@ void ofApp::update(){
 
     // update all objects
     int gosize = (int)this->gameobjects.size();
-    for (int i = 0; i < this->gameobjects.size(); i++) {
+    for (int i=0; i<gosize; i++) {
         this->gameobjects[i]->update();
     }
 
@@ -31,14 +31,14 @@ void ofApp::draw(){
     switch (this->viewmode) {
     case 0:
         /* 2D */
-        for (int i = 0; i < gosize; i++) {
+        for (int i=0; i<gosize; i++) {
             this->gameobjects[i]->draw2D();
         }
         break;
 
     case 1:
         /* 3D */
-        for (int i = 0; i < gosize; i++) {
+        for (int i=0; i<gosize; i++) {
             this->gameobjects[i]->draw3D();
         }
         break;
