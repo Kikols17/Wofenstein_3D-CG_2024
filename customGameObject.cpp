@@ -13,7 +13,6 @@ customGameObject::customGameObject(ofVec3f _position, ofVec3f _rotation, ofVec3f
 
 
 
-//--------------------------------------------------------------
 void customGameObject::update(){
     // run this every update cycle
 }
@@ -21,9 +20,8 @@ void customGameObject::update(){
 
 
 
-//--------------------------------------------------------------
 void customGameObject::draw2D(){
-    // run this every draw cycle
+    // draws the 2D version of the object
     glTranslatef(this->position.x, this->position.y, this->position.z);
     glRotatef(this->rotation.x, 1, 0, 0);
     glRotatef(this->rotation.y, 0, 1, 0);
@@ -31,9 +29,8 @@ void customGameObject::draw2D(){
     glScalef(this->scale.x, this->scale.y, this->scale.z);
 }
 
-//--------------------------------------------------------------
 void customGameObject::draw3D(){
-    // run this every draw cycle
+    // draws the 3D version of the object
     glTranslatef(this->position.x, this->position.y, this->position.z);
     glRotatef(this->rotation.x, 1, 0, 0);
     glRotatef(this->rotation.y, 0, 1, 0);

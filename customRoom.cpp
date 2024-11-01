@@ -8,11 +8,11 @@ void customRoom::update(){
 
 
 void customRoom::draw2D(){
-    // run this every draw cycle
+    // draws the 2D version of the object
     this->customGameObject::draw2D();
 }
 
 void customRoom::draw3D(){
-    // run this every draw cycle
+    // draws the 3D version of the object
     this->customGameObject::draw3D();
 }

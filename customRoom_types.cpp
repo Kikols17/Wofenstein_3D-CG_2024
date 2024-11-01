@@ -8,8 +8,7 @@ void customRoom_hallway::update(){
 }
 
 void customRoom_hallway::draw2D(){
-    // run this every 2D draw cycle
-    // seeing the room from the top
+    // draws the 2D version of the object
 
     glPushMatrix();
         this->customRoom::draw2D();      // move to the position, rotate, and scale the room
@@ -17,7 +16,7 @@ void customRoom_hallway::draw2D(){
     glPopMatrix();
 }
 void customRoom_hallway::draw3D(){
-    // run this every draw cycle
+    // draws the 3D version of the object
 
     glPushMatrix();
         this->customRoom::draw3D();      // move to the position, rotate, and scale the room
@@ -40,7 +39,7 @@ void customRoom_Thallway::update(){
 }
 
 void customRoom_Thallway::draw2D(){
-    // run this every draw cycle
+    // draws the 2D version of the object
 
     glPushMatrix();
         this->customRoom::draw2D();      // move to the position, rotate, and scale the room
@@ -48,7 +47,7 @@ void customRoom_Thallway::draw2D(){
     glPopMatrix();
 }
 void customRoom_Thallway::draw3D(){
-    // run this every draw cycle
+    // draws the 3D version of the object
 
     glPushMatrix();
         this->customRoom::draw3D();      // move to the position, rotate, and scale the room
@@ -71,7 +70,7 @@ void customRoom_Lhallway::update(){
 }
 
 void customRoom_Lhallway::draw2D(){
-    // run this every draw cycle
+    // draws the 2D version of the object
     
     glPushMatrix();
         this->customRoom::draw2D();      // move to the position, rotate, and scale the room
@@ -79,7 +78,7 @@ void customRoom_Lhallway::draw2D(){
     glPopMatrix();
 }
 void customRoom_Lhallway::draw3D(){
-    // run this every draw cycle
+    // draws the 3D version of the object
     
     glPushMatrix();
         this->customRoom::draw3D();      // move to the position, rotate, and scale the room
@@ -102,7 +101,7 @@ void customRoom_Xhallway::update(){
 }
 
 void customRoom_Xhallway::draw2D(){
-    // run this every draw cycle
+    // draws the 2D version of the object
     
     glPushMatrix();
         this->customRoom::draw2D();      // move to the position, rotate, and scale the room
@@ -110,7 +109,7 @@ void customRoom_Xhallway::draw2D(){
     glPopMatrix();
 }
 void customRoom_Xhallway::draw3D(){
-    // run this every draw cycle
+    // draws the 3D version of the object
     
     glPushMatrix();
         this->customRoom::draw3D();      // move to the position, rotate, and scale the room
@@ -133,7 +132,7 @@ void customRoom_wall::update(){
 }
 
 void customRoom_wall::draw2D(){
-    // run this every draw cycle
+    // draws the 3D version of the object
     
     glPushMatrix();
         this->customRoom::draw2D();      // move to the position, rotate, and scale the room
