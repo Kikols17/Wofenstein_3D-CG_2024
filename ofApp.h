@@ -2,6 +2,10 @@
 
 #include "ofMain.h"
 
+#include "customGameObject.h"
+#include "customRoom.h"
+#include "customRoom_types.h"
+
 class ofApp : public ofBaseApp{
 
 	public:
@@ -20,5 +24,10 @@ class ofApp : public ofBaseApp{
 		void windowResized(int w, int h);
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
+
+
+		int viewmode = 0; // 0 = 2D, 1 = 3D
+
+		vector<shared_ptr<customGameObject>> gameobjects;
 		
 };
