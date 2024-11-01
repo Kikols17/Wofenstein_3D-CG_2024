@@ -7,8 +7,8 @@ void ofApp::setup(){
     this->gameobjects = vector<shared_ptr<customGameObject>>();
 
     // create a new room
-    shared_ptr<customRoom_hallway> room = make_shared<customRoom_hallway>( ofVec3f(0, 0, 0), ofVec3f(0, 0, 0), ofVec3f(1, 1, 1) );
-    this->gameobjects.push_back(room);
+    shared_ptr<customRoom_axis> axis = make_shared<customRoom_axis>( ofVec3f(0, 0, 0), ofVec3f(0, 0, 0), ofVec3f(0, 0, 0) );
+    this->gameobjects.push_back(axis);
 
 }
 

@@ -7,6 +7,18 @@
 
 
 
+class customRoom_axis : public customRoom {
+    // axis, only 3 vertices: x, y, z
+    public:
+        using customRoom::customRoom;
+
+        void update();
+
+        void draw2D();
+        void draw3D();
+    
+};
+
 class customRoom_hallway : public customRoom {
     // hallway room, 1x1x1 block, door on each side
     
