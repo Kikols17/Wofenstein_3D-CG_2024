@@ -14,10 +14,10 @@ class customRoom_axis : public customRoom {
     public:
         using customRoom::customRoom;
 
-        void update();
+        void update() override;
 
-        void draw2D();
-        void draw3D();
+        void draw2D() override;
+        void draw3D() override;
     
 };
 
@@ -27,10 +27,10 @@ class customRoom_hallway : public customRoom {
     public:
         using customRoom::customRoom;
 
-        void update();
+        void update() override;
 
-        void draw2D();
-        void draw3D();
+        void draw2D() override;
+        void draw3D() override;
     
 };
 
@@ -40,10 +40,10 @@ class customRoom_Thallway : public customRoom {
     public:
         using customRoom::customRoom;
 
-        void update();
+        void update() override;
 
-        void draw2D();
-        void draw3D();
+        void draw2D() override;
+        void draw3D() override;
     
 };
 
@@ -53,10 +53,10 @@ class customRoom_Lhallway : public customRoom {
     public:
         using customRoom::customRoom;
 
-        void update();
+        void update() override;
 
-        void draw2D();
-        void draw3D();
+        void draw2D() override;
+        void draw3D() override;
     
 };
 
@@ -66,10 +66,10 @@ class customRoom_Xhallway : public customRoom {
     public:
         using customRoom::customRoom;
 
-        void update();
+        void update() override;
 
-        void draw2D();
-        void draw3D();
+        void draw2D() override;
+        void draw3D() override;
     
 };
 
@@ -79,10 +79,10 @@ class customRoom_wall : public customRoom {
     public:
         using customRoom::customRoom;
 
-        void update();
+        void update() override;
 
-        void draw2D();
-        void draw3D();
+        void draw2D() override;
+        void draw3D() override;
     
 };
 
@@ -92,10 +92,10 @@ class customRoom_deadend : public customRoom {
     public:
         using customRoom::customRoom;
 
-        void update();
+        void update() override;
 
-        void draw2D();
-        void draw3D();
+        void draw2D() override;
+        void draw3D() override;
     
 };
 
@@ -107,10 +107,10 @@ class customRoom_fightingroom : public customRoom {
     public:
         using customRoom::customRoom;
 
-        void update();
+        void update() override;
 
-        void draw2D();
-        void draw3D();
+        void draw2D() override;
+        void draw3D() override;
     
 };
 

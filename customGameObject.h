@@ -7,10 +7,10 @@ class customGameObject {
     public:
         customGameObject(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale);
         
-        void update();
+        virtual void update();
 
-        void draw2D();
-        void draw3D();
+        virtual void draw2D();
+        virtual void draw3D();
 
 
         ofVec3f position;

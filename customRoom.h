@@ -11,10 +11,10 @@ class customRoom : public customGameObject {
     public:
         using customGameObject::customGameObject;
         
-        void update();
+        void update() override;
 
-        void draw2D();
-        void draw3D();
+        void draw2D() override;
+        void draw3D() override;
     
 };
 
