@@ -4,6 +4,7 @@
 
 #include "customGameObject.h"
 #include "customRoom.h"
+#include "cg_extras.h"
 
 #include "ofMain.h"
 

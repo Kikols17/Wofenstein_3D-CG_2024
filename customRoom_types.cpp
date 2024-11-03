@@ -26,6 +26,8 @@ void customRoom_axis::draw2D() {
             glVertex3f(0.0, 0.0, 0.0);
             glVertex3f(0.0, 0.0, 1.0);
         glEnd();
+        cout << endl << "2D ";
+        coutModelviewMatrix();
     glPopMatrix();
 }
 
@@ -33,7 +35,7 @@ void customRoom_axis::draw3D() {
     // draws the 3D version of the object
 
     glPushMatrix();
-        this->customRoom::draw3D();      // move to the position, rotate, and scale the room
+        this->customRoom::draw2D();      // move to the position, rotate, and scale the room
         glBegin(GL_LINES);
             glColor3f(1.0, 0.0, 0.0);
             glVertex3f(0.0, 0.0, 0.0);
@@ -47,6 +49,8 @@ void customRoom_axis::draw3D() {
             glVertex3f(0.0, 0.0, 0.0);
             glVertex3f(0.0, 0.0, 1.0);
         glEnd();
+        cout << endl << "3D ";
+        coutModelviewMatrix();
     glPopMatrix();
 }
 
@@ -69,6 +73,14 @@ void customRoom_hallway::draw2D() {
 
     glPushMatrix();
         this->customRoom::draw2D();      // move to the position, rotate, and scale the room
+        cout << "room" << endl;
+        glBegin(GL_QUADS);
+            glColor3f(0.6, 0.4, 0.2);
+            glVertex3f(-0.5, 0, -0.5);
+            glVertex3f(0.5, 0, -0.5);
+            glVertex3f(0.5, 0, 0.5);
+            glVertex3f(-0.5, 0, 0.5);
+        glEnd();
 
     glPopMatrix();
 }

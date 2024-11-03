@@ -79,4 +79,42 @@ inline void lookat(
 }
 
 
+
+
+inline void lookover(
+	GLfloat camX,
+	GLfloat camY,
+	GLfloat camZ,
+	GLfloat lookingX,
+	GLfloat lookingY,
+	GLfloat lookingZ,
+	GLfloat upX,
+	GLfloat upY,
+	GLfloat upZ)
+{
+	// function like "lookat", but takes in the vector the camera is looking at (lookingX/Y/Z) instead of the target
+	ofVec3f cam = ofVec3f(camX, camY, camZ);
+	ofVec3f looking = ofVec3f(lookingX, lookingY, lookingZ);
+	ofVec3f up = ofVec3f(upX, upY, upZ);
+
+
+	ofVec3f N = looking;
+	N = N.getNormalized();
+	ofVec3f U = cross(up, N);
+	U = U.getNormalized();
+	ofVec3f V = cross(N, U);
+	V = V.getNormalized();
+
+	GLfloat camTransformMatrix[4][4] = {
+		{U.x, V.x, N.x, 0},
+		{U.y, V.y, N.y, 0},
+		{U.z, V.z, N.z, 0},
+		{-U.dot(cam), -V.dot(cam), -N.dot(cam), 1}
+	};
+
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
+
+}
+
 #endif

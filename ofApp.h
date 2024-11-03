@@ -30,6 +30,12 @@ class ofApp : public ofBaseApp{
 
 		int viewmode = 1; // 0 = 2D, 1 = 3D
 
+		GLfloat theta = 60.0;
+		GLfloat alpha = 1.0;
+		GLfloat beta = 100.0;
+
+		GLfloat zoom = 1.0;
+
 		vector<shared_ptr<customGameObject>> gameobjects;
 		
 };

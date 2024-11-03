@@ -7,6 +7,7 @@ void ofApp::setup(){
     // setup the window
 	ofSetFrameRate(60);
 	glEnable(GL_DEPTH_TEST);
+	ofBackground(0.05, 0.05, 0.05);
 
 	glPointSize(200);
 	glLineWidth(3);
@@ -16,8 +17,11 @@ void ofApp::setup(){
     this->gameobjects = vector<shared_ptr<customGameObject>>();
 
     // create a new room
-    shared_ptr<customRoom_axis> axis = make_shared<customRoom_axis>( ofVec3f(0, 0, 0), ofVec3f(0, 0, 0), ofVec3f(0, 0, 0) );
+    shared_ptr<customRoom_axis> axis = make_shared<customRoom_axis>( ofVec3f(0, 0, 0), ofVec3f(0, 0, 0), ofVec3f(2048, 2048, 2048) );
     this->gameobjects.push_back(axis);
+
+    shared_ptr<customRoom_hallway> hallway = make_shared<customRoom_hallway>( ofVec3f(0, 0, 0), ofVec3f(0, 0, 0), ofVec3f(1, 1, 1) );
+    this->gameobjects.push_back(hallway);
 
 }
 
@@ -42,13 +46,15 @@ void ofApp::draw(){
             /* 2D */
             glMatrixMode(GL_PROJECTION);
             glLoadIdentity();
-            glOrtho(-10, 10, -10, 10, -10, 10);
+            glOrtho(-zoom*gw(), zoom*gw(), -zoom*gh(), zoom*gh(), -10, 10);
 
-            glMatrixMode(GL_MODELVIEW);
-            glLoadIdentity();
-            for (int i=0; i<gosize; i++) {
-                this->gameobjects[i]->draw2D();
-            }
+            glPushMatrix();
+                glMatrixMode(GL_MODELVIEW);
+                glLoadIdentity();
+                for (int i=0; i<gosize; i++) {
+                    this->gameobjects[i]->draw2D();
+                }
+            glPopMatrix();
             break;
 
         
@@ -56,15 +62,17 @@ void ofApp::draw(){
             /* 3D */
             glMatrixMode(GL_PROJECTION);
             glLoadIdentity();
-            perspective(60, 1, 1000);
+            glOrtho(-zoom*gw(), zoom*gw(), -zoom*gh(), zoom*gh(), -10, 10);
+            //perspective(60, 10, 100);
 
-            glMatrixMode(GL_MODELVIEW);
-            glLoadIdentity();
-            lookat(0, 0, 10, 0, 0, 0, 0, 1, 0);
-            glLineWidth(3);
-            for (int i=0; i<gosize; i++) {
-                this->gameobjects[i]->draw3D();
-            }
+            glPushMatrix();
+                glMatrixMode(GL_MODELVIEW);
+                glLoadIdentity();
+                lookat(5, 5, 5, 0, 0, 0, 0, 1, 0);
+                for (int i=0; i<gosize; i++) {
+                    this->gameobjects[i]->draw3D();
+                }
+            glPopMatrix();
             break;
         
 
@@ -77,8 +85,26 @@ void ofApp::draw(){
 }
 
 //--------------------------------------------------------------
-void ofApp::keyPressed(int key){
+void ofApp::keyPressed(int key) {
+    switch (key) {
+        case '1':
+            cout << "2D mode" << endl;
+            this->viewmode = 0;
+            break;
+        case '2':
+            cout << "3D mode" << endl;
+            this->viewmode = 1;
+            break;
 
+        case '-':
+            this->zoom /= 0.5;
+            break;
+        case '+':
+            this->zoom *= 0.5;
+            break;
+        default:
+            break;
+    }
 }
 
 //--------------------------------------------------------------
