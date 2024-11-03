@@ -5,7 +5,7 @@ Developed for the Computer Graphics course @:
 Informatics Engineering Department
 University of Coimbra
 by
-André Perrotta & Evgheni Polisciuc
+Andrï¿½ Perrotta & Evgheni Polisciuc
 
 Coimbra, 09/2023
 */
@@ -62,7 +62,7 @@ inline void coutProjectionMatrix() {
 	//return;
 }
 
-//pega os valores de Translação da matriz modelview
+//pega os valores de Translaï¿½ï¿½o da matriz modelview
 inline ofVec3f getModelViewMatrixPos() {
 	GLfloat Matriz[4][4];
 	glGetFloatv(GL_MODELVIEW_MATRIX, &Matriz[0][0]);
@@ -94,6 +94,38 @@ inline ofVec3f cross(ofVec3f A, ofVec3f B) {
 
 	return aux;
 }
+
+
+
+
+
+// rotate a given ofVec3f around the x axis by angle
+inline ofVec3f rotateX(ofVec3f vec, float angle) {
+	ofVec3f aux;
+	aux.x = vec.x;
+	aux.y = vec.y*cos(angle) - vec.z*sin(angle);
+	aux.z = vec.y*sin(angle) + vec.z*cos(angle);
+	return aux;
+}
+
+// rotate a given ofVec3f around the y axis by angle
+inline ofVec3f rotateY(ofVec3f vec, float angle) {
+	ofVec3f aux;
+	aux.x = vec.x*cos(angle) + vec.z*sin(angle);
+	aux.y = vec.y;
+	aux.z = -vec.x*sin(angle) + vec.z*cos(angle);
+	return aux;
+}
+
+// rotate a given ofVec3f around the z axis by angle
+inline ofVec3f rotateZ(ofVec3f vec, float angle) {
+	ofVec3f aux;
+	aux.x = vec.x*cos(angle) - vec.y*sin(angle);
+	aux.y = vec.x*sin(angle) + vec.y*cos(angle);
+	aux.z = vec.z;
+	return aux;
+}
+
 
 
 

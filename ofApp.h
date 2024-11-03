@@ -7,6 +7,7 @@
 #include "customGameObject.h"
 #include "customRoom.h"
 #include "customRoom_types.h"
+#include "customCamara.h"
 
 class ofApp : public ofBaseApp{
 
@@ -35,6 +36,8 @@ class ofApp : public ofBaseApp{
 		GLfloat beta = 100.0;
 
 		GLfloat zoom = 1.0;
+
+		customCamara cam;
 
 		vector<shared_ptr<customGameObject>> gameobjects;
 		

@@ -26,8 +26,6 @@ void customRoom_axis::draw2D() {
             glVertex3f(0.0, 0.0, 0.0);
             glVertex3f(0.0, 0.0, 1.0);
         glEnd();
-        cout << endl << "2D ";
-        coutModelviewMatrix();
     glPopMatrix();
 }
 
@@ -49,8 +47,6 @@ void customRoom_axis::draw3D() {
             glVertex3f(0.0, 0.0, 0.0);
             glVertex3f(0.0, 0.0, 1.0);
         glEnd();
-        cout << endl << "3D ";
-        coutModelviewMatrix();
     glPopMatrix();
 }
 

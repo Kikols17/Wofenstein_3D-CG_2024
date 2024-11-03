@@ -94,7 +94,7 @@ inline void lookover(
 {
 	// function like "lookat", but takes in the vector the camera is looking at (lookingX/Y/Z) instead of the target
 	ofVec3f cam = ofVec3f(camX, camY, camZ);
-	ofVec3f looking = ofVec3f(lookingX, lookingY, lookingZ);
+	ofVec3f looking = ofVec3f(-lookingX, -lookingY, -lookingZ);
 	ofVec3f up = ofVec3f(upX, upY, upZ);
 
 
@@ -114,6 +114,7 @@ inline void lookover(
 
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
+	glMultMatrixf(&camTransformMatrix[0][0]);
 
 }
 
