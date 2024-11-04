@@ -9,7 +9,7 @@ void ofApp::setup(){
 	glEnable(GL_DEPTH_TEST);
 	ofBackground(0.05, 0.05, 0.05);
 
-	glPointSize(200);
+	glPointSize(5);
 	glLineWidth(3);
 
 
@@ -21,11 +21,26 @@ void ofApp::setup(){
 
 
     // create a new room
-    shared_ptr<customRoom_axis> axis = make_shared<customRoom_axis>( ofVec3f(0, 0, 0), ofVec3f(0, 0, 0), ofVec3f(2048, 2048, 2048) );
+    shared_ptr<customRoom_axis> axis = make_shared<customRoom_axis>( ofVec3f(0, 0, 0), ofVec3f(0, 0, 0), ofVec3f(1, 1, 1) );
     this->gameobjects.push_back(axis);
 
     shared_ptr<customRoom_hallway> hallway = make_shared<customRoom_hallway>( ofVec3f(0, 0, 0), ofVec3f(0, 0, 0), ofVec3f(1, 1, 1) );
     this->gameobjects.push_back(hallway);
+
+    shared_ptr<customRoom_Thallway> Thallway = make_shared<customRoom_Thallway>( ofVec3f(2, 0, 0), ofVec3f(0, 0, 0), ofVec3f(1, 1, 1) );
+    this->gameobjects.push_back(Thallway);
+
+    shared_ptr<customRoom_Lhallway> Lhallway = make_shared<customRoom_Lhallway>( ofVec3f(4, 0, 0), ofVec3f(0, 0, 0), ofVec3f(1, 1, 1) );
+    this->gameobjects.push_back(Lhallway);
+
+    shared_ptr<customRoom_Xhallway> Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(6, 0, 0), ofVec3f(0, 0, 0), ofVec3f(1, 1, 1) );
+    this->gameobjects.push_back(Xhallway);
+
+    shared_ptr<customRoom_wall> wall = make_shared<customRoom_wall>( ofVec3f(8, 0, 0), ofVec3f(0, 0, 0), ofVec3f(1, 1, 1) );
+    this->gameobjects.push_back(wall);
+
+    shared_ptr<customRoom_deadend> deadend = make_shared<customRoom_deadend>( ofVec3f(10, 0, 0), ofVec3f(0, 0, 0), ofVec3f(1, 1, 1) );
+    this->gameobjects.push_back(deadend);
 
 }
 
@@ -50,12 +65,12 @@ void ofApp::draw(){
             /* 2D */
             glMatrixMode(GL_PROJECTION);
             glLoadIdentity();
-            glOrtho(-zoom*gw(), zoom*gw(), -zoom*gh(), zoom*gh(), 0, 100);
+            glOrtho(-zoom*gw()/10, zoom*gw()/10, -zoom*gh()/10, zoom*gh()/10, 0, 100);
 
             glPushMatrix();
                 glMatrixMode(GL_MODELVIEW);
                 glLoadIdentity();
-                //lookat(this->cam.pos.x, this->cam.pos.y, this->cam.pos.z, this->cam.pos.x, this->cam.pos.y, this->cam.pos.z, this->cam.up.x, this->cam.up.y, this->cam.up.z);
+                lookat(this->cam.pos.x, 10, this->cam.pos.z, this->cam.pos.x, 0, this->cam.pos.z, 0, 0, -1);
                 for (int i=0; i<gosize; i++) {
                     this->gameobjects[i]->draw2D();
                 }
@@ -73,8 +88,9 @@ void ofApp::draw(){
                 glMatrixMode(GL_MODELVIEW);
                 glLoadIdentity();
                 lookat(this->cam.pos.x, this->cam.pos.y, this->cam.pos.z, this->cam.target.x, this->cam.target.y, this->cam.target.z, this->cam.up.x, this->cam.up.y, this->cam.up.z);
-                
-                perspective(60.0 / zoom, 10.0, 1000.0);
+                perspective(60.0*zoom, 10.0, 1000.0);
+
+                glScalef(1024, 1024, 1024);
                 //lookover(this->cam.pos.x, this->cam.pos.y, this->cam.pos.z, this->cam.looking.x, this->cam.looking.y, this->cam.looking.z, this->cam.up.x, this->cam.up.y, this->cam.up.z);
                 for (int i=0; i<gosize; i++) {
                     this->gameobjects[i]->draw3D();
@@ -113,36 +129,37 @@ void ofApp::keyPressed(int key) {
             break;
     }
 
+    GLfloat step = 0.25;
     if (key=='w') {
-        cam.moveto(cam.pos.x+cam.front.x, cam.pos.y+cam.front.y, cam.pos.z+cam.front.z);
+        cam.moveto(cam.pos.x+cam.front.x*step, cam.pos.y+cam.front.y*step, cam.pos.z+cam.front.z*step);
     }
     if (key=='s') {
-        cam.moveto(cam.pos.x-cam.front.x, cam.pos.y-cam.front.y, cam.pos.z-cam.front.z);
+        cam.moveto(cam.pos.x-cam.front.x*step, cam.pos.y-cam.front.y*step, cam.pos.z-cam.front.z*step);
     }
     if (key=='a') {
-        cam.moveto(cam.pos.x-cam.right.x, cam.pos.y-cam.right.y, cam.pos.z-cam.right.z);
+        cam.moveto(cam.pos.x+cam.right.x*step, cam.pos.y+cam.right.y*step, cam.pos.z+cam.right.z*step);
     }
     if (key=='d') {
-        cam.moveto(cam.pos.x+cam.right.x, cam.pos.y+cam.right.y, cam.pos.z+cam.right.z);
+        cam.moveto(cam.pos.x-cam.right.x*step, cam.pos.y-cam.right.y*step, cam.pos.z-cam.right.z*step);
     }
     if (key=='c') {
-        cam.moveto(cam.pos.x-cam.trueup.x, cam.pos.y-cam.trueup.y, cam.pos.z-cam.trueup.z);
+        cam.moveto(cam.pos.x-cam.trueup.x*step, cam.pos.y-cam.trueup.y*step, cam.pos.z-cam.trueup.z*step);
     }
     if (key==' ') {
-        cam.moveto(cam.pos.x+cam.trueup.x, cam.pos.y+cam.trueup.y, cam.pos.z+cam.trueup.z);
+        cam.moveto(cam.pos.x+cam.trueup.x*step, cam.pos.y+cam.trueup.y*step, cam.pos.z+cam.trueup.z*step);
     }
 
     if (key==OF_KEY_LEFT) {
-        cam.looking_angleY -= 5;
-    }
-    if (key==OF_KEY_RIGHT) {
         cam.looking_angleY += 5;
     }
+    if (key==OF_KEY_RIGHT) {
+        cam.looking_angleY -= 5;
+    }
     if (key==OF_KEY_UP) {
-        cam.looking_angleX += 5;
+        cam.looking_angleX -= 5;
     }
     if (key==OF_KEY_DOWN) {
-        cam.looking_angleX -= 5;
+        cam.looking_angleX += 5;
     }
     this->cam.updatelooking();
     cout << endl;
@@ -161,6 +178,15 @@ void ofApp::keyReleased(int key){
 //--------------------------------------------------------------
 void ofApp::mouseMoved(int x, int y ){
 
+    
+    //Mouse.CursorPos = ofVec2f(gw()/2, gh()/2);
+    //ofSetMousePosition(gw()/2, gh()/2);
+    //mouse.CursorPos = ofVec2f(gw()/2, gh()/2);
+    //mouseX = gw()/2;
+    //mouseY = gh()/2;
+    //glColorPointer(gw()/2, gh()/2);
+    //ofSetMouseX(gw()/2);
+    //ofSetMouseY(gh()/2);
 }
 
 //--------------------------------------------------------------

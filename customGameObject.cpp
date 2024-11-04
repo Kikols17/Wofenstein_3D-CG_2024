@@ -22,18 +22,18 @@ void customGameObject::update(){
 
 void customGameObject::draw2D(){
     // draws the 2D version of the object
-    glTranslatef(this->position.x, this->position.y, this->position.z);
+    glScalef(this->scale.x, this->scale.y, this->scale.z);
     glRotatef(this->rotation.x, 1, 0, 0);
     glRotatef(this->rotation.y, 0, 1, 0);
     glRotatef(this->rotation.z, 0, 0, 1);
-    glScalef(this->scale.x, this->scale.y, this->scale.z);
+    glTranslatef(this->position.x, this->position.y, this->position.z);
 }
 
 void customGameObject::draw3D(){
     // draws the 3D version of the object
-    glTranslatef(this->position.x, this->position.y, this->position.z);
+    glScalef(this->scale.x, this->scale.y, this->scale.z);
     glRotatef(this->rotation.x, 1, 0, 0);
     glRotatef(this->rotation.y, 0, 1, 0);
     glRotatef(this->rotation.z, 0, 0, 1);
-    glScalef(this->scale.x, this->scale.y, this->scale.z);
+    glTranslatef(this->position.x, this->position.y, this->position.z);
 }
