@@ -30,7 +30,7 @@ void customCamara::draw2D() {
     // apply the 2D camera's transformations
     glOrtho(-this->zoom*gw()/10, this->zoom*gw()/10, -this->zoom*gh()/10, this->zoom*gh()/10, 0, 100);
     lookat(this->pos.x, 10, this->pos.z, this->pos.x, 0, this->pos.z, 0, 0, -1);
-                
+    glScalef(8, 8, 8);
 }
 
 void customCamara::draw3D() {

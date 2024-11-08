@@ -1,5 +1,7 @@
 #include "ofApp.h"
 
+#include "setuplevels.h"
+
 
 //--------------------------------------------------------------
 void ofApp::setup(){
@@ -42,6 +44,15 @@ void ofApp::setup(){
     shared_ptr<customRoom_deadend> deadend = make_shared<customRoom_deadend>( ofVec3f(10, 0, 0), ofVec3f(0, 0, 0), ofVec3f(1, 1, 1) );
     this->gameobjects.push_back(deadend);
 
+    shared_ptr<customRoom_fightingroom> fightingroom = make_shared<customRoom_fightingroom>( ofVec3f(14, 0, 0), ofVec3f(0, 0, 0), ofVec3f(1, 1, 1) );
+    this->gameobjects.push_back(fightingroom);
+
+
+    test_level(this->gameobjects);
+
+    circular_level(this->gameobjects);
+
+
 }
 
 //--------------------------------------------------------------
@@ -71,7 +82,13 @@ void ofApp::draw(){
                 for (int i=0; i<gosize; i++) {
                     this->gameobjects[i]->draw2D();
                 }
+                // place a point in the center of the screen
+                glBegin(GL_POINTS);
+                    ofColor(255, 0, 0);
+                    glVertex2f(gw()/2, gh()/2);
+                glEnd();
             glPopMatrix();
+
             break;
 
         
@@ -134,7 +151,7 @@ void ofApp::keyPressed(int key) {
     if (key=='d') {
         cam.moveto(cam.pos.x-cam.right.x*step, cam.pos.y-cam.right.y*step, cam.pos.z-cam.right.z*step);
     }
-    if (key=='c') {
+    if (key==OF_KEY_CONTROL) {
         cam.moveto(cam.pos.x-cam.trueup.x*step, cam.pos.y-cam.trueup.y*step, cam.pos.z-cam.trueup.z*step);
     }
     if (key==' ') {

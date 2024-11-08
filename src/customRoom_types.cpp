@@ -435,39 +435,11 @@ void customRoom_wall::draw2D() {
         this->customGameObject::draw2D();      // move to the position, rotate, and scale the room
         glBegin(GL_QUADS);
             // floor
-            glColor3f(0.6, 0.4, 0.2);
+            glColor3f(0.2, 0.4, 0.6);
             glVertex3f(-0.5, 0, -0.5);
             glVertex3f(0.5, 0, -0.5);
             glVertex3f(0.5, 0, 0.5);
             glVertex3f(-0.5, 0, 0.5);
-
-            // left wall
-            glColor3f(0.2, 0.4, 0.6);
-            glVertex3f(-0.5, 0, -0.5);
-            glVertex3f(-0.5, 0, 0.5);
-            glVertex3f(-0.7, 0, 0.5);
-            glVertex3f(-0.7, 0, -0.5);
-
-            // right wall
-            glColor3f(0.2, 0.4, 0.6);
-            glVertex3f(0.5, 0, -0.5);
-            glVertex3f(0.5, 0, 0.5);
-            glVertex3f(0.7, 0, 0.5);
-            glVertex3f(0.7, 0, -0.5);
-
-            // front wall
-            glColor3f(0.2, 0.4, 0.6);
-            glVertex3f(-0.5, 0, 0.5);
-            glVertex3f(0.5, 0, 0.5);
-            glVertex3f(0.5, 0, 0.7);
-            glVertex3f(-0.5, 0, 0.7);
-
-            // back wall
-            glColor3f(0.2, 0.4, 0.6);
-            glVertex3f(-0.5, 0, -0.5);
-            glVertex3f(0.5, 0, -0.5);
-            glVertex3f(0.5, 0, -0.7);
-            glVertex3f(-0.5, 0, -0.7);
         glEnd();
 
     glPopMatrix();
@@ -642,6 +614,20 @@ void customRoom_fightingroom::draw2D() {
     glPushMatrix();
         this->customGameObject::draw2D();      // move to the position, rotate, and scale the room
 
+        glBegin(GL_POLYGON);
+            // floor
+            glColor3f(0.6, 0.4, 0.2);
+            glVertex3f(-1.5, 0, -2.5);
+            glVertex3f(-2.5, 0, -1.5);
+            glVertex3f(-2.5, 0, 1.5);
+            glVertex3f(-1.5, 0, 2.5);
+            glVertex3f(1.5, 0, 2.5);
+            glVertex3f(2.5, 0, 1.5);
+            glVertex3f(2.5, 0, -1.5);
+            glVertex3f(1.5, 0, -2.5);
+
+        glEnd();
+
     glPopMatrix();
 }
 void customRoom_fightingroom::draw3D() {
@@ -649,6 +635,62 @@ void customRoom_fightingroom::draw3D() {
     
     glPushMatrix();
         this->customGameObject::draw3D();      // move to the position, rotate, and scale the room
+
+        glBegin(GL_POLYGON);
+            // floor
+            glColor3f(0.6, 0.4, 0.2);
+            glVertex3f(-1.5, 0, -2.5);
+            glVertex3f(-2.5, 0, -1.5);
+            glVertex3f(-2.5, 0, 1.5);
+            glVertex3f(-1.5, 0, 2.5);
+            glVertex3f(1.5, 0, 2.5);
+            glVertex3f(2.5, 0, 1.5);
+            glVertex3f(2.5, 0, -1.5);
+            glVertex3f(1.5, 0, -2.5);
+        glEnd();
+
+        glBegin(GL_POLYGON);
+            // ceiling
+            glColor3f(0.6, 0.4, 0.2);
+            glVertex3f(-1.5, 1, -2.5);
+            glVertex3f(-2.5, 1, -1.5);
+            glVertex3f(-2.5, 1, 1.5);
+            glVertex3f(-1.5, 1, 2.5);
+            glVertex3f(1.5, 1, 2.5);
+            glVertex3f(2.5, 1, 1.5);
+            glVertex3f(2.5, 1, -1.5);
+            glVertex3f(1.5, 1, -2.5);
+        glEnd();
+
+        glBegin(GL_QUADS);
+            // left wall
+            glColor3f(0.2, 0.4, 0.6);
+            glVertex3f(-1.5, 0, -2.5);
+            glVertex3f(-1.5, 1, -2.5);
+            glVertex3f(-2.5, 1, -1.5);
+            glVertex3f(-2.5, 0, -1.5);
+
+            // right wall
+            glColor3f(0.2, 0.4, 0.6);
+            glVertex3f(1.5, 0, -2.5);
+            glVertex3f(1.5, 1, -2.5);
+            glVertex3f(2.5, 1, -1.5);
+            glVertex3f(2.5, 0, -1.5);
+
+            // front wall
+            glColor3f(0.2, 0.4, 0.6);
+            glVertex3f(-2.5, 0, -1.5);
+            glVertex3f(-2.5, 1, -1.5);
+            glVertex3f(-2.5, 1, 1.5);
+            glVertex3f(-2.5, 0, 1.5);
+
+            // back wall
+            glColor3f(0.2, 0.4, 0.6);
+            glVertex3f(2.5, 0, -1.5);
+            glVertex3f(2.5, 1, -1.5);
+            glVertex3f(2.5, 1, 1.5);
+            glVertex3f(2.5, 0, 1.5);
+        glEnd();
 
     glPopMatrix();
 }
