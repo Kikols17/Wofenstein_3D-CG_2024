@@ -14,11 +14,13 @@ class customCamara {
     public:
         customCamara();
 
-        void update();
+        virtual void update();
+
+        virtual void draw2D();
+        virtual void draw3D();
 
         void moveto(GLfloat x, GLfloat y, GLfloat z);
         void lookingto(GLfloat x, GLfloat y, GLfloat z);
-
         void updatelooking();
 
 
@@ -37,6 +39,9 @@ class customCamara {
         ofVec3f trueup;
         ofVec3f right;
         ofVec3f front;
+
+
+        GLfloat zoom = 1.0;
 
 };
 

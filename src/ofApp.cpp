@@ -65,10 +65,9 @@ void ofApp::draw(){
             /* 2D */
             glMatrixMode(GL_PROJECTION);
             glLoadIdentity();
-            glOrtho(-zoom*gw()/10, zoom*gw()/10, -zoom*gh()/10, zoom*gh()/10, 0, 100);
 
             glPushMatrix();
-                lookat(this->cam.pos.x, 10, this->cam.pos.z, this->cam.pos.x, 0, this->cam.pos.z, 0, 0, -1);
+                this->cam.draw2D();     // apply the 2D camara's transformations
                 for (int i=0; i<gosize; i++) {
                     this->gameobjects[i]->draw2D();
                 }
@@ -78,15 +77,12 @@ void ofApp::draw(){
         
         case 1:
             /* 3D */
-	        glViewport(0, 0, gw(), gh());
             glMatrixMode(GL_PROJECTION);
             glLoadIdentity();
             //glOrtho(-zoom*gw(), zoom*gw(), -zoom*gh(), zoom*gh(), 0, 100);
 
             glPushMatrix();
-                perspective((GLfloat)60.0, (GLfloat)500.0, (GLfloat)1000.0);
-                lookat(this->cam.pos.x, this->cam.pos.y, this->cam.pos.z, this->cam.target.x, this->cam.target.y, this->cam.target.z, this->cam.up.x, this->cam.up.y, this->cam.up.z);
-                glScalef(8, 8, 8);
+                this->cam.draw3D();     // apply the 3D camara's transformations
                 //lookover(this->cam.pos.x, this->cam.pos.y, this->cam.pos.z, this->cam.looking.x, this->cam.looking.y, this->cam.looking.z, this->cam.up.x, this->cam.up.y, this->cam.up.z);
                 for (int i=0; i<gosize; i++) {
                     this->gameobjects[i]->draw3D();
@@ -116,10 +112,10 @@ void ofApp::keyPressed(int key) {
             break;
 
         case '-':
-            this->zoom /= 0.5;
+            this->cam.zoom /= 0.5;
             break;
         case '+':
-            this->zoom *= 0.5;
+            this->cam.zoom *= 0.5;
             break;
         default:
             break;

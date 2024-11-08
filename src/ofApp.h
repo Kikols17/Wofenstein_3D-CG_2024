@@ -35,8 +35,6 @@ class ofApp : public ofBaseApp{
 		GLfloat alpha = 1.0;
 		GLfloat beta = 100.0;
 
-		GLfloat zoom = 1.0;
-
 		customCamara cam;
 
 		vector<shared_ptr<customGameObject>> gameobjects;
