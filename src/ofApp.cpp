@@ -82,12 +82,11 @@ void ofApp::draw(){
             glMatrixMode(GL_PROJECTION);
             glLoadIdentity();
             //glOrtho(-zoom*gw(), zoom*gw(), -zoom*gh(), zoom*gh(), 0, 100);
-            perspective((GLfloat)60.0, (GLfloat)100.0, (GLfloat)1000.0);
 
             glPushMatrix();
+                perspective((GLfloat)60.0, (GLfloat)500.0, (GLfloat)1000.0);
                 lookat(this->cam.pos.x, this->cam.pos.y, this->cam.pos.z, this->cam.target.x, this->cam.target.y, this->cam.target.z, this->cam.up.x, this->cam.up.y, this->cam.up.z);
-                
-                glScalef(16, 16, 16);
+                glScalef(8, 8, 8);
                 //lookover(this->cam.pos.x, this->cam.pos.y, this->cam.pos.z, this->cam.looking.x, this->cam.looking.y, this->cam.looking.z, this->cam.up.x, this->cam.up.y, this->cam.up.z);
                 for (int i=0; i<gosize; i++) {
                     this->gameobjects[i]->draw3D();
