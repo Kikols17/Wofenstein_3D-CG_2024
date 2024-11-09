@@ -625,8 +625,50 @@ void customRoom_fightingroom::draw2D() {
             glVertex3f(2.5, 0, 1.5);
             glVertex3f(2.5, 0, -1.5);
             glVertex3f(1.5, 0, -2.5);
-
         glEnd();
+
+        glBegin(GL_POLYGON);
+            // back-left corner wall
+            glColor3f(0.2, 0.4, 0.6);
+            glVertex3f(-0.5, 0, -2.7);
+            glVertex3f(-1.5, 0, -2.7);
+            glVertex3f(-2.7, 0, -1.5);
+            glVertex3f(-2.7, 0, -0.5);
+            glVertex3f(-0.5, 0, -0.5);
+        glEnd();
+
+        glBegin(GL_POLYGON);
+            // back-right corner wall
+            glColor3f(0.2, 0.4, 0.6);
+            glVertex3f(0.5, 0, -2.7);
+            glVertex3f(1.5, 0, -2.7);
+            glVertex3f(2.7, 0, -1.5);
+            glVertex3f(2.7, 0, -0.5);
+            glVertex3f(0.5, 0, -0.5);
+        glEnd();
+
+        glBegin(GL_POLYGON);
+            // front-right corner wall
+            glColor3f(0.2, 0.4, 0.6);
+            glVertex3f(0.5, 0, 2.7);
+            glVertex3f(1.5, 0, 2.7);
+            glVertex3f(2.7, 0, 1.5);
+            glVertex3f(2.7, 0, 0.5);
+            glVertex3f(0.5, 0, 0.5);
+        glEnd();
+
+        glBegin(GL_POLYGON);
+            // front-left corner wall
+            glColor3f(0.2, 0.4, 0.6);
+            glVertex3f(-0.5, 0, 2.7);
+            glVertex3f(-1.5, 0, 2.7);
+            glVertex3f(-2.7, 0, 1.5);
+            glVertex3f(-2.7, 0, 0.5);
+            glVertex3f(-0.5, 0, 0.5);
+        glEnd();
+
+
+
 
     glPopMatrix();
 }
@@ -663,33 +705,90 @@ void customRoom_fightingroom::draw3D() {
         glEnd();
 
         glBegin(GL_QUADS);
-            // left wall
+            // back-left corner wall
             glColor3f(0.2, 0.4, 0.6);
             glVertex3f(-1.5, 0, -2.5);
             glVertex3f(-1.5, 1, -2.5);
             glVertex3f(-2.5, 1, -1.5);
             glVertex3f(-2.5, 0, -1.5);
 
-            // right wall
+            // back-right corner wall
             glColor3f(0.2, 0.4, 0.6);
             glVertex3f(1.5, 0, -2.5);
             glVertex3f(1.5, 1, -2.5);
             glVertex3f(2.5, 1, -1.5);
             glVertex3f(2.5, 0, -1.5);
 
-            // front wall
+            // front-right corner wall
             glColor3f(0.2, 0.4, 0.6);
-            glVertex3f(-2.5, 0, -1.5);
-            glVertex3f(-2.5, 1, -1.5);
+            glVertex3f(1.5, 0, 2.5);
+            glVertex3f(1.5, 1, 2.5);
+            glVertex3f(2.5, 1, 1.5);
+            glVertex3f(2.5, 0, 1.5);
+
+            // front-left corner wall
+            glColor3f(0.2, 0.4, 0.6);
+            glVertex3f(-1.5, 0, 2.5);
+            glVertex3f(-1.5, 1, 2.5);
             glVertex3f(-2.5, 1, 1.5);
             glVertex3f(-2.5, 0, 1.5);
 
-            // back wall
+            // back wall left
+            glColor3f(0.2, 0.4, 0.6);
+            glVertex3f(-1.5, 0, -2.5);
+            glVertex3f(-1.5, 1, -2.5);
+            glVertex3f(-0.5, 1, -2.5);
+            glVertex3f(-0.5, 0, -2.5);
+
+            // back wall right
+            glColor3f(0.2, 0.4, 0.6);
+            glVertex3f(1.5, 0, -2.5);
+            glVertex3f(1.5, 1, -2.5);
+            glVertex3f(0.5, 1, -2.5);
+            glVertex3f(0.5, 0, -2.5);
+
+            // right wall left
             glColor3f(0.2, 0.4, 0.6);
             glVertex3f(2.5, 0, -1.5);
             glVertex3f(2.5, 1, -1.5);
-            glVertex3f(2.5, 1, 1.5);
+            glVertex3f(2.5, 1, -0.5);
+            glVertex3f(2.5, 0, -0.5);
+
+            // right wall right
+            glColor3f(0.2, 0.4, 0.6);
             glVertex3f(2.5, 0, 1.5);
+            glVertex3f(2.5, 1, 1.5);
+            glVertex3f(2.5, 1, 0.5);
+            glVertex3f(2.5, 0, 0.5);
+
+            // front wall right
+            glColor3f(0.2, 0.4, 0.6);
+            glVertex3f(-1.5, 0, 2.5);
+            glVertex3f(-1.5, 1, 2.5);
+            glVertex3f(-0.5, 1, 2.5);
+            glVertex3f(-0.5, 0, 2.5);
+
+            // front wall left
+            glColor3f(0.2, 0.4, 0.6);
+            glVertex3f(1.5, 0, 2.5);
+            glVertex3f(1.5, 1, 2.5);
+            glVertex3f(0.5, 1, 2.5);
+            glVertex3f(0.5, 0, 2.5);
+
+            // left wall left
+            glColor3f(0.2, 0.4, 0.6);
+            glVertex3f(-2.5, 0, -1.5);
+            glVertex3f(-2.5, 1, -1.5);
+            glVertex3f(-2.5, 1, -0.5);
+            glVertex3f(-2.5, 0, -0.5);
+
+            // left wall right
+            glColor3f(0.2, 0.4, 0.6);
+            glVertex3f(-2.5, 0, 1.5);
+            glVertex3f(-2.5, 1, 1.5);
+            glVertex3f(-2.5, 1, 0.5);
+            glVertex3f(-2.5, 0, 0.5);
+
         glEnd();
 
     glPopMatrix();
