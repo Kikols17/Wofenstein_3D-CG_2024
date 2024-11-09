@@ -43,7 +43,7 @@ void ofApp::update(){
 //--------------------------------------------------------------
 void ofApp::draw(){
 
-    //this->cam.moveto(0, 0, -40);
+    //this->cam.moveto(0, 0, -100);
 
     // draw all objects in the correct viewmode
     int gosize = (int)this->gameobjects.size();

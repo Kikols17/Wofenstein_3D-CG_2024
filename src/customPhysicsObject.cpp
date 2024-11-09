@@ -45,9 +45,13 @@ void customPhysicsObject::update() {
 void customPhysicsObject::applyGravity(uint64_t deltaT) {
     // apply gravity to the object
     ofVec3f gravity = ofVec3f(0, -9.8, 0);
-    cout << this->velocity.x << " " << this->velocity.y << " " << this->velocity.z << "       ->       ";
+    //cout << this->velocity.x << " " << this->velocity.y << " " << this->velocity.z << "       ->       ";
+    if (this->position.y < -10) {
+        // terminal velocity set at 10;
+        return;
+    }
     this->velocity += gravity * (deltaT/1000.0f);
-    cout << this->velocity.x << " " << this->velocity.y << " " << this->velocity.z << endl;
+    //cout << this->velocity.x << " " << this->velocity.y << " " << this->velocity.z << endl;
 }
 
 void customPhysicsObject::applyVelocity(uint64_t deltaT) {
