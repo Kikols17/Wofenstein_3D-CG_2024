@@ -52,6 +52,8 @@ void ofApp::setup(){
 
     circular_level(this->gameobjects);
 
+    training_level(this->gameobjects);
+
 
 }
 
@@ -171,12 +173,12 @@ void ofApp::keyPressed(int key) {
         cam.looking_angleX += 5;
     }
     this->cam.updatelooking();
-    cout << endl;
-    cout << "pos: " << cam.pos.x << " " << cam.pos.y << " " << cam.pos.z << endl;
-    cout << "target: " << cam.target.x << " " << cam.target.y << " " << cam.target.z << endl;
-    cout << "looking: " << cam.looking.x << " " << cam.looking.y << " " << cam.looking.z << endl;
-    cout << "up: " << cam.up.x << " " << cam.up.y << " " << cam.up.z << endl;
-    cout << "right: " << cam.right.x << " " << cam.right.y << " " << cam.right.z << endl;
+    //cout << endl;
+    //cout << "pos: " << cam.pos.x << " " << cam.pos.y << " " << cam.pos.z << endl;
+    //cout << "target: " << cam.target.x << " " << cam.target.y << " " << cam.target.z << endl;
+    //cout << "looking: " << cam.looking.x << " " << cam.looking.y << " " << cam.looking.z << endl;
+    //cout << "up: " << cam.up.x << " " << cam.up.y << " " << cam.up.z << endl;
+    //cout << "right: " << cam.right.x << " " << cam.right.y << " " << cam.right.z << endl;
 }
 
 //--------------------------------------------------------------

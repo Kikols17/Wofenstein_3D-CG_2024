@@ -237,7 +237,10 @@ void training_level(vector<shared_ptr<customGameObject>> &gameobjects) {
     
 
     // add a giant fighting room
-    shared_ptr<customRoom_fightingroom> fightingroom = make_shared<customRoom_fightingroom>( ofVec3f(0, 0, 0), ofVec3f(0, 0, 0), ofVec3f(16, 4, 16) );
+    shared_ptr<customRoom_fightingroom> fightingroom = make_shared<customRoom_fightingroom>( ofVec3f(0, 0, 0), ofVec3f(0, 0, 0), ofVec3f(3, 2, 3) );
     gameobjects.push_back(fightingroom);
+
+    shared_ptr <customRoom_wall> wall = make_shared<customRoom_wall>( ofVec3f(0, 1, -8), ofVec3f(0, 0, 0), ofVec3f(1, 1, 1) );
+    gameobjects.push_back(wall);
 
 }
