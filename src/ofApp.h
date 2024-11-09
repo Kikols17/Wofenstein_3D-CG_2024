@@ -5,9 +5,11 @@
 #include "cg_cam_extras.h"
 
 #include "customGameObject.h"
-#include "customRoom.h"
+#include "customPhysicsObject.h"
 #include "customRoom_types.h"
 #include "customCamara.h"
+
+#include "setuplevels.h"
 
 class ofApp : public ofBaseApp{
 

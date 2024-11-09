@@ -6,13 +6,14 @@
 //--------------------------------------------------------------
 void customRoom_axis::update() {
     // run this every cycle
+    this->customPhysicsObject::update();
 }
 
 void customRoom_axis::draw2D() {
     // draws the 2D version of the object
 
     glPushMatrix();
-        this->customGameObject::draw2D();      // move to the position, rotate, and scale the room
+        this->customPhysicsObject::draw2D();      // move to the position, rotate, and scale the room
         glBegin(GL_LINES);
             glColor3f(1.0, 0.0, 0.0);
             glVertex3f(0.0, 0.0, 0.0);
@@ -33,7 +34,7 @@ void customRoom_axis::draw3D() {
     // draws the 3D version of the object
 
     glPushMatrix();
-        this->customGameObject::draw3D();      // move to the position, rotate, and scale the room
+        this->customPhysicsObject::draw3D();      // move to the position, rotate, and scale the room
         glBegin(GL_LINES);
             glColor3f(1.0, 0.0, 0.0);
             glVertex3f(0.0, 0.0, 0.0);
@@ -68,7 +69,7 @@ void customRoom_hallway::draw2D() {
     // draws the 2D version of the object
 
     glPushMatrix();
-        this->customGameObject::draw2D();      // move to the position, rotate, and scale the room
+        this->customPhysicsObject::draw2D();      // move to the position, rotate, and scale the room
 
         glBegin(GL_QUADS);
             // floor
@@ -99,7 +100,7 @@ void customRoom_hallway::draw3D() {
     // draws the 3D version of the object
 
     glPushMatrix();
-        this->customGameObject::draw3D();      // move to the position, rotate, and scale the room
+        this->customPhysicsObject::draw3D();      // move to the position, rotate, and scale the room
 
         glBegin(GL_QUADS);
             // floor
@@ -152,7 +153,7 @@ void customRoom_Thallway::draw2D() {
     // draws the 2D version of the object
 
     glPushMatrix();
-        this->customGameObject::draw2D();      // move to the position, rotate, and scale the room
+        this->customPhysicsObject::draw2D();      // move to the position, rotate, and scale the room
 
         glBegin(GL_QUADS);
             // floor
@@ -186,7 +187,7 @@ void customRoom_Thallway::draw3D() {
     // draws the 3D version of the object
 
     glPushMatrix();
-        this->customGameObject::draw3D();      // move to the position, rotate, and scale the room
+        this->customPhysicsObject::draw3D();      // move to the position, rotate, and scale the room
         glBegin(GL_QUADS);
             // floor
             glColor3f(0.6, 0.4, 0.2);
@@ -242,7 +243,7 @@ void customRoom_Lhallway::draw2D() {
     // draws the 2D version of the object
     
     glPushMatrix();
-        this->customGameObject::draw2D();      // move to the position, rotate, and scale the room
+        this->customPhysicsObject::draw2D();      // move to the position, rotate, and scale the room
         glBegin(GL_QUADS);
             // floor
             glColor3f(0.6, 0.4, 0.2);
@@ -278,7 +279,7 @@ void customRoom_Lhallway::draw3D() {
     // draws the 3D version of the object
     
     glPushMatrix();
-        this->customGameObject::draw3D();      // move to the position, rotate, and scale the room
+        this->customPhysicsObject::draw3D();      // move to the position, rotate, and scale the room
         glBegin(GL_QUADS);
             // floor
             glColor3f(0.6, 0.4, 0.2);
@@ -336,7 +337,7 @@ void customRoom_Xhallway::draw2D() {
     // draws the 2D version of the object
     
     glPushMatrix();
-        this->customGameObject::draw2D();      // move to the position, rotate, and scale the room
+        this->customPhysicsObject::draw2D();      // move to the position, rotate, and scale the room
 
         glBegin(GL_QUADS);
             // floor
@@ -371,7 +372,7 @@ void customRoom_Xhallway::draw3D() {
     // draws the 3D version of the object
     
     glPushMatrix();
-        this->customGameObject::draw3D();      // move to the position, rotate, and scale the room
+        this->customPhysicsObject::draw3D();      // move to the position, rotate, and scale the room
 
         glBegin(GL_QUADS);
             // floor
@@ -432,7 +433,7 @@ void customRoom_wall::draw2D() {
     // draws the 3D version of the object
     
     glPushMatrix();
-        this->customGameObject::draw2D();      // move to the position, rotate, and scale the room
+        this->customPhysicsObject::draw2D();      // move to the position, rotate, and scale the room
         glBegin(GL_QUADS);
             // floor
             glColor3f(0.2, 0.4, 0.6);
@@ -448,7 +449,7 @@ void customRoom_wall::draw3D() {
     // run this every draw cycle
     
     glPushMatrix();
-        this->customGameObject::draw3D();      // move to the position, rotate, and scale the 
+        this->customPhysicsObject::draw3D();      // move to the position, rotate, and scale the 
         glBegin(GL_QUADS);
             // floor
             glColor3f(0.6, 0.4, 0.2);
@@ -514,7 +515,7 @@ void customRoom_deadend::draw2D() {
     // run this every draw cycle
     
     glPushMatrix();
-        this->customGameObject::draw2D();      // move to the position, rotate, and scale the room
+        this->customPhysicsObject::draw2D();      // move to the position, rotate, and scale the room
 
         glBegin(GL_QUADS);
             // floor
@@ -552,7 +553,7 @@ void customRoom_deadend::draw3D() {
     // run this every draw cycle
     
     glPushMatrix();
-        this->customGameObject::draw3D();      // move to the position, rotate, and scale the room
+        this->customPhysicsObject::draw3D();      // move to the position, rotate, and scale the room
 
         glBegin(GL_QUADS);
             // floor
@@ -612,7 +613,7 @@ void customRoom_fightingroom::draw2D() {
     // run this every draw cycle
     
     glPushMatrix();
-        this->customGameObject::draw2D();      // move to the position, rotate, and scale the room
+        this->customPhysicsObject::draw2D();      // move to the position, rotate, and scale the room
 
         glBegin(GL_POLYGON);
             // floor
@@ -676,7 +677,7 @@ void customRoom_fightingroom::draw3D() {
     // run this every draw cycle
     
     glPushMatrix();
-        this->customGameObject::draw3D();      // move to the position, rotate, and scale the room
+        this->customPhysicsObject::draw3D();      // move to the position, rotate, and scale the room
 
         glBegin(GL_POLYGON);
             // floor
@@ -812,7 +813,7 @@ void customRoom_ramp::update() {
 void customRoom_ramp::draw2D() {
     // run this every draw cycle
     glPushMatrix();
-        this->customGameObject::draw2D();      // move to the position, rotate, and scale the room
+        this->customPhysicsObject::draw2D();      // move to the position, rotate, and scale the room
 
         glBegin(GL_QUADS);
             // ramp
@@ -855,7 +856,7 @@ void customRoom_ramp::draw2D() {
 void customRoom_ramp::draw3D() {
     // run this every draw cycle
     glPushMatrix();
-        this->customGameObject::draw3D();      // move to the position, rotate, and scale the room
+        this->customPhysicsObject::draw3D();      // move to the position, rotate, and scale the room
 
         glBegin(GL_QUADS);
             // ramp

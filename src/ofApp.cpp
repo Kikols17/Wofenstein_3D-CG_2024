@@ -1,7 +1,5 @@
 #include "ofApp.h"
 
-#include "setuplevels.h"
-
 
 //--------------------------------------------------------------
 void ofApp::setup(){
@@ -20,11 +18,11 @@ void ofApp::setup(){
 
     // setup the gameobjects
     this->gameobjects = vector<shared_ptr<customGameObject>>();
-    
 
-    //test_level(this->gameobjects);
 
-    circular_level(this->gameobjects);
+    test_level(this->gameobjects);
+
+    //circular_level(this->gameobjects);
 
     //training_level(this->gameobjects);
 
@@ -44,6 +42,8 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
+
+    //this->cam.moveto(0, 0, -40);
 
     // draw all objects in the correct viewmode
     int gosize = (int)this->gameobjects.size();
