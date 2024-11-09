@@ -793,3 +793,105 @@ void customRoom_fightingroom::draw3D() {
 
     glPopMatrix();
 }
+
+
+
+
+
+
+
+
+//--------------------------------------------------------------
+// customRoom_ramp
+//--------------------------------------------------------------
+void customRoom_ramp::update() {
+    // run this every update cycle
+}
+
+
+void customRoom_ramp::draw2D() {
+    // run this every draw cycle
+    glPushMatrix();
+        this->customGameObject::draw2D();      // move to the position, rotate, and scale the room
+
+        glBegin(GL_QUADS);
+            // ramp
+            glColor3f(0.6, 0.4, 0.2);
+            glVertex3f(-0.5, 1, -0.5);
+            glVertex3f(0.5, 1, -0.5);
+            glVertex3f(0.5, 0, 0.5);
+            glVertex3f(-0.5, 0, 0.5);
+
+            // back wall
+            glColor3f(0.2, 0.4, 0.6);
+            glVertex3f(-0.5, 0, -0.5);
+            glVertex3f(0.5, 0, -0.5);
+            glVertex3f(0.5, 0, -0.7);
+            glVertex3f(-0.5, 0, -0.7);
+        glEnd();
+
+        glBegin(GL_TRIANGLES);
+            // left wall
+            glColor3f(0.2, 0.4, 0.6);
+            glVertex3f(-0.7, 0, -0.5);
+            glVertex3f(-0.5, 0, -0.5);
+            glVertex3f(-0.5, 0, 0.5);
+
+            // right wall
+            glColor3f(0.2, 0.4, 0.6);
+            glVertex3f(0.7, 0, -0.5);
+            glVertex3f(0.5, 0, -0.5);
+            glVertex3f(0.5, 0, 0.5);
+            
+            // arrow
+            glColor3f(1.0, 0.0, 0.0);
+            glVertex3f(-0.1, 0.1, 0.5);
+            glVertex3f(0.1, 0.1, 0.5);
+            glVertex3f(0, 1.1, -0.5);
+        glEnd();
+    glPopMatrix();
+}
+
+void customRoom_ramp::draw3D() {
+    // run this every draw cycle
+    glPushMatrix();
+        this->customGameObject::draw3D();      // move to the position, rotate, and scale the room
+
+        glBegin(GL_QUADS);
+            // ramp
+            glColor3f(0.6, 0.4, 0.2);
+            glVertex3f(-0.5, 1, -0.5);
+            glVertex3f(0.5, 1, -0.5);
+            glVertex3f(0.5, 0, 0.5);
+            glVertex3f(-0.5, 0, 0.5);
+
+            // floor
+            glColor3f(0.6, 0.4, 0.2);
+            glVertex3f(-0.5, 0, -0.5);
+            glVertex3f(0.5, 0, -0.5);
+            glVertex3f(0.5, 0, 0.5);
+            glVertex3f(-0.5, 0, 0.5);
+
+            // backwall
+            glColor3f(0.2, 0.4, 0.6);
+            glVertex3f(-0.5, 0, -0.5);
+            glVertex3f(-0.5, 1, -0.5);
+            glVertex3f(0.5, 1, -0.5);
+            glVertex3f(0.5, 0, -0.5);
+        glEnd();
+
+        glBegin(GL_TRIANGLES);
+            // left wall
+            glColor3f(0.2, 0.4, 0.6);
+            glVertex3f(-0.5, 0, -0.5);
+            glVertex3f(-0.5, 1, -0.5);
+            glVertex3f(-0.5, 0, 0.5);
+
+            // right wall
+            glColor3f(0.2, 0.4, 0.6);
+            glVertex3f(0.5, 0, -0.5);
+            glVertex3f(0.5, 1, -0.5);
+            glVertex3f(0.5, 0, 0.5);
+        glEnd();
+    glPopMatrix();
+}

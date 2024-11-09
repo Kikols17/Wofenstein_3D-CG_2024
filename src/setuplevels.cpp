@@ -32,6 +32,9 @@ void test_level(vector<shared_ptr<customGameObject>> &gameobjects) {
 
     shared_ptr<customRoom_fightingroom> fightingroom = make_shared<customRoom_fightingroom>( ofVec3f(14, 0, 0), ofVec3f(0, 0, 0), ofVec3f(1, 1, 1) );
     gameobjects.push_back(fightingroom);
+
+    shared_ptr<customRoom_ramp> ramp = make_shared<customRoom_ramp>( ofVec3f(18, 0, 0), ofVec3f(0, 0, 0), ofVec3f(1, 1, 1) );
+    gameobjects.push_back(ramp);
 }
 
 
@@ -223,5 +226,18 @@ void circular_level(vector<shared_ptr<customGameObject>> &gameobjects) {
     hallway = make_shared<customRoom_hallway>( ofVec3f(-2, 0, -1), ofVec3f(0, 0, 0), ofVec3f(1, 1, 1) );
     gameobjects.push_back(hallway);
     
+
+}
+
+
+void training_level(vector<shared_ptr<customGameObject>> &gameobjects) {
+
+    // clear vector
+    gameobjects.clear();
+    
+
+    // add a giant fighting room
+    shared_ptr<customRoom_fightingroom> fightingroom = make_shared<customRoom_fightingroom>( ofVec3f(0, 0, 0), ofVec3f(0, 0, 0), ofVec3f(16, 4, 16) );
+    gameobjects.push_back(fightingroom);
 
 }

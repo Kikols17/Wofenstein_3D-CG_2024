@@ -117,4 +117,19 @@ class customRoom_fightingroom : public customGameObject {
 
 
 
+class customRoom_ramp : public customGameObject {
+    // ramp room, 1x1x1 block, no doors no walls, ramp from front to back
+    
+    public:
+        using customGameObject::customGameObject;
+
+        void update() override;
+
+        void draw2D() override;
+        void draw3D() override;
+    
+};
+
+
+
 #endif
