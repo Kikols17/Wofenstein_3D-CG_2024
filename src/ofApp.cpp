@@ -20,39 +20,13 @@ void ofApp::setup(){
 
     // setup the gameobjects
     this->gameobjects = vector<shared_ptr<customGameObject>>();
+    
 
-
-    // create a new room
-    shared_ptr<customRoom_axis> axis = make_shared<customRoom_axis>( ofVec3f(0, 0, 0), ofVec3f(0, 0, 0), ofVec3f(1, 1, 1) );
-    this->gameobjects.push_back(axis);
-
-    shared_ptr<customRoom_hallway> hallway = make_shared<customRoom_hallway>( ofVec3f(0, 0, 0), ofVec3f(0, 0, 0), ofVec3f(1, 1, 1) );
-    this->gameobjects.push_back(hallway);
-
-    shared_ptr<customRoom_Thallway> Thallway = make_shared<customRoom_Thallway>( ofVec3f(2, 0, 0), ofVec3f(0, 0, 0), ofVec3f(1, 1, 1) );
-    this->gameobjects.push_back(Thallway);
-
-    shared_ptr<customRoom_Lhallway> Lhallway = make_shared<customRoom_Lhallway>( ofVec3f(4, 0, 0), ofVec3f(0, 0, 0), ofVec3f(1, 1, 1) );
-    this->gameobjects.push_back(Lhallway);
-
-    shared_ptr<customRoom_Xhallway> Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(6, 0, 0), ofVec3f(0, 0, 0), ofVec3f(1, 1, 1) );
-    this->gameobjects.push_back(Xhallway);
-
-    shared_ptr<customRoom_wall> wall = make_shared<customRoom_wall>( ofVec3f(8, 0, 0), ofVec3f(0, 0, 0), ofVec3f(1, 1, 1) );
-    this->gameobjects.push_back(wall);
-
-    shared_ptr<customRoom_deadend> deadend = make_shared<customRoom_deadend>( ofVec3f(10, 0, 0), ofVec3f(0, 0, 0), ofVec3f(1, 1, 1) );
-    this->gameobjects.push_back(deadend);
-
-    shared_ptr<customRoom_fightingroom> fightingroom = make_shared<customRoom_fightingroom>( ofVec3f(14, 0, 0), ofVec3f(0, 0, 0), ofVec3f(1, 1, 1) );
-    this->gameobjects.push_back(fightingroom);
-
-
-    test_level(this->gameobjects);
+    //test_level(this->gameobjects);
 
     circular_level(this->gameobjects);
 
-    training_level(this->gameobjects);
+    //training_level(this->gameobjects);
 
 
 }
