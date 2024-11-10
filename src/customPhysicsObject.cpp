@@ -7,12 +7,6 @@
 customPhysicsObject::customPhysicsObject(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale) : customGameObject(_position, _rotation, _scale) {
     // run this to set up the object
 
-    // setup GameObject stuff
-    this->position = _position;
-    this->rotation = _rotation;
-    this->scale = _scale;
-
-    // setup PhysicsObject stuff
     this->velocity = ofVec3f(0, 0, 0);
     this->spin = ofVec3f(0, 0, 0);
 
@@ -20,12 +14,13 @@ customPhysicsObject::customPhysicsObject(ofVec3f _position, ofVec3f _rotation, o
     this->lastUpdateTime = ofGetCurrentTime().getAsMilliseconds();
 
 }
+
 void customPhysicsObject::update() {
     // run this every cycle
 
     // calculate deltaT
     uint64_t deltaT = ofGetCurrentTime().getAsMilliseconds() - lastUpdateTime;
-    cout << deltaT << endl;
+    //cout << deltaT << endl;
 
     // code from "https://www.delftstack.com/howto/cpp/how-to-get-time-in-milliseconds-cpp/"
     this->lastUpdateTime = ofGetCurrentTime().getAsMilliseconds();

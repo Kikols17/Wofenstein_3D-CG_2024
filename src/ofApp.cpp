@@ -20,9 +20,9 @@ void ofApp::setup(){
     this->gameobjects = vector<shared_ptr<customGameObject>>();
 
 
-    test_level(this->gameobjects);
+    //test_level(this->gameobjects);
 
-    //circular_level(this->gameobjects);
+    circular_level(this->gameobjects);
 
     //training_level(this->gameobjects);
 
