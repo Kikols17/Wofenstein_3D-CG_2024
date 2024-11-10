@@ -53,15 +53,15 @@ void customPlayer::looking() {
     // move the player's view according to the keys pressed
 
     if (this->looking_left) {
-        this->cam.looking_angleY += 1;
+        this->cam.looking_angleY += this->turning_speed;
     }
     if (this->looking_right) {
-        this->cam.looking_angleY -= 1;
+        this->cam.looking_angleY -= this->turning_speed;
     }
     if (this->looking_up) {
-        this->cam.looking_angleX -= 1;
+        this->cam.looking_angleX -= this->turning_speed;
     }
     if (this->looking_down) {
-        this->cam.looking_angleX += 1;
+        this->cam.looking_angleX += this->turning_speed;
     }
 }

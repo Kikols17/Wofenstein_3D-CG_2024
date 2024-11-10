@@ -31,6 +31,7 @@ class customPlayer : public customPhysicsObject {
         bool onGround = false;
 
         GLfloat walking_speed = 0.1;    // in units/second
+        int turning_speed = 3;          // in degrees/second
 
         bool walking_forward = false;
         bool walking_backward = false;

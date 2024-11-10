@@ -114,35 +114,35 @@ void ofApp::keyPressed(int key) {
 
     GLfloat step = 0.25;
     if (key=='w') {
-        cam->moveto(cam->pos.x+cam->front.x*step, cam->pos.y+cam->front.y*step, cam->pos.z+cam->front.z*step);
+        this->player.walking_forward = true;
     }
     if (key=='s') {
-        cam->moveto(cam->pos.x-cam->front.x*step, cam->pos.y-cam->front.y*step, cam->pos.z-cam->front.z*step);
+        this->player.walking_backward = true;
     }
     if (key=='a') {
-        cam->moveto(cam->pos.x+cam->right.x*step, cam->pos.y+cam->right.y*step, cam->pos.z+cam->right.z*step);
+        this->player.walking_left = true;
     }
     if (key=='d') {
-        cam->moveto(cam->pos.x-cam->right.x*step, cam->pos.y-cam->right.y*step, cam->pos.z-cam->right.z*step);
+        this->player.walking_right = true;
     }
     if (key==OF_KEY_CONTROL) {
-        cam->moveto(cam->pos.x-cam->trueup.x*step, cam->pos.y-cam->trueup.y*step, cam->pos.z-cam->trueup.z*step);
+        //this->player.walking_
     }
     if (key==' ') {
-        cam->moveto(cam->pos.x+cam->trueup.x*step, cam->pos.y+cam->trueup.y*step, cam->pos.z+cam->trueup.z*step);
+        //this->player.walking_
     }
 
     if (key==OF_KEY_LEFT) {
-        cam->looking_angleY += 5;
+        this->player.looking_left = true;
     }
     if (key==OF_KEY_RIGHT) {
-        cam->looking_angleY -= 5;
+        this->player.looking_right = true;
     }
     if (key==OF_KEY_UP) {
-        cam->looking_angleX -= 5;
+        this->player.looking_up = true;
     }
     if (key==OF_KEY_DOWN) {
-        cam->looking_angleX += 5;
+        this->player.looking_down = true;
     }
     this->cam->updatelooking();
     //cout << endl;
@@ -155,7 +155,37 @@ void ofApp::keyPressed(int key) {
 
 //--------------------------------------------------------------
 void ofApp::keyReleased(int key){
+    if (key=='w') {
+        this->player.walking_forward = false;
+    }
+    if (key=='s') {
+        this->player.walking_backward = false;
+    }
+    if (key=='a') {
+        this->player.walking_left = false;
+    }
+    if (key=='d') {
+        this->player.walking_right = false;
+    }
+    if (key==OF_KEY_CONTROL) {
+        //this->player.walking_
+    }
+    if (key==' ') {
+        //this->player.walking_
+    }
 
+    if (key==OF_KEY_LEFT) {
+        this->player.looking_left = false;
+    }
+    if (key==OF_KEY_RIGHT) {
+        this->player.looking_right = false;
+    }
+    if (key==OF_KEY_UP) {
+        this->player.looking_up = false;
+    }
+    if (key==OF_KEY_DOWN) {
+        this->player.looking_down = false;
+    }
 }
 
 //--------------------------------------------------------------
