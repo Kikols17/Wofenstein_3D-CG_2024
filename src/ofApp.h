@@ -8,6 +8,7 @@
 #include "customPhysicsObject.h"
 #include "customRoom_types.h"
 #include "customCamara.h"
+#include "customPlayer.h"
 
 #include "setuplevels.h"
 
@@ -37,8 +38,9 @@ class ofApp : public ofBaseApp{
 		GLfloat alpha = 1.0;
 		GLfloat beta = 100.0;
 
-		customCamara cam;
+		customPlayer player;
+		customCamara *cam;
 
 		vector<shared_ptr<customGameObject>> gameobjects;
 		
-};
+};;
