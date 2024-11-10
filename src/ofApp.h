@@ -38,7 +38,7 @@ class ofApp : public ofBaseApp{
 		GLfloat alpha = 1.0;
 		GLfloat beta = 100.0;
 
-		customPlayer player;
+		customPlayer player = customPlayer(ofVec3f(0, 1, 0), ofVec3f(0, 0, 0), ofVec3f(1, 1, 1));
 		customCamara *cam;
 
 		vector<shared_ptr<customGameObject>> gameobjects;

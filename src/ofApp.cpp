@@ -14,8 +14,8 @@ void ofApp::setup(){
 
 
     // setup the player
-    //this->player = customPlayer(ofVec3f(0, 1, 0), ofVec3f(0, 0, 0), ofVec3f(1, 1, 1));
-    //this->cam = &(this->player.cam);
+    this->player = customPlayer(ofVec3f(0, 1, 0), ofVec3f(0, 0, 0), ofVec3f(1, 1, 1));
+    this->cam = &(this->player.cam);
 
     // setup the gameobjects
     this->gameobjects = vector<shared_ptr<customGameObject>>();
@@ -39,6 +39,8 @@ void ofApp::update(){
         this->gameobjects[i]->update();
     }
 
+    // update player
+    this->player.update();
 }
 
 //--------------------------------------------------------------
@@ -59,11 +61,6 @@ void ofApp::draw(){
                 for (int i=0; i<gosize; i++) {
                     this->gameobjects[i]->draw2D();
                 }
-                // place a point in the center of the screen
-                glBegin(GL_POINTS);
-                    ofColor(255, 0, 0);
-                    glVertex2f(gw()/2, gh()/2);
-                glEnd();
             glPopMatrix();
 
             break;

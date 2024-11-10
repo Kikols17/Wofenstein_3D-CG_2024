@@ -20,14 +20,27 @@ class customPlayer : public customPhysicsObject {
         using customPhysicsObject::draw3D;
 
 
-        //void walk(ofVec3f dir);
-
+        void moving();
+        void looking();
 
         using customGameObject::position;
         using customGameObject::rotation;
         using customGameObject::scale;
 
         customCamara cam;
+        bool onGround = false;
+
+        GLfloat walking_speed = 0.1;    // in units/second
+
+        bool walking_forward = false;
+        bool walking_backward = false;
+        bool walking_left = false;
+        bool walking_right = false;
+
+        bool looking_left = false;
+        bool looking_right = false;
+        bool looking_up = false;
+        bool looking_down = false;
 };
 
 #endif
