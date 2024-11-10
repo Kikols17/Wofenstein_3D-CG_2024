@@ -53,6 +53,7 @@ void ofApp::draw(){
     switch (this->viewmode) {
         case 0:
             /* 2D */
+            glViewport(0, 0, gw(), gh());
             glMatrixMode(GL_PROJECTION);
             glLoadIdentity();
 
@@ -61,6 +62,7 @@ void ofApp::draw(){
                 for (int i=0; i<gosize; i++) {
                     this->gameobjects[i]->draw2D();
                 }
+                this->player.draw2D();
             glPopMatrix();
 
             break;
@@ -68,6 +70,7 @@ void ofApp::draw(){
         
         case 1:
             /* 3D */
+            glViewport(0, 0, gw(), gh());
             glMatrixMode(GL_PROJECTION);
             glLoadIdentity();
             //glOrtho(-zoom*gw(), zoom*gw(), -zoom*gh(), zoom*gh(), 0, 100);
@@ -78,6 +81,19 @@ void ofApp::draw(){
                 for (int i=0; i<gosize; i++) {
                     this->gameobjects[i]->draw3D();
                 }
+                this->player.draw3D();
+            glPopMatrix();
+
+            // mini-map (2D)
+            glViewport(0, 3*gh()/4, gw()/4, gh()/4);
+            glMatrixMode(GL_PROJECTION);
+            glLoadIdentity();
+            glPushMatrix();
+                this->cam->draw2D();    // apply the 2D camara's transformations
+                for (int i=0; i<gosize; i++) {
+                    this->gameobjects[i]->draw2D();
+                }
+                this->player.draw2D();
             glPopMatrix();
             break;
         

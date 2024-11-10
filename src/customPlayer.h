@@ -16,8 +16,8 @@ class customPlayer : public customPhysicsObject {
 
         void update();
 
-        using customPhysicsObject::draw2D;
-        using customPhysicsObject::draw3D;
+        void draw2D() override;
+        void draw3D() override;
 
 
         void moving();

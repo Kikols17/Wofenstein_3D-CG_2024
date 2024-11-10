@@ -26,6 +26,28 @@ void customPlayer::update() {
 }
 
 
+void customPlayer::draw2D() {
+    // draw the player in 2D
+    glPushMatrix();
+        this->customPhysicsObject::draw2D();      // move to the position, rotate, and scale the player
+        glBegin(GL_QUADS);
+            glColor3f(0.0, 1.0, 0.0);
+            glVertex3f(-0.5, 0, -0.5);
+            glVertex3f(0.5, 0, -0.5);
+            glVertex3f(0.5, 0, 0.5);
+            glVertex3f(-0.5, 0, 0.5);
+        glEnd();
+    glPopMatrix();
+}
+
+void customPlayer::draw3D() {
+    // draw the player in 3D
+    //this->customPhysicsObject::draw3D();
+}
+
+
+
+
 void customPlayer::moving() {
     // move the player according to the keys pressed
 
