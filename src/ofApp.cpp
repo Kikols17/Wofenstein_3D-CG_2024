@@ -40,7 +40,7 @@ void ofApp::update(){
     }
 
     // update player
-    this->player.update();
+    this->player.update(this->viewmode);
 }
 
 //--------------------------------------------------------------
@@ -128,7 +128,7 @@ void ofApp::keyPressed(int key) {
             break;
     }
 
-    GLfloat step = 0.25;
+
     if (key=='w') {
         this->player.walking_forward = true;
     }

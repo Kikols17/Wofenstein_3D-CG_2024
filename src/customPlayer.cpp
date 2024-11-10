@@ -11,14 +11,14 @@ customPlayer::customPlayer(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale)
 
 }
 
-void customPlayer::update() {
+void customPlayer::update(int viewmode) {
     // run this every cycle
 
     // run the physics update
     //this->customPhysicsObject::update();
 
-    this->moving();
-    this->looking();
+    this->moving(viewmode);
+    this->looking(viewmode);
 
     // update the camara
     this->cam.moveto(this->position.x, this->position.y+(this->scale.y/2)*0.8, this->position.z);
@@ -31,11 +31,23 @@ void customPlayer::draw2D() {
     glPushMatrix();
         this->customPhysicsObject::draw2D();      // move to the position, rotate, and scale the player
         glBegin(GL_QUADS);
-            glColor3f(0.0, 1.0, 0.0);
-            glVertex3f(-0.5, 0, -0.5);
-            glVertex3f(0.5, 0, -0.5);
-            glVertex3f(0.5, 0, 0.5);
-            glVertex3f(-0.5, 0, 0.5);
+            glColor3f(0.0, 0.0, 0.0);
+            glVertex3f(0.3, 0, 0.4);
+            glVertex3f(-0.3, 0, 0.4);
+            glVertex3f(-0.3, 0, 0.0);
+            glVertex3f(0.3, 0, 0.0);
+
+            glColor3f(0.2, 0.2, 0.2);
+            glVertex3f(-0.4, 0, -0.4);
+            glVertex3f(0.4, 0, -0.4);
+            glVertex3f(0.4, 0, 0.4);
+            glVertex3f(-0.4, 0, 0.4);
+
+            glColor3f(0.0, 0.4, 0.0);
+            glVertex3f(-0.7, 0, -0.3);
+            glVertex3f(0.7, 0, -0.3);
+            glVertex3f(0.7, 0, 0.3);
+            glVertex3f(-0.7, 0, 0.3);
         glEnd();
     glPopMatrix();
 }
@@ -48,20 +60,36 @@ void customPlayer::draw3D() {
 
 
 
-void customPlayer::moving() {
+void customPlayer::moving(int viewmode) {
     // move the player according to the keys pressed
 
     if (this->walking_forward) {
-        this->position += this->cam.front * this->walking_speed;
+        if (viewmode == 0) {
+            this->position.z -= this->walking_speed;    // 2D
+        } else {
+            this->position += this->cam.front * this->walking_speed;    // 3D
+        }
     }
     if (this->walking_backward) {
-        this->position -= this->cam.front * this->walking_speed;
+        if (viewmode == 0) {
+            this->position.z += this->walking_speed;    // 2D
+        } else {
+            this->position -= this->cam.front * this->walking_speed;    // 3D
+        }
     }
     if (this->walking_left) {
-        this->position += this->cam.right * this->walking_speed;
+        if (viewmode == 0) {
+            this->position.x -= this->walking_speed;    // 2D
+        } else {
+            this->position += this->cam.right * this->walking_speed;    // 3D
+        }
     }
     if (this->walking_right) {
-        this->position -= this->cam.right * this->walking_speed;
+        if (viewmode == 0) {
+            this->position.x += this->walking_speed;    // 2D
+        } else {
+            this->position -= this->cam.right * this->walking_speed;
+        }
     }
     if (this->onGround) {
         if (this->walking_forward || this->walking_backward || this->walking_left || this->walking_right) {
@@ -71,19 +99,31 @@ void customPlayer::moving() {
 }
 
 
-void customPlayer::looking() {
+void customPlayer::looking(int viewmode) {
     // move the player's view according to the keys pressed
+    if (viewmode == 0) {
+        // 2D
+        this->cam.looking_angleY = atan2(ofGetMouseX() - (ofGetWidth() / 2), ofGetMouseY() - (ofGetHeight() / 2)) * (180 / PI);
+        this->rotation.y = this->cam.looking_angleY;
+    } else {
+        // 3D
+        if (1) {
+            // mouse mode
+            this->rotation.y = -this->turning_speed*(ofGetMouseX() - (ofGetWidth() / 2))*0.15;
+            this->cam.looking_angleY = this->rotation.y;
 
-    if (this->looking_left) {
-        this->cam.looking_angleY += this->turning_speed;
-    }
-    if (this->looking_right) {
-        this->cam.looking_angleY -= this->turning_speed;
-    }
-    if (this->looking_up) {
-        this->cam.looking_angleX -= this->turning_speed;
-    }
-    if (this->looking_down) {
-        this->cam.looking_angleX += this->turning_speed;
+            this->cam.looking_angleX = this->turning_speed*(ofGetMouseY() - (ofGetHeight() / 2))*0.15;            
+        } else {
+            // arrow keys mode
+            this->rotation.y += this->turning_speed*this->looking_left;
+            this->cam.looking_angleY = this->rotation.y;
+
+            this->rotation.y -= this->turning_speed*this->looking_right;
+            this->cam.looking_angleY = this->rotation.y;
+
+            this->cam.looking_angleX -= this->turning_speed*this->looking_up;
+
+            this->cam.looking_angleX += this->turning_speed*this->looking_down;
+        }
     }
 }

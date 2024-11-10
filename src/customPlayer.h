@@ -14,14 +14,14 @@ class customPlayer : public customPhysicsObject {
     public:
         customPlayer(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale);
 
-        void update();
+        void update(int viewmode);
 
         void draw2D() override;
         void draw3D() override;
 
 
-        void moving();
-        void looking();
+        void moving(int viewmode);
+        void looking(int viewmode);
 
         using customGameObject::position;
         using customGameObject::rotation;

@@ -41,7 +41,7 @@ class customCamara {
         ofVec3f front;
 
 
-        GLfloat zoom = 1.0;
+        GLfloat zoom = 0.1;
 
 };
 
