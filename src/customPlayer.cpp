@@ -32,22 +32,22 @@ void customPlayer::draw2D() {
         this->customPhysicsObject::draw2D();      // move to the position, rotate, and scale the player
         glBegin(GL_QUADS);
             glColor3f(0.0, 0.0, 0.0);
-            glVertex3f(0.3, 0, 0.4);
-            glVertex3f(-0.3, 0, 0.4);
-            glVertex3f(-0.3, 0, 0.0);
-            glVertex3f(0.3, 0, 0.0);
+            glVertex3f(0.2, 0, 0.28);
+            glVertex3f(-0.2, 0, 0.28);
+            glVertex3f(-0.2, 0, 0.0);
+            glVertex3f(0.2, 0, 0.0);
 
             glColor3f(0.2, 0.2, 0.2);
-            glVertex3f(-0.4, 0, -0.4);
-            glVertex3f(0.4, 0, -0.4);
-            glVertex3f(0.4, 0, 0.4);
-            glVertex3f(-0.4, 0, 0.4);
+            glVertex3f(-0.28, 0, -0.28);
+            glVertex3f(0.28, 0, -0.28);
+            glVertex3f(0.28, 0, 0.28);
+            glVertex3f(-0.28, 0, 0.28);
 
             glColor3f(0.0, 0.4, 0.0);
-            glVertex3f(-0.7, 0, -0.3);
-            glVertex3f(0.7, 0, -0.3);
-            glVertex3f(0.7, 0, 0.3);
-            glVertex3f(-0.7, 0, 0.3);
+            glVertex3f(-0.5, 0, -0.2);
+            glVertex3f(0.5, 0, -0.2);
+            glVertex3f(0.5, 0, 0.2);
+            glVertex3f(-0.5, 0, 0.2);
         glEnd();
     glPopMatrix();
 }
