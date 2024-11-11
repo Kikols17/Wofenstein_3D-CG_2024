@@ -144,19 +144,25 @@ void circular_level(vector<shared_ptr<customGameObject>> &gameobjects) {
     hallway = make_shared<customRoom_hallway>( ofVec3f(8, 0, 2), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
     gameobjects.push_back(hallway);
 
-    // o
-    shared_ptr<customRoom_fightingroom> fightingroom = make_shared<customRoom_fightingroom>( ofVec3f(8, 0, -4), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
-    gameobjects.push_back(fightingroom);
-
-    shared_ptr<customRoom_wall> wall = make_shared<customRoom_wall>( ofVec3f(2, 0, -4), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+    shared_ptr<customRoom_wall> wall = make_shared<customRoom_wall>( ofVec3f(8, 2, 2), ofVec3f(0, 0, 0), ofVec3f(2, 4, 2) );
     gameobjects.push_back(wall);
 
-    wall = make_shared<customRoom_wall>( ofVec3f(14, 0, -4), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+    // o
+    shared_ptr<customRoom_fightingroom> fightingroom = make_shared<customRoom_fightingroom>( ofVec3f(8, 0, -4), ofVec3f(0, 0, 0), ofVec3f(2, 6, 2) );
+    gameobjects.push_back(fightingroom);
+
+    wall = make_shared<customRoom_wall>( ofVec3f(2, 0, -4), ofVec3f(0, 0, 0), ofVec3f(2, 6, 2) );
+    gameobjects.push_back(wall);
+
+    wall = make_shared<customRoom_wall>( ofVec3f(14, 0, -4), ofVec3f(0, 0, 0), ofVec3f(2, 6, 2) );
     gameobjects.push_back(wall);
 
     // o
     hallway = make_shared<customRoom_hallway>( ofVec3f(8, 0, -10), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2));
     gameobjects.push_back(hallway);
+
+    wall = make_shared<customRoom_wall>( ofVec3f(8, 2, -10), ofVec3f(0, 0, 0), ofVec3f(2, 4, 2));
+    gameobjects.push_back(wall);
 
     Lhallway = make_shared<customRoom_Lhallway>( ofVec3f(8, 0, -12), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
     gameobjects.push_back(Lhallway);
