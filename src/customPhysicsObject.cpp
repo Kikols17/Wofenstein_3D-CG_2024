@@ -4,7 +4,9 @@
 
 //--------------------------------------------------------------
 // public
-customPhysicsObject::customPhysicsObject(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale) : customGameObject(_position, _rotation, _scale) {
+customPhysicsObject::customPhysicsObject(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale) : customPhysicsObject(_position, _rotation, _scale, vector<customColisionBox>()) {
+}
+customPhysicsObject::customPhysicsObject(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, vector<customColisionBox> _colisionBoxes) : customGameObject(_position, _rotation, _scale) {
     // run this to set up the object
 
     this->velocity = ofVec3f(0, 0, 0);
@@ -12,6 +14,8 @@ customPhysicsObject::customPhysicsObject(ofVec3f _position, ofVec3f _rotation, o
 
     // code from "https://openframeworks.cc/documentation/utils/ofUtils/#show_ofGetCurrentTime"
     this->lastUpdateTime = ofGetCurrentTime().getAsMilliseconds();
+
+    this->colisionBoxes = _colisionBoxes;
 
 }
 
@@ -29,6 +33,17 @@ void customPhysicsObject::update() {
     this->applyGravity(deltaT);
     this->applyVelocity(deltaT);
     this->applySpin(deltaT);
+}
+
+
+void customPhysicsObject::draw3D() {
+    this->customGameObject::draw3D();
+
+    // draw all collision boxes
+    int cbsize = (int)this->colisionBoxes.size();
+    for (int i=0; i<cbsize; i++) {
+        this->colisionBoxes[i].draw3D();
+    }
 }
 
 

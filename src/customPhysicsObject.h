@@ -5,6 +5,7 @@
 #include <chrono>
 
 #include "customGameObject.h"
+#include "customColisionBox.h"
 #include "cg_extras.h"
 
 #include "ofMain.h"
@@ -15,11 +16,12 @@ class customPhysicsObject : public customGameObject {
 
     public:
         customPhysicsObject(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale);
+        customPhysicsObject(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, vector<customColisionBox> _colisionBoxes);
 
         void update() override;
 
-        using customGameObject::draw2D;     // } A physics object does not draw anything special
-        using customGameObject::draw3D;     // } use the draw functions from customGameObject
+        using customGameObject::draw2D;
+        void draw3D() override;
 
 
         using customGameObject::position;
@@ -29,6 +31,9 @@ class customPhysicsObject : public customGameObject {
 
         ofVec3f velocity = ofVec3f(0, 0, 0);
         ofVec3f spin = ofVec3f(0, 0, 0);
+
+
+        vector<customColisionBox> colisionBoxes;
     
 
     private:

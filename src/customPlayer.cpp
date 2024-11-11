@@ -4,7 +4,7 @@
 
 //--------------------------------------------------------------
 // public
-customPlayer::customPlayer(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale) : customPhysicsObject(_position, _rotation, _scale) {
+customPlayer::customPlayer(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale) : customPhysicsObject(_position, _rotation, _scale, vector<customColisionBox>(1, customColisionBox(_position, _rotation, _scale, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5))) {
     // run this to set up the object
 
     this->cam = customCamara();

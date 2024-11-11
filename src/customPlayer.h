@@ -4,6 +4,7 @@
 
 #include "customGameObject.h"
 #include "customPhysicsObject.h"
+#include "customColisionBox.h"
 #include "customCamara.h"
 
 #include "ofMain.h"
@@ -23,9 +24,9 @@ class customPlayer : public customPhysicsObject {
         void moving(int viewmode);
         void looking(int viewmode);
 
-        using customGameObject::position;
-        using customGameObject::rotation;
-        using customGameObject::scale;
+        using customPhysicsObject::position;
+        using customPhysicsObject::rotation;
+        using customPhysicsObject::scale;
 
         customCamara cam;
         bool onGround = false;
