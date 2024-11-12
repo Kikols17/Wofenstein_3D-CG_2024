@@ -5,67 +5,75 @@
 customColisionBox::customColisionBox(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, GLfloat _minX, GLfloat _minY, GLfloat _minZ, GLfloat _maxX, GLfloat _maxY, GLfloat _maxZ) : customGameObject(_position, _rotation, _scale) {
     // run this to set up the object
 
-    this->minX = _minX * _scale.x;
-    this->minX = rotateY(ofVec3f(this->minX,0,0), _rotation.y).x;
-    this->minX = this->minX + _position.x;
+    this->rel_minX = _minX * _scale.x;
+    this->rel_minX = rotateY(ofVec3f(this->rel_minX,0,0), _rotation.y).x;
 
-    this->minY = _minY * _scale.y;
-    this->minY = rotateY(ofVec3f(0,this->minY,0), _rotation.y).y;
-    this->minY = this->minY + _position.y;
+    this->rel_minY = _minY * _scale.y;
 
-    this->minZ = _minZ * _scale.z;
-    this->minZ = rotateY(ofVec3f(0,0,this->minZ), _rotation.y).z;
-    this->minZ = this->minZ + _position.z;
+    this->rel_minZ = _minZ * _scale.z;
+    this->rel_minZ = rotateY(ofVec3f(0,0,this->rel_minZ), _rotation.y).z;
 
 
-    this->maxX = _maxX * _scale.x;
-    this->maxX = rotateY(ofVec3f(this->minX,0,0), _rotation.y).x;
-    this->maxX = this->maxX + _position.x;
+    this->rel_maxX = _maxX * _scale.x;
+    this->rel_maxX = rotateY(ofVec3f(this->rel_maxX,0,0), _rotation.y).x;
 
-    this->maxY = _maxY * _scale.y;
-    this->maxY = rotateY(ofVec3f(0,this->minY,0), _rotation.y).y;
-    this->maxY = this->maxY + _position.y;
+    this->rel_maxY = _maxY * _scale.y;
 
-    this->maxZ = _maxZ * _scale.z;
-    this->maxZ = rotateY(ofVec3f(0,0,this->minZ), _rotation.y).z;
-    this->maxZ = this->maxZ + _position.z;
+    this->rel_maxZ = _maxZ * _scale.z;
+    this->rel_maxZ = rotateY(ofVec3f(0,0,this->rel_maxZ), _rotation.y).z;
+}
+
+
+
+void customColisionBox::update() {
+    // run this every cycle
+
+    // get the absolute coordinates
+    this->abs_minX = this->position.x + this->rel_minX;
+    this->abs_minY = this->position.y + this->rel_minY;
+    this->abs_minZ = this->position.z + this->rel_minZ;
+
+    this->abs_maxX = this->position.x + this->rel_maxX;
+    this->abs_maxY = this->position.y + this->rel_maxY;
+    this->abs_maxZ = this->position.z + this->rel_maxZ;
 }
 
 
 
 void customColisionBox::draw3D() {
     // draw the object in 2D
+    //cout << minX << " " << minY << " " << minZ << " " << maxX << " " << maxY << " " << maxZ << endl;
     glPushMatrix();
 
         glBegin(GL_LINE_LOOP);
             glColor3f(0.0, 0.0, 1.0);
-            glVertex3f(this->minX, this->minY, this->minZ);
-            glVertex3f(this->maxX, -this->minY, this->minZ);
-            glVertex3f(this->maxX, -this->minY, -this->maxZ);
-            glVertex3f(this->minX, this->minY, -this->maxZ);
+            glVertex3f(this->abs_minX, this->abs_minY, this->abs_minZ);
+            glVertex3f(this->abs_minX, this->abs_minY, this->abs_maxZ);
+            glVertex3f(this->abs_minX, this->abs_maxY, this->abs_maxZ);
+            glVertex3f(this->abs_minX, this->abs_maxY, this->abs_minZ);
         glEnd();
 
         glBegin(GL_LINE_LOOP);
             glColor3f(0.0, 0.0, 1.0);
-            glVertex3f(-this->minX, this->maxY, this->minZ);
-            glVertex3f(-this->maxX, -this->maxY, this->minZ);
-            glVertex3f(-this->maxX, -this->maxY, -this->maxZ);
-            glVertex3f(-this->minX, this->maxY, -this->maxZ);
+            glVertex3f(this->abs_maxX, this->abs_minY, this->abs_minZ);
+            glVertex3f(this->abs_maxX, this->abs_minY, this->abs_maxZ);
+            glVertex3f(this->abs_maxX, this->abs_maxY, this->abs_maxZ);
+            glVertex3f(this->abs_maxX, this->abs_maxY, this->abs_minZ);
         glEnd();
 
         glBegin(GL_LINES);
             glColor3f(0.0, 0.0, 1.0);
-            glVertex3f(this->minX, this->minY, this->minZ);
-            glVertex3f(-this->minX, this->maxY, this->minZ);
+            glVertex3f(this->abs_minX, this->abs_minY, this->abs_minZ);
+            glVertex3f(this->abs_maxX, this->abs_minY, this->abs_minZ);
 
-            glVertex3f(this->maxX, -this->minY, this->minZ);
-            glVertex3f(-this->maxX, -this->maxY, this->minZ);
+            glVertex3f(this->abs_minX, this->abs_minY, this->abs_maxZ);
+            glVertex3f(this->abs_maxX, this->abs_minY, this->abs_maxZ);
 
-            glVertex3f(this->maxX, -this->minY, -this->maxZ);
-            glVertex3f(-this->maxX, -this->maxY, -this->maxZ);
+            glVertex3f(this->abs_minX, this->abs_maxY, this->abs_maxZ);
+            glVertex3f(this->abs_maxX, this->abs_maxY, this->abs_maxZ);
 
-            glVertex3f(this->minX, this->minY, -this->maxZ);
-            glVertex3f(-this->minX, this->maxY, -this->maxZ);
+            glVertex3f(this->abs_minX, this->abs_maxY, this->abs_minZ);
+            glVertex3f(this->abs_maxX, this->abs_maxY, this->abs_minZ);
         glEnd();
     glPopMatrix();
 }

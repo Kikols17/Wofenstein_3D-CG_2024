@@ -13,7 +13,7 @@ class customColisionBox : public customGameObject {
     public:
         customColisionBox(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, GLfloat _minX, GLfloat _minY, GLfloat _minZ, GLfloat _maxX, GLfloat _maxY, GLfloat _maxZ);
 
-        using customGameObject::update;
+        void update() override;
 
         using customGameObject::draw2D;
         void draw3D() override;
@@ -23,13 +23,24 @@ class customColisionBox : public customGameObject {
         using customGameObject::rotation;
         using customGameObject::scale;
 
-        GLfloat minX;
-        GLfloat minY;
-        GLfloat minZ;
+        // relative coordinates
+        GLfloat rel_minX;
+        GLfloat rel_minY;
+        GLfloat rel_minZ;
 
-        GLfloat maxX;
-        GLfloat maxY;
-        GLfloat maxZ;
+        GLfloat rel_maxX;
+        GLfloat rel_maxY;
+        GLfloat rel_maxZ;
+
+
+        // absolute coordinates
+        GLfloat abs_minX;
+        GLfloat abs_minY;
+        GLfloat abs_minZ;
+
+        GLfloat abs_maxX;
+        GLfloat abs_maxY;
+        GLfloat abs_maxZ;
 };
 
 #endif

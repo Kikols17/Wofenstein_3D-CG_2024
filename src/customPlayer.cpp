@@ -15,7 +15,7 @@ void customPlayer::update(int viewmode) {
     // run this every cycle
 
     // run the physics update
-    //this->customPhysicsObject::update();
+    this->customPhysicsObject::update();
 
     this->moving(viewmode);
     this->looking(viewmode);
@@ -54,7 +54,7 @@ void customPlayer::draw2D() {
 
 void customPlayer::draw3D() {
     // draw the player in 3D
-    //this->customPhysicsObject::draw3D();
+    this->customPhysicsObject::draw3D();
 }
 
 
@@ -124,6 +124,14 @@ void customPlayer::looking(int viewmode) {
             this->cam.looking_angleX -= this->turning_speed*this->looking_up;
 
             this->cam.looking_angleX += this->turning_speed*this->looking_down;
+        }
+
+        // cap the angles at 89 degrees, so the player doesn't flip
+        if (this->cam.looking_angleX > 89) {
+            this->cam.looking_angleX = 89;
+        }
+        if (this->cam.looking_angleX < -89) {
+            this->cam.looking_angleX = -89;
         }
     }
 }

@@ -30,20 +30,27 @@ void customPhysicsObject::update() {
     this->lastUpdateTime = ofGetCurrentTime().getAsMilliseconds();
 
 
-    this->applyGravity(deltaT);
-    this->applyVelocity(deltaT);
-    this->applySpin(deltaT);
+    //this->applyGravity(deltaT);
+    //this->applyVelocity(deltaT);
+    //this->applySpin(deltaT);
+
+    // update all collision boxes
+    int cbsize = (int)this->colisionBoxes.size();
+    for (int i=0; i<cbsize; i++) {
+        this->colisionBoxes[i].position = this->position;
+        this->colisionBoxes[i].update();
+    }
 }
 
 
 void customPhysicsObject::draw3D() {
-    this->customGameObject::draw3D();
-
     // draw all collision boxes
     int cbsize = (int)this->colisionBoxes.size();
-    for (int i=0; i<cbsize; i++) {
+    for (int i=0; i<cbsize; i++) {    
         this->colisionBoxes[i].draw3D();
     }
+
+    this->customGameObject::draw3D();
 }
 
 
