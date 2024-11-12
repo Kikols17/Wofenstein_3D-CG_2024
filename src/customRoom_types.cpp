@@ -4,11 +4,6 @@
 //--------------------------------------------------------------
 // customRoom_axis
 //--------------------------------------------------------------
-void customRoom_axis::update() {
-    // run this every cycle
-    this->customPhysicsObject::update();
-}
-
 void customRoom_axis::draw2D() {
     // draws the 2D version of the object
 
@@ -61,8 +56,8 @@ void customRoom_axis::draw3D() {
 //--------------------------------------------------------------
 // customRoom_hallway
 //--------------------------------------------------------------
-void customRoom_hallway::update() {
-    // run this every update cycle
+customRoom_hallway::customRoom_hallway(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale) : customPhysicsObject(_position, _rotation, _scale, vector<customColisionBox>({customColisionBox(_position, _rotation, _scale, -0.52, 0.0, -0.5, -0.48, 1.0, 0.5), customColisionBox(_position, _rotation, _scale, 0.48, 0.0, -0.5, 0.52, 1.0, 0.5), customColisionBox(_position, _rotation, _scale, -0.5, -0.04, -0.5, 0.5, 0.0, 0.5), customColisionBox(_position, _rotation, _scale, -0.5, 1.0, -0.5, 0.5, 1.04, 0.5)})) {
+    // run this to set up the object
 }
 
 void customRoom_hallway::draw2D() {
@@ -145,10 +140,9 @@ void customRoom_hallway::draw3D() {
 //--------------------------------------------------------------
 // customRoom_Thallway
 //--------------------------------------------------------------
-void customRoom_Thallway::update() {
-    // run this every update cycle
+customRoom_Thallway::customRoom_Thallway(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale) : customPhysicsObject(_position, _rotation, _scale, vector<customColisionBox>( {customColisionBox(_position, _rotation, _scale, -0.5, 0.0, -0.52, 0.5, 1.0, -0.48), customColisionBox(_position, _rotation, _scale, -0.5, -0.04, -0.5, 0.5, 0.0, 0.5), customColisionBox(_position, _rotation, _scale, -0.5, 1.0, -0.5, 0.5, 1.04, 0.5)} )) {
+    // run this to set up the object
 }
-
 void customRoom_Thallway::draw2D() {
     // draws the 2D version of the object
 
@@ -235,10 +229,9 @@ void customRoom_Thallway::draw3D() {
 //--------------------------------------------------------------
 // customRoom_Lhallway
 //--------------------------------------------------------------
-void customRoom_Lhallway::update() {
-    // run this every update cycle
+customRoom_Lhallway::customRoom_Lhallway(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale) : customPhysicsObject(_position, _rotation, _scale, vector<customColisionBox>( {customColisionBox(_position, _rotation, _scale, -0.52, 0.0, -0.5, -0.48, 1.0, 0.5), customColisionBox(_position, _rotation, _scale, -0.5, 0.0, -0.52, 0.5, 1.0, -0.48), customColisionBox(_position, _rotation, _scale, -0.5, -0.04, -0.5, 0.5, 0.0, 0.5), customColisionBox(_position, _rotation, _scale, -0.5, 1.0, -0.5, 0.5, 1.04, 0.5)} )) {
+    // run this to set up the object
 }
-
 void customRoom_Lhallway::draw2D() {
     // draws the 2D version of the object
     
@@ -329,10 +322,9 @@ void customRoom_Lhallway::draw3D() {
 //--------------------------------------------------------------
 // customRoom_Xhallway
 //--------------------------------------------------------------
-void customRoom_Xhallway::update() {
-    // run this every update cycle
+customRoom_Xhallway::customRoom_Xhallway(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale) : customPhysicsObject(_position, _rotation, _scale, vector<customColisionBox>( {customColisionBox(_position, _rotation, _scale, -0.5, -0.04, -0.5, 0.5, 0.0, 0.5), customColisionBox(_position, _rotation, _scale, -0.5, 1.0, -0.5, 0.5, 1.04, 0.5)} )) {
+    // run this to set up the object
 }
-
 void customRoom_Xhallway::draw2D() {
     // draws the 2D version of the object
     
@@ -425,10 +417,9 @@ void customRoom_Xhallway::draw3D() {
 //--------------------------------------------------------------
 // customRoom_wall
 //--------------------------------------------------------------
-void customRoom_wall::update() {
-    // run this every update cycle
+customRoom_wall::customRoom_wall(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale) : customPhysicsObject(_position, _rotation, _scale, vector<customColisionBox>( {customColisionBox(_position, _rotation, _scale, -0.5, 0.0, -0.5, 0.5, 1.0, 0.5)} )) {
+    // run this to set up the object
 }
-
 void customRoom_wall::draw2D() {
     // draws the 3D version of the object
     
@@ -507,10 +498,9 @@ void customRoom_wall::draw3D() {
 //--------------------------------------------------------------
 // customRoom_deadend
 //--------------------------------------------------------------
-void customRoom_deadend::update() {
-    // run this every update cycle
+customRoom_deadend::customRoom_deadend(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale) : customPhysicsObject(_position, _rotation, _scale, vector<customColisionBox>( {customColisionBox(_position, _rotation, _scale, -0.52, 0.0, -0.5, -0.48, 1.0, 0.5), customColisionBox(_position, _rotation, _scale, -0.5, 0.0, -0.52, 0.5, 1.0, -0.48), customColisionBox(_position, _rotation, _scale, 0.48, 0.0, -0.5, 0.52, 1.0, 0.5), customColisionBox(_position, _rotation, _scale, -0.5, -0.04, -0.5, 0.5, 0.0, 0.5), customColisionBox(_position, _rotation, _scale, -0.5, 1.0, -0.5, 0.5, 1.04, 0.5)} )) {
+    // run this to set up the object
 }
-
 void customRoom_deadend::draw2D() {
     // run this every draw cycle
     
@@ -605,10 +595,6 @@ void customRoom_deadend::draw3D() {
 //--------------------------------------------------------------
 // customRoom_fightingroom
 //--------------------------------------------------------------
-void customRoom_fightingroom::update() {
-    // run this every update cycle
-}
-
 void customRoom_fightingroom::draw2D() {
     // run this every draw cycle
     
@@ -805,11 +791,6 @@ void customRoom_fightingroom::draw3D() {
 //--------------------------------------------------------------
 // customRoom_ramp
 //--------------------------------------------------------------
-void customRoom_ramp::update() {
-    // run this every update cycle
-}
-
-
 void customRoom_ramp::draw2D() {
     // run this every draw cycle
     glPushMatrix();

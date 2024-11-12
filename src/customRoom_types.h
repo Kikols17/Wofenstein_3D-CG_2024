@@ -15,7 +15,7 @@ class customRoom_axis : public customPhysicsObject {
     public:
         using customPhysicsObject::customPhysicsObject;
 
-        void update() override;
+        using customPhysicsObject::update;
 
         void draw2D() override;
         void draw3D() override;
@@ -26,9 +26,9 @@ class customRoom_hallway : public customPhysicsObject {
     // hallway room, 1x1x1 block, door on each side
     
     public:
-        using customPhysicsObject::customPhysicsObject;
+        customRoom_hallway(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale);
 
-        void update() override;
+        using customPhysicsObject::update;
 
         void draw2D() override;
         void draw3D() override;
@@ -39,9 +39,9 @@ class customRoom_Thallway : public customPhysicsObject {
     // T hallway room, 1x1x1 block, door on front left and right
     
     public:
-        using customPhysicsObject::customPhysicsObject;
+        customRoom_Thallway(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale);
 
-        void update() override;
+        using customPhysicsObject::update;
 
         void draw2D() override;
         void draw3D() override;
@@ -52,9 +52,9 @@ class customRoom_Lhallway : public customPhysicsObject {
     // L hallway room, 1x1x1 block, door on front and right
     
     public:
-        using customPhysicsObject::customPhysicsObject;
+        customRoom_Lhallway(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale);
 
-        void update() override;
+        using customPhysicsObject::update;
 
         void draw2D() override;
         void draw3D() override;
@@ -65,9 +65,9 @@ class customRoom_Xhallway : public customPhysicsObject {
     // X hallway room, 1x1x1 block, door on all sides
     
     public:
-        using customPhysicsObject::customPhysicsObject;
+        customRoom_Xhallway(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale);
 
-        void update() override;
+        using customPhysicsObject::update;
 
         void draw2D() override;
         void draw3D() override;
@@ -78,9 +78,9 @@ class customRoom_wall : public customPhysicsObject {
     // wall room, 1x1x1 block, no doors
     
     public:
-        using customPhysicsObject::customPhysicsObject;
+        customRoom_wall(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale);
 
-        void update() override;
+        using customPhysicsObject::update;
 
         void draw2D() override;
         void draw3D() override;
@@ -91,9 +91,9 @@ class customRoom_deadend : public customPhysicsObject {
     // deadend room, 1x1x1 block, one door on front
     
     public:
-        using customPhysicsObject::customPhysicsObject;
+        customRoom_deadend(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale);
 
-        void update() override;
+        using customPhysicsObject::update;
 
         void draw2D() override;
         void draw3D() override;
@@ -108,7 +108,7 @@ class customRoom_fightingroom : public customPhysicsObject {
     public:
         using customPhysicsObject::customPhysicsObject;
 
-        void update() override;
+        using customPhysicsObject::update;
 
         void draw2D() override;
         void draw3D() override;
@@ -123,7 +123,7 @@ class customRoom_ramp : public customPhysicsObject {
     public:
         using customPhysicsObject::customPhysicsObject;
 
-        void update() override;
+        using customPhysicsObject::update;
 
         void draw2D() override;
         void draw3D() override;

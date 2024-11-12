@@ -6,21 +6,19 @@ customColisionBox::customColisionBox(ofVec3f _position, ofVec3f _rotation, ofVec
     // run this to set up the object
 
     this->rel_minX = _minX * _scale.x;
-    this->rel_minX = rotateY(ofVec3f(this->rel_minX,0,0), _rotation.y).x;
-
     this->rel_minY = _minY * _scale.y;
-
     this->rel_minZ = _minZ * _scale.z;
-    this->rel_minZ = rotateY(ofVec3f(0,0,this->rel_minZ), _rotation.y).z;
+
+    this->rel_minX = rotateY(ofVec3f(_minX*_scale.x, _minY*_scale.y, _minZ*_scale.z), glm::radians(_rotation.y)).x;
+    this->rel_minZ = rotateY(ofVec3f(_minX*_scale.x, _minY*_scale.y, _minZ*_scale.z), glm::radians(_rotation.y)).z;
 
 
     this->rel_maxX = _maxX * _scale.x;
-    this->rel_maxX = rotateY(ofVec3f(this->rel_maxX,0,0), _rotation.y).x;
-
     this->rel_maxY = _maxY * _scale.y;
-
     this->rel_maxZ = _maxZ * _scale.z;
-    this->rel_maxZ = rotateY(ofVec3f(0,0,this->rel_maxZ), _rotation.y).z;
+
+    this->rel_maxX = rotateY(ofVec3f(_maxX*_scale.x, _maxY*_scale.y, _maxZ*_scale.z), glm::radians(_rotation.y)).x;
+    this->rel_maxZ = rotateY(ofVec3f(_maxX*_scale.x, _maxY*_scale.y, _maxZ*_scale.z), glm::radians(_rotation.y)).z;
 }
 
 
