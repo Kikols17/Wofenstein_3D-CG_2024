@@ -19,6 +19,8 @@ customColisionBox::customColisionBox(ofVec3f _position, ofVec3f _rotation, ofVec
 
     this->rel_maxX = rotateY(ofVec3f(_maxX*_scale.x, _maxY*_scale.y, _maxZ*_scale.z), glm::radians(_rotation.y)).x;
     this->rel_maxZ = rotateY(ofVec3f(_maxX*_scale.x, _maxY*_scale.y, _maxZ*_scale.z), glm::radians(_rotation.y)).z;
+
+    this->update();
 }
 
 

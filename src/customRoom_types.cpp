@@ -8,7 +8,7 @@ void customRoom_axis::draw2D() {
     // draws the 2D version of the object
 
     glPushMatrix();
-        this->customPhysicsObject::draw2D();      // move to the position, rotate, and scale the room
+        this->customPhysicsObjectStatic::draw2D();      // move to the position, rotate, and scale the room
         glBegin(GL_LINES);
             glColor3f(1.0, 0.0, 0.0);
             glVertex3f(0.0, 0.0, 0.0);
@@ -29,7 +29,7 @@ void customRoom_axis::draw3D() {
     // draws the 3D version of the object
 
     glPushMatrix();
-        this->customPhysicsObject::draw3D();      // move to the position, rotate, and scale the room
+        this->customPhysicsObjectStatic::draw3D();      // move to the position, rotate, and scale the room
         glBegin(GL_LINES);
             glColor3f(1.0, 0.0, 0.0);
             glVertex3f(0.0, 0.0, 0.0);
@@ -56,7 +56,7 @@ void customRoom_axis::draw3D() {
 //--------------------------------------------------------------
 // customRoom_hallway
 //--------------------------------------------------------------
-customRoom_hallway::customRoom_hallway(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale) : customPhysicsObject(_position, _rotation, _scale, vector<customColisionBox>({customColisionBox(_position, _rotation, _scale, -0.52, 0.0, -0.5, -0.48, 1.0, 0.5), customColisionBox(_position, _rotation, _scale, 0.48, 0.0, -0.5, 0.52, 1.0, 0.5), customColisionBox(_position, _rotation, _scale, -0.5, -0.04, -0.5, 0.5, 0.0, 0.5), customColisionBox(_position, _rotation, _scale, -0.5, 1.0, -0.5, 0.5, 1.04, 0.5)})) {
+customRoom_hallway::customRoom_hallway(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale) : customPhysicsObjectStatic(_position, _rotation, _scale, vector<customColisionBox>({customColisionBox(_position, _rotation, _scale, -0.52, 0.0, -0.5, -0.48, 1.0, 0.5), customColisionBox(_position, _rotation, _scale, 0.48, 0.0, -0.5, 0.52, 1.0, 0.5), customColisionBox(_position, _rotation, _scale, -0.5, -0.04, -0.5, 0.5, 0.0, 0.5), customColisionBox(_position, _rotation, _scale, -0.5, 1.0, -0.5, 0.5, 1.04, 0.5)})) {
     // run this to set up the object
 }
 
@@ -64,7 +64,7 @@ void customRoom_hallway::draw2D() {
     // draws the 2D version of the object
 
     glPushMatrix();
-        this->customPhysicsObject::draw2D();      // move to the position, rotate, and scale the room
+        this->customPhysicsObjectStatic::draw2D();      // move to the position, rotate, and scale the room
 
         glBegin(GL_QUADS);
             // floor
@@ -95,7 +95,7 @@ void customRoom_hallway::draw3D() {
     // draws the 3D version of the object
 
     glPushMatrix();
-        this->customPhysicsObject::draw3D();      // move to the position, rotate, and scale the room
+        this->customPhysicsObjectStatic::draw3D();      // move to the position, rotate, and scale the room
 
         glBegin(GL_QUADS);
             // floor
@@ -140,14 +140,14 @@ void customRoom_hallway::draw3D() {
 //--------------------------------------------------------------
 // customRoom_Thallway
 //--------------------------------------------------------------
-customRoom_Thallway::customRoom_Thallway(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale) : customPhysicsObject(_position, _rotation, _scale, vector<customColisionBox>( {customColisionBox(_position, _rotation, _scale, -0.5, 0.0, -0.52, 0.5, 1.0, -0.48), customColisionBox(_position, _rotation, _scale, -0.5, -0.04, -0.5, 0.5, 0.0, 0.5), customColisionBox(_position, _rotation, _scale, -0.5, 1.0, -0.5, 0.5, 1.04, 0.5)} )) {
+customRoom_Thallway::customRoom_Thallway(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale) : customPhysicsObjectStatic(_position, _rotation, _scale, vector<customColisionBox>( {customColisionBox(_position, _rotation, _scale, -0.5, 0.0, -0.52, 0.5, 1.0, -0.48), customColisionBox(_position, _rotation, _scale, -0.5, -0.04, -0.5, 0.5, 0.0, 0.5), customColisionBox(_position, _rotation, _scale, -0.5, 1.0, -0.5, 0.5, 1.04, 0.5)} )) {
     // run this to set up the object
 }
 void customRoom_Thallway::draw2D() {
     // draws the 2D version of the object
 
     glPushMatrix();
-        this->customPhysicsObject::draw2D();      // move to the position, rotate, and scale the room
+        this->customPhysicsObjectStatic::draw2D();      // move to the position, rotate, and scale the room
 
         glBegin(GL_QUADS);
             // floor
@@ -181,7 +181,7 @@ void customRoom_Thallway::draw3D() {
     // draws the 3D version of the object
 
     glPushMatrix();
-        this->customPhysicsObject::draw3D();      // move to the position, rotate, and scale the room
+        this->customPhysicsObjectStatic::draw3D();      // move to the position, rotate, and scale the room
         glBegin(GL_QUADS);
             // floor
             glColor3f(0.6, 0.4, 0.2);
@@ -229,14 +229,14 @@ void customRoom_Thallway::draw3D() {
 //--------------------------------------------------------------
 // customRoom_Lhallway
 //--------------------------------------------------------------
-customRoom_Lhallway::customRoom_Lhallway(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale) : customPhysicsObject(_position, _rotation, _scale, vector<customColisionBox>( {customColisionBox(_position, _rotation, _scale, -0.52, 0.0, -0.5, -0.48, 1.0, 0.5), customColisionBox(_position, _rotation, _scale, -0.5, 0.0, -0.52, 0.5, 1.0, -0.48), customColisionBox(_position, _rotation, _scale, -0.5, -0.04, -0.5, 0.5, 0.0, 0.5), customColisionBox(_position, _rotation, _scale, -0.5, 1.0, -0.5, 0.5, 1.04, 0.5)} )) {
+customRoom_Lhallway::customRoom_Lhallway(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale) : customPhysicsObjectStatic(_position, _rotation, _scale, vector<customColisionBox>( {customColisionBox(_position, _rotation, _scale, -0.52, 0.0, -0.5, -0.48, 1.0, 0.5), customColisionBox(_position, _rotation, _scale, -0.5, 0.0, -0.52, 0.5, 1.0, -0.48), customColisionBox(_position, _rotation, _scale, -0.5, -0.04, -0.5, 0.5, 0.0, 0.5), customColisionBox(_position, _rotation, _scale, -0.5, 1.0, -0.5, 0.5, 1.04, 0.5)} )) {
     // run this to set up the object
 }
 void customRoom_Lhallway::draw2D() {
     // draws the 2D version of the object
     
     glPushMatrix();
-        this->customPhysicsObject::draw2D();      // move to the position, rotate, and scale the room
+        this->customPhysicsObjectStatic::draw2D();      // move to the position, rotate, and scale the room
         glBegin(GL_QUADS);
             // floor
             glColor3f(0.6, 0.4, 0.2);
@@ -272,7 +272,7 @@ void customRoom_Lhallway::draw3D() {
     // draws the 3D version of the object
     
     glPushMatrix();
-        this->customPhysicsObject::draw3D();      // move to the position, rotate, and scale the room
+        this->customPhysicsObjectStatic::draw3D();      // move to the position, rotate, and scale the room
         glBegin(GL_QUADS);
             // floor
             glColor3f(0.6, 0.4, 0.2);
@@ -322,14 +322,14 @@ void customRoom_Lhallway::draw3D() {
 //--------------------------------------------------------------
 // customRoom_Xhallway
 //--------------------------------------------------------------
-customRoom_Xhallway::customRoom_Xhallway(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale) : customPhysicsObject(_position, _rotation, _scale, vector<customColisionBox>( {customColisionBox(_position, _rotation, _scale, -0.5, -0.04, -0.5, 0.5, 0.0, 0.5), customColisionBox(_position, _rotation, _scale, -0.5, 1.0, -0.5, 0.5, 1.04, 0.5)} )) {
+customRoom_Xhallway::customRoom_Xhallway(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale) : customPhysicsObjectStatic(_position, _rotation, _scale, vector<customColisionBox>( {customColisionBox(_position, _rotation, _scale, -0.5, -0.04, -0.5, 0.5, 0.0, 0.5), customColisionBox(_position, _rotation, _scale, -0.5, 1.0, -0.5, 0.5, 1.04, 0.5)} )) {
     // run this to set up the object
 }
 void customRoom_Xhallway::draw2D() {
     // draws the 2D version of the object
     
     glPushMatrix();
-        this->customPhysicsObject::draw2D();      // move to the position, rotate, and scale the room
+        this->customPhysicsObjectStatic::draw2D();      // move to the position, rotate, and scale the room
 
         glBegin(GL_QUADS);
             // floor
@@ -364,7 +364,7 @@ void customRoom_Xhallway::draw3D() {
     // draws the 3D version of the object
     
     glPushMatrix();
-        this->customPhysicsObject::draw3D();      // move to the position, rotate, and scale the room
+        this->customPhysicsObjectStatic::draw3D();      // move to the position, rotate, and scale the room
 
         glBegin(GL_QUADS);
             // floor
@@ -417,14 +417,14 @@ void customRoom_Xhallway::draw3D() {
 //--------------------------------------------------------------
 // customRoom_wall
 //--------------------------------------------------------------
-customRoom_wall::customRoom_wall(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale) : customPhysicsObject(_position, _rotation, _scale, vector<customColisionBox>( {customColisionBox(_position, _rotation, _scale, -0.5, 0.0, -0.5, 0.5, 1.0, 0.5)} )) {
+customRoom_wall::customRoom_wall(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale) : customPhysicsObjectStatic(_position, _rotation, _scale, vector<customColisionBox>( {customColisionBox(_position, _rotation, _scale, -0.5, 0.0, -0.5, 0.5, 1.0, 0.5)} )) {
     // run this to set up the object
 }
 void customRoom_wall::draw2D() {
     // draws the 3D version of the object
     
     glPushMatrix();
-        this->customPhysicsObject::draw2D();      // move to the position, rotate, and scale the room
+        this->customPhysicsObjectStatic::draw2D();      // move to the position, rotate, and scale the room
         glBegin(GL_QUADS);
             // floor
             glColor3f(0.2, 0.4, 0.6);
@@ -440,7 +440,7 @@ void customRoom_wall::draw3D() {
     // run this every draw cycle
     
     glPushMatrix();
-        this->customPhysicsObject::draw3D();      // move to the position, rotate, and scale the 
+        this->customPhysicsObjectStatic::draw3D();      // move to the position, rotate, and scale the 
         glBegin(GL_QUADS);
             // floor
             glColor3f(0.6, 0.4, 0.2);
@@ -498,14 +498,14 @@ void customRoom_wall::draw3D() {
 //--------------------------------------------------------------
 // customRoom_deadend
 //--------------------------------------------------------------
-customRoom_deadend::customRoom_deadend(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale) : customPhysicsObject(_position, _rotation, _scale, vector<customColisionBox>( {customColisionBox(_position, _rotation, _scale, -0.52, 0.0, -0.5, -0.48, 1.0, 0.5), customColisionBox(_position, _rotation, _scale, -0.5, 0.0, -0.52, 0.5, 1.0, -0.48), customColisionBox(_position, _rotation, _scale, 0.48, 0.0, -0.5, 0.52, 1.0, 0.5), customColisionBox(_position, _rotation, _scale, -0.5, -0.04, -0.5, 0.5, 0.0, 0.5), customColisionBox(_position, _rotation, _scale, -0.5, 1.0, -0.5, 0.5, 1.04, 0.5)} )) {
+customRoom_deadend::customRoom_deadend(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale) : customPhysicsObjectStatic(_position, _rotation, _scale, vector<customColisionBox>( {customColisionBox(_position, _rotation, _scale, -0.52, 0.0, -0.5, -0.48, 1.0, 0.5), customColisionBox(_position, _rotation, _scale, -0.5, 0.0, -0.52, 0.5, 1.0, -0.48), customColisionBox(_position, _rotation, _scale, 0.48, 0.0, -0.5, 0.52, 1.0, 0.5), customColisionBox(_position, _rotation, _scale, -0.5, -0.04, -0.5, 0.5, 0.0, 0.5), customColisionBox(_position, _rotation, _scale, -0.5, 1.0, -0.5, 0.5, 1.04, 0.5)} )) {
     // run this to set up the object
 }
 void customRoom_deadend::draw2D() {
     // run this every draw cycle
     
     glPushMatrix();
-        this->customPhysicsObject::draw2D();      // move to the position, rotate, and scale the room
+        this->customPhysicsObjectStatic::draw2D();      // move to the position, rotate, and scale the room
 
         glBegin(GL_QUADS);
             // floor
@@ -543,7 +543,7 @@ void customRoom_deadend::draw3D() {
     // run this every draw cycle
     
     glPushMatrix();
-        this->customPhysicsObject::draw3D();      // move to the position, rotate, and scale the room
+        this->customPhysicsObjectStatic::draw3D();      // move to the position, rotate, and scale the room
 
         glBegin(GL_QUADS);
             // floor
@@ -599,7 +599,7 @@ void customRoom_fightingroom::draw2D() {
     // run this every draw cycle
     
     glPushMatrix();
-        this->customPhysicsObject::draw2D();      // move to the position, rotate, and scale the room
+        this->customPhysicsObjectStatic::draw2D();      // move to the position, rotate, and scale the room
 
         glBegin(GL_POLYGON);
             // floor
@@ -663,7 +663,7 @@ void customRoom_fightingroom::draw3D() {
     // run this every draw cycle
     
     glPushMatrix();
-        this->customPhysicsObject::draw3D();      // move to the position, rotate, and scale the room
+        this->customPhysicsObjectStatic::draw3D();      // move to the position, rotate, and scale the room
 
         glBegin(GL_POLYGON);
             // floor
@@ -794,7 +794,7 @@ void customRoom_fightingroom::draw3D() {
 void customRoom_ramp::draw2D() {
     // run this every draw cycle
     glPushMatrix();
-        this->customPhysicsObject::draw2D();      // move to the position, rotate, and scale the room
+        this->customPhysicsObjectStatic::draw2D();      // move to the position, rotate, and scale the room
 
         glBegin(GL_QUADS);
             // ramp
@@ -837,7 +837,7 @@ void customRoom_ramp::draw2D() {
 void customRoom_ramp::draw3D() {
     // run this every draw cycle
     glPushMatrix();
-        this->customPhysicsObject::draw3D();      // move to the position, rotate, and scale the room
+        this->customPhysicsObjectStatic::draw3D();      // move to the position, rotate, and scale the room
 
         glBegin(GL_QUADS);
             // ramp
