@@ -21,9 +21,9 @@ void ofApp::setup(){
     this->gameobjects = vector<shared_ptr<customGameObject>>();
 
 
-    test_level(this->gameobjects);
+    //test_level(this->gameobjects);
 
-    //circular_level(this->gameobjects);
+    circular_level(this->gameobjects);
 
     //training_level(this->gameobjects);
 
@@ -128,16 +128,16 @@ void ofApp::keyPressed(int key) {
     }
 
 
-    if (key=='w') {
+    if (key=='w' || key=='W') {
         this->player.walking_forward = true;
     }
-    if (key=='s') {
+    if (key=='s' || key=='S') {
         this->player.walking_backward = true;
     }
-    if (key=='a') {
+    if (key=='a' || key=='A') {
         this->player.walking_left = true;
     }
-    if (key=='d') {
+    if (key=='d' || key=='D') {
         this->player.walking_right = true;
     }
     if (key==OF_KEY_CONTROL) {
@@ -145,6 +145,9 @@ void ofApp::keyPressed(int key) {
     }
     if (key==' ') {
         //this->player.walking_
+    }
+    if (key==OF_KEY_SHIFT) {
+        this->player.running = true;
     }
 
     if (key==OF_KEY_LEFT) {
@@ -170,16 +173,16 @@ void ofApp::keyPressed(int key) {
 
 //--------------------------------------------------------------
 void ofApp::keyReleased(int key){
-    if (key=='w') {
+    if (key=='w' || key=='W') {
         this->player.walking_forward = false;
     }
-    if (key=='s') {
+    if (key=='s' || key=='S') {
         this->player.walking_backward = false;
     }
-    if (key=='a') {
+    if (key=='a' || key=='A') {
         this->player.walking_left = false;
     }
-    if (key=='d') {
+    if (key=='d' || key=='D') {
         this->player.walking_right = false;
     }
     if (key==OF_KEY_CONTROL) {
@@ -187,6 +190,9 @@ void ofApp::keyReleased(int key){
     }
     if (key==' ') {
         //this->player.walking_
+    }
+    if (key==OF_KEY_SHIFT) {
+        this->player.running = false;
     }
 
     if (key==OF_KEY_LEFT) {
