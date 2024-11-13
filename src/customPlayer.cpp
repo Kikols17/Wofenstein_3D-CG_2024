@@ -4,7 +4,7 @@
 
 //--------------------------------------------------------------
 // public
-customPlayer::customPlayer(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale) : customPhysicsObject(_position, _rotation, _scale, vector<customColisionBox>(1, customColisionBox(_position, _rotation, _scale, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5))) {
+customPlayer::customPlayer(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale) : customPhysicsObjectMovable(_position, _rotation, _scale, vector<customColisionBox>(1, customColisionBox(_position, _rotation, _scale, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5))) {
     // run this to set up the object
 
     this->cam = customCamara();
@@ -15,7 +15,7 @@ void customPlayer::update(int viewmode) {
     // run this every cycle
 
     // run the physics update
-    this->customPhysicsObject::update();
+    this->customPhysicsObjectMovable::update();
 
     this->moving(viewmode);
     this->looking(viewmode);
@@ -29,7 +29,7 @@ void customPlayer::update(int viewmode) {
 void customPlayer::draw2D() {
     // draw the player in 2D
     glPushMatrix();
-        this->customPhysicsObject::draw2D();      // move to the position, rotate, and scale the player
+        this->customPhysicsObjectMovable::draw2D();      // move to the position, rotate, and scale the player
         glBegin(GL_QUADS);
             glColor3f(0.0, 0.0, 0.0);
             glVertex3f(0.2, 0, 0.28);
@@ -54,7 +54,7 @@ void customPlayer::draw2D() {
 
 void customPlayer::draw3D() {
     // draw the player in 3D
-    this->customPhysicsObject::draw3D();
+    this->customPhysicsObjectMovable::draw3D();
 }
 
 

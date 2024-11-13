@@ -36,7 +36,7 @@ class customPhysicsObject : public customGameObject {
         vector<customColisionBox> colisionBoxes;
     
 
-    private:
+    protected:
         void applyGravity(uint64_t deltaT);
         void applyVelocity(uint64_t deltaT);
         void applySpin(uint64_t deltaT);
