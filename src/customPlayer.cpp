@@ -73,7 +73,7 @@ void customPlayer::moving(int viewmode) {
     this->velocity = ofVec3f(0, this->velocity.y, 0);
     if (this->walking_forward) {
         if (viewmode == 0) {
-            this->velocity.z += moving_speed;    // 2D
+            this->velocity.z += -moving_speed;      // 2D
         } else {
             this->velocity.x += (this->cam.front * moving_speed).x;   // 3D
             this->velocity.z += (this->cam.front * moving_speed).z;
@@ -83,7 +83,7 @@ void customPlayer::moving(int viewmode) {
 
     if (this->walking_backward) {
         if (viewmode == 0) {
-            this->velocity.z += moving_speed;    // 2D
+            this->velocity.z += moving_speed;       // 2D
         } else {
             this->velocity.x += -(this->cam.front * moving_speed).x;   // 3D
             this->velocity.z += -(this->cam.front * moving_speed).z;
@@ -93,7 +93,7 @@ void customPlayer::moving(int viewmode) {
 
     if (this->walking_left) {
         if (viewmode == 0) {
-            this->velocity.x += moving_speed;    // 2D
+            this->velocity.x += -moving_speed;      // 2D
         } else {
             this->velocity.x += (this->cam.right * moving_speed).x;   // 3D
             this->velocity.z += (this->cam.right * moving_speed).z;
@@ -103,7 +103,7 @@ void customPlayer::moving(int viewmode) {
 
     if (this->walking_right) {
         if (viewmode == 0) {
-            this->velocity.x += -moving_speed;    // 2D
+            this->velocity.x += moving_speed;       // 2D
         } else {
             this->velocity.x += -(this->cam.right * moving_speed).x;   // 3D
             this->velocity.z += -(this->cam.right * moving_speed).z;
