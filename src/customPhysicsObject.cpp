@@ -73,11 +73,11 @@ void customPhysicsObject::applyGravity(uint64_t deltaT) {
 
 void customPhysicsObject::applyVelocity(uint64_t deltaT) {
     // change pos according to velocity
-    this->position += this->velocity * deltaT;
+    this->position += this->velocity * (deltaT/1000.0f);
 }
 
 
 void customPhysicsObject::applySpin(uint64_t deltaT) {
     // change rotation according to spin
-    this->rotation += this->spin * deltaT;
+    this->rotation += this->spin * (deltaT/1000.0f);
 }

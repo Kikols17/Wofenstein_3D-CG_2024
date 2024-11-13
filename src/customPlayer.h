@@ -31,7 +31,7 @@ class customPlayer : public customPhysicsObjectMovable {
         customCamara cam;
         bool onGround = false;
 
-        GLfloat walking_speed = 0.1;    // in units/second
+        GLfloat walking_speed = 2.5;    // in units/second
         int turning_speed = 3;          // in degrees/second
 
         bool walking_forward = false;

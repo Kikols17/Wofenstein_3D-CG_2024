@@ -79,3 +79,12 @@ void customColisionBox::draw3D() {
 }
 
 
+
+
+bool customColisionBox::checkCollision(customColisionBox* other) {
+    // check if this object is colliding with another object using AABB collision detection
+
+    return (this->abs_minX <= other->abs_maxX && this->abs_maxX >= other->abs_minX) &&
+           (this->abs_minY <= other->abs_maxY && this->abs_maxY >= other->abs_minY) &&
+           (this->abs_minZ <= other->abs_maxZ && this->abs_maxZ >= other->abs_minZ);
+}

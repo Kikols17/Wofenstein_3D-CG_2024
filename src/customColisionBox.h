@@ -19,6 +19,9 @@ class customColisionBox : public customGameObject {
         void draw3D() override;
 
 
+        bool checkCollision(customColisionBox* other);
+
+
         using customGameObject::position;
         using customGameObject::rotation;
         using customGameObject::scale;

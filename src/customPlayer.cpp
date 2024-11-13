@@ -63,39 +63,46 @@ void customPlayer::draw3D() {
 void customPlayer::moving(int viewmode) {
     // move the player according to the keys pressed
 
+    this->velocity = ofVec3f(0, this->velocity.y, 0);
     if (this->walking_forward) {
         if (viewmode == 0) {
-            this->position.z -= this->walking_speed;    // 2D
+            this->velocity.z += this->walking_speed;    // 2D
         } else {
-            this->position += this->cam.front * this->walking_speed;    // 3D
+            this->velocity.x += (this->cam.front * this->walking_speed).x;   // 3D
+            this->velocity.z += (this->cam.front * this->walking_speed).z;
         }
     }
+
+
     if (this->walking_backward) {
         if (viewmode == 0) {
-            this->position.z += this->walking_speed;    // 2D
+            this->velocity.z += this->walking_speed;    // 2D
         } else {
-            this->position -= this->cam.front * this->walking_speed;    // 3D
+            this->velocity.x += -(this->cam.front * this->walking_speed).x;   // 3D
+            this->velocity.z += -(this->cam.front * this->walking_speed).z;
         }
     }
+
+
     if (this->walking_left) {
         if (viewmode == 0) {
-            this->position.x -= this->walking_speed;    // 2D
+            this->velocity.x += this->walking_speed;    // 2D
         } else {
-            this->position += this->cam.right * this->walking_speed;    // 3D
+            this->velocity.x += (this->cam.right * this->walking_speed).x;   // 3D
+            this->velocity.z += (this->cam.right * this->walking_speed).z;
         }
     }
+
+
     if (this->walking_right) {
         if (viewmode == 0) {
-            this->position.x += this->walking_speed;    // 2D
+            this->velocity.x += -this->walking_speed;    // 2D
         } else {
-            this->position -= this->cam.right * this->walking_speed;
+            this->velocity.x += -(this->cam.right * this->walking_speed).x;   // 3D
+            this->velocity.z += -(this->cam.right * this->walking_speed).z;
         }
     }
-    if (this->onGround) {
-        if (this->walking_forward || this->walking_backward || this->walking_left || this->walking_right) {
-            // play walking sound
-        }
-    }
+    //cout << this->velocity.x << " " << this->velocity.y << " " << this->velocity.z << endl;
 }
 
 

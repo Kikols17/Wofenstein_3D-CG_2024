@@ -14,9 +14,9 @@ void customPhysicsObjectMovable::update() {
     this->lastUpdateTime = ofGetCurrentTime().getAsMilliseconds();
 
 
-    this->applyGravity(deltaT);
+    //this->applyGravity(deltaT);
     this->applyVelocity(deltaT);
-    this->applySpin(deltaT);
+    //this->applySpin(deltaT);
 
     // update all collision boxes
     int cbsize = (int)this->colisionBoxes.size();
