@@ -88,3 +88,36 @@ bool customColisionBox::checkCollision(customColisionBox* other) {
            (this->abs_minY <= other->abs_maxY && this->abs_maxY >= other->abs_minY) &&
            (this->abs_minZ <= other->abs_maxZ && this->abs_maxZ >= other->abs_minZ);
 }
+
+
+// function from github copilot
+ofVec3f customColisionBox::getCollisionPos(customColisionBox* other, ofVec3f velocity) {
+    // assuming the "other" object is immovable, and that this object is moving with the velocity "velocity"
+    // return the position where the object should be if it were to collide with the "other" object
+
+    // get the distance to the other object
+    GLfloat dx = (this->position.x + velocity.x) - other->position.x;
+    GLfloat dy = (this->position.y + velocity.y) - other->position.y;
+    GLfloat dz = (this->position.z + velocity.z) - other->position.z;
+
+    // get the distance to the other object
+    GLfloat distX = (this->abs_maxX - this->abs_minX) / 2 + (other->abs_maxX - other->abs_minX) / 2;
+    GLfloat distY = (this->abs_maxY - this->abs_minY) / 2 + (other->abs_maxY - other->abs_minY) / 2;
+    GLfloat distZ = (this->abs_maxZ - this->abs_minZ) / 2 + (other->abs_maxZ - other->abs_minZ) / 2;
+
+    // get the overlap
+    GLfloat overlapX = distX - abs(dx);
+    GLfloat overlapY = distY - abs(dy);
+    GLfloat overlapZ = distZ - abs(dz);
+
+    // get the smallest overlap
+    if (overlapX < overlapY && overlapX < overlapZ) {
+        return ofVec3f(overlapX * (dx < 0 ? -1 : 1), 0, 0);
+    } else if (overlapY < overlapX && overlapY < overlapZ) {
+        return ofVec3f(0, overlapY * (dy < 0 ? -1 : 1), 0);
+    } else {
+        return ofVec3f(0, 0, overlapZ * (dz < 0 ? -1 : 1));
+    }
+
+    return ofVec3f(0, 0, 0);
+}

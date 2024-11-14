@@ -20,6 +20,7 @@ class customColisionBox : public customGameObject {
 
 
         bool checkCollision(customColisionBox* other);
+        ofVec3f getCollisionPos(customColisionBox* other, ofVec3f velocity);
 
 
         using customGameObject::position;
