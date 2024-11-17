@@ -31,15 +31,22 @@ void customPhysicsObjectMovable::update() {
         for (int j=0; j<glcbsize; j++) {
             if (this->colisionBoxes[i] != globalcolisionBoxes[j]) {
                 // make sure the collision box is not colliding with itself
-                //cout << globalcolisionBoxes[j] << " ";
-                //cout <<(this->colisionBoxes[i]->checkCollision(globalcolisionBoxes[j], this->velocity, deltaT) == true) << endl;
-                //cout << colisionBoxes[i]->abs_minX+(this->velocity.x*(deltaT/1000)) << " " << colisionBoxes[i]->abs_maxX+(this->velocity.x*(deltaT/1000)) << endl;
-                if (this->colisionBoxes[i]->checkCollision(globalcolisionBoxes[j], this->velocity, deltaT)) {
-                    //cout << "1" << endl;
-                    //this->velocity = ofVec3f(0, 0, 0);
-                    this->velocity = this->colisionBoxes[i]->checkCollision_SetVelocity(globalcolisionBoxes[j], this->velocity, deltaT);
+
+                int gsize = (int)this->colisionBoxes[i]->groups.size();
+                for (int k=0; k<gsize; k++) {
+                    if (this->colisionBoxes[i]->groups[k] == globalcolisionBoxes[j]->group) {
+                        // make sure that the other object is in the group that this object is looking for collisions with
+                        //cout << "collision detected" << endl;
+                        //cout << this->colisionBoxes[i]->abs_minX+(this->velocity.x*(deltaT/1000)) << " " << this->colisionBoxes[i]->abs_maxX+(this->velocity.x*(deltaT/1000)) << endl;
+                        if (this->colisionBoxes[i]->checkCollision(globalcolisionBoxes[j], this->velocity, deltaT)) {
+                            //cout << "1" << endl;
+                            //this->velocity = ofVec3f(0, 0, 0);
+                            this->velocity = this->colisionBoxes[i]->checkCollision_SetVelocity(globalcolisionBoxes[j], this->velocity, deltaT);
+                        }
+                    }
                 }
                 //cout << "collision detected" << endl;
+
             }
         }
     }

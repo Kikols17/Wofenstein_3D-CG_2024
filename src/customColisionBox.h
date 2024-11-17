@@ -11,7 +11,7 @@
 class customColisionBox : public customGameObject {
 
     public:
-        customColisionBox(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, GLfloat _minX, GLfloat _minY, GLfloat _minZ, GLfloat _maxX, GLfloat _maxY, GLfloat _maxZ);
+        customColisionBox(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, int group, vector<int> groups, GLfloat _minX, GLfloat _minY, GLfloat _minZ, GLfloat _maxX, GLfloat _maxY, GLfloat _maxZ);
 
         void update() override;
 
@@ -46,6 +46,9 @@ class customColisionBox : public customGameObject {
         GLfloat abs_maxX;
         GLfloat abs_maxY;
         GLfloat abs_maxZ;
+
+        int group;          // group number of this object
+        vector<int> groups;     // group numbers of objects that this object is looking for collisions with
 };
 
 #endif

@@ -5,7 +5,7 @@ extern vector<customColisionBox*> globalcolisionBoxes;
 
 
 //--------------------------------------------------------------
-customColisionBox::customColisionBox(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, GLfloat _minX, GLfloat _minY, GLfloat _minZ, GLfloat _maxX, GLfloat _maxY, GLfloat _maxZ) : customGameObject(_position, _rotation, _scale) {
+customColisionBox::customColisionBox(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, int _group, vector<int> _groups, GLfloat _minX, GLfloat _minY, GLfloat _minZ, GLfloat _maxX, GLfloat _maxY, GLfloat _maxZ) : customGameObject(_position, _rotation, _scale) {
     // run this to set up the object
 
     this->rel_minX = _minX * _scale.x;
@@ -40,6 +40,9 @@ customColisionBox::customColisionBox(ofVec3f _position, ofVec3f _rotation, ofVec
         this->rel_minZ = this->rel_maxZ;
         this->rel_maxZ = temp;
     }
+
+    this->group = _group;
+    this->groups = _groups;
 
     this->update();
     //cout << "collision box created " << this << endl;
