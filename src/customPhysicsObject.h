@@ -16,7 +16,7 @@ class customPhysicsObject : public customGameObject {
 
     public:
         customPhysicsObject(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale);
-        customPhysicsObject(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, vector<customColisionBox> _colisionBoxes);
+        customPhysicsObject(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, vector<customColisionBox*> _colisionBoxes);
 
         void update() override;
 
@@ -33,7 +33,7 @@ class customPhysicsObject : public customGameObject {
         ofVec3f spin = ofVec3f(0, 0, 0);
 
 
-        vector<customColisionBox> colisionBoxes;
+        vector<customColisionBox*> colisionBoxes;
     
 
     protected:

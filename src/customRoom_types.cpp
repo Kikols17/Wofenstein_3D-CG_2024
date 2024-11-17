@@ -56,7 +56,7 @@ void customRoom_axis::draw3D() {
 //--------------------------------------------------------------
 // customRoom_hallway
 //--------------------------------------------------------------
-customRoom_hallway::customRoom_hallway(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale) : customPhysicsObjectStatic(_position, _rotation, _scale, vector<customColisionBox>({customColisionBox(_position, _rotation, _scale, -0.52, 0.0, -0.5, -0.48, 1.0, 0.5), customColisionBox(_position, _rotation, _scale, 0.48, 0.0, -0.5, 0.52, 1.0, 0.5), customColisionBox(_position, _rotation, _scale, -0.5, -0.04, -0.5, 0.5, 0.0, 0.5), customColisionBox(_position, _rotation, _scale, -0.5, 1.0, -0.5, 0.5, 1.04, 0.5)})) {
+customRoom_hallway::customRoom_hallway(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale) : customPhysicsObjectStatic(_position, _rotation, _scale, vector<customColisionBox*>({new customColisionBox(_position, _rotation, _scale, -0.52, 0.0, -0.5, -0.48, 1.0, 0.5), new customColisionBox(_position, _rotation, _scale, 0.48, 0.0, -0.5, 0.52, 1.0, 0.5), new customColisionBox(_position, _rotation, _scale, -0.5, -0.04, -0.5, 0.5, 0.0, 0.5), new customColisionBox(_position, _rotation, _scale, -0.5, 1.0, -0.5, 0.5, 1.04, 0.5)})) {
     // run this to set up the object
 }
 
@@ -140,7 +140,7 @@ void customRoom_hallway::draw3D() {
 //--------------------------------------------------------------
 // customRoom_Thallway
 //--------------------------------------------------------------
-customRoom_Thallway::customRoom_Thallway(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale) : customPhysicsObjectStatic(_position, _rotation, _scale, vector<customColisionBox>( {customColisionBox(_position, _rotation, _scale, -0.5, 0.0, -0.52, 0.5, 1.0, -0.48), customColisionBox(_position, _rotation, _scale, -0.5, -0.04, -0.5, 0.5, 0.0, 0.5), customColisionBox(_position, _rotation, _scale, -0.5, 1.0, -0.5, 0.5, 1.04, 0.5)} )) {
+customRoom_Thallway::customRoom_Thallway(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale) : customPhysicsObjectStatic(_position, _rotation, _scale, vector<customColisionBox*>( {new customColisionBox(_position, _rotation, _scale, -0.5, 0.0, -0.52, 0.5, 1.0, -0.48), new customColisionBox(_position, _rotation, _scale, -0.5, -0.04, -0.5, 0.5, 0.0, 0.5), new customColisionBox(_position, _rotation, _scale, -0.5, 1.0, -0.5, 0.5, 1.04, 0.5)} )) {
     // run this to set up the object
 }
 void customRoom_Thallway::draw2D() {
@@ -229,7 +229,7 @@ void customRoom_Thallway::draw3D() {
 //--------------------------------------------------------------
 // customRoom_Lhallway
 //--------------------------------------------------------------
-customRoom_Lhallway::customRoom_Lhallway(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale) : customPhysicsObjectStatic(_position, _rotation, _scale, vector<customColisionBox>( {customColisionBox(_position, _rotation, _scale, -0.52, 0.0, -0.5, -0.48, 1.0, 0.5), customColisionBox(_position, _rotation, _scale, -0.5, 0.0, -0.52, 0.5, 1.0, -0.48), customColisionBox(_position, _rotation, _scale, -0.5, -0.04, -0.5, 0.5, 0.0, 0.5), customColisionBox(_position, _rotation, _scale, -0.5, 1.0, -0.5, 0.5, 1.04, 0.5)} )) {
+customRoom_Lhallway::customRoom_Lhallway(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale) : customPhysicsObjectStatic(_position, _rotation, _scale, vector<customColisionBox*>( {new customColisionBox(_position, _rotation, _scale, -0.52, 0.0, -0.5, -0.48, 1.0, 0.5), new customColisionBox(_position, _rotation, _scale, -0.5, 0.0, -0.52, 0.5, 1.0, -0.48), new customColisionBox(_position, _rotation, _scale, -0.5, -0.04, -0.5, 0.5, 0.0, 0.5), new customColisionBox(_position, _rotation, _scale, -0.5, 1.0, -0.5, 0.5, 1.04, 0.5)} )) {
     // run this to set up the object
 }
 void customRoom_Lhallway::draw2D() {
@@ -322,7 +322,7 @@ void customRoom_Lhallway::draw3D() {
 //--------------------------------------------------------------
 // customRoom_Xhallway
 //--------------------------------------------------------------
-customRoom_Xhallway::customRoom_Xhallway(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale) : customPhysicsObjectStatic(_position, _rotation, _scale, vector<customColisionBox>( {customColisionBox(_position, _rotation, _scale, -0.5, -0.04, -0.5, 0.5, 0.0, 0.5), customColisionBox(_position, _rotation, _scale, -0.5, 1.0, -0.5, 0.5, 1.04, 0.5)} )) {
+customRoom_Xhallway::customRoom_Xhallway(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale) : customPhysicsObjectStatic(_position, _rotation, _scale, vector<customColisionBox*>( {new customColisionBox(_position, _rotation, _scale, -0.5, -0.04, -0.5, 0.5, 0.0, 0.5), new customColisionBox(_position, _rotation, _scale, -0.5, 1.0, -0.5, 0.5, 1.04, 0.5)} )) {
     // run this to set up the object
 }
 void customRoom_Xhallway::draw2D() {
@@ -417,7 +417,7 @@ void customRoom_Xhallway::draw3D() {
 //--------------------------------------------------------------
 // customRoom_wall
 //--------------------------------------------------------------
-customRoom_wall::customRoom_wall(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale) : customPhysicsObjectStatic(_position, _rotation, _scale, vector<customColisionBox>( {customColisionBox(_position, _rotation, _scale, -0.5, 0.0, -0.5, 0.5, 1.0, 0.5)} )) {
+customRoom_wall::customRoom_wall(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale) : customPhysicsObjectStatic(_position, _rotation, _scale, vector<customColisionBox*>( {new customColisionBox(_position, _rotation, _scale, -0.5, 0.0, -0.5, 0.5, 1.0, 0.5)} )) {
     // run this to set up the object
 }
 void customRoom_wall::draw2D() {
@@ -498,7 +498,7 @@ void customRoom_wall::draw3D() {
 //--------------------------------------------------------------
 // customRoom_deadend
 //--------------------------------------------------------------
-customRoom_deadend::customRoom_deadend(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale) : customPhysicsObjectStatic(_position, _rotation, _scale, vector<customColisionBox>( {customColisionBox(_position, _rotation, _scale, -0.52, 0.0, -0.5, -0.48, 1.0, 0.5), customColisionBox(_position, _rotation, _scale, -0.5, 0.0, -0.52, 0.5, 1.0, -0.48), customColisionBox(_position, _rotation, _scale, 0.48, 0.0, -0.5, 0.52, 1.0, 0.5), customColisionBox(_position, _rotation, _scale, -0.5, -0.04, -0.5, 0.5, 0.0, 0.5), customColisionBox(_position, _rotation, _scale, -0.5, 1.0, -0.5, 0.5, 1.04, 0.5)} )) {
+customRoom_deadend::customRoom_deadend(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale) : customPhysicsObjectStatic(_position, _rotation, _scale, vector<customColisionBox*>( {new customColisionBox(_position, _rotation, _scale, -0.52, 0.0, -0.5, -0.48, 1.0, 0.5), new customColisionBox(_position, _rotation, _scale, -0.5, 0.0, -0.52, 0.5, 1.0, -0.48), new customColisionBox(_position, _rotation, _scale, 0.48, 0.0, -0.5, 0.52, 1.0, 0.5), new customColisionBox(_position, _rotation, _scale, -0.5, -0.04, -0.5, 0.5, 0.0, 0.5), new customColisionBox(_position, _rotation, _scale, -0.5, 1.0, -0.5, 0.5, 1.04, 0.5)} )) {
     // run this to set up the object
 }
 void customRoom_deadend::draw2D() {

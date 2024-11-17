@@ -19,8 +19,9 @@ class customColisionBox : public customGameObject {
         void draw3D() override;
 
 
-        bool checkCollision(customColisionBox* other);
-        ofVec3f getCollisionPos(customColisionBox* other, ofVec3f velocity);
+        ofVec3f checkCollision_SetVelocity(customColisionBox* other, ofVec3f velocity, uint64_t deltaT);
+        bool checkCollision(customColisionBox* other, ofVec3f velocity, uint64_t deltaT);
+        ofVec3f getCollisionPos(customColisionBox* other, ofVec3f velocity, uint64_t deltaT);
 
 
         using customGameObject::position;

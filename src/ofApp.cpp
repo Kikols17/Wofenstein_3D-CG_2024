@@ -1,6 +1,9 @@
 #include "ofApp.h"
 
 
+vector<customColisionBox*> globalcolisionBoxes;
+
+
 //--------------------------------------------------------------
 void ofApp::setup(){
     
@@ -12,9 +15,10 @@ void ofApp::setup(){
 	glPointSize(5);
 	glLineWidth(3);
 
+    globalcolisionBoxes = vector<customColisionBox*>({}); 
 
     // setup the player
-    this->player = customPlayer(ofVec3f(0, 0.75, 0), ofVec3f(0, 0, 0), ofVec3f(1, 1.5, 1));
+    this->player = customPlayer(ofVec3f(0, 0.80, 0), ofVec3f(0, 0, 0), ofVec3f(1, 1.5, 1));
     this->cam = &(this->player.cam);
 
     // setup the gameobjects
@@ -26,7 +30,6 @@ void ofApp::setup(){
     circular_level(this->gameobjects);
 
     //training_level(this->gameobjects);
-
 
 }
 

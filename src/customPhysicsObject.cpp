@@ -4,9 +4,9 @@
 
 //--------------------------------------------------------------
 // public
-customPhysicsObject::customPhysicsObject(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale) : customPhysicsObject(_position, _rotation, _scale, vector<customColisionBox>()) {
+customPhysicsObject::customPhysicsObject(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale) : customPhysicsObject(_position, _rotation, _scale, vector<customColisionBox*>({})) {
 }
-customPhysicsObject::customPhysicsObject(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, vector<customColisionBox> _colisionBoxes) : customGameObject(_position, _rotation, _scale) {
+customPhysicsObject::customPhysicsObject(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, vector<customColisionBox*> _colisionBoxes) : customGameObject(_position, _rotation, _scale) {
     // run this to set up the object
 
     this->velocity = ofVec3f(0, 0, 0);
@@ -37,8 +37,8 @@ void customPhysicsObject::update() {
     // update all collision boxes
     int cbsize = (int)this->colisionBoxes.size();
     for (int i=0; i<cbsize; i++) {
-        this->colisionBoxes[i].position = this->position;
-        this->colisionBoxes[i].update();
+        this->colisionBoxes[i]->position = this->position;
+        this->colisionBoxes[i]->update();
     }
 }
 
@@ -47,7 +47,7 @@ void customPhysicsObject::draw3D() {
     // draw all collision boxes
     int cbsize = (int)this->colisionBoxes.size();
     for (int i=0; i<cbsize; i++) {
-        this->colisionBoxes[i].draw3D();
+        this->colisionBoxes[i]->draw3D();
     }
 
     this->customGameObject::draw3D();

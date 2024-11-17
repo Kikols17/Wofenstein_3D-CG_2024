@@ -4,6 +4,7 @@
 
 #include "customGameObject.h"
 #include "customPhysicsObject.h"
+#include "customColisionBox.h"
 
 #include "ofMain.h"
 
