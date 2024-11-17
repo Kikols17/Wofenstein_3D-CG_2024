@@ -36,8 +36,8 @@ void customPhysicsObjectMovable::update() {
                 //cout << colisionBoxes[i]->abs_minX+(this->velocity.x*(deltaT/1000)) << " " << colisionBoxes[i]->abs_maxX+(this->velocity.x*(deltaT/1000)) << endl;
                 if (this->colisionBoxes[i]->checkCollision(globalcolisionBoxes[j], this->velocity, deltaT)) {
                     //cout << "1" << endl;
-                    this->velocity = ofVec3f(0, 0, 0);
-                    //this->velocity = this->colisionBoxes[i]->checkCollision_SetVelocity(globalcolisionBoxes[j], this->velocity, deltaT);
+                    //this->velocity = ofVec3f(0, 0, 0);
+                    this->velocity = this->colisionBoxes[i]->checkCollision_SetVelocity(globalcolisionBoxes[j], this->velocity, deltaT);
                 }
                 //cout << "collision detected" << endl;
             }

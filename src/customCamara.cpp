@@ -34,7 +34,7 @@ void customCamara::draw2D() {
 
 void customCamara::draw3D() {
     // apply the 3D camera's transformations
-    perspective((GLfloat)60.0, (GLfloat)1700.0, (GLfloat)2000.0);
+    perspective((GLfloat)60.0, (GLfloat)2999.0, (GLfloat)3000.0);
     lookat(this->pos.x, this->pos.y, this->pos.z, this->target.x, this->target.y, this->target.z, this->up.x, this->up.y, this->up.z);
 }
 

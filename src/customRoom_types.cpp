@@ -334,10 +334,10 @@ void customRoom_Xhallway::draw2D() {
         glBegin(GL_QUADS);
             // floor
             glColor3f(0.6, 0.4, 0.2);
-            glVertex3f(-0.5, 0, -0.5);
-            glVertex3f(0.5, 0, -0.5);
-            glVertex3f(0.5, 0, 0.5);
-            glVertex3f(-0.5, 0, 0.5);
+            glVertex3f(-0.5, -0.1, -0.5);
+            glVertex3f(0.5, -0.1, -0.5);
+            glVertex3f(0.5, -0.1, 0.5);
+            glVertex3f(-0.5, -0.1, 0.5);
         glEnd();
 
         glBegin(GL_POINTS);
@@ -595,6 +595,9 @@ void customRoom_deadend::draw3D() {
 //--------------------------------------------------------------
 // customRoom_fightingroom
 //--------------------------------------------------------------
+customRoom_fightingroom::customRoom_fightingroom(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale) : customPhysicsObjectStatic(_position, _rotation, _scale, vector<customColisionBox*>( { new customColisionBox(_position, _rotation, _scale, -2.5, -0.04, -2.5, 2.5, 0.0, 2.5), new customColisionBox(_position, _rotation, _scale, -2.5, 1.0, -2.5, 2.5, 1.04, 2.5), new customColisionBox(_position, _rotation, _scale, -1.5, 0.0, 2.48, -0.5, 1.0, 2.52), new customColisionBox(_position, _rotation, _scale, 0.5, 0.0, 2.48, 1.5, 1.0, 2.52), new customColisionBox(_position, _rotation, _scale, -1.5, 0.0, -2.52, -0.5, 1.0, -2.48), new customColisionBox(_position, _rotation, _scale, 0.5, 0.0, -2.52, 1.5, 1.0, -2.48), new customColisionBox(_position, _rotation, _scale, -2.52, 0.0, -1.5, -2.48, 1.0, -0.5), new customColisionBox(_position, _rotation, _scale, -2.52, 0.0, 0.5, -2.48, 1.0, 1.5), new customColisionBox(_position, _rotation, _scale, 2.48, 0.0, -1.5, 2.52, 1.0, -0.5), new customColisionBox(_position, _rotation, _scale, 2.48, 0.0, 0.5, 2.52, 1.0, 1.5)} )) {
+    // run this to set up the object
+}
 void customRoom_fightingroom::draw2D() {
     // run this every draw cycle
     

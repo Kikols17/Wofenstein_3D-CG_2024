@@ -106,7 +106,7 @@ class customRoom_fightingroom : public customPhysicsObjectStatic {
     // fighting room, 5x1x5 block, 4 doors, one in the center of each wall
     
     public:
-        using customPhysicsObjectStatic::customPhysicsObjectStatic;
+        customRoom_fightingroom(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale);
 
         using customPhysicsObjectStatic::update;
 

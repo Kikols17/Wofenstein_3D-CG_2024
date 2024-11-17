@@ -108,9 +108,43 @@ void customColisionBox::draw3D() {
 ofVec3f customColisionBox::checkCollision_SetVelocity(customColisionBox* other, ofVec3f velocity, uint64_t deltaT) {
     // check if this object is colliding with another object using AABB collision detection
 
-    return ofVec3f( velocity.x*!((this->abs_minX+velocity.x*(deltaT/1000.0f) < other->abs_maxX)  &&  (this->abs_maxX+velocity.x*(deltaT/1000.0f) > other->abs_minX)),
-                    velocity.y*!((this->abs_minY+velocity.y*(deltaT/1000.0f) < other->abs_maxY)  &&  (this->abs_maxY+velocity.y*(deltaT/1000.0f) > other->abs_minY)),
-                    velocity.z*!((this->abs_minZ+velocity.z*(deltaT/1000.0f) < other->abs_maxZ)  &&  (this->abs_maxZ+velocity.z*(deltaT/1000.0f) > other->abs_minZ)) );
+    //use AABB collision detection to get with which side the object is colliding
+    //the side that is colliding is the one that will be set to 0
+
+    GLfloat k_x1 = (other->abs_minX - this->abs_maxX) / velocity.x;
+    GLfloat k_y1 = (other->abs_minY - this->abs_maxY) / velocity.y;
+    GLfloat k_z1 = (other->abs_minZ - this->abs_maxZ) / velocity.z;
+    cout << k_x1 << " " << k_y1 << " " << k_z1 << endl;
+
+    GLfloat k_x2 = (other->abs_maxX - this->abs_minX) / velocity.x;
+    GLfloat k_y2 = (other->abs_maxY - this->abs_minY) / velocity.y;
+    GLfloat k_z2 = (other->abs_maxZ - this->abs_minZ) / velocity.z;
+    cout << k_x2 << " " << k_y2 << " " << k_z2 << endl;
+
+
+    ofVec3f new_velocity = velocity;
+    if (k_x1 > 0 && k_x1 < deltaT) {
+        new_velocity.x = 0;
+    }
+    if (k_y1 > 0 && k_y1 < deltaT) {
+        new_velocity.y = 0;
+    }
+    if (k_z1 > 0 && k_z1 < deltaT) {
+        new_velocity.z = 0;
+    }
+
+    if (k_x2 > 0 && k_x2 < deltaT) {
+        new_velocity.x = 0;
+    }
+    if (k_y2 > 0 && k_y2 < deltaT) {
+        new_velocity.y = 0;
+    }
+    if (k_z2 > 0 && k_z2 < deltaT) {
+        new_velocity.z = 0;
+    }
+    cout << new_velocity.x << " " << new_velocity.y << " " << new_velocity.z << endl << endl;
+
+    return new_velocity;
 }
 
 
