@@ -11,6 +11,8 @@ void circular_level(vector<shared_ptr<customGameObject>> &gameobjects);
 
 void training_level(vector<shared_ptr<customGameObject>> &gameobjects);
 
+void excapefromwolfenstein_level(vector<shared_ptr<customGameObject>> &gameobjects);
+
 
 
 #endif

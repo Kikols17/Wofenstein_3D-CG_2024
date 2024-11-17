@@ -18,7 +18,7 @@ void ofApp::setup(){
     globalcolisionBoxes = vector<customColisionBox*>({}); 
 
     // setup the player
-    this->player = customPlayer(ofVec3f(0, 0.80, 0), ofVec3f(0, 0, 0), ofVec3f(1, 1.5, 1));
+    this->player = customPlayer(ofVec3f(0, 0.80, 0), ofVec3f(0, 0, 0), ofVec3f(0.7, 1.5, 0.7));
     this->cam = &(this->player.cam);
 
     // setup the gameobjects
@@ -27,9 +27,11 @@ void ofApp::setup(){
 
     //test_level(this->gameobjects);
 
-    circular_level(this->gameobjects);
+    //circular_level(this->gameobjects);
 
     //training_level(this->gameobjects);
+
+    excapefromwolfenstein_level(this->gameobjects);
 
 }
 

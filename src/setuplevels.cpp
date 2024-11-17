@@ -306,3 +306,137 @@ void training_level(vector<shared_ptr<customGameObject>> &gameobjects) {
     gameobjects.push_back(wall);
 
 }
+
+
+
+void excapefromwolfenstein_level(vector<shared_ptr<customGameObject>> &gameobjects) {
+
+    // clear vector
+    gameobjects.clear();
+    
+    //-------------------------------------------------------
+    // initial sector
+    shared_ptr <customRoom_Xhallway> Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(10, 0, 0), ofVec3f(0, 0, 0), ofVec3f(2*13, 2, 2*13) );
+    gameobjects.push_back(Xhallway);
+
+    // left wall
+    shared_ptr <customRoom_wall> wall = make_shared<customRoom_wall>( ofVec3f(-4, 0, 0), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2*13) );
+    gameobjects.push_back(wall);
+
+    // front wall
+    wall = make_shared<customRoom_wall>( ofVec3f(10, 0, 12), ofVec3f(0, 0, 0), ofVec3f(2*13, 2, 2) );
+    gameobjects.push_back(wall);
+
+    // right wall
+    wall = make_shared<customRoom_wall>( ofVec3f(24, 0, 0), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2*13) );
+    gameobjects.push_back(wall);
+
+    // back-left wall
+    wall = make_shared<customRoom_wall>( ofVec3f(2, 0, -14), ofVec3f(0, 0, 0), ofVec3f(2*7, 2, 2) );
+    gameobjects.push_back(wall);
+
+    // back-right wall
+    wall = make_shared<customRoom_wall>( ofVec3f(18, 0, -14), ofVec3f(0, 0, 0), ofVec3f(2*7, 2, 2) );
+    gameobjects.push_back(wall);
+
+
+
+    // initial prison cell
+    wall = make_shared<customRoom_wall>( ofVec3f(2, 0, -4), ofVec3f(0, 0, 0), ofVec3f(2*5, 2, 2) );
+    gameobjects.push_back(wall);
+
+    wall = make_shared<customRoom_wall>( ofVec3f(2, 0, 4), ofVec3f(0, 0, 0), ofVec3f(2*5, 2, 2) );
+    gameobjects.push_back(wall);
+
+    wall = make_shared<customRoom_wall>( ofVec3f(6, 0, -2), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+    gameobjects.push_back(wall); 
+
+    wall = make_shared<customRoom_wall>( ofVec3f(6, 0, 2), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+    gameobjects.push_back(wall);
+
+
+
+    // second prison cell
+    wall = make_shared<customRoom_wall>( ofVec3f(18, 0, -4), ofVec3f(0, 0, 0), ofVec3f(2*5, 2, 2) );
+    gameobjects.push_back(wall);
+
+    wall = make_shared<customRoom_wall>( ofVec3f(18, 0, 4), ofVec3f(0, 0, 0), ofVec3f(2*5, 2, 2) );
+    gameobjects.push_back(wall);
+
+    wall = make_shared<customRoom_wall>( ofVec3f(14, 0, -2), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+    gameobjects.push_back(wall); 
+
+    wall = make_shared<customRoom_wall>( ofVec3f(14, 0, 2), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+    gameobjects.push_back(wall);
+
+
+
+    // third prison cell
+    wall = make_shared<customRoom_wall>( ofVec3f(6, 0, -6), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2*3) );
+    gameobjects.push_back(wall);
+
+    wall = make_shared<customRoom_wall>( ofVec3f(6, 0, -12), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+    gameobjects.push_back(wall);
+
+    
+
+    // fourth prison cell
+    wall = make_shared<customRoom_wall>( ofVec3f(2*7, 0, -2*3), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2*3) );
+    gameobjects.push_back(wall);
+
+    wall = make_shared<customRoom_wall>( ofVec3f(2*7, 0, -2*6), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+    gameobjects.push_back(wall);
+
+
+
+
+
+    //-------------------------------------------------------
+    // first corridor
+    Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*5, 0, -2*13), ofVec3f(0, 0, 0), ofVec3f(2*5, 2, 2*13) );
+    gameobjects.push_back(Xhallway);
+
+    wall = make_shared<customRoom_wall>( ofVec3f(2*3, 0, -2*13), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2*13) );
+    gameobjects.push_back(wall);
+
+    wall = make_shared<customRoom_wall>( ofVec3f(2*7, 0, -2*13), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2*13) );
+    gameobjects.push_back(wall);
+
+    wall = make_shared<customRoom_wall>( ofVec3f(2*4, 0, -2*19), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+    gameobjects.push_back(wall);
+
+    wall = make_shared<customRoom_wall>( ofVec3f(2*6, 0, -2*19), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+    gameobjects.push_back(wall);
+
+
+
+
+
+    //-------------------------------------------------------
+    // central lobby
+    Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*5, 0, -2*24), ofVec3f(0, 0, 0), ofVec3f(2*15, 2, 2*9) );
+    gameobjects.push_back(Xhallway);
+
+    wall = make_shared<customRoom_wall>( ofVec3f(0, 0, -2*20), ofVec3f(0, 0, 0), ofVec3f(2*5, 2, 2) );
+    gameobjects.push_back(wall);
+    wall = make_shared<customRoom_wall>( ofVec3f(2*10, 0, -2*20), ofVec3f(0, 0, 0), ofVec3f(2*5, 2, 2) );
+    gameobjects.push_back(wall);
+
+    wall = make_shared<customRoom_wall>( ofVec3f(-2*3, 0, -2*24), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2*9) );
+    gameobjects.push_back(wall);
+
+    wall = make_shared<customRoom_wall>( ofVec3f(0, 0, -2*28), ofVec3f(0, 0, 0), ofVec3f(2*5, 2, 2) );
+    gameobjects.push_back(wall);
+    wall = make_shared<customRoom_wall>( ofVec3f(2*10, 0, -2*28), ofVec3f(0, 0, 0), ofVec3f(2*5, 2, 2) );
+    gameobjects.push_back(wall);
+
+    wall = make_shared<customRoom_wall>( ofVec3f(2*13, 0, -2*21), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2*3) );
+    gameobjects.push_back(wall);
+    wall = make_shared<customRoom_wall>( ofVec3f(2*13, 0, -2*27), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2*3) );
+    gameobjects.push_back(wall);
+
+
+
+
+
+}
