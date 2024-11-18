@@ -41,7 +41,7 @@ GLfloat hitscan_distance(ofVec3f start, ofVec3f dir, vector<int> groups) {
             }
             break;
         }
-        
+
     }
     return min_t;
 }
@@ -49,6 +49,7 @@ GLfloat hitscan_distance(ofVec3f start, ofVec3f dir, vector<int> groups) {
 
 
 
+/* [ATENÇÃO] Função adaptada de "https://gdbooks.gitbooks.io/3dcollisions/content/Chapter3/raycast_aabb.html" */
 GLfloat raycast(ofVec3f start, ofVec3f dir, customColisionBox* colisionBox) {
     GLfloat t1 = (colisionBox->abs_minX - start.x) / dir.x;
     GLfloat t2 = (colisionBox->abs_maxX - start.x) / dir.x;
