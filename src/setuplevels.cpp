@@ -363,29 +363,38 @@ void excapefromwolfenstein_level(vector<shared_ptr<customGameObject>> &gameobjec
     wall = make_shared<customRoom_wall>( ofVec3f(6, 0, 2), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
     gameobjects.push_back(wall);
 
+    shared_ptr<customRoom_door> door = make_shared<customRoom_door>( ofVec3f(2*3, 0, 0), ofVec3f(0, 90, 0), ofVec3f(2, 2, 2) );
+    gameobjects.push_back(door);
+
 
 
     // second prison cell
-    wall = make_shared<customRoom_wall>( ofVec3f(18, 0, -4), ofVec3f(0, 0, 0), ofVec3f(2*5, 2, 2) );
+    wall = make_shared<customRoom_wall>( ofVec3f(2*9, 0, -4), ofVec3f(0, 0, 0), ofVec3f(2*5, 2, 2) );
     gameobjects.push_back(wall);
 
-    wall = make_shared<customRoom_wall>( ofVec3f(18, 0, 4), ofVec3f(0, 0, 0), ofVec3f(2*5, 2, 2) );
+    wall = make_shared<customRoom_wall>( ofVec3f(2*9, 0, 4), ofVec3f(0, 0, 0), ofVec3f(2*5, 2, 2) );
     gameobjects.push_back(wall);
 
-    wall = make_shared<customRoom_wall>( ofVec3f(14, 0, -2), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+    wall = make_shared<customRoom_wall>( ofVec3f(2*7, 0, -2), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
     gameobjects.push_back(wall); 
 
-    wall = make_shared<customRoom_wall>( ofVec3f(14, 0, 2), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+    wall = make_shared<customRoom_wall>( ofVec3f(2*7, 0, 2), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
     gameobjects.push_back(wall);
+
+    door = make_shared<customRoom_door>( ofVec3f(2*7, 0, 0), ofVec3f(0, 270, 0), ofVec3f(2, 2, 2) );
+    gameobjects.push_back(door);
 
 
 
     // third prison cell
-    wall = make_shared<customRoom_wall>( ofVec3f(6, 0, -6), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2*3) );
+    wall = make_shared<customRoom_wall>( ofVec3f(2*3, 0, -2*3), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2*3) );
     gameobjects.push_back(wall);
 
-    wall = make_shared<customRoom_wall>( ofVec3f(6, 0, -12), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+    wall = make_shared<customRoom_wall>( ofVec3f(2*3, 0, -2*6), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
     gameobjects.push_back(wall);
+
+    door = make_shared<customRoom_door>( ofVec3f(2*3, 0, -2*5), ofVec3f(0, 90, 0), ofVec3f(2, 2, 2) );
+    gameobjects.push_back(door);
 
     
 
@@ -395,6 +404,9 @@ void excapefromwolfenstein_level(vector<shared_ptr<customGameObject>> &gameobjec
 
     wall = make_shared<customRoom_wall>( ofVec3f(2*7, 0, -2*6), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
     gameobjects.push_back(wall);
+
+    door = make_shared<customRoom_door>( ofVec3f(2*7, 0, -2*5), ofVec3f(0, 270, 0), ofVec3f(2, 2, 2) );
+    gameobjects.push_back(door);
 
 
 
@@ -416,6 +428,12 @@ void excapefromwolfenstein_level(vector<shared_ptr<customGameObject>> &gameobjec
 
     wall = make_shared<customRoom_wall>( ofVec3f(2*6, 0, -2*19), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
     gameobjects.push_back(wall);
+
+    door = make_shared<customRoom_door>( ofVec3f(2*5, 0, -2*19), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+    gameobjects.push_back(door);
+
+    door = make_shared<customRoom_door>( ofVec3f(2*5, 0, -2*7), ofVec3f(0, 180, 0), ofVec3f(2, 2, 2) );
+    gameobjects.push_back(door);
 
 
 

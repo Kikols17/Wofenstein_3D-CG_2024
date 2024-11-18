@@ -900,7 +900,7 @@ void customRoom_door::update() {
     this->customPhysicsObjectStatic::update();      // update the position, rotation, and scale of the room
 
     if (this->open) {
-        if (this->open_percent < 1.0f) {
+        if (this->open_percent < 0.99f) {
             this->open_percent += 0.01f;
             this->position = this->position + (0.01 * this->scale.x) * rotateY(ofVec3f(1, 0, 0), glm::radians(this->rotation.y));
         } else {
@@ -914,6 +914,11 @@ void customRoom_door::update() {
             this->open = true;
         }
     }
+
+    for (int i = 0; i < (int)this->colisionBoxes.size(); i++) {
+        this->colisionBoxes[i]->position = this->position;
+        this->colisionBoxes[i]->update();
+    }
 }
 
 void customRoom_door::draw2D() {
@@ -922,12 +927,47 @@ void customRoom_door::draw2D() {
         this->customPhysicsObjectStatic::draw2D();      // move to the position, rotate, and scale the room
 
         glBegin(GL_QUADS);
-            // door
-            glColor3f(0.6, 0.4, 0.2);
+            // door bottom
+            glColor3f(0.6, 0.6, 0.7);
             glVertex3f(-0.5, 0, -0.2);
             glVertex3f(0.5, 0, -0.2);
             glVertex3f(0.5, 0, 0.2);
             glVertex3f(-0.5, 0, 0.2);
+
+            // door top
+            glColor3f(0.6, 0.6, 0.7);
+            glVertex3f(-0.5, 1, -0.2);
+            glVertex3f(0.5, 1, -0.2);
+            glVertex3f(0.5, 1, 0.2);
+            glVertex3f(-0.5, 1, 0.2);
+
+            // door left
+            glColor3f(0.6, 0.6, 0.7);
+            glVertex3f(-0.5, 0, -0.2);
+            glVertex3f(-0.5, 1, -0.2);
+            glVertex3f(-0.5, 1, 0.2);
+            glVertex3f(-0.5, 0, 0.2);
+
+            // door right
+            glColor3f(0.6, 0.6, 0.7);
+            glVertex3f(0.5, 0, -0.2);
+            glVertex3f(0.5, 1, -0.2);
+            glVertex3f(0.5, 1, 0.2);
+            glVertex3f(0.5, 0, 0.2);
+
+            // door back
+            glColor3f(0.6, 0.6, 0.7);
+            glVertex3f(-0.5, 0, -0.2);
+            glVertex3f(-0.5, 1, -0.2);
+            glVertex3f(0.5, 1, -0.2);
+            glVertex3f(0.5, 0, -0.2);
+
+            // door front
+            glColor3f(0.6, 0.6, 0.7);
+            glVertex3f(-0.5, 0, 0.2);
+            glVertex3f(-0.5, 1, 0.2);
+            glVertex3f(0.5, 1, 0.2);
+            glVertex3f(0.5, 0, 0.2);
         glEnd();
     glPopMatrix();
 }
