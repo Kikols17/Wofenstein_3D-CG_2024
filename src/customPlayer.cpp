@@ -163,11 +163,11 @@ void customPlayer::shoot() {
 
             //cout << "bang!" << endl;
 
-            ofVec3f hitpos = this->position + ( this->cam.looking*hitscan_distance(this->position, this->cam.front, vector<int>({1})) );
+            ofVec3f hitpos = this->cam.pos + ( this->cam.looking*hitscan_distance(this->cam.pos, this->cam.front, vector<int>({1})) );
 
             //cout << "hitpos: " << hitpos.x << " " << hitpos.y << " " << hitpos.z << endl;
-            for (int i=0; i<50; i++) {
-                customParticle* p = new customParticle(hitpos, ofVec3f(0, 0, 0), ofVec3f(0.3, 0.3, 0.3), ofRandom(0.95f, 0.99f), ofRandom(2000, 5000), vector<customColisionBox*>({new customColisionBox(hitpos, ofVec3f(0, 0, 0), ofVec3f(1, 1, 1), -1, vector<int>({}), -0.5, -0.5, -0.5, 0.5, 0.5, 0.5)}));
+            for (int i=0; i<75; i++) {
+                customParticle* p = new customParticle(hitpos, ofVec3f(0, 0, 0), ofVec3f(0.2, 0.2, 0.2), ofRandom(0.95f, 0.99f), ofRandom(2000, 5000), vector<customColisionBox*>({new customColisionBox(hitpos, ofVec3f(0, 0, 0), ofVec3f(1, 1, 1), -1, vector<int>({}), -0.5, -0.5, -0.5, 0.5, 0.5, 0.5)}));
                 p->velocity = ofVec3f(ofRandom(-1, 1), ofRandom(-1, 1), ofRandom(-1, 1));
                 p->spin = ofVec3f(ofRandom(-180, 180), ofRandom(-180, 180), ofRandom(-180, 180));
                 globalgameobjects.push_back(shared_ptr<customGameObject>(p));

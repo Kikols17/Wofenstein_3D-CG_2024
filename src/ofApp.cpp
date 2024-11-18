@@ -29,9 +29,9 @@ void ofApp::setup(){
     globalgameobjects_toremove = vector<shared_ptr<customGameObject>>();
 
 
-    test_level(globalgameobjects);
+    //test_level(globalgameobjects);
 
-    //circular_level(globalgameobjects);
+    circular_level(globalgameobjects);
 
     //training_level(globalgameobjects);
 
@@ -46,6 +46,7 @@ void ofApp::update(){
     for (int i=0; i<(int)globalgameobjects_toremove.size(); i++) {
         for (int j=0; j<globalgameobjects.size(); j++) {
             if (globalgameobjects[j] == globalgameobjects_toremove[i]) {
+                //cout << "removing object at " << globalgameobjects[j] << endl;
                 globalgameobjects.erase(globalgameobjects.begin() + j);
                 break;
             }
