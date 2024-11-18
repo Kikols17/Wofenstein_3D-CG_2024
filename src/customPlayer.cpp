@@ -169,7 +169,7 @@ void customPlayer::shoot() {
             for (int i=0; i<50; i++) {
                 customParticle* p = new customParticle(hitpos, ofVec3f(0, 0, 0), ofVec3f(0.3, 0.3, 0.3), ofRandom(0.95f, 0.99f), ofRandom(2000, 5000), vector<customColisionBox*>({new customColisionBox(hitpos, ofVec3f(0, 0, 0), ofVec3f(1, 1, 1), -1, vector<int>({}), -0.5, -0.5, -0.5, 0.5, 0.5, 0.5)}));
                 p->velocity = ofVec3f(ofRandom(-1, 1), ofRandom(-1, 1), ofRandom(-1, 1));
-                p->spin = ofVec3f(ofRandom(-1, 1), ofRandom(-1, 1), ofRandom(-1, 1));
+                p->spin = ofVec3f(ofRandom(-180, 180), ofRandom(-180, 180), ofRandom(-180, 180));
                 globalgameobjects.push_back(shared_ptr<customGameObject>(p));
                 //cout << "particle at " << globalgameobjects[globalgameobjects.size()-1] << endl;
             }

@@ -55,7 +55,7 @@ void customPhysicsObjectMovable::update() {
 
     //this->applyGravity(deltaT);
     this->applyVelocity(deltaT);
-    //this->applySpin(deltaT);
+    this->applySpin(deltaT);
 
     // update all collision boxes
     for (int i=0; i<cbsize; i++) {
