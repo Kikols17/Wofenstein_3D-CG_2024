@@ -138,10 +138,18 @@ class customRoom_door : public customPhysicsObjectStatic {
     public:
         customRoom_door(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale);
 
-        using customPhysicsObjectStatic::update;
+        void update() override;
 
         void draw2D() override;
         void draw3D() override;
+
+        using customPhysicsObjectStatic::position;
+        using customPhysicsObjectStatic::rotation;
+        using customPhysicsObjectStatic::scale;
+
+
+        bool open = false;
+        GLfloat open_percent = 0.0f;
     
 };
 

@@ -895,6 +895,27 @@ customRoom_door::customRoom_door(ofVec3f _position, ofVec3f _rotation, ofVec3f _
     // run this to set up the object
 }
 
+void customRoom_door::update() {
+    // run this every update cycle
+    this->customPhysicsObjectStatic::update();      // update the position, rotation, and scale of the room
+
+    if (this->open) {
+        if (this->open_percent < 1.0f) {
+            this->open_percent += 0.01f;
+            this->position = this->position + (0.01 * this->scale.x) * rotateY(ofVec3f(1, 0, 0), glm::radians(this->rotation.y));
+        } else {
+            this->open = false;
+        }
+    } else {
+        if (this->open_percent > 0.0f) {
+            this->open_percent -= 0.01f;
+            this->position = this->position - (0.01 * this->scale.x) * rotateY(ofVec3f(1, 0, 0), glm::radians(this->rotation.y));
+        } else {
+            this->open = true;
+        }
+    }
+}
+
 void customRoom_door::draw2D() {
     // run this every draw cycle
     glPushMatrix();
