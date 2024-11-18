@@ -10,6 +10,8 @@
 #include "customCamara.h"
 #include "customPlayer.h"
 
+#include "utils_hitscan.h"
+
 #include "setuplevels.h"
 
 class ofApp : public ofBaseApp{

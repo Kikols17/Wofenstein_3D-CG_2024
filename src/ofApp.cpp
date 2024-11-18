@@ -50,6 +50,7 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
+    cout << "hitscan_distance: " << hitscan_distance(this->player.cam.pos, this->player.cam.looking, vector<int>({1})) << endl;
     //this->cam->moveto(0, 0, -100);
 
     // draw all objects in the correct viewmode
