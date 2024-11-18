@@ -6,6 +6,7 @@
 #include "customPhysicsObjectMovable.h"
 #include "customColisionBox.h"
 #include "customCamara.h"
+#include "customParticle.h"
 
 #include "utils_hitscan.h"
 

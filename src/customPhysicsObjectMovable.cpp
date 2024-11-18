@@ -60,6 +60,7 @@ void customPhysicsObjectMovable::update() {
     // update all collision boxes
     for (int i=0; i<cbsize; i++) {
         this->colisionBoxes[i]->position = this->position;
+        this->colisionBoxes[i]->scale = this->scale;
         this->colisionBoxes[i]->update();
     }
 

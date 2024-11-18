@@ -1,6 +1,9 @@
 #include "customPlayer.h"
 
 
+extern vector<shared_ptr<customGameObject>> globalgameobjects;
+
+
 
 //--------------------------------------------------------------
 // public
@@ -163,6 +166,13 @@ void customPlayer::shoot() {
             ofVec3f hitpos = this->position + ( this->cam.looking*hitscan_distance(this->position, this->cam.front, vector<int>({1})) );
 
             //cout << "hitpos: " << hitpos.x << " " << hitpos.y << " " << hitpos.z << endl;
+            for (int i=0; i<15; i++) {
+                customParticle* p = new customParticle(hitpos, ofVec3f(0, 0, 0), ofVec3f(1, 1, 1), ofRandom(2000, 5000), vector<customColisionBox*>({new customColisionBox(hitpos, ofVec3f(0, 0, 0), ofVec3f(1, 1, 1), -1, vector<int>({}), -0.5, -0.5, -0.5, 0.5, 0.5, 0.5)}));
+                p->velocity = ofVec3f(ofRandom(-1, 1), ofRandom(-1, 1), ofRandom(-1, 1));
+                p->spin = ofVec3f(ofRandom(-1, 1), ofRandom(-1, 1), ofRandom(-1, 1));
+                globalgameobjects.push_back(shared_ptr<customGameObject>(p));
+                //cout << "particle at " << globalgameobjects[globalgameobjects.size()-1] << endl;
+            }
 
         }
     }

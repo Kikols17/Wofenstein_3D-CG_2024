@@ -55,19 +55,32 @@ customColisionBox::customColisionBox(ofVec3f _position, ofVec3f _rotation, ofVec
 void customColisionBox::update() {
     // run this every cycle
 
-    // get the absolute coordinates
-    this->abs_minX = this->position.x + this->rel_minX;
-    this->abs_minY = this->position.y + this->rel_minY;
-    this->abs_minZ = this->position.z + this->rel_minZ;
+    // update the relative coordinates
+    this->abs_minX = rel_minX;// * scale.x;
+    this->abs_minY = rel_minY;// * scale.y;
+    this->abs_minZ = rel_minZ;// * scale.z;
 
-    this->abs_maxX = this->position.x + this->rel_maxX;
-    this->abs_maxY = this->position.y + this->rel_maxY;
-    this->abs_maxZ = this->position.z + this->rel_maxZ;
+    this->abs_maxX = rel_maxX;// * scale.x;
+    this->abs_maxY = rel_maxY;// * scale.y;
+    this->abs_maxZ = rel_maxZ;// * scale.z;
+
+
+
+
+    // get the absolute coordinates
+    this->abs_minX = this->position.x + this->abs_minX;
+    this->abs_minY = this->position.y + this->abs_minY;
+    this->abs_minZ = this->position.z + this->abs_minZ;
+
+    this->abs_maxX = this->position.x + this->abs_maxX;
+    this->abs_maxY = this->position.y + this->abs_maxY;
+    this->abs_maxZ = this->position.z + this->abs_maxZ;
 }
 
 
 
 void customColisionBox::draw3D() {
+    //return;
     // draw the object in 2D
     //cout << minX << " " << minY << " " << minZ << " " << maxX << " " << maxY << " " << maxZ << endl;
     glPushMatrix();
