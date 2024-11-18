@@ -77,7 +77,7 @@ void customPlayer::moving(int viewmode) {
     this->velocity = ofVec3f(0, this->velocity.y, 0);
     if (this->walking_forward) {
         if (viewmode == 0) {
-            this->velocity.z += -moving_speed;      // 2D
+            this->velocity.z += -moving_speed;
         } else {
             this->velocity.x += (this->cam.front * moving_speed).x;   // 3D
             this->velocity.z += (this->cam.front * moving_speed).z;
@@ -87,7 +87,7 @@ void customPlayer::moving(int viewmode) {
 
     if (this->walking_backward) {
         if (viewmode == 0) {
-            this->velocity.z += moving_speed;       // 2D
+            this->velocity.z += moving_speed;
         } else {
             this->velocity.x += -(this->cam.front * moving_speed).x;   // 3D
             this->velocity.z += -(this->cam.front * moving_speed).z;
@@ -122,6 +122,7 @@ void customPlayer::looking(int viewmode) {
     if (viewmode == 0) {
         // 2D
         this->cam.looking_angleY = atan2(ofGetMouseX() - (ofGetWidth() / 2), ofGetMouseY() - (ofGetHeight() / 2)) * (180 / PI);
+        this->cam.looking_angleX = 0;
         this->rotation.y = this->cam.looking_angleY;
     } else {
         // 3D
@@ -163,7 +164,7 @@ void customPlayer::shoot() {
 
             //cout << "bang!" << endl;
 
-            ofVec3f hitpos = this->cam.pos + ( this->cam.looking*hitscan_distance(this->cam.pos, this->cam.front, vector<int>({1})) );
+            ofVec3f hitpos = this->cam.pos + ( this->cam.looking*hitscan_distance(this->cam.pos, this->cam.looking, vector<int>({1})) );
 
             //cout << "hitpos: " << hitpos.x << " " << hitpos.y << " " << hitpos.z << endl;
             for (int i=0; i<75; i++) {
