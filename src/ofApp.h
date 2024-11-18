@@ -42,7 +42,5 @@ class ofApp : public ofBaseApp{
 
 		customPlayer player = customPlayer(ofVec3f(0, 1, 0), ofVec3f(0, 0, 0), ofVec3f(1, 1, 1));
 		customCamara *cam;
-
-		vector<shared_ptr<customGameObject>> gameobjects;
 		
 };;
