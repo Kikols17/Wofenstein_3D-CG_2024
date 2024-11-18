@@ -80,7 +80,7 @@ void customColisionBox::update() {
 
 
 void customColisionBox::draw3D() {
-    //return;
+    return;
     // draw the object in 2D
     //cout << minX << " " << minY << " " << minZ << " " << maxX << " " << maxY << " " << maxZ << endl;
     glPushMatrix();
