@@ -19,6 +19,7 @@ void customPlayer::update(int viewmode) {
 
     this->moving(viewmode);
     this->looking(viewmode);
+    this->shoot();
 
     // update the camara
     this->cam.moveto(this->position.x, this->position.y+(this->scale.y/2)*0.8, this->position.z);
@@ -146,6 +147,23 @@ void customPlayer::looking(int viewmode) {
         }
         if (this->cam.looking_angleX < -89) {
             this->cam.looking_angleX = -89;
+        }
+    }
+}
+
+void customPlayer::shoot() {
+    // shoot a bullet
+    //cout << "looking: " << this->cam.looking.x << " " << this->cam.looking.y << " " << this->cam.looking.z << endl;
+    if (this->shooting) {
+        if (ofGetElapsedTimeMillis() - this->last_shot > this->shot_delay) {
+            this->last_shot = ofGetElapsedTimeMillis();
+
+            //cout << "bang!" << endl;
+
+            ofVec3f hitpos = this->position + ( this->cam.looking*hitscan_distance(this->position, this->cam.front, vector<int>({1})) );
+
+            //cout << "hitpos: " << hitpos.x << " " << hitpos.y << " " << hitpos.z << endl;
+
         }
     }
 }

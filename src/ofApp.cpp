@@ -50,7 +50,7 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-    cout << "hitscan_distance: " << hitscan_distance(this->player.cam.pos, this->player.cam.looking, vector<int>({1})) << endl;
+    //cout << "hitscan_distance: " << hitscan_distance(this->player.cam.pos, this->player.cam.looking, vector<int>({1})) << endl;
     //this->cam->moveto(0, 0, -100);
 
     // draw all objects in the correct viewmode
@@ -236,12 +236,16 @@ void ofApp::mouseDragged(int x, int y, int button){
 
 //--------------------------------------------------------------
 void ofApp::mousePressed(int x, int y, int button){
-
+    if (button == 0) {
+        this->player.shooting = true;
+    }
 }
 
 //--------------------------------------------------------------
 void ofApp::mouseReleased(int x, int y, int button){
-
+    if (button == 0) {
+        this->player.shooting = false;
+    }
 }
 
 //--------------------------------------------------------------

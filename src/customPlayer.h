@@ -7,6 +7,8 @@
 #include "customColisionBox.h"
 #include "customCamara.h"
 
+#include "utils_hitscan.h"
+
 #include "ofMain.h"
 
 
@@ -23,6 +25,7 @@ class customPlayer : public customPhysicsObjectMovable {
 
         void moving(int viewmode);
         void looking(int viewmode);
+        void shoot();
 
         using customPhysicsObjectMovable::position;
         using customPhysicsObjectMovable::rotation;
@@ -45,6 +48,10 @@ class customPlayer : public customPhysicsObjectMovable {
         bool looking_right = false;
         bool looking_up = false;
         bool looking_down = false;
+
+        bool shooting = false;
+        uint64_t last_shot = 0;
+        uint64_t shot_delay = 500;  // in milliseconds
 };
 
 #endif
