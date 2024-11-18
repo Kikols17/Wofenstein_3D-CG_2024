@@ -4,6 +4,8 @@
 vector<customColisionBox*> globalcolisionBoxes;
 vector<shared_ptr<customGameObject>> globalgameobjects;
 
+vector<shared_ptr<customGameObject>> globalgameobjects_toremove;
+
 
 //--------------------------------------------------------------
 void ofApp::setup(){
@@ -24,6 +26,7 @@ void ofApp::setup(){
 
     // setup the gameobjects
     globalgameobjects = vector<shared_ptr<customGameObject>>();
+    globalgameobjects_toremove = vector<shared_ptr<customGameObject>>();
 
 
     //test_level(globalgameobjects);
@@ -38,6 +41,16 @@ void ofApp::setup(){
 
 //--------------------------------------------------------------
 void ofApp::update(){
+
+    // remove all objects that need to be removed
+    for (int i=0; i<(int)globalgameobjects_toremove.size(); i++) {
+        for (int j=0; j<globalgameobjects.size(); j++) {
+            if (globalgameobjects[j] == globalgameobjects_toremove[i]) {
+                globalgameobjects.erase(globalgameobjects.begin() + j);
+                break;
+            }
+        }
+    }
 
     // update all objects
     int gosize = (int)globalgameobjects.size();
