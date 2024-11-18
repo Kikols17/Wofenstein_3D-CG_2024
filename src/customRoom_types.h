@@ -132,4 +132,19 @@ class customRoom_ramp : public customPhysicsObjectStatic {
 
 
 
+class customRoom_door : public customPhysicsObjectStatic {
+    // door room, 1x1x1 block, door on front
+    
+    public:
+        customRoom_door(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale);
+
+        using customPhysicsObjectStatic::update;
+
+        void draw2D() override;
+        void draw3D() override;
+    
+};
+
+
+
 #endif

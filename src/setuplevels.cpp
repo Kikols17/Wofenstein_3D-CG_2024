@@ -91,6 +91,15 @@ void test_level(vector<shared_ptr<customGameObject>> &gameobjects) {
     gameobjects.push_back(ramp);
     ramp = make_shared<customRoom_ramp>( ofVec3f(36, 0, -16), ofVec3f(0, 270, 0), ofVec3f(2, 2, 2) );
     gameobjects.push_back(ramp);
+
+    shared_ptr<customRoom_door> door = make_shared<customRoom_door>( ofVec3f(40, 0, 0), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+    gameobjects.push_back(door);
+    door = make_shared<customRoom_door>( ofVec3f(40, 0, -8), ofVec3f(0, 90, 0), ofVec3f(2, 2, 2) );
+    gameobjects.push_back(door);
+    door = make_shared<customRoom_door>( ofVec3f(40, 0, -12), ofVec3f(0, 180, 0), ofVec3f(2, 2, 2) );
+    gameobjects.push_back(door);
+    door = make_shared<customRoom_door>( ofVec3f(40, 0, -16), ofVec3f(0, 270, 0), ofVec3f(2, 2, 2) );
+    gameobjects.push_back(door);
 }
 
 
