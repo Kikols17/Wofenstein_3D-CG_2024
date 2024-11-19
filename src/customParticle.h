@@ -12,7 +12,7 @@
 class customParticle : public customPhysicsObjectMovable {
 
     public:
-        customParticle(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, GLfloat fadeout, uint64_t _lifetime, vector<customColisionBox*> _colisionBoxes);
+        customParticle(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, GLfloat fadeout, uint64_t _lifetime);
 
         void update() override;
 

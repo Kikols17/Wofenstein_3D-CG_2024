@@ -6,7 +6,7 @@ extern vector<shared_ptr<customGameObject>> globalgameobjects_toremove;
 
 //--------------------------------------------------------------
 // public
-customParticle::customParticle(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, GLfloat fadeout, uint64_t _lifetime, vector<customColisionBox*> _colisionBoxes) : customPhysicsObjectMovable(_position, _rotation, _scale, _colisionBoxes) {
+customParticle::customParticle(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, GLfloat fadeout, uint64_t _lifetime) : customPhysicsObjectMovable(_position, _rotation, _scale, vector<customColisionBox*>({new customColisionBox(_position, _rotation, _scale, -1, vector<int>({}), -0.5, -0.5, -0.5, 0.5, 0.5, 0.5)})) {
     // run this to set up the object
     this->fadeout = fadeout;
     this->lifetime = _lifetime;
@@ -21,6 +21,11 @@ void customParticle::update() {
 
     // shrink the particle
     this->scale = this->scale * this->fadeout;
+
+    for (int i=0; i<(int)this->colisionBoxes.size(); i++) {
+        this->colisionBoxes[i]->scale = this->scale;
+        this->colisionBoxes[i]->update();
+    }
 
     if (ofGetElapsedTimeMillis() - this->birthtime > this->lifetime) {
         // TODO: add gameObjects to a list to be deleted
