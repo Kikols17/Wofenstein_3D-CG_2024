@@ -62,6 +62,8 @@ class customColisionBox : public customGameObject {
 
         int group;          // group number of this object
         vector<int> groups;     // group numbers of objects that this object is looking for collisions with
+        bool hasCollided = false;
+        bool hasBeenShot = false;
 };
 
 #endif
