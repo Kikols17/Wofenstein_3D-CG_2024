@@ -5,6 +5,14 @@
 
 
 customColisionBox* hitscan_colisionbox(ofVec3f start, ofVec3f dir, vector<int> groups) {
+    return hitscan_all(start, dir, groups).first;
+}
+
+GLfloat hitscan_distance(ofVec3f start, ofVec3f dir, vector<int> groups) {
+    return hitscan_all(start, dir, groups).second;
+}
+
+pair<customColisionBox*, GLfloat> hitscan_all(ofVec3f start, ofVec3f dir, vector<int> groups) {
     GLfloat min_t = 1000000.0;
     customColisionBox* min_colisionBox = NULL;
     for (int i=0; i<(int)globalcolisionBoxes.size(); i++) {
@@ -23,27 +31,7 @@ customColisionBox* hitscan_colisionbox(ofVec3f start, ofVec3f dir, vector<int> g
         }
 
     }
-    return min_colisionBox;
-}
-
-GLfloat hitscan_distance(ofVec3f start, ofVec3f dir, vector<int> groups) {
-    GLfloat min_t = 1000000.0f;
-    for (int i=0; i<(int)globalcolisionBoxes.size(); i++) {
-
-        for (int j=0; j<(int)groups.size(); j++) {
-            // only check colisionBoxes that are in the groups
-            if (globalcolisionBoxes[i]->group == groups[j]) {
-                customColisionBox* colisionBox = globalcolisionBoxes[i];
-                GLfloat t = raycast(start, dir, colisionBox);
-                if (t >= 0.0f && t < min_t) {
-                    min_t = t;
-                }
-            }
-            break;
-        }
-
-    }
-    return min_t;
+    return make_pair(min_colisionBox, min_t);
 }
 
 

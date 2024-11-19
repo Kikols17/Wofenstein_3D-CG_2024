@@ -15,6 +15,7 @@ extern vector<customColisionBox*> globalcolisionBoxes;
 
 customColisionBox* hitscan_colisionbox(ofVec3f start, ofVec3f dir, vector<int> groups);
 GLfloat hitscan_distance(ofVec3f start, ofVec3f dir, vector<int> groups);
+pair<customColisionBox*, GLfloat> hitscan_all(ofVec3f start, ofVec3f dir, vector<int> groups);
 
 
 GLfloat raycast(ofVec3f start, ofVec3f dir, customColisionBox* colisionBox);
