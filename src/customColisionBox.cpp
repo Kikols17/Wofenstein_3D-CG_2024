@@ -4,6 +4,9 @@
 extern vector<customColisionBox*> globalcolisionBoxes;
 
 
+/* PARA PERCEBER GRUPOS, IR PARA "customColisionBox.h" */
+
+
 //--------------------------------------------------------------
 customColisionBox::customColisionBox(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, int _group, vector<int> _groups, GLfloat _minX, GLfloat _minY, GLfloat _minZ, GLfloat _maxX, GLfloat _maxY, GLfloat _maxZ) : customGameObject(_position, _rotation, _scale) {
     // run this to set up the object

@@ -7,6 +7,19 @@
 
 #include "ofMain.h"
 
+/*  NOTAS SOBRE GROUPS:
+ *      Os grupos são usados para definir quais objetos colidem com quais.
+ *      Assim posso ter collision boxes para as paredes, para o jogador, para os inimigos, etc.
+ *      Pode também ser usada para ter "hitboxes" para os NPCs e o player
+ *
+ *      Numenclatura:
+ *          -1: para as particulas  (para colidirem com paredes mas nao interferir com player ou tiros)
+ *          0: para o player        (para colidir com paredes e receber tiros)
+ *          1: para as paredes      (impedir player e inimigos de passar, e receber tiros)
+ *          2: para os inimigos     (para colidir com paredes e receber tiros)
+ *
+ */
+
 
 class customColisionBox : public customGameObject {
 
