@@ -180,9 +180,16 @@ bool customColisionBox::checkCollision(customColisionBox* other, ofVec3f velocit
     //cout << this->abs_minY << " " << this->abs_maxY << " " << other->abs_minY << " " << other->abs_maxY << " ";
     //cout << this->abs_minZ << " " << this->abs_maxZ << " " << other->abs_minZ << " " << other->abs_maxZ << " ";
     //cout << endl;
-    return (this->abs_minX+(velocity.x*(deltaT/1000.0f)) < other->abs_maxX  &&  this->abs_maxX+(velocity.x*(deltaT/1000.0f)) > other->abs_minX  &&
-            this->abs_minY+(velocity.y*(deltaT/1000.0f)) < other->abs_maxY  &&  this->abs_maxY+(velocity.y*(deltaT/1000.0f)) > other->abs_minY  &&
-            this->abs_minZ+(velocity.z*(deltaT/1000.0f)) < other->abs_maxZ  &&  this->abs_maxZ+(velocity.z*(deltaT/1000.0f)) > other->abs_minZ);
+    bool result = (
+        this->abs_minX+(velocity.x*(deltaT/1000.0f)) < other->abs_maxX  &&  this->abs_maxX+(velocity.x*(deltaT/1000.0f)) > other->abs_minX  &&
+        this->abs_minY+(velocity.y*(deltaT/1000.0f)) < other->abs_maxY  &&  this->abs_maxY+(velocity.y*(deltaT/1000.0f)) > other->abs_minY  &&
+        this->abs_minZ+(velocity.z*(deltaT/1000.0f)) < other->abs_maxZ  &&  this->abs_maxZ+(velocity.z*(deltaT/1000.0f)) > other->abs_minZ);
+    
+    if (result) {
+        this->hasCollided = true;
+        other->hasCollided = true;
+    }
+    return result;
 }
 
 
