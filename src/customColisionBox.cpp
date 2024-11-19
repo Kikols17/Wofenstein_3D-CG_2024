@@ -8,7 +8,10 @@ extern vector<customColisionBox*> globalcolisionBoxes;
 
 
 //--------------------------------------------------------------
-customColisionBox::customColisionBox(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, int _group, vector<int> _groups, GLfloat _minX, GLfloat _minY, GLfloat _minZ, GLfloat _maxX, GLfloat _maxY, GLfloat _maxZ) : customGameObject(_position, _rotation, _scale) {
+customColisionBox::customColisionBox(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, int _group, vector<int> _groups, GLfloat _minX, GLfloat _minY, GLfloat _minZ, GLfloat _maxX, GLfloat _maxY, GLfloat _maxZ) : customColisionBox(_position, _rotation, _scale, ofVec3f(0.5,0.5,0.5), _group, _groups, _minX, _minY, _minZ, _maxX, _maxY, _maxZ) {
+    // do nothing, call true constructor
+}
+customColisionBox::customColisionBox(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, ofVec3f _color, int _group, vector<int> _groups, GLfloat _minX, GLfloat _minY, GLfloat _minZ, GLfloat _maxX, GLfloat _maxY, GLfloat _maxZ) : customGameObject(_position, _rotation, _scale, _color) {
     // run this to set up the object
 
     this->rel_minX = _minX * _scale.x;

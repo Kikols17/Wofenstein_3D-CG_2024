@@ -8,6 +8,17 @@ customGameObject::customGameObject(ofVec3f _position, ofVec3f _rotation, ofVec3f
     this->position = _position;
     this->rotation = _rotation;
     this->scale = _scale;
+
+    this->color = ofVec3f(0.5, 0.5, 0.5);
+}
+customGameObject::customGameObject(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, ofVec3f _color){
+    // run this to set up the object
+
+    this->position = _position;
+    this->rotation = _rotation;
+    this->scale = _scale;
+
+    this->color = _color;
 }
 
 

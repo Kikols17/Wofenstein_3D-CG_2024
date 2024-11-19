@@ -12,7 +12,7 @@
 class customParticle : public customPhysicsObjectMovable {
 
     public:
-        customParticle(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, GLfloat fadeout, uint64_t _lifetime);
+        customParticle(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, ofVec3f _color, GLfloat fadeout, uint64_t _lifetime);
 
         void update() override;
 
@@ -30,6 +30,7 @@ class customParticle : public customPhysicsObjectMovable {
         GLfloat fadeout;
         uint64_t lifetime;
         uint64_t birthtime;
+        bool dead = false;
 };
 
 #endif
