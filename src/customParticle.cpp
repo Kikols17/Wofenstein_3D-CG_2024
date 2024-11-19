@@ -54,26 +54,31 @@ void customParticle::draw2D() {
             glVertex3f(0.5, 0.5, -0.5);
             glVertex3f(-0.5, 0.5, -0.5);
 
+            glColor3f(this->color.x+0.05, this->color.y-0.03, this->color.z-0.04);
             glVertex3f(-0.5, -0.5, 0.5);
             glVertex3f(0.5, -0.5, 0.5);
             glVertex3f(0.5, 0.5, 0.5);
             glVertex3f(-0.5, 0.5, 0.5);
 
+            glColor3f(this->color.x-0.02, this->color.y-0.06, this->color.z+0.02);
             glVertex3f(-0.5, -0.5, -0.5);
             glVertex3f(-0.5, 0.5, -0.5);
             glVertex3f(-0.5, 0.5, 0.5);
             glVertex3f(-0.5, -0.5, 0.5);
 
+            glColor3f(this->color.x+0.03, this->color.y+0.02, this->color.z-0.01);
             glVertex3f(0.5, -0.5, -0.5);
             glVertex3f(0.5, 0.5, -0.5);
             glVertex3f(0.5, 0.5, 0.5);
             glVertex3f(0.5, -0.5, 0.5);
 
+            glColor3f(this->color.x-0.01, this->color.y+0.03, this->color.z-0.02);
             glVertex3f(-0.5, -0.5, -0.5);
             glVertex3f(0.5, -0.5, -0.5);
             glVertex3f(0.5, -0.5, 0.5);
             glVertex3f(-0.5, -0.5, 0.5);
 
+            glColor3f(this->color.x+0.02, this->color.y-0.01, this->color.z+0.03);
             glVertex3f(-0.5, 0.5, -0.5);
             glVertex3f(0.5, 0.5, -0.5);
             glVertex3f(0.5, 0.5, 0.5);
@@ -94,26 +99,31 @@ void customParticle::draw3D() {
             glVertex3f(0.5, 0.5, -0.5);
             glVertex3f(-0.5, 0.5, -0.5);
 
+            glColor3f(this->color.x+0.05, this->color.y-0.03, this->color.z-0.04);
             glVertex3f(-0.5, -0.5, 0.5);
             glVertex3f(0.5, -0.5, 0.5);
             glVertex3f(0.5, 0.5, 0.5);
             glVertex3f(-0.5, 0.5, 0.5);
 
+            glColor3f(this->color.x-0.02, this->color.y-0.04, this->color.z+0.02);
             glVertex3f(-0.5, -0.5, -0.5);
             glVertex3f(-0.5, 0.5, -0.5);
             glVertex3f(-0.5, 0.5, 0.5);
             glVertex3f(-0.5, -0.5, 0.5);
 
+            glColor3f(this->color.x+0.03, this->color.y+0.02, this->color.z-0.01);
             glVertex3f(0.5, -0.5, -0.5);
             glVertex3f(0.5, 0.5, -0.5);
             glVertex3f(0.5, 0.5, 0.5);
             glVertex3f(0.5, -0.5, 0.5);
 
+            glColor3f(this->color.x-0.01, this->color.y+0.03, this->color.z-0.02);
             glVertex3f(-0.5, -0.5, -0.5);
             glVertex3f(0.5, -0.5, -0.5);
             glVertex3f(0.5, -0.5, 0.5);
             glVertex3f(-0.5, -0.5, 0.5);
 
+            glColor3f(this->color.x+0.02, this->color.y-0.01, this->color.z+0.03);
             glVertex3f(-0.5, 0.5, -0.5);
             glVertex3f(0.5, 0.5, -0.5);
             glVertex3f(0.5, 0.5, 0.5);
