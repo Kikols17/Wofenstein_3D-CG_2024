@@ -2,7 +2,7 @@
 
 
 
-void test_level(vector<shared_ptr<customGameObject>> &gameobjects) {
+void test_level(vector<shared_ptr<customGameObject>> &gameobjects, customPlayer &player) {
 
     // clear vector
     gameobjects.clear();
@@ -104,7 +104,7 @@ void test_level(vector<shared_ptr<customGameObject>> &gameobjects) {
 
 
 
-void circular_level(vector<shared_ptr<customGameObject>> &gameobjects) {
+void circular_level(vector<shared_ptr<customGameObject>> &gameobjects, customPlayer &player) {
 
     // clear vector
     gameobjects.clear();
@@ -301,7 +301,7 @@ void circular_level(vector<shared_ptr<customGameObject>> &gameobjects) {
 }
 
 
-void training_level(vector<shared_ptr<customGameObject>> &gameobjects) {
+void training_level(vector<shared_ptr<customGameObject>> &gameobjects, customPlayer &player) {
 
     // clear vector
     gameobjects.clear();
@@ -318,7 +318,7 @@ void training_level(vector<shared_ptr<customGameObject>> &gameobjects) {
 
 
 
-void excapefromwolfenstein_level(vector<shared_ptr<customGameObject>> &gameobjects) {
+void excapefromwolfenstein_level(vector<shared_ptr<customGameObject>> &gameobjects, customPlayer &player) {
 
     // clear vector
     gameobjects.clear();
@@ -466,4 +466,2208 @@ void excapefromwolfenstein_level(vector<shared_ptr<customGameObject>> &gameobjec
 
 
 
+}
+
+// CRIADO POR MAPCREATOR
+void wolfenstein(vector<shared_ptr<customGameObject>> &gameobjects, customPlayer &player) {
+
+	// clear vector
+	gameobjects.clear();
+
+	shared_ptr<customRoom_axis> axis;
+	shared_ptr<customRoom_hallway> hallway;
+	shared_ptr<customRoom_Thallway> Thallway;
+	shared_ptr<customRoom_Lhallway> Lhallway;
+	shared_ptr<customRoom_Xhallway> Xhallway;
+	shared_ptr<customRoom_wall> wall;
+	shared_ptr<customRoom_deadend> deadend;
+	shared_ptr<customRoom_fightingroom> fightingroom;
+	shared_ptr<customRoom_ramp> ramp;
+	shared_ptr<customRoom_door> door;
+
+
+
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*6, 2*0, 2*3), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*7, 2*0, 2*3), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*8, 2*0, 2*3), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	door = make_shared<customRoom_door>( ofVec3f(2*9, 2*0, 2*3), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(door);
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*9, 2*0, 2*3), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*10, 2*0, 2*3), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*11, 2*0, 2*3), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*12, 2*0, 2*3), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*28, 2*0, 2*3), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*29, 2*0, 2*3), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*30, 2*0, 2*3), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*31, 2*0, 2*3), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*32, 2*0, 2*3), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*33, 2*0, 2*3), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*34, 2*0, 2*3), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*35, 2*0, 2*3), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*36, 2*0, 2*3), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*37, 2*0, 2*3), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*1, 2*0, 2*4), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*2, 2*0, 2*4), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*3, 2*0, 2*4), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*4, 2*0, 2*4), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*5, 2*0, 2*4), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*6, 2*0, 2*4), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*7, 2*0, 2*4), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*8, 2*0, 2*4), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*9, 2*0, 2*4), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*10, 2*0, 2*4), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*11, 2*0, 2*4), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*12, 2*0, 2*4), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*13, 2*0, 2*4), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*14, 2*0, 2*4), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*15, 2*0, 2*4), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*16, 2*0, 2*4), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*17, 2*0, 2*4), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*28, 2*0, 2*4), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*29, 2*0, 2*4), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*30, 2*0, 2*4), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*31, 2*0, 2*4), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*32, 2*0, 2*4), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*33, 2*0, 2*4), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*34, 2*0, 2*4), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*35, 2*0, 2*4), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*36, 2*0, 2*4), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*37, 2*0, 2*4), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*1, 2*0, 2*5), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*2, 2*0, 2*5), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*3, 2*0, 2*5), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*4, 2*0, 2*5), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*5, 2*0, 2*5), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*6, 2*0, 2*5), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*7, 2*0, 2*5), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*8, 2*0, 2*5), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*9, 2*0, 2*5), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*10, 2*0, 2*5), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*11, 2*0, 2*5), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*12, 2*0, 2*5), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*13, 2*0, 2*5), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*14, 2*0, 2*5), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*15, 2*0, 2*5), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*16, 2*0, 2*5), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*17, 2*0, 2*5), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*28, 2*0, 2*5), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*29, 2*0, 2*5), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*30, 2*0, 2*5), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*31, 2*0, 2*5), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*32, 2*0, 2*5), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*33, 2*0, 2*5), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*34, 2*0, 2*5), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*35, 2*0, 2*5), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*36, 2*0, 2*5), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*37, 2*0, 2*5), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*1, 2*0, 2*6), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*2, 2*0, 2*6), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*3, 2*0, 2*6), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*4, 2*0, 2*6), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*5, 2*0, 2*6), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*6, 2*0, 2*6), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*7, 2*0, 2*6), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*8, 2*0, 2*6), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*9, 2*0, 2*6), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*10, 2*0, 2*6), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*11, 2*0, 2*6), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*12, 2*0, 2*6), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*13, 2*0, 2*6), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*14, 2*0, 2*6), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*15, 2*0, 2*6), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*16, 2*0, 2*6), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*17, 2*0, 2*6), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*18, 2*0, 2*6), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*19, 2*0, 2*6), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*20, 2*0, 2*6), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*21, 2*0, 2*6), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*22, 2*0, 2*6), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*23, 2*0, 2*6), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*24, 2*0, 2*6), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*25, 2*0, 2*6), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*26, 2*0, 2*6), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*27, 2*0, 2*6), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*28, 2*0, 2*6), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*29, 2*0, 2*6), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*30, 2*0, 2*6), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*31, 2*0, 2*6), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*32, 2*0, 2*6), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*33, 2*0, 2*6), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*34, 2*0, 2*6), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*35, 2*0, 2*6), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*36, 2*0, 2*6), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*37, 2*0, 2*6), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*1, 2*0, 2*7), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*2, 2*0, 2*7), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*3, 2*0, 2*7), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*4, 2*0, 2*7), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*5, 2*0, 2*7), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*6, 2*0, 2*7), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*7, 2*0, 2*7), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*8, 2*0, 2*7), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*9, 2*0, 2*7), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*10, 2*0, 2*7), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*11, 2*0, 2*7), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*12, 2*0, 2*7), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*13, 2*0, 2*7), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*14, 2*0, 2*7), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*15, 2*0, 2*7), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*16, 2*0, 2*7), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*17, 2*0, 2*7), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*18, 2*0, 2*7), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*19, 2*0, 2*7), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*20, 2*0, 2*7), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*21, 2*0, 2*7), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*22, 2*0, 2*7), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*23, 2*0, 2*7), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*24, 2*0, 2*7), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*25, 2*0, 2*7), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*26, 2*0, 2*7), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*27, 2*0, 2*7), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*28, 2*0, 2*7), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*29, 2*0, 2*7), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*30, 2*0, 2*7), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*31, 2*0, 2*7), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*32, 2*0, 2*7), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*33, 2*0, 2*7), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*34, 2*0, 2*7), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*35, 2*0, 2*7), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*36, 2*0, 2*7), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*37, 2*0, 2*7), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*1, 2*0, 2*8), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*2, 2*0, 2*8), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*3, 2*0, 2*8), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*4, 2*0, 2*8), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*5, 2*0, 2*8), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*6, 2*0, 2*8), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*7, 2*0, 2*8), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*8, 2*0, 2*8), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*9, 2*0, 2*8), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*10, 2*0, 2*8), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*11, 2*0, 2*8), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*12, 2*0, 2*8), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*13, 2*0, 2*8), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*14, 2*0, 2*8), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*15, 2*0, 2*8), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*16, 2*0, 2*8), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*17, 2*0, 2*8), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	door = make_shared<customRoom_door>( ofVec3f(2*18, 2*0, 2*8), ofVec3f(0, 90, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(door);
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*18, 2*0, 2*8), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*19, 2*0, 2*8), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*20, 2*0, 2*8), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*21, 2*0, 2*8), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*22, 2*0, 2*8), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*23, 2*0, 2*8), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*24, 2*0, 2*8), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*25, 2*0, 2*8), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*26, 2*0, 2*8), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*27, 2*0, 2*8), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	door = make_shared<customRoom_door>( ofVec3f(2*28, 2*0, 2*8), ofVec3f(0, 90, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(door);
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*28, 2*0, 2*8), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*29, 2*0, 2*8), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*30, 2*0, 2*8), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*31, 2*0, 2*8), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*32, 2*0, 2*8), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*33, 2*0, 2*8), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*34, 2*0, 2*8), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*35, 2*0, 2*8), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*36, 2*0, 2*8), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*37, 2*0, 2*8), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*1, 2*0, 2*9), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*2, 2*0, 2*9), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*3, 2*0, 2*9), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*4, 2*0, 2*9), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*5, 2*0, 2*9), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*6, 2*0, 2*9), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*7, 2*0, 2*9), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*8, 2*0, 2*9), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*9, 2*0, 2*9), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*10, 2*0, 2*9), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*11, 2*0, 2*9), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*12, 2*0, 2*9), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*13, 2*0, 2*9), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*14, 2*0, 2*9), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*15, 2*0, 2*9), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*16, 2*0, 2*9), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*17, 2*0, 2*9), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*18, 2*0, 2*9), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*19, 2*0, 2*9), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*20, 2*0, 2*9), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*21, 2*0, 2*9), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*22, 2*0, 2*9), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*23, 2*0, 2*9), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*24, 2*0, 2*9), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*25, 2*0, 2*9), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*26, 2*0, 2*9), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*27, 2*0, 2*9), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*28, 2*0, 2*9), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*29, 2*0, 2*9), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*30, 2*0, 2*9), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*31, 2*0, 2*9), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*32, 2*0, 2*9), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*33, 2*0, 2*9), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*34, 2*0, 2*9), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*35, 2*0, 2*9), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*36, 2*0, 2*9), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*37, 2*0, 2*9), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*1, 2*0, 2*10), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*2, 2*0, 2*10), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*3, 2*0, 2*10), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*4, 2*0, 2*10), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*5, 2*0, 2*10), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*6, 2*0, 2*10), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*7, 2*0, 2*10), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*8, 2*0, 2*10), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*9, 2*0, 2*10), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*10, 2*0, 2*10), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*11, 2*0, 2*10), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*12, 2*0, 2*10), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*13, 2*0, 2*10), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*14, 2*0, 2*10), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*15, 2*0, 2*10), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*16, 2*0, 2*10), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*17, 2*0, 2*10), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*18, 2*0, 2*10), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*19, 2*0, 2*10), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*20, 2*0, 2*10), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*21, 2*0, 2*10), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*22, 2*0, 2*10), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*23, 2*0, 2*10), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*24, 2*0, 2*10), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*25, 2*0, 2*10), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*26, 2*0, 2*10), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*27, 2*0, 2*10), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*28, 2*0, 2*10), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*29, 2*0, 2*10), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*30, 2*0, 2*10), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*31, 2*0, 2*10), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*32, 2*0, 2*10), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*33, 2*0, 2*10), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*34, 2*0, 2*10), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*35, 2*0, 2*10), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*36, 2*0, 2*10), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*37, 2*0, 2*10), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*1, 2*0, 2*11), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*2, 2*0, 2*11), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*3, 2*0, 2*11), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*4, 2*0, 2*11), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*5, 2*0, 2*11), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*6, 2*0, 2*11), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*7, 2*0, 2*11), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*8, 2*0, 2*11), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*9, 2*0, 2*11), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*10, 2*0, 2*11), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*11, 2*0, 2*11), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*12, 2*0, 2*11), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*13, 2*0, 2*11), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*14, 2*0, 2*11), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*15, 2*0, 2*11), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*16, 2*0, 2*11), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*17, 2*0, 2*11), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*21, 2*0, 2*11), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*22, 2*0, 2*11), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*23, 2*0, 2*11), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*24, 2*0, 2*11), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*28, 2*0, 2*11), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*29, 2*0, 2*11), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*30, 2*0, 2*11), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*31, 2*0, 2*11), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*32, 2*0, 2*11), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*33, 2*0, 2*11), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*34, 2*0, 2*11), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*35, 2*0, 2*11), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*36, 2*0, 2*11), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*37, 2*0, 2*11), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*1, 2*0, 2*12), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*2, 2*0, 2*12), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*3, 2*0, 2*12), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*4, 2*0, 2*12), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*5, 2*0, 2*12), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*6, 2*0, 2*12), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*7, 2*0, 2*12), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*8, 2*0, 2*12), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*9, 2*0, 2*12), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*10, 2*0, 2*12), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*11, 2*0, 2*12), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*12, 2*0, 2*12), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*13, 2*0, 2*12), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*14, 2*0, 2*12), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*15, 2*0, 2*12), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*16, 2*0, 2*12), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*17, 2*0, 2*12), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*21, 2*0, 2*12), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*22, 2*0, 2*12), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*23, 2*0, 2*12), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*24, 2*0, 2*12), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*28, 2*0, 2*12), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*29, 2*0, 2*12), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*30, 2*0, 2*12), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*31, 2*0, 2*12), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*32, 2*0, 2*12), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*33, 2*0, 2*12), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*34, 2*0, 2*12), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*35, 2*0, 2*12), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*36, 2*0, 2*12), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*37, 2*0, 2*12), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*6, 2*0, 2*13), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*7, 2*0, 2*13), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*8, 2*0, 2*13), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	door = make_shared<customRoom_door>( ofVec3f(2*9, 2*0, 2*13), ofVec3f(0, 180, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(door);
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*9, 2*0, 2*13), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*10, 2*0, 2*13), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*11, 2*0, 2*13), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*12, 2*0, 2*13), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*21, 2*0, 2*13), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*22, 2*0, 2*13), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*23, 2*0, 2*13), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*24, 2*0, 2*13), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*28, 2*0, 2*13), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*29, 2*0, 2*13), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*30, 2*0, 2*13), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*31, 2*0, 2*13), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*32, 2*0, 2*13), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*33, 2*0, 2*13), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*34, 2*0, 2*13), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*35, 2*0, 2*13), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*36, 2*0, 2*13), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*37, 2*0, 2*13), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*7, 2*0, 2*14), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*8, 2*0, 2*14), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*9, 2*0, 2*14), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*10, 2*0, 2*14), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*11, 2*0, 2*14), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*21, 2*0, 2*14), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*22, 2*0, 2*14), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*23, 2*0, 2*14), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*24, 2*0, 2*14), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*28, 2*0, 2*14), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*29, 2*0, 2*14), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*30, 2*0, 2*14), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*31, 2*0, 2*14), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*32, 2*0, 2*14), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*33, 2*0, 2*14), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*34, 2*0, 2*14), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*35, 2*0, 2*14), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*36, 2*0, 2*14), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*37, 2*0, 2*14), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*7, 2*0, 2*15), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*8, 2*0, 2*15), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*9, 2*0, 2*15), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*10, 2*0, 2*15), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*11, 2*0, 2*15), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*21, 2*0, 2*15), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*22, 2*0, 2*15), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*23, 2*0, 2*15), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*24, 2*0, 2*15), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*7, 2*0, 2*16), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*8, 2*0, 2*16), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*9, 2*0, 2*16), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*10, 2*0, 2*16), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*11, 2*0, 2*16), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*21, 2*0, 2*16), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*22, 2*0, 2*16), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*23, 2*0, 2*16), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*24, 2*0, 2*16), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*26, 2*0, 2*16), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*27, 2*0, 2*16), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*28, 2*0, 2*16), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*29, 2*0, 2*16), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*30, 2*0, 2*16), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*31, 2*0, 2*16), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*32, 2*0, 2*16), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*33, 2*0, 2*16), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*34, 2*0, 2*16), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*7, 2*0, 2*17), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*8, 2*0, 2*17), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*9, 2*0, 2*17), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*10, 2*0, 2*17), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*11, 2*0, 2*17), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*21, 2*0, 2*17), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*22, 2*0, 2*17), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*23, 2*0, 2*17), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*24, 2*0, 2*17), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*25, 2*0, 2*17), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*26, 2*0, 2*17), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*27, 2*0, 2*17), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*28, 2*0, 2*17), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*29, 2*0, 2*17), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*30, 2*0, 2*17), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*31, 2*0, 2*17), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*32, 2*0, 2*17), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*33, 2*0, 2*17), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*34, 2*0, 2*17), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*35, 2*0, 2*17), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*7, 2*0, 2*18), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*8, 2*0, 2*18), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*9, 2*0, 2*18), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*10, 2*0, 2*18), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*11, 2*0, 2*18), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*21, 2*0, 2*18), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*22, 2*0, 2*18), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*23, 2*0, 2*18), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*24, 2*0, 2*18), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*25, 2*0, 2*18), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*26, 2*0, 2*18), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*27, 2*0, 2*18), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*28, 2*0, 2*18), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*29, 2*0, 2*18), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*30, 2*0, 2*18), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*31, 2*0, 2*18), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*32, 2*0, 2*18), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*33, 2*0, 2*18), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*34, 2*0, 2*18), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*35, 2*0, 2*18), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*7, 2*0, 2*19), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*8, 2*0, 2*19), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*9, 2*0, 2*19), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*10, 2*0, 2*19), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*11, 2*0, 2*19), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*21, 2*0, 2*19), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*22, 2*0, 2*19), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*23, 2*0, 2*19), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*24, 2*0, 2*19), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	door = make_shared<customRoom_door>( ofVec3f(2*25, 2*0, 2*19), ofVec3f(0, 270, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(door);
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*25, 2*0, 2*19), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*26, 2*0, 2*19), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*27, 2*0, 2*19), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*28, 2*0, 2*19), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*29, 2*0, 2*19), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*30, 2*0, 2*19), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*31, 2*0, 2*19), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*32, 2*0, 2*19), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*33, 2*0, 2*19), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*34, 2*0, 2*19), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*35, 2*0, 2*19), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*7, 2*0, 2*20), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*8, 2*0, 2*20), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*9, 2*0, 2*20), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*10, 2*0, 2*20), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*11, 2*0, 2*20), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*21, 2*0, 2*20), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*22, 2*0, 2*20), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*23, 2*0, 2*20), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*24, 2*0, 2*20), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*25, 2*0, 2*20), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*26, 2*0, 2*20), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*27, 2*0, 2*20), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*28, 2*0, 2*20), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*29, 2*0, 2*20), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*30, 2*0, 2*20), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*31, 2*0, 2*20), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*32, 2*0, 2*20), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*33, 2*0, 2*20), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*34, 2*0, 2*20), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*35, 2*0, 2*20), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*7, 2*0, 2*21), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*8, 2*0, 2*21), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*9, 2*0, 2*21), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*10, 2*0, 2*21), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*11, 2*0, 2*21), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*21, 2*0, 2*21), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*22, 2*0, 2*21), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*23, 2*0, 2*21), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*24, 2*0, 2*21), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*25, 2*0, 2*21), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*26, 2*0, 2*21), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*27, 2*0, 2*21), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*28, 2*0, 2*21), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*29, 2*0, 2*21), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*30, 2*0, 2*21), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*31, 2*0, 2*21), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*32, 2*0, 2*21), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*33, 2*0, 2*21), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*34, 2*0, 2*21), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*35, 2*0, 2*21), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*7, 2*0, 2*22), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*8, 2*0, 2*22), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*9, 2*0, 2*22), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*10, 2*0, 2*22), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*11, 2*0, 2*22), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*26, 2*0, 2*22), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*27, 2*0, 2*22), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*28, 2*0, 2*22), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*29, 2*0, 2*22), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*30, 2*0, 2*22), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*31, 2*0, 2*22), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*32, 2*0, 2*22), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*33, 2*0, 2*22), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*34, 2*0, 2*22), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*7, 2*0, 2*23), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*8, 2*0, 2*23), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*9, 2*0, 2*23), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*10, 2*0, 2*23), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*11, 2*0, 2*23), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*7, 2*0, 2*24), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*8, 2*0, 2*24), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*9, 2*0, 2*24), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*10, 2*0, 2*24), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*11, 2*0, 2*24), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*2, 2*0, 2*25), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*3, 2*0, 2*25), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*4, 2*0, 2*25), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*5, 2*0, 2*25), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*6, 2*0, 2*25), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*7, 2*0, 2*25), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*8, 2*0, 2*25), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	door = make_shared<customRoom_door>( ofVec3f(2*9, 2*0, 2*25), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(door);
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*9, 2*0, 2*25), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*10, 2*0, 2*25), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*11, 2*0, 2*25), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*12, 2*0, 2*25), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*13, 2*0, 2*25), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*14, 2*0, 2*25), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*15, 2*0, 2*25), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*16, 2*0, 2*25), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*2, 2*0, 2*26), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*3, 2*0, 2*26), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*4, 2*0, 2*26), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*5, 2*0, 2*26), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*6, 2*0, 2*26), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*7, 2*0, 2*26), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*8, 2*0, 2*26), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*9, 2*0, 2*26), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*10, 2*0, 2*26), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*11, 2*0, 2*26), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*12, 2*0, 2*26), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*13, 2*0, 2*26), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*14, 2*0, 2*26), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*15, 2*0, 2*26), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*16, 2*0, 2*26), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*2, 2*0, 2*27), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*3, 2*0, 2*27), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*4, 2*0, 2*27), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*5, 2*0, 2*27), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*6, 2*0, 2*27), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	door = make_shared<customRoom_door>( ofVec3f(2*7, 2*0, 2*27), ofVec3f(0, 90, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(door);
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*7, 2*0, 2*27), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*8, 2*0, 2*27), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*9, 2*0, 2*27), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*10, 2*0, 2*27), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	door = make_shared<customRoom_door>( ofVec3f(2*11, 2*0, 2*27), ofVec3f(0, 270, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(door);
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*11, 2*0, 2*27), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*12, 2*0, 2*27), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*13, 2*0, 2*27), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*14, 2*0, 2*27), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*15, 2*0, 2*27), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*16, 2*0, 2*27), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*2, 2*0, 2*28), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*3, 2*0, 2*28), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*4, 2*0, 2*28), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*5, 2*0, 2*28), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*6, 2*0, 2*28), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*7, 2*0, 2*28), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*8, 2*0, 2*28), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*9, 2*0, 2*28), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*10, 2*0, 2*28), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*11, 2*0, 2*28), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*12, 2*0, 2*28), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*13, 2*0, 2*28), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*14, 2*0, 2*28), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*15, 2*0, 2*28), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*16, 2*0, 2*28), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*2, 2*0, 2*29), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*3, 2*0, 2*29), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*4, 2*0, 2*29), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*5, 2*0, 2*29), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*6, 2*0, 2*29), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*7, 2*0, 2*29), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*8, 2*0, 2*29), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*9, 2*0, 2*29), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*10, 2*0, 2*29), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*11, 2*0, 2*29), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*12, 2*0, 2*29), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*13, 2*0, 2*29), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*14, 2*0, 2*29), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*15, 2*0, 2*29), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*16, 2*0, 2*29), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*2, 2*0, 2*30), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*3, 2*0, 2*30), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*4, 2*0, 2*30), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*5, 2*0, 2*30), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*6, 2*0, 2*30), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*7, 2*0, 2*30), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*8, 2*0, 2*30), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*9, 2*0, 2*30), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*10, 2*0, 2*30), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*11, 2*0, 2*30), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*12, 2*0, 2*30), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*13, 2*0, 2*30), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*14, 2*0, 2*30), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*15, 2*0, 2*30), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*16, 2*0, 2*30), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*2, 2*0, 2*31), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*3, 2*0, 2*31), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*4, 2*0, 2*31), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*5, 2*0, 2*31), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*6, 2*0, 2*31), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*7, 2*0, 2*31), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*8, 2*0, 2*31), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*9, 2*0, 2*31), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*10, 2*0, 2*31), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*11, 2*0, 2*31), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*12, 2*0, 2*31), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*13, 2*0, 2*31), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*14, 2*0, 2*31), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*15, 2*0, 2*31), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*16, 2*0, 2*31), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*2, 2*0, 2*32), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*3, 2*0, 2*32), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*4, 2*0, 2*32), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*5, 2*0, 2*32), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*6, 2*0, 2*32), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	door = make_shared<customRoom_door>( ofVec3f(2*7, 2*0, 2*32), ofVec3f(0, 90, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(door);
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*7, 2*0, 2*32), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*8, 2*0, 2*32), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*9, 2*0, 2*32), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*10, 2*0, 2*32), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	door = make_shared<customRoom_door>( ofVec3f(2*11, 2*0, 2*32), ofVec3f(0, 270, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(door);
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*11, 2*0, 2*32), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*12, 2*0, 2*32), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*13, 2*0, 2*32), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*14, 2*0, 2*32), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*15, 2*0, 2*32), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*16, 2*0, 2*32), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*2, 2*0, 2*33), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*3, 2*0, 2*33), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*4, 2*0, 2*33), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*5, 2*0, 2*33), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*6, 2*0, 2*33), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*7, 2*0, 2*33), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*8, 2*0, 2*33), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*9, 2*0, 2*33), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*10, 2*0, 2*33), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*11, 2*0, 2*33), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*12, 2*0, 2*33), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*13, 2*0, 2*33), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*14, 2*0, 2*33), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*15, 2*0, 2*33), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*16, 2*0, 2*33), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*2, 2*0, 2*34), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*3, 2*0, 2*34), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*4, 2*0, 2*34), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*5, 2*0, 2*34), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*6, 2*0, 2*34), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*7, 2*0, 2*34), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*8, 2*0, 2*34), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*9, 2*0, 2*34), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*10, 2*0, 2*34), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*11, 2*0, 2*34), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*12, 2*0, 2*34), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*13, 2*0, 2*34), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*14, 2*0, 2*34), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*15, 2*0, 2*34), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*16, 2*0, 2*34), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*2, 2*0, 2*35), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*3, 2*0, 2*35), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*4, 2*0, 2*35), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*5, 2*0, 2*35), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*6, 2*0, 2*35), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*7, 2*0, 2*35), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*8, 2*0, 2*35), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*9, 2*0, 2*35), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*10, 2*0, 2*35), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*11, 2*0, 2*35), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*12, 2*0, 2*35), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*13, 2*0, 2*35), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*14, 2*0, 2*35), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*15, 2*0, 2*35), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*16, 2*0, 2*35), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*2, 2*0, 2*36), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*3, 2*0, 2*36), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*4, 2*0, 2*36), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*5, 2*0, 2*36), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*6, 2*0, 2*36), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*7, 2*0, 2*36), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*8, 2*0, 2*36), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*9, 2*0, 2*36), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*10, 2*0, 2*36), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*11, 2*0, 2*36), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*12, 2*0, 2*36), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*13, 2*0, 2*36), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*14, 2*0, 2*36), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*15, 2*0, 2*36), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*16, 2*0, 2*36), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*2, 2*0, 2*37), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*3, 2*0, 2*37), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*4, 2*0, 2*37), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*5, 2*0, 2*37), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*6, 2*0, 2*37), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*7, 2*0, 2*37), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*8, 2*0, 2*37), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*9, 2*0, 2*37), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*10, 2*0, 2*37), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*11, 2*0, 2*37), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*12, 2*0, 2*37), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*13, 2*0, 2*37), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*14, 2*0, 2*37), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*15, 2*0, 2*37), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(Xhallway);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*16, 2*0, 2*37), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*2, 2*0, 2*38), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*3, 2*0, 2*38), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*4, 2*0, 2*38), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*5, 2*0, 2*38), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*6, 2*0, 2*38), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*7, 2*0, 2*38), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*8, 2*0, 2*38), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*9, 2*0, 2*38), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*10, 2*0, 2*38), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*11, 2*0, 2*38), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*12, 2*0, 2*38), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*13, 2*0, 2*38), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*14, 2*0, 2*38), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*15, 2*0, 2*38), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+	wall = make_shared<customRoom_wall>( ofVec3f(2*16, 2*0, 2*38), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
+	gameobjects.push_back(wall);
+
+
+
+
+	// set player position
+	player.position = ofVec3f(2*4, 0.80, 2*32);
 }

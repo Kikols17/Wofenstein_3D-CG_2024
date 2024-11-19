@@ -29,13 +29,15 @@ void ofApp::setup(){
     globalgameobjects_toremove = vector<shared_ptr<customGameObject>>();
 
 
-    //test_level(globalgameobjects);
+    //test_level(globalgameobjects, this->player);
 
-    //circular_level(globalgameobjects);
+    //circular_level(globalgameobjects, this->player);
 
-    //training_level(globalgameobjects);
+    //training_level(globalgameobjects, this->player);
 
-    excapefromwolfenstein_level(globalgameobjects);
+    //excapefromwolfenstein_level(globalgameobjects, this->player);
+
+    wolfenstein(globalgameobjects, this->player);
 
 }
 

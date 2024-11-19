@@ -3,15 +3,18 @@
 
 
 #include "customRoom_types.h"
+#include "customPlayer.h"
 
 
-void test_level(vector<shared_ptr<customGameObject>> &gameobjects);
+void test_level(vector<shared_ptr<customGameObject>> &gameobjects, customPlayer &player);
 
-void circular_level(vector<shared_ptr<customGameObject>> &gameobjects);
+void circular_level(vector<shared_ptr<customGameObject>> &gameobjects, customPlayer &player);
 
-void training_level(vector<shared_ptr<customGameObject>> &gameobjects);
+void training_level(vector<shared_ptr<customGameObject>> &gameobjects, customPlayer &player);
 
-void excapefromwolfenstein_level(vector<shared_ptr<customGameObject>> &gameobjects);
+void excapefromwolfenstein_level(vector<shared_ptr<customGameObject>> &gameobjects, customPlayer &player);
+
+void wolfenstein(vector<shared_ptr<customGameObject>> &gameobjects, customPlayer &player);
 
 
 
