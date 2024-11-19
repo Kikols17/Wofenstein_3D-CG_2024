@@ -11,7 +11,7 @@ customParticle::customParticle(ofVec3f _position, ofVec3f _rotation, ofVec3f _sc
     this->fadeout = fadeout;
     this->lifetime = _lifetime;
     this->birthtime = ofGetElapsedTimeMillis();
-    cout << "particle created at time " << this->birthtime << endl;
+    //cout << "particle created at time " << this->birthtime << endl;
     //cout << "particle will die at time " << this->birthtime+this->lifetime << endl;
     //cout << endl;
 }
@@ -35,7 +35,7 @@ void customParticle::update() {
 
     if (ofGetElapsedTimeMillis() - this->birthtime > this->lifetime) {
         // TODO: add gameObjects to a list to be deleted
-        cout << "particle out of time" << endl;
+        //cout << "particle out of time" << endl;
         shared_ptr<customGameObject> p = shared_ptr<customGameObject>(this);
         //cout << "out of time " << p << endl;
         globalgameobjects_toremove.push_back(p);
