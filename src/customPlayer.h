@@ -36,8 +36,8 @@ class customPlayer : public customPhysicsObjectMovable {
         bool onGround = false;
         bool running = false;
 
-        GLfloat walking_speed = 2.5;    // } in units/second
-        GLfloat running_speed = 5.0;    // }
+        GLfloat walking_speed = 5.0;    // } in units/second
+        GLfloat running_speed = 7.0;    // }
         int turning_speed = 3;              // in degrees/second
 
         bool walking_forward = false;
