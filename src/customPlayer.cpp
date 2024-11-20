@@ -177,6 +177,15 @@ void customPlayer::shoot() {
     ofVec3f hitpos = this->cam.pos + ( this->cam.looking*hit.second );
     customColisionBox* hitbox = hit.first;
 
+    // spawn particles as mussle flash
+    for (int i=0; i<10; i++) {
+        customParticle* p = new customParticle(this->cam.target, ofVec3f(0, 0, 0), ofVec3f(0.07, 0.07, 0.07), ofVec3f(0.3, 0.3, 0.3), ofRandom(0.95f, 0.99f), ofRandom(1000, 3000));
+        p->velocity = this->velocity+ofVec3f(ofRandom(-1, 1), ofRandom(-1, 1), ofRandom(-1, 1));
+        p->spin = ofVec3f(ofRandom(-180, 180), ofRandom(-180, 180), ofRandom(-180, 180));
+        globalgameobjects.push_back(new shared_ptr<customGameObject>(p));
+        //cout << "particle at " << globalgameobjects[globalgameobjects.size()-1] << endl;
+    }
+
     // verificar se o hitbox é de um inimigo
     if (hitbox != NULL) {
         // cout << "hit smth" << endl;
