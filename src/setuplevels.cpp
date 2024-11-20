@@ -468,6 +468,12 @@ void excapefromwolfenstein_level(vector<shared_ptr<customGameObject>> &gameobjec
 
 }
 
+
+
+
+
+
+
 // CRIADO POR MAPCREATOR
 void wolfenstein(vector<shared_ptr<customGameObject>> &gameobjects, customPlayer &player) {
 
@@ -484,6 +490,8 @@ void wolfenstein(vector<shared_ptr<customGameObject>> &gameobjects, customPlayer
 	shared_ptr<customRoom_fightingroom> fightingroom;
 	shared_ptr<customRoom_ramp> ramp;
 	shared_ptr<customRoom_door> door;
+
+	shared_ptr<customNPC> npc;
 
 
 
@@ -1839,6 +1847,8 @@ void wolfenstein(vector<shared_ptr<customGameObject>> &gameobjects, customPlayer
 	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*8, 2*0, 2*20), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
 	gameobjects.push_back(Xhallway);
 
+	npc = make_shared<customNPC>( ofVec3f(2*9, 0.50, 2*20), ofVec3f(0, 0, 0),  ofVec3f(0.7, 1.5, 0.7), ofVec3f(1, 0, 0), new shared_ptr<customGameObject>(&player) );
+	gameobjects.push_back(npc);
 	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*9, 2*0, 2*20), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
 	gameobjects.push_back(Xhallway);
 
@@ -2536,6 +2546,8 @@ void wolfenstein(vector<shared_ptr<customGameObject>> &gameobjects, customPlayer
 	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*3, 2*0, 2*36), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
 	gameobjects.push_back(Xhallway);
 
+	npc = make_shared<customNPC>( ofVec3f(2*4, 0.50, 2*36), ofVec3f(0, 0, 0),  ofVec3f(0.7, 1.5, 0.7), ofVec3f(1, 0, 0), new shared_ptr<customGameObject>(&player) );
+	gameobjects.push_back(npc);
 	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*4, 2*0, 2*36), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
 	gameobjects.push_back(Xhallway);
 
@@ -2566,6 +2578,8 @@ void wolfenstein(vector<shared_ptr<customGameObject>> &gameobjects, customPlayer
 	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*13, 2*0, 2*36), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
 	gameobjects.push_back(Xhallway);
 
+	npc = make_shared<customNPC>( ofVec3f(2*14, 0.50, 2*36), ofVec3f(0, 0, 0),  ofVec3f(0.7, 1.5, 0.7), ofVec3f(1, 0, 0), new shared_ptr<customGameObject>(&player) );
+	gameobjects.push_back(npc);
 	Xhallway = make_shared<customRoom_Xhallway>( ofVec3f(2*14, 2*0, 2*36), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) );
 	gameobjects.push_back(Xhallway);
 

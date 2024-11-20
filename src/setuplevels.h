@@ -3,6 +3,7 @@
 
 
 #include "customRoom_types.h"
+#include "customNPC.h"
 #include "customPlayer.h"
 
 

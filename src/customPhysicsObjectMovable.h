@@ -25,6 +25,8 @@ class customPhysicsObjectMovable : public customPhysicsObject {
         using customPhysicsObject::rotation;
         using customPhysicsObject::scale;
 
+        using customPhysicsObject::colisionBoxes;
+
 
     protected:
         using customPhysicsObject::lastUpdateTime;

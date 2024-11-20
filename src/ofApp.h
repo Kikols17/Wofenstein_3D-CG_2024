@@ -9,6 +9,7 @@
 #include "customRoom_types.h"
 #include "customCamara.h"
 #include "customPlayer.h"
+#include "customNPC.h"
 
 #include "utils_hitscan.h"
 
