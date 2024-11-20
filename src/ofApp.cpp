@@ -2,9 +2,9 @@
 
 
 vector<customColisionBox*> globalcolisionBoxes;
-vector<shared_ptr<customGameObject>> globalgameobjects;
+vector<shared_ptr<customGameObject>*> globalgameobjects;
 
-vector<shared_ptr<customGameObject>> globalgameobjects_toremove;
+vector<shared_ptr<customGameObject>*> globalgameobjects_toremove;
 
 
 //--------------------------------------------------------------
@@ -25,8 +25,8 @@ void ofApp::setup(){
     this->cam = &(this->player.cam);
 
     // setup the gameobjects
-    globalgameobjects = vector<shared_ptr<customGameObject>>();
-    globalgameobjects_toremove = vector<shared_ptr<customGameObject>>();
+    globalgameobjects = vector<shared_ptr<customGameObject>*>();
+    globalgameobjects_toremove = vector<shared_ptr<customGameObject>*>();
 
 
     //test_level(globalgameobjects, this->player);
@@ -58,7 +58,7 @@ void ofApp::update(){
     // update all objects
     int gosize = (int)globalgameobjects.size();
     for (int i=0; i<gosize; i++) {
-        globalgameobjects[i]->update();
+        (*globalgameobjects[i])->update();
     }
 
     // update player
@@ -82,7 +82,7 @@ void ofApp::draw(){
             glPushMatrix();
                 this->cam->draw2D();    // apply the 2D camara's transformations
                 for (int i=0; i<gosize; i++) {
-                    globalgameobjects[i]->draw2D();
+                    (*globalgameobjects[i])->draw2D();
                 }
                 this->player.draw2D();
             glPopMatrix();
@@ -101,7 +101,7 @@ void ofApp::draw(){
                 this->cam->draw3D();     // apply the 3D camara's transformations
                 //lookover(this->cam->pos.x, this->cam->pos.y, this->cam->pos.z, this->cam->looking.x, this->cam->looking.y, this->cam->looking.z, this->cam->up.x, this->cam->up.y, this->cam->up.z);
                 for (int i=0; i<gosize; i++) {
-                    globalgameobjects[i]->draw3D();
+                    (*globalgameobjects[i])->draw3D();
                 }
                 this->player.draw3D();
             glPopMatrix();
@@ -113,7 +113,7 @@ void ofApp::draw(){
             glPushMatrix();
                 this->cam->draw2D();    // apply the 2D camara's transformations
                 for (int i=0; i<gosize; i++) {
-                    globalgameobjects[i]->draw2D();
+                    (*globalgameobjects[i])->draw2D();
                 }
                 this->player.draw2D();
             glPopMatrix();

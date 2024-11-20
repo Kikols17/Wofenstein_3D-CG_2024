@@ -1,8 +1,8 @@
 #include "customNPC.h"
 
 
-extern vector<shared_ptr<customGameObject>> globalgameobjects;
-extern vector<shared_ptr<customGameObject>> globalgameobjects_toremove;
+extern vector<shared_ptr<customGameObject>*> globalgameobjects;
+extern vector<shared_ptr<customGameObject>*> globalgameobjects_toremove;
 
 
 //--------------------------------------------------------------
@@ -21,8 +21,8 @@ void customNPC::update() {
 
     if (this->checkShotsReceived()) {
         // if the NPC has been shot, remove it from the game and explode
-        shared_ptr<customGameObject> n = shared_ptr<customGameObject>(this);
-        globalgameobjects_toremove.push_back(n);
+        //shared_ptr<customGameObject> n = shared_ptr<customGameObject>(this);
+        globalgameobjects_toremove.push_back(new shared_ptr<customGameObject>(this));
 
         this->explode();
     }
@@ -132,7 +132,7 @@ void customNPC::faceTarget() {
     // face the target
     ofVec3f playerpos = (*this->target)->position;
     this->rotation.y = atan2(playerpos.x - this->position.x, playerpos.z - this->position.z) * 180 / PI;
-    cout << this->rotation.y << endl;
+    //cout << this->rotation.y << endl;
 }
 
 void customNPC::idlemove() {
@@ -160,6 +160,6 @@ void customNPC::explode() {
         customParticle* p = new customParticle(this->position, ofVec3f(0, 0, 0), ofVec3f(0.2, 0.2, 0.2), this->color*0.75, ofRandom(0.99f, 0.999f), ofRandom(15000, 20000), -1, vector<int>({1}));
         p->velocity = ofVec3f(ofRandom(-6, 6), ofRandom(-6, 6), ofRandom(-6, 6));
         p->spin = ofVec3f(ofRandom(-360, 360), ofRandom(-360, 360), ofRandom(-360, 360));
-        globalgameobjects.push_back(shared_ptr<customGameObject>(p));
+        globalgameobjects.push_back(new shared_ptr<customGameObject>(p));
     }
 }

@@ -1,7 +1,7 @@
 #include "customParticle.h"
 
 
-extern vector<shared_ptr<customGameObject>> globalgameobjects_toremove;
+extern vector<shared_ptr<customGameObject>*> globalgameobjects_toremove;
 
 
 //--------------------------------------------------------------
@@ -11,6 +11,7 @@ customParticle::customParticle(ofVec3f _position, ofVec3f _rotation, ofVec3f _sc
 }
 customParticle::customParticle(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, ofVec3f _color, GLfloat fadeout, uint64_t _lifetime, int _group, vector<int> _groups) : customPhysicsObjectMovable(_position, _rotation, _scale, _color, vector<customColisionBox*>({new customColisionBox(_position, _rotation, _scale, _color, _group, _groups, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5)})) {
     // run this to set up the object
+    cout << "bam" << endl;
     this->fadeout = fadeout;
     this->lifetime = _lifetime;
     this->birthtime = ofGetElapsedTimeMillis();
@@ -41,7 +42,7 @@ void customParticle::update() {
         //cout << "particle out of time" << endl;
         shared_ptr<customGameObject> p = shared_ptr<customGameObject>(this);
         //cout << "out of time " << p << endl;
-        globalgameobjects_toremove.push_back(p);
+        globalgameobjects_toremove.push_back(&p);
         this->dead = true;
     }
 }
