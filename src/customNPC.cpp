@@ -8,7 +8,7 @@ extern vector<customColisionBox*> globalcolisionBoxes_toremove;
 
 //--------------------------------------------------------------
 // public
-customNPC::customNPC(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, ofVec3f _color, shared_ptr<customGameObject>* _target) : customPhysicsObjectMovable(_position, _rotation, _scale, _color, vector<customColisionBox*>({new customColisionBox(_position, _rotation, _scale, _color, 2, vector<int>({1}), -0.5, -0.5, -0.5, 0.5, 0.5, 0.5)})) {
+customNPC::customNPC(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, ofVec3f _color, shared_ptr<customPhysicsObject>* _target) : customPhysicsObjectMovable(_position, _rotation, _scale, _color, vector<customColisionBox*>({new customColisionBox(_position, _rotation, _scale, _color, 2, vector<int>({1}), -0.5, -0.5, -0.5, 0.5, 0.5, 0.5)})) {
     // run this to set up the object
 
     this->target = _target;
@@ -144,7 +144,23 @@ void customNPC::idlemove() {
 }
 
 void customNPC::checkTarget() {
-    // check if the target is in sight
+    // check if the target is in sight, by performing a hitscan, and checking if the player is hit
+    ofVec3f playerpos = (*this->target)->position;
+    ofVec3f playerdir = playerpos - this->position;
+    playerdir.normalize();
+
+    // perform hitscan in the direction of the player, and check if the player is hit
+    pair<customColisionBox*, GLfloat> hit = hitscan_all(this->position, playerdir, vector<int>({0,1}));
+    ofVec3f hitpos = this->position + (playerdir*hit.second);
+    if (hit.first != NULL) {
+        if (hit.first->group == (*target)->colisionBoxes[0]->group) {
+            // the player is hit
+            this->targetInSight = true;
+            //cout << "target in sight! at " << hitpos.x << " " << hitpos.y << " " << hitpos.z << endl;
+        }
+    } else {
+        this->targetInSight = false;
+    }
 }
 
 bool customNPC::checkShotsReceived() {

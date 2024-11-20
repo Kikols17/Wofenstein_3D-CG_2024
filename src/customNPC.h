@@ -16,7 +16,7 @@
 class customNPC : public customPhysicsObjectMovable {
 
     public:
-        customNPC(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, ofVec3f _color, shared_ptr<customGameObject>* _target);
+        customNPC(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, ofVec3f _color, shared_ptr<customPhysicsObject>* _target);
 
         void update() override;
 
@@ -31,7 +31,7 @@ class customNPC : public customPhysicsObjectMovable {
         using customPhysicsObjectMovable::colisionBoxes;
 
 
-        shared_ptr<customGameObject>* target;
+        shared_ptr<customPhysicsObject>* target;
 
 
         void faceTarget();
@@ -41,6 +41,9 @@ class customNPC : public customPhysicsObjectMovable {
         private:
             bool checkShotsReceived();
             void explode();
+
+
+            bool targetInSight = false;
     
 };
 
