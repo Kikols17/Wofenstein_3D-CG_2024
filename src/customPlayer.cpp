@@ -194,7 +194,10 @@ void customPlayer::shoot() {
             hitbox->hasBeenShot = true;
         }
 
+        // add bullet hole
+        globalgameobjects.push_back(new shared_ptr<customGameObject>(new customParticle(hitpos, ofVec3f(0, 0, 0), ofVec3f(0.05, 0.05, 0.05), hitbox->color*0.70, 1.0f, ofRandom(15000, 20000), -1, vector<int>({1}))));
         //cout << "hitpos: " << hitpos.x << " " << hitpos.y << " " << hitpos.z << endl;
+        // add particles
         for (int i=0; i<25; i++) {
             customParticle* p = new customParticle(hitpos, ofVec3f(0, 0, 0), ofVec3f(0.2, 0.2, 0.2), hitbox->color*0.75, ofRandom(0.95f, 0.99f), ofRandom(2000, 5000));
             p->velocity = ofVec3f(ofRandom(-1, 1), ofRandom(-1, 1), ofRandom(-1, 1));
