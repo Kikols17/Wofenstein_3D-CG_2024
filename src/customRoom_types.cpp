@@ -322,7 +322,7 @@ void customRoom_Lhallway::draw3D() {
 //--------------------------------------------------------------
 // customRoom_Xhallway
 //--------------------------------------------------------------
-customRoom_Xhallway::customRoom_Xhallway(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale) : customPhysicsObjectStatic(_position, _rotation, _scale, vector<customColisionBox*>( {new customColisionBox(_position, _rotation, _scale, 1, vector<int>({}), -0.5, -0.04, -0.5, 0.5, 0.0, 0.5), new customColisionBox(_position, _rotation, _scale, 1, vector<int>({}), -0.5, 1.0, -0.5, 0.5, 1.04, 0.5)} )) {
+customRoom_Xhallway::customRoom_Xhallway(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale) : customPhysicsObjectStatic(_position, _rotation, _scale, ofVec3f(0.4, 0.4, 0.4), vector<customColisionBox*>( {new customColisionBox(_position, _rotation, _scale, ofVec3f(0.4, 0.4, 0.4), 1, vector<int>({}), -0.5, -0.04, -0.5, 0.5, 0.0, 0.5), new customColisionBox(_position, _rotation, _scale, 1, vector<int>({}), -0.5, 1.0, -0.5, 0.5, 1.04, 0.5)} )) {
     // run this to set up the object
 }
 void customRoom_Xhallway::draw2D() {
@@ -331,9 +331,9 @@ void customRoom_Xhallway::draw2D() {
     glPushMatrix();
         this->customPhysicsObjectStatic::draw2D();      // move to the position, rotate, and scale the room
 
+        glColor3f(this->color.x, this->color.y, this->color.z);
         glBegin(GL_QUADS);
             // floor
-            glColor3f(0.6, 0.4, 0.2);
             glVertex3f(-0.5, -0.1, -0.5);
             glVertex3f(0.5, -0.1, -0.5);
             glVertex3f(0.5, -0.1, 0.5);
@@ -366,16 +366,15 @@ void customRoom_Xhallway::draw3D() {
     glPushMatrix();
         this->customPhysicsObjectStatic::draw3D();      // move to the position, rotate, and scale the room
 
+        glColor3f(this->color.x, this->color.y, this->color.z);
         glBegin(GL_QUADS);
             // floor
-            glColor3f(0.6, 0.4, 0.2);
             glVertex3f(-0.5, 0, -0.5);
             glVertex3f(0.5, 0, -0.5);
             glVertex3f(0.5, 0, 0.5);
             glVertex3f(-0.5, 0, 0.5);
 
             // ceiling
-            glColor3f(0.6, 0.4, 0.2);
             glVertex3f(-0.5, 1, -0.5);
             glVertex3f(0.5, 1, -0.5);
             glVertex3f(0.5, 1, 0.5);
@@ -417,7 +416,7 @@ void customRoom_Xhallway::draw3D() {
 //--------------------------------------------------------------
 // customRoom_wall
 //--------------------------------------------------------------
-customRoom_wall::customRoom_wall(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale) : customPhysicsObjectStatic(_position, _rotation, _scale, vector<customColisionBox*>( {new customColisionBox(_position, _rotation, _scale, 1, vector<int>({}), -0.5, 0.0, -0.5, 0.5, 1.0, 0.5)} )) {
+customRoom_wall::customRoom_wall(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale) : customPhysicsObjectStatic(_position, _rotation, _scale, ofVec3f(0.0, 0.0, 0.5), vector<customColisionBox*>( {new customColisionBox(_position, _rotation, _scale, ofVec3f(0.0, 0.0, 0.5), 1, vector<int>({}), -0.5, 0.0, -0.5, 0.5, 1.0, 0.5)} )) {
     // run this to set up the object
 }
 void customRoom_wall::draw2D() {
@@ -425,13 +424,44 @@ void customRoom_wall::draw2D() {
     
     glPushMatrix();
         this->customPhysicsObjectStatic::draw2D();      // move to the position, rotate, and scale the room
+
+        glColor3f(this->color.x, this->color.y, this->color.z);
         glBegin(GL_QUADS);
             // floor
-            glColor3f(0.2, 0.4, 0.6);
             glVertex3f(-0.5, 0, -0.5);
             glVertex3f(0.5, 0, -0.5);
             glVertex3f(0.5, 0, 0.5);
             glVertex3f(-0.5, 0, 0.5);
+
+            // left wall
+            glVertex3f(-0.5, 0, -0.5);
+            glVertex3f(-0.5, 1, -0.5);
+            glVertex3f(-0.5, 1, 0.5);
+            glVertex3f(-0.5, 0, 0.5);
+
+            // right wall
+            glVertex3f(0.5, 0, -0.5);
+            glVertex3f(0.5, 1, -0.5);
+            glVertex3f(0.5, 1, 0.5);
+            glVertex3f(0.5, 0, 0.5);
+
+            // front wall
+            glVertex3f(-0.5, 0, 0.5);
+            glVertex3f(-0.5, 1, 0.5);
+            glVertex3f(0.5, 1, 0.5);
+            glVertex3f(0.5, 0, 0.5);
+
+            // back wall
+            glVertex3f(-0.5, 0, -0.5);
+            glVertex3f(-0.5, 1, -0.5);
+            glVertex3f(0.5, 1, -0.5);
+            glVertex3f(0.5, 0, -0.5);
+
+            // ceiling
+            glVertex3f(-0.5, 1, -0.5);
+            glVertex3f(0.5, 1, -0.5);
+            glVertex3f(0.5, 1, 0.5);
+            glVertex3f(-0.5, 1, 0.5);
         glEnd();
 
     glPopMatrix();
@@ -441,44 +471,40 @@ void customRoom_wall::draw3D() {
     
     glPushMatrix();
         this->customPhysicsObjectStatic::draw3D();      // move to the position, rotate, and scale the 
+
+        glColor3f(this->color.x, this->color.y, this->color.z);
         glBegin(GL_QUADS);
             // floor
-            glColor3f(0.6, 0.4, 0.2);
             glVertex3f(-0.5, 0, -0.5);
             glVertex3f(0.5, 0, -0.5);
             glVertex3f(0.5, 0, 0.5);
             glVertex3f(-0.5, 0, 0.5);
 
             // left wall
-            glColor3f(0.2, 0.4, 0.6);
             glVertex3f(-0.5, 0, -0.5);
             glVertex3f(-0.5, 1, -0.5);
             glVertex3f(-0.5, 1, 0.5);
             glVertex3f(-0.5, 0, 0.5);
 
             // right wall
-            glColor3f(0.2, 0.4, 0.6);
             glVertex3f(0.5, 0, -0.5);
             glVertex3f(0.5, 1, -0.5);
             glVertex3f(0.5, 1, 0.5);
             glVertex3f(0.5, 0, 0.5);
 
             // front wall
-            glColor3f(0.2, 0.4, 0.6);
             glVertex3f(-0.5, 0, 0.5);
             glVertex3f(-0.5, 1, 0.5);
             glVertex3f(0.5, 1, 0.5);
             glVertex3f(0.5, 0, 0.5);
 
             // back wall
-            glColor3f(0.2, 0.4, 0.6);
             glVertex3f(-0.5, 0, -0.5);
             glVertex3f(-0.5, 1, -0.5);
             glVertex3f(0.5, 1, -0.5);
             glVertex3f(0.5, 0, -0.5);
 
             // ceiling
-            glColor3f(0.6, 0.4, 0.2);
             glVertex3f(-0.5, 1, -0.5);
             glVertex3f(0.5, 1, -0.5);
             glVertex3f(0.5, 1, 0.5);
@@ -891,7 +917,7 @@ void customRoom_ramp::draw3D() {
 //--------------------------------------------------------------
 // customRoom_door
 //--------------------------------------------------------------
-customRoom_door::customRoom_door(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale) : customPhysicsObjectStatic(_position, _rotation, _scale, vector<customColisionBox*>( { new customColisionBox(_position, _rotation, _scale, 1, vector<int>({}), -0.5, 0.0, -0.2, 0.5, 1.0, 0.2), } )) {
+customRoom_door::customRoom_door(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale) : customPhysicsObjectStatic(_position, _rotation, _scale, ofVec3f(0.0, 0.7, 0.7), vector<customColisionBox*>( { new customColisionBox(_position, _rotation, _scale, ofVec3f(0.0, 0.7, 0.7), 1, vector<int>({}), -0.5, 0.0, -0.2, 0.5, 1.0, 0.2), } )) {
     // run this to set up the object
 }
 
@@ -926,47 +952,42 @@ void customRoom_door::draw2D() {
     glPushMatrix();
         this->customPhysicsObjectStatic::draw2D();      // move to the position, rotate, and scale the room
 
+        glColor3f(this->color.x, this->color.y, this->color.z);
         glBegin(GL_QUADS);
             // door bottom
-            glColor3f(0.6, 0.6, 0.7);
             glVertex3f(-0.5, 0, -0.2);
             glVertex3f(0.5, 0, -0.2);
             glVertex3f(0.5, 0, 0.2);
             glVertex3f(-0.5, 0, 0.2);
 
             // door top
-            glColor3f(0.6, 0.6, 0.7);
-            glVertex3f(-0.5, 1, -0.2);
-            glVertex3f(0.5, 1, -0.2);
-            glVertex3f(0.5, 1, 0.2);
-            glVertex3f(-0.5, 1, 0.2);
+            glVertex3f(-0.5, 0.9, -0.2);
+            glVertex3f(0.5, 0.9, -0.2);
+            glVertex3f(0.5, 0.9, 0.2);
+            glVertex3f(-0.5, 0.9, 0.2);
 
             // door left
-            glColor3f(0.6, 0.6, 0.7);
             glVertex3f(-0.5, 0, -0.2);
-            glVertex3f(-0.5, 1, -0.2);
-            glVertex3f(-0.5, 1, 0.2);
+            glVertex3f(-0.5, 0.9, -0.2);
+            glVertex3f(-0.5, 0.9, 0.2);
             glVertex3f(-0.5, 0, 0.2);
 
             // door right
-            glColor3f(0.6, 0.6, 0.7);
             glVertex3f(0.5, 0, -0.2);
-            glVertex3f(0.5, 1, -0.2);
-            glVertex3f(0.5, 1, 0.2);
+            glVertex3f(0.5, 0.9, -0.2);
+            glVertex3f(0.5, 0.9, 0.2);
             glVertex3f(0.5, 0, 0.2);
 
             // door back
-            glColor3f(0.6, 0.6, 0.7);
             glVertex3f(-0.5, 0, -0.2);
-            glVertex3f(-0.5, 1, -0.2);
-            glVertex3f(0.5, 1, -0.2);
+            glVertex3f(-0.5, 0.9, -0.2);
+            glVertex3f(0.5, 0.9, -0.2);
             glVertex3f(0.5, 0, -0.2);
 
             // door front
-            glColor3f(0.6, 0.6, 0.7);
             glVertex3f(-0.5, 0, 0.2);
-            glVertex3f(-0.5, 1, 0.2);
-            glVertex3f(0.5, 1, 0.2);
+            glVertex3f(-0.5, 0.9, 0.2);
+            glVertex3f(0.5, 0.9, 0.2);
             glVertex3f(0.5, 0, 0.2);
         glEnd();
     glPopMatrix();
@@ -977,44 +998,39 @@ void customRoom_door::draw3D() {
     glPushMatrix();
         this->customPhysicsObjectStatic::draw3D();      // move to the position, rotate, and scale the room
 
+        glColor3f(this->color.x, this->color.y, this->color.z);
         glBegin(GL_QUADS);
             // door bottom
-            glColor3f(0.6, 0.6, 0.7);
             glVertex3f(-0.5, 0, -0.2);
             glVertex3f(0.5, 0, -0.2);
             glVertex3f(0.5, 0, 0.2);
             glVertex3f(-0.5, 0, 0.2);
 
             // door top
-            glColor3f(0.6, 0.6, 0.7);
             glVertex3f(-0.5, 1, -0.2);
             glVertex3f(0.5, 1, -0.2);
             glVertex3f(0.5, 1, 0.2);
             glVertex3f(-0.5, 1, 0.2);
 
             // door left
-            glColor3f(0.6, 0.6, 0.7);
             glVertex3f(-0.5, 0, -0.2);
             glVertex3f(-0.5, 1, -0.2);
             glVertex3f(-0.5, 1, 0.2);
             glVertex3f(-0.5, 0, 0.2);
 
             // door right
-            glColor3f(0.6, 0.6, 0.7);
             glVertex3f(0.5, 0, -0.2);
             glVertex3f(0.5, 1, -0.2);
             glVertex3f(0.5, 1, 0.2);
             glVertex3f(0.5, 0, 0.2);
 
             // door back
-            glColor3f(0.6, 0.6, 0.7);
             glVertex3f(-0.5, 0, -0.2);
             glVertex3f(-0.5, 1, -0.2);
             glVertex3f(0.5, 1, -0.2);
             glVertex3f(0.5, 0, -0.2);
 
             // door front
-            glColor3f(0.6, 0.6, 0.7);
             glVertex3f(-0.5, 0, 0.2);
             glVertex3f(-0.5, 1, 0.2);
             glVertex3f(0.5, 1, 0.2);

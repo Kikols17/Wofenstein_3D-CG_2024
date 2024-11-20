@@ -46,7 +46,7 @@ void ofApp::update(){
 
     // remove all objects that need to be removed
     for (int i=0; i<(int)globalgameobjects_toremove.size(); i++) {
-        for (int j=0; j<globalgameobjects.size(); j++) {
+        for (int j=0; j<(int)globalgameobjects.size(); j++) {
             if (globalgameobjects[j] == globalgameobjects_toremove[i]) {
                 //cout << "removing object at " << globalgameobjects[j] << endl;
                 globalgameobjects.erase(globalgameobjects.begin() + j);
