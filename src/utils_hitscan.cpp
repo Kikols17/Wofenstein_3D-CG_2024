@@ -26,8 +26,8 @@ pair<customColisionBox*, GLfloat> hitscan_all(ofVec3f start, ofVec3f dir, vector
                     min_t = t;
                     min_colisionBox = colisionBox;
                 }
+                break;
             }
-            break;
         }
 
     }

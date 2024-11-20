@@ -7,7 +7,7 @@ extern vector<shared_ptr<customGameObject>> globalgameobjects_toremove;
 
 //--------------------------------------------------------------
 // public
-customNPC::customNPC(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, ofVec3f _color, shared_ptr<customGameObject>* _target) : customPhysicsObjectMovable(_position, _rotation, _scale, _color, vector<customColisionBox*>({new customColisionBox(_position, _rotation, _scale, _color, 1, vector<int>({1}), -0.5, -0.5, -0.5, 0.5, 0.5, 0.5)})) {
+customNPC::customNPC(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, ofVec3f _color, shared_ptr<customGameObject>* _target) : customPhysicsObjectMovable(_position, _rotation, _scale, _color, vector<customColisionBox*>({new customColisionBox(_position, _rotation, _scale, _color, 2, vector<int>({1}), -0.5, -0.5, -0.5, 0.5, 0.5, 0.5)})) {
     // run this to set up the object
 
     this->target = _target;
@@ -156,8 +156,9 @@ bool customNPC::checkShotsReceived() {
 void customNPC::explode() {
     // explode the NPC
     for (int i=0; i<250; i++) {
-        customParticle* p = new customParticle(this->position, ofVec3f(0, 0, 0), ofVec3f(0.2, 0.2, 0.2), this->color*0.75, ofRandom(0.95f, 0.99f), ofRandom(4000, 9000));
-        p->velocity = ofVec3f(ofRandom(-5, 5), ofRandom(-5, 5), ofRandom(-5, 5));
+        // create particles that stick to the walls
+        customParticle* p = new customParticle(this->position, ofVec3f(0, 0, 0), ofVec3f(0.2, 0.2, 0.2), this->color*0.75, ofRandom(0.99f, 0.999f), ofRandom(15000, 20000), -1, vector<int>({1}));
+        p->velocity = ofVec3f(ofRandom(-6, 6), ofRandom(-6, 6), ofRandom(-6, 6));
         p->spin = ofVec3f(ofRandom(-360, 360), ofRandom(-360, 360), ofRandom(-360, 360));
         globalgameobjects.push_back(shared_ptr<customGameObject>(p));
     }
