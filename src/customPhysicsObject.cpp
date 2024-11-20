@@ -68,7 +68,7 @@ void customPhysicsObject::draw3D() {
 // private
 void customPhysicsObject::applyGravity(uint64_t deltaT) {
     // apply gravity to the object
-    ofVec3f gravity = ofVec3f(0, -0.098, 0);
+    ofVec3f gravity = ofVec3f(0, -9.8, 0);
     //cout << this->velocity.x << " " << this->velocity.y << " " << this->velocity.z << "       ->       ";
     if (this->velocity.y < -10) {
         // terminal velocity set at 10;

@@ -27,10 +27,11 @@ class customPhysicsObjectMovable : public customPhysicsObject {
 
         using customPhysicsObject::colisionBoxes;
 
+        bool gravity = false;
+
 
     protected:
         using customPhysicsObject::lastUpdateTime;
-
 
 };
 

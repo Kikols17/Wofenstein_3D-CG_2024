@@ -159,11 +159,12 @@ bool customNPC::checkShotsReceived() {
 
 void customNPC::explode() {
     // explode the NPC
-    for (int i=0; i<250; i++) {
+    for (int i=0; i<300; i++) {
         // create particles that stick to the walls
         customParticle* p = new customParticle(this->position, ofVec3f(0, 0, 0), ofVec3f(0.2, 0.2, 0.2), this->color*0.75, ofRandom(0.99f, 0.999f), ofRandom(15000, 20000), -1, vector<int>({1}));
         p->velocity = ofVec3f(ofRandom(-6, 6), ofRandom(-6, 6), ofRandom(-6, 6));
         p->spin = ofVec3f(ofRandom(-360, 360), ofRandom(-360, 360), ofRandom(-360, 360));
+        p->gravity = true;
         globalgameobjects.push_back(new shared_ptr<customGameObject>(p));
     }
 }

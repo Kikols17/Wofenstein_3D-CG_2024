@@ -136,35 +136,34 @@ ofVec3f customColisionBox::checkCollision_SetVelocity(customColisionBox* other, 
     GLfloat k_x1 = (other->abs_minX - this->abs_maxX) / velocity.x;
     GLfloat k_y1 = (other->abs_minY - this->abs_maxY) / velocity.y;
     GLfloat k_z1 = (other->abs_minZ - this->abs_maxZ) / velocity.z;
-    cout << k_x1 << " " << k_y1 << " " << k_z1 << endl;
+    //cout << k_x1 << " " << k_y1 << " " << k_z1 << endl;
 
     GLfloat k_x2 = (other->abs_maxX - this->abs_minX) / velocity.x;
     GLfloat k_y2 = (other->abs_maxY - this->abs_minY) / velocity.y;
     GLfloat k_z2 = (other->abs_maxZ - this->abs_minZ) / velocity.z;
-    cout << k_x2 << " " << k_y2 << " " << k_z2 << endl;
+    //cout << k_x2 << " " << k_y2 << " " << k_z2 << endl;
 
+
+    GLfloat k_x = min(abs(k_x1), abs(k_x2));
+    GLfloat k_y = min(abs(k_y1), abs(k_y2));
+    GLfloat k_z = min(abs(k_z1), abs(k_z2));
+
+    GLfloat k = min(k_x, min(k_y, k_z));
+    //cout << k_x << " " << k_y << " " << k_z << " " << k << endl;
 
     ofVec3f new_velocity = velocity;
-    if (k_x1 > 0 && k_x1 < deltaT) {
+
+    if (k == k_x) {
         new_velocity.x = 0;
     }
-    if (k_y1 > 0 && k_y1 < deltaT) {
+    if (k == k_y) {
         new_velocity.y = 0;
     }
-    if (k_z1 > 0 && k_z1 < deltaT) {
+    if (k == k_z) {
         new_velocity.z = 0;
     }
 
-    if (k_x2 > 0 && k_x2 < deltaT) {
-        new_velocity.x = 0;
-    }
-    if (k_y2 > 0 && k_y2 < deltaT) {
-        new_velocity.y = 0;
-    }
-    if (k_z2 > 0 && k_z2 < deltaT) {
-        new_velocity.z = 0;
-    }
-    cout << new_velocity.x << " " << new_velocity.y << " " << new_velocity.z << endl << endl;
+    //cout << new_velocity.x << " " << new_velocity.y << " " << new_velocity.z << endl << endl;
 
     return new_velocity;
 }

@@ -16,7 +16,17 @@ void customPhysicsObjectMovable::update() {
     // code from "https://www.delftstack.com/howto/cpp/how-to-get-time-in-milliseconds-cpp/"
     this->lastUpdateTime = ofGetCurrentTime().getAsMilliseconds();
 
-    //this->applyGravity(deltaT);
+    
+    bool collision = false;
+    for (int i=0; i<(int)this->colisionBoxes.size(); i++) {
+        if (this->colisionBoxes[i]->hasCollided) {
+            collision = true;
+            break;
+        }
+    }
+    if (this->gravity && !collision) {
+        this->applyGravity(deltaT);
+    }
 
 
 
@@ -40,8 +50,8 @@ void customPhysicsObjectMovable::update() {
                         //cout << this->colisionBoxes[i]->abs_minX+(this->velocity.x*(deltaT/1000)) << " " << this->colisionBoxes[i]->abs_maxX+(this->velocity.x*(deltaT/1000)) << endl;
                         if (this->colisionBoxes[i]->checkCollision(globalcolisionBoxes[j], this->velocity, deltaT)) {
                             //cout << "1" << endl;
-                            //this->velocity = ofVec3f(0, 0, 0);
-                            this->velocity = this->colisionBoxes[i]->checkCollision_SetVelocity(globalcolisionBoxes[j], this->velocity, deltaT);
+                            this->velocity = ofVec3f(0, 0, 0);
+                            //this->velocity = this->colisionBoxes[i]->checkCollision_SetVelocity(globalcolisionBoxes[j], this->velocity, deltaT);
                             this->spin = ofVec3f(0, 0, 0);
                         }
                     }
@@ -53,8 +63,6 @@ void customPhysicsObjectMovable::update() {
     }
     //cout << this->velocity.x << " " << this->velocity.y << " " << this->velocity.z << endl;
 
-
-    //this->applyGravity(deltaT);
     this->applyVelocity(deltaT);
     this->applySpin(deltaT);
 
