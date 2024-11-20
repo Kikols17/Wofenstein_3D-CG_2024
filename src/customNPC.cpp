@@ -3,6 +3,7 @@
 
 extern vector<shared_ptr<customGameObject>*> globalgameobjects;
 extern vector<shared_ptr<customGameObject>*> globalgameobjects_toremove;
+extern vector<customColisionBox*> globalcolisionBoxes_toremove;
 
 
 //--------------------------------------------------------------
@@ -22,6 +23,9 @@ void customNPC::update() {
     if (this->checkShotsReceived()) {
         // if the NPC has been shot, remove it from the game and explode
         //shared_ptr<customGameObject> n = shared_ptr<customGameObject>(this);
+        for (int i=0; i<(int)this->colisionBoxes.size(); i++) {
+            globalcolisionBoxes_toremove.push_back(this->colisionBoxes[i]);
+        }
         globalgameobjects_toremove.push_back(new shared_ptr<customGameObject>(this));
 
         this->explode();

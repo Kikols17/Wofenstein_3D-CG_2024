@@ -2,8 +2,9 @@
 
 
 vector<customColisionBox*> globalcolisionBoxes;
-vector<shared_ptr<customGameObject>*> globalgameobjects;
+vector<customColisionBox*> globalcolisionBoxes_toremove;
 
+vector<shared_ptr<customGameObject>*> globalgameobjects;
 vector<shared_ptr<customGameObject>*> globalgameobjects_toremove;
 
 
@@ -47,13 +48,28 @@ void ofApp::update(){
     // remove all objects that need to be removed
     for (int i=0; i<(int)globalgameobjects_toremove.size(); i++) {
         for (int j=0; j<(int)globalgameobjects.size(); j++) {
-            if (globalgameobjects[j] == globalgameobjects_toremove[i]) {
+            if ((*globalgameobjects[j]) == (*globalgameobjects_toremove[i])) {
                 //cout << "removing object at " << globalgameobjects[j] << endl;
+                globalgameobjects[j]->reset();
                 globalgameobjects.erase(globalgameobjects.begin() + j);
                 break;
             }
         }
     }
+    globalgameobjects_toremove.clear();
+
+    // remove all colisionBoxes that need to be removed
+    for (int i=0; i<(int)globalcolisionBoxes_toremove.size(); i++) {
+        for (int j=0; j<(int)globalcolisionBoxes.size(); j++) {
+            if (globalcolisionBoxes[j] == globalcolisionBoxes_toremove[i]) {
+                //cout << "removing colisionBox at " << globalcolisionBoxes[j] << endl;
+                free(globalcolisionBoxes[j]);
+                globalcolisionBoxes.erase(globalcolisionBoxes.begin() + j);
+                break;
+            }
+        }
+    }
+    globalcolisionBoxes_toremove.clear();
 
     // update all objects
     int gosize = (int)globalgameobjects.size();

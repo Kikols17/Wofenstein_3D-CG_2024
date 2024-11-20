@@ -1,7 +1,7 @@
 #include "customPlayer.h"
 
 
-extern vector<shared_ptr<customGameObject>> globalgameobjects;
+extern vector<shared_ptr<customGameObject>*> globalgameobjects;
 
 
 
@@ -190,7 +190,7 @@ void customPlayer::shoot() {
             customParticle* p = new customParticle(hitpos, ofVec3f(0, 0, 0), ofVec3f(0.2, 0.2, 0.2), hitbox->color*0.75, ofRandom(0.95f, 0.99f), ofRandom(2000, 5000));
             p->velocity = ofVec3f(ofRandom(-1, 1), ofRandom(-1, 1), ofRandom(-1, 1));
             p->spin = ofVec3f(ofRandom(-180, 180), ofRandom(-180, 180), ofRandom(-180, 180));
-            globalgameobjects.push_back(shared_ptr<customGameObject>(p));
+            globalgameobjects.push_back(new shared_ptr<customGameObject>(p));
             //cout << "particle at " << globalgameobjects[globalgameobjects.size()-1] << endl;
         }
 
