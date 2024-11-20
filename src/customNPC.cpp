@@ -88,40 +88,40 @@ void customNPC::draw3D() {
         glColor3f(this->color.x, this->color.y, this->color.z);
         glBegin(GL_QUADS);
             // floor
-            glVertex3f(-0.5, 0, -0.5);
-            glVertex3f(0.5, 0, -0.5);
-            glVertex3f(0.5, 0, 0.5);
-            glVertex3f(-0.5, 0, 0.5);
+            glVertex3f(-0.5, -0.5, -0.5);
+            glVertex3f(0.5, -0.5, -0.5);
+            glVertex3f(0.5, -0.5, 0.5);
+            glVertex3f(-0.5, -0.5, 0.5);
 
             // left wall
-            glVertex3f(-0.5, 0, -0.5);
-            glVertex3f(-0.5, 1, -0.5);
-            glVertex3f(-0.5, 1, 0.5);
-            glVertex3f(-0.5, 0, 0.5);
+            glVertex3f(-0.5, -0.5, -0.5);
+            glVertex3f(-0.5, 0.5, -0.5);
+            glVertex3f(-0.5, 0.5, 0.5);
+            glVertex3f(-0.5, -0.5, 0.5);
 
             // right wall
-            glVertex3f(0.5, 0, -0.5);
-            glVertex3f(0.5, 1, -0.5);
-            glVertex3f(0.5, 1, 0.5);
-            glVertex3f(0.5, 0, 0.5);
+            glVertex3f(0.5, -0.5, -0.5);
+            glVertex3f(0.5, 0.5, -0.5);
+            glVertex3f(0.5, 0.5, 0.5);
+            glVertex3f(0.5, -0.5, 0.5);
 
             // front wall
-            glVertex3f(-0.5, 0, 0.5);
-            glVertex3f(-0.5, 1, 0.5);
-            glVertex3f(0.5, 1, 0.5);
-            glVertex3f(0.5, 0, 0.5);
+            glVertex3f(-0.5, -0.5, 0.5);
+            glVertex3f(-0.5, 0.5, 0.5);
+            glVertex3f(0.5, 0.5, 0.5);
+            glVertex3f(0.5, -0.5, 0.5);
 
             // back wall
-            glVertex3f(-0.5, 0, -0.5);
-            glVertex3f(-0.5, 1, -0.5);
-            glVertex3f(0.5, 1, -0.5);
-            glVertex3f(0.5, 0, -0.5);
+            glVertex3f(-0.5, -0.5, -0.5);
+            glVertex3f(-0.5, 0.5, -0.5);
+            glVertex3f(0.5, 0.5, -0.5);
+            glVertex3f(0.5, -0.5, -0.5);
 
             // ceiling
-            glVertex3f(-0.5, 1, -0.5);
-            glVertex3f(0.5, 1, -0.5);
-            glVertex3f(0.5, 1, 0.5);
-            glVertex3f(-0.5, 1, 0.5);
+            glVertex3f(-0.5, 0.5, -0.5);
+            glVertex3f(0.5, 0.5, -0.5);
+            glVertex3f(0.5, 0.5, 0.5);
+            glVertex3f(-0.5, 0.5, 0.5);
         glEnd();
     glPopMatrix();
 
