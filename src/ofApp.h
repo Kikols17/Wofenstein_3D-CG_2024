@@ -46,5 +46,6 @@ class ofApp : public ofBaseApp{
 		customCamara *cam;
 		
 
+		bool showcontrols = true;
 		bool showhitboxes = false;
 };;
