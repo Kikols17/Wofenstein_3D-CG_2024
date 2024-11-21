@@ -7,7 +7,7 @@ extern vector<shared_ptr<customGameObject>*> globalgameobjects;
 
 //--------------------------------------------------------------
 // public
-customPlayer::customPlayer(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale) : customPhysicsObjectMovable(_position, _rotation, _scale, vector<customColisionBox*>({new customColisionBox(_position, _rotation, _scale, 0, vector<int>({1}), -0.5, -0.5, -0.5, 0.5, 0.5, 0.5)})) {
+customPlayer::customPlayer(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale) : customPhysicsObjectMovable(_position, _rotation, _scale, vector<customColisionBox*>({new customColisionBox(_position, _rotation, _scale, ofVec3f(1.0,0.0,0.0), 0, vector<int>({1}), -0.5, -0.5, -0.5, 0.5, 0.5, 0.5)})) {
     // run this to set up the object
 
     this->cam = customCamara();
@@ -23,6 +23,15 @@ void customPlayer::update(int viewmode) {
     this->moving(viewmode);
     this->looking(viewmode);
     this->shoot();
+
+    // check if the player was shot
+    for (int i=0; i<(int)this->colisionBoxes.size(); i++) {
+        if (this->colisionBoxes[i]->hasBeenShot) {
+            cout << "player was shot!" << endl;
+            colisionBoxes[i]->hasBeenShot = false;
+            break;
+        }
+    }
 
     // update the camara
     this->cam.moveto(this->position.x, this->position.y+(this->scale.y/2)*0.8, this->position.z);
@@ -166,8 +175,6 @@ void customPlayer::shoot() {
         // cannot shoot yet
         return;
     }
-
-
     this->last_shot = ofGetElapsedTimeMillis();
 
     //cout << "bang!" << endl;

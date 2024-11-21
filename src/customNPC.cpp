@@ -34,6 +34,9 @@ void customNPC::update() {
     this->faceTarget();
     this->idlemove();
     this->checkTarget();
+    if (this->targetInSight) {
+        this->attackTarget();
+    }
 }
 
 
@@ -157,6 +160,8 @@ void customNPC::checkTarget() {
             // the player is hit
             this->targetInSight = true;
             //cout << "target in sight! at " << hitpos.x << " " << hitpos.y << " " << hitpos.z << endl;
+        } else {
+            this->targetInSight = false;
         }
     } else {
         this->targetInSight = false;
@@ -182,5 +187,56 @@ void customNPC::explode() {
         p->spin = ofVec3f(ofRandom(-360, 360), ofRandom(-360, 360), ofRandom(-360, 360));
         p->gravity = true;
         globalgameobjects.push_back(new shared_ptr<customGameObject>(p));
+    }
+}
+
+void customNPC::attackTarget() {
+    // attack the target
+    // create a hitscan in the direction of the player, and check if the player is hit
+
+    if (!(ofGetElapsedTimeMillis()-this->last_shot > this->shot_delay)) {
+        // cannot shoot yet
+        return;
+    }
+    this->last_shot = ofGetElapsedTimeMillis();
+
+    // The NPC can't have perfect aim
+    ofVec3f aim_vec = rotateY(ofVec3f(0.0, 0.0, 1.0), glm::radians(this->rotation.y + ofRandom(-5, 5)));
+    aim_vec = rotateX(aim_vec, glm::radians(ofRandom(-5, 5)));
+    aim_vec = rotateZ(aim_vec, glm::radians(ofRandom(-5, 5)));
+    
+    pair<customColisionBox*, GLfloat> hit = hitscan_all(this->position, aim_vec, vector<int>({0,1}));
+    ofVec3f hitpos = this->position + (aim_vec*hit.second);
+    customColisionBox* hitbox = hit.first;
+
+    for (int i=0; i<10; i++) {
+        customParticle* p = new customParticle(this->position, ofVec3f(0, 0, 0), ofVec3f(0.07, 0.07, 0.07), ofVec3f(0.3, 0.3, 0.3), ofRandom(0.95f, 0.99f), ofRandom(1000, 3000));
+        p->velocity = this->velocity+ofVec3f(ofRandom(-1, 1), ofRandom(-1, 1), ofRandom(-1, 1));
+        p->spin = ofVec3f(ofRandom(-180, 180), ofRandom(-180, 180), ofRandom(-180, 180));
+        globalgameobjects.push_back(new shared_ptr<customGameObject>(p));
+        //cout << "particle at " << globalgameobjects[globalgameobjects.size()-1] << endl;
+    }
+
+    // verificar se o hitbox é de um inimigo
+    if (hitbox != NULL) {
+        // cout << "hit smth" << endl;
+        if (hitbox->group == (*target)->colisionBoxes[0]->group) {
+            hitbox->hasBeenShot = true;
+        }
+
+        // add bullet hole
+        globalgameobjects.push_back(new shared_ptr<customGameObject>(new customParticle(hitpos, ofVec3f(0, 0, 0), ofVec3f(0.05, 0.05, 0.05), hitbox->color*0.70, 1.0f, ofRandom(15000, 20000), -1, vector<int>({1}))));
+        //cout << "hitpos: " << hitpos.x << " " << hitpos.y << " " << hitpos.z << endl;
+        // add particles
+        for (int i=0; i<25; i++) {
+            customParticle* p = new customParticle(hitpos, ofVec3f(0, 0, 0), ofVec3f(0.2, 0.2, 0.2), hitbox->color*0.75, ofRandom(0.95f, 0.99f), ofRandom(2000, 5000));
+            p->velocity = ofVec3f(ofRandom(-1, 1), ofRandom(-1, 1), ofRandom(-1, 1));
+            p->spin = ofVec3f(ofRandom(-180, 180), ofRandom(-180, 180), ofRandom(-180, 180));
+            globalgameobjects.push_back(new shared_ptr<customGameObject>(p));
+            //cout << "particle at " << globalgameobjects[globalgameobjects.size()-1] << endl;
+        }
+
+    } else {
+        //cout << "missed" << endl;
     }
 }

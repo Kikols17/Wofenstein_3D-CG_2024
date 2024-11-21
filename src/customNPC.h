@@ -37,6 +37,11 @@ class customNPC : public customPhysicsObjectMovable {
         void faceTarget();
         void idlemove();
         void checkTarget();
+        void attackTarget();
+
+
+        uint64_t last_shot = 0;
+        uint64_t shot_delay = 1000;  // in milliseconds
 
         private:
             bool checkShotsReceived();
