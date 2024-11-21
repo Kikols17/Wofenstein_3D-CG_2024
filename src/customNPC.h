@@ -35,21 +35,31 @@ class customNPC : public customPhysicsObjectMovable {
 
 
         void faceTarget();
+        void idlestand();
         void idlemove();
         void checkTarget();
-        void attackTarget();
+        bool attackTarget();
 
 
         uint64_t last_shot = 0;
         uint64_t shot_delay = 1000;  // in milliseconds
+        GLfloat range = 25.0;
+
+
+        GLfloat walking_speed = 3.0;    // } in units/second
+        GLfloat running_speed = 5.0;    // }
 
         private:
             bool checkShotsReceived();
             void explode();
 
+            int AIstate = 0;    // 0 = standing, 1 = idle moving, 2 = attack
+
 
             bool targetInSight = false;
             ofVec3f aim_vec;
+
+            ofVec3f movingto = ofVec3f(0, 0, 0);
     
 };
 

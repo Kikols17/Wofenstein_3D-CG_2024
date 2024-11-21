@@ -12,6 +12,7 @@ customNPC::customNPC(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, ofVec
     // run this to set up the object
 
     this->target = _target;
+    this->movingto = ofVec3f(_position.x, _position.y, _position.z);
 }
 
 void customNPC::update() {
@@ -30,8 +31,10 @@ void customNPC::update() {
 
         this->explode();
     }
+    //cout << "NPC " << this << " AIstate: " << this->AIstate << endl;
 
     this->faceTarget();
+    this->idlestand();
     this->idlemove();
     this->checkTarget();
     if (this->targetInSight) {
@@ -142,8 +145,49 @@ void customNPC::faceTarget() {
     //cout << this->rotation.y << endl;
 }
 
+void customNPC::idlestand() {
+    if (this->AIstate != 0) {
+        return;
+    }
+
+    // stand still
+    this->velocity = ofVec3f(0, 0, 0);
+
+    // have a 1% change to change state to idle moving (1)
+    if (ofRandom(0, 100) < 1) {
+        this->movingto = ofVec3f(this->position.x+ofRandom(-10, 10), this->position.y, this->position.x+ofRandom(-10, 10));
+        this->AIstate = 1;
+    }
+}
+
 void customNPC::idlemove() {
+    if (this->AIstate != 1) {
+        return;
+    }
     // move the NPC randomly
+    
+    // if already reached within 0.5 of the destination, change state to standing (0)
+    if (abs((this->position.x-this->movingto.x)+(this->position.y-this->movingto.y)+(this->position.z-this->movingto.z)) < 0.5) {
+        this->AIstate = 0;
+        return;
+    } else {
+        
+        // if the NPC hit a wall, change state to standing (0)
+        for (int i=0; i<(int)this->colisionBoxes.size(); i++) {
+            if (this->colisionBoxes[i]->hasCollided) {
+                this->AIstate = 0;
+                this->colisionBoxes[i]->hasCollided = false;
+                return;
+            }
+        }
+
+        // set velocity to move towards the destination
+        this->AIstate = 1;
+        ofVec3f dir = this->movingto - this->position;
+        dir.normalize();
+        this->velocity = dir*walking_speed;
+        return;
+    }
 }
 
 void customNPC::checkTarget() {
@@ -190,9 +234,14 @@ void customNPC::explode() {
     }
 }
 
-void customNPC::attackTarget() {
+bool customNPC::attackTarget() {
     // attack the target
     // create a hitscan in the direction of the player, and check if the player is hit
+
+    // check if target is within range
+    if (abs((this->position.x-(*this->target)->position.x)+(this->position.y-(*this->target)->position.y)+(this->position.z-(*this->target)->position.z)) > this->range) {
+        return false;
+    }
 
     if (!(ofGetElapsedTimeMillis()-this->last_shot > this->shot_delay)) {
         // cannot shoot yet, but aim
@@ -204,7 +253,7 @@ void customNPC::attackTarget() {
         this->aim_vec = rotateX(this->aim_vec, glm::radians(ofRandom(-3, 3)));
         this->aim_vec = rotateZ(this->aim_vec, glm::radians(ofRandom(-3, 3)));
 
-        return;
+        return false;
     }
     this->last_shot = ofGetElapsedTimeMillis();
 
@@ -215,6 +264,7 @@ void customNPC::attackTarget() {
 
     // add bullet hole
     customParticle* p = new customParticle(hitpos, ofVec3f(0, 0, 0), ofVec3f(0.05, 0.05, 0.05), ofVec3f(0.5, 0.5, 0.5), 1.0f, ofRandom(15000, 20000), -1, vector<int>({1}));
+    globalgameobjects.push_back(new shared_ptr<customGameObject>(p));
 
     for (int i=0; i<10; i++) {
         customParticle* p = new customParticle(this->position+this->aim_vec, ofVec3f(0, 0, 0), ofVec3f(0.1, 0.1, 0.1), ofVec3f(0.2, 0.2, 0.2), ofRandom(0.95f, 0.99f), ofRandom(1000, 3000));
@@ -246,4 +296,6 @@ void customNPC::attackTarget() {
     } else {
         //cout << "missed" << endl;
     }
+
+    return true;
 }
