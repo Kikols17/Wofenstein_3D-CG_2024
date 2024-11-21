@@ -123,6 +123,9 @@ void ofApp::draw(){
                 for (int i=0; i<gosize; i++) {
                     (*globalgameobjects[i])->draw3D();
                 }
+                for (int i=0; showhitboxes && i<(int)globalcolisionBoxes.size(); i++) {
+                    (*globalcolisionBoxes[i]).draw3D();
+                }
                 this->player.draw3D();
             glPopMatrix();
 
@@ -165,6 +168,9 @@ void ofApp::keyPressed(int key) {
             break;
         case '+':
             this->cam->zoom *= 0.5;
+            break;
+        case 'h':
+            this->showhitboxes = !this->showhitboxes;
             break;
         default:
             break;

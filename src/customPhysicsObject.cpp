@@ -52,11 +52,6 @@ void customPhysicsObject::update() {
 
 void customPhysicsObject::draw3D() {
     // draw all collision boxes
-    int cbsize = (int)this->colisionBoxes.size();
-    for (int i=0; i<cbsize; i++) {
-        this->colisionBoxes[i]->draw3D();
-    }
-
     this->customGameObject::draw3D();
 }
 
