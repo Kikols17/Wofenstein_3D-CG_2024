@@ -1,0 +1,149 @@
+#include "stdio.h"
+#include "stdlib.h"
+#include "string.h"
+
+
+/* MapCreator é uma ferramenta que eu criei para criar os mapas mais facilmente, gerando o código a partir de um ficheiro de texto.
+ *      args: "mapcreator <nome-do-mapa> <path-to-ascii-map> <path-to-output-file>"
+ *
+ * 
+ * todo o código criado com este programa é assinado no projeto com "CRIADO POR MAPCREATOR"
+ */
+
+
+
+int criar_mapa(char* name, FILE *input, FILE *output);
+
+
+
+
+int main(int argc, char *argv[]) {
+    if (argc != 4) {
+        printf("Usage: %s <nome-do-mapa> <path-to-ascii-map> <path-to-output-file>\n\n", argv[0]);
+        return 1;
+    }
+
+    FILE *input = fopen(argv[2], "r");
+    FILE *output = fopen(argv[3], "w");
+
+    if (input == NULL) {
+        printf("Error opening file %s\n\n", argv[1]);
+        return 1;
+    }
+
+    if (output == NULL) {
+        printf("Error opening file %s\n\n", argv[2]);
+        return 1;
+    }
+
+    criar_mapa(argv[1], input, output);
+
+    fclose(input);
+    fclose(output);
+
+    return 0;
+
+}
+
+
+
+
+int criar_mapa(char* name, FILE *input, FILE *output) {
+
+    fprintf(output, "// CRIADO POR MAPCREATOR\n");
+    fprintf(output, "void %s(vector<shared_ptr<customGameObject>*> &gameobjects, customPlayer &player) {\n\n", name);
+    fprintf(output, "\t// clear vector\n");
+    fprintf(output, "\tgameobjects.clear();\n\n");
+
+    fprintf(output, "\tshared_ptr<customGameObject>* go;\n");
+
+    char c;
+    int x = 0, y = 0;
+    int size = 2;
+    int spawn_x = 0, spawn_y = 0;
+    while ((c = fgetc(input)) != EOF) {
+        // Xhallway
+        if (c == '.') {
+            // Xhallway (n precisa de rotação)
+            fprintf(output, "\tgo = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(%d*%d, %d*0, %d*%d), ofVec3f(0, 0, 0), ofVec3f(%d, %d, %d) ) );\n", size, x, size, size, y, size, size, size);
+            fprintf(output, "\tgameobjects.push_back(go);\n\n");
+        }
+
+        // Hallway
+        if (c == '|') {
+            // Hallway (rotação 0/180)
+            fprintf(output, "\tgo = new shared_ptr<customGameObject>( new customRoom_hallway( ofVec3f(%d*%d, %d*0, %d*%d), ofVec3f(0, 0, 0), ofVec3f(%d, %d, %d) ) );\n", size, x, size, size, y, size, size, size);
+            fprintf(output, "\tgameobjects.push_back(go);\n\n");
+        } else if (c == '-') {
+            // Hallway (rotação 90/270)
+            fprintf(output, "\tgo = new shared_ptr<customGameObject>( new customRoom_hallway( ofVec3f(%d*%d, %d*0, %d*%d), ofVec3f(0, 90, 0), ofVec3f(%d, %d, %d) ) );\n", size, x, size, size, y, size, size, size);
+            fprintf(output, "\tgameobjects.push_back(go);\n\n");
+        }
+
+        // Wall
+        if (c == '#') {
+            // Wall (n precisa de rotação)
+            fprintf(output, "\tgo = new shared_ptr<customGameObject>( new customRoom_wall( ofVec3f(%d*%d, %d*0, %d*%d), ofVec3f(0, 0, 0), ofVec3f(%d, %d, %d) ) );\n", size, x, size, size, y, size, size, size);
+            fprintf(output, "\tgameobjects.push_back(go);\n\n");
+        }
+
+        // Door
+        if (c == '>') {
+            // Door (rotação 0)
+            fprintf(output, "\tgo = new shared_ptr<customGameObject>( new customRoom_door( ofVec3f(%d*%d, %d*0, %d*%d), ofVec3f(0, 0, 0), ofVec3f(%d, %d, %d) ) );\n", size, x, size, size, y, size, size, size);
+            fprintf(output, "\tgameobjects.push_back(go);\n");
+            fprintf(output, "\tgo = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(%d*%d, %d*0, %d*%d), ofVec3f(0, 0, 0), ofVec3f(%d, %d, %d) ) );\n", size, x, size, size, y, size, size, size);
+            fprintf(output, "\tgameobjects.push_back(go);\n\n");
+        } else if (c == '^') {
+            // Door (rotação 90)
+            fprintf(output, "\tgo = new shared_ptr<customGameObject>( new customRoom_door( ofVec3f(%d*%d, %d*0, %d*%d), ofVec3f(0, 90, 0), ofVec3f(%d, %d, %d) ) );\n", size, x, size, size, y, size, size, size);
+            fprintf(output, "\tgameobjects.push_back(go);\n");
+            fprintf(output, "\tgo = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(%d*%d, %d*0, %d*%d), ofVec3f(0, 0, 0), ofVec3f(%d, %d, %d) ) );\n", size, x, size, size, y, size, size, size);
+            fprintf(output, "\tgameobjects.push_back(go);\n\n");
+        } else if (c == '<') {
+            // Door (rotação 180)
+            fprintf(output, "\tgo = new shared_ptr<customGameObject>( new customRoom_door( ofVec3f(%d*%d, %d*0, %d*%d), ofVec3f(0, 180, 0), ofVec3f(%d, %d, %d) ) );\n", size, x, size, size, y, size, size, size);
+            fprintf(output, "\tgameobjects.push_back(go);\n");
+            fprintf(output, "\tgo = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(%d*%d, %d*0, %d*%d), ofVec3f(0, 0, 0), ofVec3f(%d, %d, %d) ) );\n", size, x, size, size, y, size, size, size);
+            fprintf(output, "\tgameobjects.push_back(go);\n\n");
+        } else if (c == '~') {
+            // Door (rotação 270)
+            fprintf(output, "\tgo = new shared_ptr<customGameObject>( new customRoom_door( ofVec3f(%d*%d, %d*0, %d*%d), ofVec3f(0, 270, 0), ofVec3f(%d, %d, %d) ) );\n", size, x, size, size, y, size, size, size);
+            fprintf(output, "\tgameobjects.push_back(go);\n");
+            fprintf(output, "\tgo = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(%d*%d, %d*0, %d*%d), ofVec3f(0, 0, 0), ofVec3f(%d, %d, %d) ) );\n", size, x, size, size, y, size, size, size);
+            fprintf(output, "\tgameobjects.push_back(go);\n\n");
+        }
+
+
+        // enemy
+        if (c == 'e') {
+            // Enemy
+            fprintf(output, "\tgo = new shared_ptr<customGameObject>( new customNPC( ofVec3f(%d*%d, 0.8, %d*%d), ofVec3f(0, 0, 0), ofVec3f(0.7, 1.5, 0.7), ofVec3f(1.0, 0.0, 0.0), new shared_ptr<customPhysicsObject>(&player) ) );\n", size, x, size, y);
+            fprintf(output, "\tgameobjects.push_back(go);\n\n");
+            fprintf(output, "\tgo = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(%d*%d, %d*0, %d*%d), ofVec3f(0, 0, 0), ofVec3f(%d, %d, %d) ) );\n", size, x, size, size, y, size, size, size);
+            fprintf(output, "\tgameobjects.push_back(go);\n\n");
+        }
+
+
+        if (c == 'S') {
+            // Spawn
+            spawn_x = x;
+            spawn_y = y;
+            fprintf(output, "\tgo = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(%d*%d, %d*0, %d*%d), ofVec3f(0, 0, 0), ofVec3f(%d, %d, %d) ) );\n", size, x, size, size, y, size, size, size);
+            fprintf(output, "\tgameobjects.push_back(go);\n\n");
+        }
+
+
+        if (c == '\n') {
+            x = 0;
+            y++;
+        } else {
+            x++;
+        }
+    }
+    fprintf(output, "\n\n\n\t// set player position\n");
+    fprintf(output, "\tplayer.position = ofVec3f(%d*%d, 0.80, %d*%d);\n", size, spawn_x, size, spawn_y);
+    fprintf(output, "}\n");
+    return 0;
+
+}
