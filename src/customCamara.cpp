@@ -32,10 +32,36 @@ void customCamara::draw2D() {
     lookat(this->pos.x, this->pos.y+2, this->pos.z, this->pos.x, this->pos.y, this->pos.z, 0, 0, -1);
 }
 
-void customCamara::draw3D() {
+void customCamara::draw3D_1() {
     // apply the 3D camera's transformations
     perspective((GLfloat)60.0, (GLfloat)2999.0, (GLfloat)3000.0);
     lookat(this->pos.x, this->pos.y, this->pos.z, this->target.x, this->target.y, this->target.z, this->up.x, this->up.y, this->up.z);
+
+    // draw a crosshair in the center of the screen, that follows the camera's target and always faces the camera
+    glPushMatrix();
+        glTranslatef(this->target.x, this->target.y, this->target.z);
+        glRotatef(this->looking_angleY, 0, 1, 0);
+        glRotatef(-this->looking_angleZ, 0, 0, 1);
+        glRotatef(this->looking_angleX, 1, 0, 0);
+
+        glLineWidth(2.0);
+        glBegin(GL_LINES);
+            glColor3f(1.0, 1.0, 1.0);
+            glVertex3f(0.0, 0.0, 0.0);
+            glVertex3f(0.02, 0.0, 0.0);
+            glVertex3f(0.0, 0.0, 0.0);
+            glVertex3f(-0.02, 0.0, 0.0);
+            glVertex3f(0.0, 0.0, 0.0);
+            glVertex3f(0.0, 0.02, 0.0);
+            glVertex3f(0.0, 0.0, 0.0);
+            glVertex3f(0.0, -0.02, 0.0);
+        glEnd();
+    glPopMatrix();
+}
+void customCamara::draw3D_3() {
+    // apply the 3D camera's transformations
+    perspective((GLfloat)60.0, (GLfloat)2999.0, (GLfloat)3000.0);
+    lookat(this->pos.x-this->looking.x*3, this->pos.y+0.3, this->pos.z-this->looking.z*3, this->target.x, this->target.y, this->target.z, this->up.x, this->up.y, this->up.z);
 
     // draw a crosshair in the center of the screen, that follows the camera's target and always faces the camera
     glPushMatrix();

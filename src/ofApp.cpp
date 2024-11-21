@@ -117,6 +117,7 @@ void ofApp::draw(){
 
         
         case 1:
+        case 2:
             /* 3D */
             glViewport(0, 0, gw(), gh());
             glMatrixMode(GL_PROJECTION);
@@ -124,7 +125,11 @@ void ofApp::draw(){
             //glOrtho(-zoom*gw(), zoom*gw(), -zoom*gh(), zoom*gh(), 0, 100);
 
             glPushMatrix();
-                this->cam->draw3D();     // apply the 3D camara's transformations
+                if (this->viewmode == 1) {
+                    this->cam->draw3D_1();    // apply the 3D camara's transformations for first
+                } else {
+                    this->cam->draw3D_3();    // apply the 3D camara's transformations for 3rd person view
+                }
                 //lookover(this->cam->pos.x, this->cam->pos.y, this->cam->pos.z, this->cam->looking.x, this->cam->looking.y, this->cam->looking.z, this->cam->up.x, this->cam->up.y, this->cam->up.z);
                 for (int i=0; i<gosize; i++) {
                     (*globalgameobjects[i])->draw3D();
@@ -167,8 +172,12 @@ void ofApp::keyPressed(int key) {
             this->viewmode = 0;
             break;
         case '2':
-            ofSetWindowTitle("3D");
+            ofSetWindowTitle("3D (1st person)");
             this->viewmode = 1;
+            break;
+        case '3':
+            ofSetWindowTitle("3D (3rd person)");
+            this->viewmode = 2;
             break;
 
         case '-':

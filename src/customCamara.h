@@ -17,7 +17,8 @@ class customCamara {
         virtual void update();
 
         virtual void draw2D();
-        virtual void draw3D();
+        virtual void draw3D_1();
+        virtual void draw3D_3();
 
         void moveto(GLfloat x, GLfloat y, GLfloat z);
         void lookingto(GLfloat x, GLfloat y, GLfloat z);
