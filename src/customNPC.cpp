@@ -195,22 +195,29 @@ void customNPC::attackTarget() {
     // create a hitscan in the direction of the player, and check if the player is hit
 
     if (!(ofGetElapsedTimeMillis()-this->last_shot > this->shot_delay)) {
-        // cannot shoot yet
+        // cannot shoot yet, but aim
+        // this way the NPC will be shooting at where the player was, not where it is
+        // so if the player is moving fast, the NPC will miss more
+
+        // The NPC can't have perfect aim
+        this->aim_vec = rotateY(ofVec3f(0.0, 0.0, 1.0), glm::radians(this->rotation.y + ofRandom(-3, 3)));
+        this->aim_vec = rotateX(this->aim_vec, glm::radians(ofRandom(-3, 3)));
+        this->aim_vec = rotateZ(this->aim_vec, glm::radians(ofRandom(-3, 3)));
+
         return;
     }
     this->last_shot = ofGetElapsedTimeMillis();
 
-    // The NPC can't have perfect aim
-    ofVec3f aim_vec = rotateY(ofVec3f(0.0, 0.0, 1.0), glm::radians(this->rotation.y + ofRandom(-5, 5)));
-    aim_vec = rotateX(aim_vec, glm::radians(ofRandom(-5, 5)));
-    aim_vec = rotateZ(aim_vec, glm::radians(ofRandom(-5, 5)));
     
-    pair<customColisionBox*, GLfloat> hit = hitscan_all(this->position, aim_vec, vector<int>({0,1}));
-    ofVec3f hitpos = this->position + (aim_vec*hit.second);
+    pair<customColisionBox*, GLfloat> hit = hitscan_all(this->position, this->aim_vec, vector<int>({0,1}));
+    ofVec3f hitpos = this->position + (this->aim_vec*hit.second);
     customColisionBox* hitbox = hit.first;
 
+    // add bullet hole
+    customParticle* p = new customParticle(hitpos, ofVec3f(0, 0, 0), ofVec3f(0.05, 0.05, 0.05), ofVec3f(0.5, 0.5, 0.5), 1.0f, ofRandom(15000, 20000), -1, vector<int>({1}));
+
     for (int i=0; i<10; i++) {
-        customParticle* p = new customParticle(this->position, ofVec3f(0, 0, 0), ofVec3f(0.07, 0.07, 0.07), ofVec3f(0.3, 0.3, 0.3), ofRandom(0.95f, 0.99f), ofRandom(1000, 3000));
+        customParticle* p = new customParticle(this->position+this->aim_vec, ofVec3f(0, 0, 0), ofVec3f(0.1, 0.1, 0.1), ofVec3f(0.2, 0.2, 0.2), ofRandom(0.95f, 0.99f), ofRandom(1000, 3000));
         p->velocity = this->velocity+ofVec3f(ofRandom(-1, 1), ofRandom(-1, 1), ofRandom(-1, 1));
         p->spin = ofVec3f(ofRandom(-180, 180), ofRandom(-180, 180), ofRandom(-180, 180));
         globalgameobjects.push_back(new shared_ptr<customGameObject>(p));

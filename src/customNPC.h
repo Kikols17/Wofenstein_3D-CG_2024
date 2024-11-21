@@ -49,6 +49,7 @@ class customNPC : public customPhysicsObjectMovable {
 
 
             bool targetInSight = false;
+            ofVec3f aim_vec;
     
 };
 
