@@ -10,6 +10,7 @@
 #include "customCamara.h"
 #include "customPlayer.h"
 #include "customNPC.h"
+#include "customWeapon.h"
 
 #include "utils_hitscan.h"
 

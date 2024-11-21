@@ -40,6 +40,10 @@ void ofApp::setup(){
 
     wolfenstein(globalgameobjects, this->player);
 
+    // add weapon to the floor
+    //globalgameobjects.push_back( new shared_ptr<customGameObject>(new customWeapon(ofVec3f(2*4, 0.50, 2*32), ofVec3f(0, 0, 0), ofVec3f(0.5, 0.5, 0.5))) );
+
+
 }
 
 //--------------------------------------------------------------
