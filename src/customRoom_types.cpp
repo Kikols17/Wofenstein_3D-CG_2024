@@ -927,15 +927,15 @@ void customRoom_door::update() {
 
     if (this->open) {
         if (this->open_percent < 0.99f) {
-            this->open_percent += 0.01f;
-            this->position = this->position + (0.01 * this->scale.x) * rotateY(ofVec3f(1, 0, 0), glm::radians(this->rotation.y));
+            this->open_percent += 0.005f;
+            this->position = this->position + (0.005 * this->scale.x) * rotateY(ofVec3f(1, 0, 0), glm::radians(this->rotation.y));
         } else {
             this->open = false;
         }
     } else {
         if (this->open_percent > 0.0f) {
-            this->open_percent -= 0.01f;
-            this->position = this->position - (0.01 * this->scale.x) * rotateY(ofVec3f(1, 0, 0), glm::radians(this->rotation.y));
+            this->open_percent -= 0.005f;
+            this->position = this->position - (0.005 * this->scale.x) * rotateY(ofVec3f(1, 0, 0), glm::radians(this->rotation.y));
         } else {
             this->open = true;
         }

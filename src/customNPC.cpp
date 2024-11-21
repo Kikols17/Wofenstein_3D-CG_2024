@@ -37,9 +37,7 @@ void customNPC::update() {
     this->idlestand();
     this->idlemove();
     this->checkTarget();
-    if (this->targetInSight) {
-        this->attackTarget();
-    }
+    this->attackTarget();
 }
 
 
@@ -176,6 +174,7 @@ void customNPC::idlemove() {
         for (int i=0; i<(int)this->colisionBoxes.size(); i++) {
             if (this->colisionBoxes[i]->hasCollided) {
                 this->AIstate = 0;
+                //cout << "stuck" << endl;
                 this->colisionBoxes[i]->hasCollided = false;
                 return;
             }
@@ -203,12 +202,19 @@ void customNPC::checkTarget() {
         if (hit.first->group == (*target)->colisionBoxes[0]->group) {
             // the player is hit
             this->targetInSight = true;
+            this->AIstate = 2;
             //cout << "target in sight! at " << hitpos.x << " " << hitpos.y << " " << hitpos.z << endl;
         } else {
             this->targetInSight = false;
+            if (this->AIstate == 2) {
+                this->AIstate = 1;
+            }
         }
     } else {
         this->targetInSight = false;
+        if (this->AIstate == 2) {
+            this->AIstate = 1;
+        }
     }
 }
 
@@ -237,10 +243,19 @@ void customNPC::explode() {
 bool customNPC::attackTarget() {
     // attack the target
     // create a hitscan in the direction of the player, and check if the player is hit
+    if (this->AIstate != 2) {
+        return false;
+    }
 
     // check if target is within range
     if (abs((this->position.x-(*this->target)->position.x)+(this->position.y-(*this->target)->position.y)+(this->position.z-(*this->target)->position.z)) > this->range) {
+        // if not, move towards the target
+        ofVec3f dir = (*this->target)->position - this->position;
+        dir.normalize();
+        this->velocity = dir*running_speed;
         return false;
+    } else {
+        this->velocity = ofVec3f(0, 0, 0);
     }
 
     if (!(ofGetElapsedTimeMillis()-this->last_shot > this->shot_delay)) {
