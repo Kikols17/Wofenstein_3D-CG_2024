@@ -93,7 +93,7 @@ void ofApp::draw(){
     if (this->showcontrols) {
         // draw the controls
         ofSetColor(255, 255, 255);
-        ofDrawBitmapString("Controls:\n\t1: 2D view\n\t2: 3D view\n\t+: zoom in (2D)\n\t-: zoom out (2D)\n\th: toggle hitboxes (3D)\n\tc: toggle controls [THIS SCREEN]\n\tw: walk forward\n\ts: walk backward\n\ta: walk left\n\td: walk right\n\tshift: run\n\tmouse: look around\n\tspace left: shoot", 10, 50);
+        ofDrawBitmapString("Controls:\n\t1: 2D view\n\t2: 3D view\n\n\t+: zoom in (2D)\n\t-: zoom out (2D)\n\n\tm:toggle minimap (3D)\n\th: toggle hitboxes (3D)\n\tc: toggle controls [THIS SCREEN]\n\n\tw: walk forward\n\ts: walk backward\n\ta: walk left\n\td: walk right\n\tshift: run\n\n\tmouse: look around\n\tspace left: shoot", 10, 50);
     }
 
     // draw all objects in the correct viewmode
@@ -136,16 +136,18 @@ void ofApp::draw(){
             glPopMatrix();
 
             // mini-map (2D)
-            glViewport(3*gw()/4, 3*gh()/4, gw()/4, gh()/4);
-            glMatrixMode(GL_PROJECTION);
-            glLoadIdentity();
-            glPushMatrix();
-                this->cam->draw2D();    // apply the 2D camara's transformations
-                for (int i=0; i<gosize; i++) {
-                    (*globalgameobjects[i])->draw2D();
-                }
-                this->player.draw2D();
-            glPopMatrix();
+            if (this->showminimap) {
+                glViewport(3*gw()/4, 3*gh()/4, gw()/4, gh()/4);
+                glMatrixMode(GL_PROJECTION);
+                glLoadIdentity();
+                glPushMatrix();
+                    this->cam->draw2D();    // apply the 2D camara's transformations
+                    for (int i=0; i<gosize; i++) {
+                        (*globalgameobjects[i])->draw2D();
+                    }
+                    this->player.draw2D();
+                glPopMatrix();
+            }
             break;
         
 
@@ -176,6 +178,9 @@ void ofApp::keyPressed(int key) {
             this->cam->zoom *= 0.5;
             break;
 
+        case 'm':
+            this->showminimap = !this->showminimap;
+            break;
         case 'h':
             this->showhitboxes = !this->showhitboxes;
             break;
