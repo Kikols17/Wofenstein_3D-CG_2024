@@ -93,7 +93,10 @@ void ofApp::draw(){
     if (this->showcontrols) {
         // draw the controls
         ofSetColor(255, 255, 255);
-        ofDrawBitmapString("Controls:\n\t1: 2D view\n\t2: 3D view\n\n\t+: zoom in (2D)\n\t-: zoom out (2D)\n\n\tm:toggle minimap (3D)\n\th: toggle hitboxes (3D)\n\tc: toggle controls [THIS SCREEN]\n\n\tw: walk forward\n\ts: walk backward\n\ta: walk left\n\td: walk right\n\tshift: run\n\n\tmouse: look around\n\tspace left: shoot", 10, 50);
+        ofDrawBitmapString("Controls:\n\t1: 2D view\n\t2: 3D view (1st person)\n\t3: 3D view (3rd person)\n\n\t+: zoom in (2D)\n\t-: zoom out (2D)\n\n\tm:toggle minimap (3D)\n\th: toggle hitboxes (3D)\n\tc: toggle controls [THIS SCREEN]\n\n\tw: walk forward\n\ts: walk backward\n\ta: walk left\n\td: walk right\n\tshift: run\n\n\tmouse: look around\n\tmouse left: shoot\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHealth: " + ofToString(this->player.health), 10, 70);
+    } else {
+        ofSetColor(255, 255, 255);
+        ofDrawBitmapString("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHealth: " + ofToString(this->player.health), 10, 70);
     }
 
     // draw all objects in the correct viewmode
