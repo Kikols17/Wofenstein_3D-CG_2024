@@ -8,7 +8,7 @@ extern vector<customColisionBox*> globalcolisionBoxes_toremove;
 
 //--------------------------------------------------------------
 // public
-customNPC::customNPC(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, ofVec3f _color, shared_ptr<customPhysicsObject>* _target) : customPhysicsObjectMovable(_position, _rotation, _scale, _color, vector<customColisionBox*>({new customColisionBox(_position, _rotation, _scale, _color, 2, vector<int>({1}), -0.5, -0.5, -0.5, 0.5, 0.5, 0.5)})) {
+customNPC::customNPC(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, ofVec3f _color, shared_ptr<customPhysicsObject>* _target) : customPhysicsObjectMovable(_position, _rotation, _scale, _color, vector<customColisionBox*>({new customColisionBox(_position, _rotation, _scale, _color, 2, vector<int>({1}), -0.2, -0.7, -0.2, 0.2, 0.7, 0.2)})) {
     // run this to set up the object
 
     this->target = _target;
@@ -47,44 +47,26 @@ void customNPC::draw2D() {
     glPushMatrix();
         this->customPhysicsObjectMovable::draw2D();      // move to the position, rotate, and scale the NPC
 
-        glColor3f(this->color.x, this->color.y, this->color.z);
-        glBegin(GL_QUADS);
-            // floor
-            glVertex3f(-0.5, 0, -0.5);
-            glVertex3f(0.5, 0, -0.5);
-            glVertex3f(0.5, 0, 0.5);
-            glVertex3f(-0.5, 0, 0.5);
+        glColor3f(1.0, 0.8, 0.6);   // skin color
+        cube_unit_posscale(ofVec3f(0, 0.5, 0), ofVec3f(0.3, 0.3, 0.3)); // head
+        glColor3f(1.0, 0.85, 0.0);  // blonde hair
+        cube_unit_posscale(ofVec3f(0, 0.6, 0), ofVec3f(0.31, 0.12, 0.31)); // hair
+        glColor3f(0.3, 0.3, 0.3);    // silver helmet
+        cube_unit_posscale(ofVec3f(0, 0.615, 0), ofVec3f(0.32, 0.13, 0.32)); // helmet
 
-            // left wall
-            glVertex3f(-0.5, 0, -0.5);
-            glVertex3f(-0.5, 1, -0.5);
-            glVertex3f(-0.5, 1, 0.5);
-            glVertex3f(-0.5, 0, 0.5);
+        glColor3f(0.0, 0.0, 1.0);   // blue eyes
+        cube_unit_posscale(ofVec3f(-0.05, 0.5, 0.3), ofVec3f(0.05, 0.05, 0.05)); // } eyes
+        cube_unit_posscale(ofVec3f(0.05, 0.5, 0.3), ofVec3f(0.05, 0.05, 0.05));  // }
 
-            // right wall
-            glVertex3f(0.5, 0, -0.5);
-            glVertex3f(0.5, 1, -0.5);
-            glVertex3f(0.5, 1, 0.5);
-            glVertex3f(0.5, 0, 0.5);
+        glColor3f(0.4, 0.25, 0.1); // brown uniform
+        cube_unit_posscale(ofVec3f(0, 0.05, 0), ofVec3f(0.35, 0.6, 0.35));  // body
+        cube_unit_posscale(ofVec3f(-0.1, -0.5, 0), ofVec3f(0.15, 0.5, 0.15));   // } legs
+        cube_unit_posscale(ofVec3f(0.1, -0.5, 0), ofVec3f(0.15, 0.5, 0.15));    // }
 
-            // front wall
-            glVertex3f(-0.5, 0, 0.5);
-            glVertex3f(-0.5, 1, 0.5);
-            glVertex3f(0.5, 1, 0.5);
-            glVertex3f(0.5, 0, 0.5);
+        glColor3f(0.0, 0.0, 1.0); // blue boots
+        cube_unit_posscale(ofVec3f(-0.1, -0.65, 0), ofVec3f(0.17, 0.25, 0.17)); // } boots
+        cube_unit_posscale(ofVec3f(0.1, -0.65, 0), ofVec3f(0.17, 0.25, 0.17));  // }
 
-            // back wall
-            glVertex3f(-0.5, 0, -0.5);
-            glVertex3f(-0.5, 1, -0.5);
-            glVertex3f(0.5, 1, -0.5);
-            glVertex3f(0.5, 0, -0.5);
-
-            // ceiling
-            glVertex3f(-0.5, 1, -0.5);
-            glVertex3f(0.5, 1, -0.5);
-            glVertex3f(0.5, 1, 0.5);
-            glVertex3f(-0.5, 1, 0.5);
-        glEnd();
     glPopMatrix();
 }
 
@@ -93,44 +75,25 @@ void customNPC::draw3D() {
     glPushMatrix();
         this->customPhysicsObjectMovable::draw3D();      // move to the position, rotate, and scale the NPC
 
-        glColor3f(this->color.x, this->color.y, this->color.z);
-        glBegin(GL_QUADS);
-            // floor
-            glVertex3f(-0.5, -0.5, -0.5);
-            glVertex3f(0.5, -0.5, -0.5);
-            glVertex3f(0.5, -0.5, 0.5);
-            glVertex3f(-0.5, -0.5, 0.5);
+        glColor3f(1.0, 0.8, 0.6);   // skin color
+        cube_unit_posscale(ofVec3f(0, 0.5, 0), ofVec3f(0.3, 0.3, 0.3)); // head
+        glColor3f(1.0, 0.85, 0.0);  // blonde hair
+        cube_unit_posscale(ofVec3f(0, 0.6, 0), ofVec3f(0.31, 0.12, 0.31)); // hair
+        glColor3f(0.3, 0.3, 0.3);    // silver helmet
+        cube_unit_posscale(ofVec3f(0, 0.615, 0), ofVec3f(0.32, 0.13, 0.32)); // helmet
 
-            // left wall
-            glVertex3f(-0.5, -0.5, -0.5);
-            glVertex3f(-0.5, 0.5, -0.5);
-            glVertex3f(-0.5, 0.5, 0.5);
-            glVertex3f(-0.5, -0.5, 0.5);
+        glColor3f(0.0, 0.0, 1.0);   // blue eyes
+        cube_unit_posscale(ofVec3f(-0.05, 0.5, 0.3), ofVec3f(0.05, 0.05, 0.05)); // } eyes
+        cube_unit_posscale(ofVec3f(0.05, 0.5, 0.3), ofVec3f(0.05, 0.05, 0.05));  // }
 
-            // right wall
-            glVertex3f(0.5, -0.5, -0.5);
-            glVertex3f(0.5, 0.5, -0.5);
-            glVertex3f(0.5, 0.5, 0.5);
-            glVertex3f(0.5, -0.5, 0.5);
+        glColor3f(0.4, 0.25, 0.1); // brown uniform
+        cube_unit_posscale(ofVec3f(0, 0.05, 0), ofVec3f(0.35, 0.6, 0.35));  // body
+        cube_unit_posscale(ofVec3f(-0.1, -0.5, 0), ofVec3f(0.15, 0.5, 0.15));   // } legs
+        cube_unit_posscale(ofVec3f(0.1, -0.5, 0), ofVec3f(0.15, 0.5, 0.15));    // }
 
-            // front wall
-            glVertex3f(-0.5, -0.5, 0.5);
-            glVertex3f(-0.5, 0.5, 0.5);
-            glVertex3f(0.5, 0.5, 0.5);
-            glVertex3f(0.5, -0.5, 0.5);
-
-            // back wall
-            glVertex3f(-0.5, -0.5, -0.5);
-            glVertex3f(-0.5, 0.5, -0.5);
-            glVertex3f(0.5, 0.5, -0.5);
-            glVertex3f(0.5, -0.5, -0.5);
-
-            // ceiling
-            glVertex3f(-0.5, 0.5, -0.5);
-            glVertex3f(0.5, 0.5, -0.5);
-            glVertex3f(0.5, 0.5, 0.5);
-            glVertex3f(-0.5, 0.5, 0.5);
-        glEnd();
+        glColor3f(0.0, 0.0, 1.0); // blue boots
+        cube_unit_posscale(ofVec3f(-0.1, -0.65, 0), ofVec3f(0.17, 0.25, 0.17)); // } boots
+        cube_unit_posscale(ofVec3f(0.1, -0.65, 0), ofVec3f(0.17, 0.25, 0.17));  // }
     glPopMatrix();
 
 }
@@ -151,6 +114,8 @@ void customNPC::idlestand() {
     // stand still
     this->velocity = ofVec3f(0, 0, 0);
 
+
+    ofSeedRandom(ofGetElapsedTimeMillis());
     // have a 1% change to change state to idle moving (1)
     if (ofRandom(0, 100) < 1) {
         this->movingto = ofVec3f(this->position.x+ofRandom(-10, 10), this->position.y, this->position.x+ofRandom(-10, 10));

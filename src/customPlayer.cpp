@@ -47,25 +47,19 @@ void customPlayer::draw2D() {
     // draw the player in 2D
     glPushMatrix();
         this->customPhysicsObjectMovable::draw2D();      // move to the position, rotate, and scale the player
-        glBegin(GL_QUADS);
-            glColor3f(0.0, 0.0, 0.0);
-            glVertex3f(0.2, 0, 0.28);
-            glVertex3f(-0.2, 0, 0.28);
-            glVertex3f(-0.2, 0, 0.0);
-            glVertex3f(0.2, 0, 0.0);
+        glColor3f(1.0, 0.8, 0.6); // skin color
+        cube_unit_posscale(ofVec3f(0, 0.5, 0), ofVec3f(0.3, 0.3, 0.3)); // head
+        glColor3f(0.8, 0.4, 0.0); // ginger hair
+        cube_unit_posscale(ofVec3f(0, 0.6, 0), ofVec3f(0.31, 0.12, 0.31)); // hair
 
-            glColor3f(0.2, 0.2, 0.2);
-            glVertex3f(-0.28, 0, -0.28);
-            glVertex3f(0.28, 0, -0.28);
-            glVertex3f(0.28, 0, 0.28);
-            glVertex3f(-0.28, 0, 0.28);
+        glColor3f(0.8, 0.8, 0.8); // light grey clothes
+        cube_unit_posscale(ofVec3f(0, 0.05, 0), ofVec3f(0.35, 0.6, 0.35));  // body
+        cube_unit_posscale(ofVec3f(-0.1, -0.5, 0), ofVec3f(0.15, 0.5, 0.15));   // } legs
+        cube_unit_posscale(ofVec3f(0.1, -0.5, 0), ofVec3f(0.15, 0.5, 0.15));    // }
 
-            glColor3f(0.0, 0.4, 0.0);
-            glVertex3f(-0.5, 0, -0.2);
-            glVertex3f(0.5, 0, -0.2);
-            glVertex3f(0.5, 0, 0.2);
-            glVertex3f(-0.5, 0, 0.2);
-        glEnd();
+        glColor3f(0.6, 0.3, 0.0); // brown boots
+        cube_unit_posscale(ofVec3f(-0.1, -0.65, 0), ofVec3f(0.17, 0.25, 0.17)); // } boots
+        cube_unit_posscale(ofVec3f(0.1, -0.65, 0), ofVec3f(0.17, 0.25, 0.17));  // }
     glPopMatrix();
 }
 
