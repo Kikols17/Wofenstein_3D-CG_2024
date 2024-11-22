@@ -10,6 +10,8 @@
 
 #include "utils_hitscan.h"
 
+#include "cg_drawing_extras.h"
+
 #include "ofMain.h"
 
 

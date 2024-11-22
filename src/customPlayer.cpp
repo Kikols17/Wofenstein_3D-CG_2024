@@ -7,7 +7,7 @@ extern vector<shared_ptr<customGameObject>*> globalgameobjects;
 
 //--------------------------------------------------------------
 // public
-customPlayer::customPlayer(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale) : customPhysicsObjectMovable(_position, _rotation, _scale, vector<customColisionBox*>({new customColisionBox(_position, _rotation, _scale, ofVec3f(1.0,0.0,0.0), 0, vector<int>({1}), -0.5, -0.5, -0.5, 0.5, 0.5, 0.5)})) {
+customPlayer::customPlayer(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale) : customPhysicsObjectMovable(_position, _rotation, _scale, vector<customColisionBox*>({new customColisionBox(_position, _rotation, _scale, ofVec3f(1.0,0.0,0.0), 0, vector<int>({1}), -0.35, -0.75, -0.35, 0.35, 0.75, 0.35)})) {
     // run this to set up the object
 
     this->cam = customCamara();
@@ -71,7 +71,24 @@ void customPlayer::draw2D() {
 
 void customPlayer::draw3D() {
     // draw the player in 3D
-    this->customPhysicsObjectMovable::draw3D();
+    glPushMatrix();
+        this->customPhysicsObjectMovable::draw3D();
+        glColor3f(1.0, 0.8, 0.6); // skin color
+        cube_unit_posscale(ofVec3f(0, 0.5, 0), ofVec3f(0.3, 0.3, 0.3)); // head
+        glColor3f(0.8, 0.4, 0.0); // ginger hair
+        cube_unit_posscale(ofVec3f(0, 0.6, 0), ofVec3f(0.31, 0.12, 0.31)); // hair
+
+        glColor3f(0.8, 0.8, 0.8); // light grey clothes
+        cube_unit_posscale(ofVec3f(0, 0.05, 0), ofVec3f(0.35, 0.6, 0.35));  // body
+        cube_unit_posscale(ofVec3f(-0.1, -0.5, 0), ofVec3f(0.15, 0.5, 0.15));   // } legs
+        cube_unit_posscale(ofVec3f(0.1, -0.5, 0), ofVec3f(0.15, 0.5, 0.15));    // }
+
+        glColor3f(0.6, 0.3, 0.0); // brown boots
+        cube_unit_posscale(ofVec3f(-0.1, -0.65, 0), ofVec3f(0.17, 0.25, 0.17)); // } boots
+        cube_unit_posscale(ofVec3f(0.1, -0.65, 0), ofVec3f(0.17, 0.25, 0.17));  // }
+    glPopMatrix();
+
+
 }
 
 
@@ -144,7 +161,11 @@ void customPlayer::looking(int viewmode) {
             this->rotation.y = -this->turning_speed*(ofGetMouseX() - (ofGetWidth() / 2))*0.15;
             this->cam.looking_angleY = this->rotation.y;
 
-            this->cam.looking_angleX = this->turning_speed*(ofGetMouseY() - (ofGetHeight() / 2))*0.15;            
+            if (viewmode==1) {
+                this->cam.looking_angleX = this->turning_speed*(ofGetMouseY() - (ofGetHeight() / 2))*0.15;
+            } else {
+                this->cam.looking_angleX = 0;
+            }           
         } else {
             // arrow keys mode
             this->rotation.y += this->turning_speed*this->looking_left;
