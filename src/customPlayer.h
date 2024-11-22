@@ -54,8 +54,7 @@ class customPlayer : public customPhysicsObjectMovable {
         uint64_t last_shot = 0;
         uint64_t shot_delay = 500;  // in milliseconds
 
-        private:
-            int health = 100;
+        int health = 100;
 };
 
 #endif

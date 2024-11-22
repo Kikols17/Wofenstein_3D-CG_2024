@@ -29,7 +29,7 @@ void customPlayer::update(int viewmode) {
         if (this->colisionBoxes[i]->hasBeenShot) {
             cout << "player was shot!" << endl;
             colisionBoxes[i]->hasBeenShot = false;
-            health -= 10;
+            health -= 5;
             if (health <= 0) {
                 cout << "player died!" << endl;
             }
