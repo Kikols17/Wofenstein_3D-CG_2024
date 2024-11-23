@@ -79,6 +79,7 @@ class customRoom_wall : public customPhysicsObjectStatic {
     
     public:
         customRoom_wall(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale);
+        customRoom_wall(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, ofVec3f _color);
 
         using customPhysicsObjectStatic::update;
 

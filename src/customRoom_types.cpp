@@ -416,7 +416,10 @@ void customRoom_Xhallway::draw3D() {
 //--------------------------------------------------------------
 // customRoom_wall
 //--------------------------------------------------------------
-customRoom_wall::customRoom_wall(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale) : customPhysicsObjectStatic(_position, _rotation, _scale, ofVec3f(0.0, 0.0, 0.5), vector<customColisionBox*>( {new customColisionBox(_position, _rotation, _scale, ofVec3f(0.0, 0.0, 0.5), 1, vector<int>({}), -0.5, 0.0, -0.5, 0.5, 1.0, 0.5)} )) {
+customRoom_wall::customRoom_wall(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale) : customRoom_wall(_position, _rotation, _scale, ofVec3f(0.0, 0.0, 0.5)) {
+    // run this to set up the object
+}
+customRoom_wall::customRoom_wall(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, ofVec3f _color) : customPhysicsObjectStatic(_position, _rotation, _scale, _color, vector<customColisionBox*>( {new customColisionBox(_position, _rotation, _scale, _color, 1, vector<int>({}), -0.5, 0.0, -0.5, 0.5, 1.0, 0.5)} )) {
     // run this to set up the object
 }
 void customRoom_wall::draw2D() {

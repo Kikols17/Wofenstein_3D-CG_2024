@@ -35,9 +35,17 @@ def criar_mapa(name, input, output):
             output.write("\tgameobjects.push_back(go);\n\n")
         
         # Wall
-        if character == '#':
-            # Wall (no need for rotation)
-            output.write(f"\tgo = new shared_ptr<customGameObject>( new customRoom_wall( ofVec3f({size}*{x}, {size}*0, {size}*{y}), ofVec3f(0, 0, 0), ofVec3f({size}, {size}, {size}) ) );\n")
+        if character == 'B':
+            # Wall (no need for rotation) (blue)
+            output.write(f"\tgo = new shared_ptr<customGameObject>( new customRoom_wall( ofVec3f({size}*{x}, {size}*0, {size}*{y}), ofVec3f(0, 0, 0), ofVec3f({size}, {size}, {size}), ofVec3f(0.0, 0.0, 0.5) ) );\n")
+            output.write("\tgameobjects.push_back(go);\n\n")
+        elif character == 'G':
+            # Wall (no need for rotation) (gray)
+            output.write(f"\tgo = new shared_ptr<customGameObject>( new customRoom_wall( ofVec3f({size}*{x}, {size}*0, {size}*{y}), ofVec3f(0, 0, 0), ofVec3f({size}, {size}, {size}), ofVec3f(0.3, 0.3, 0.3) ) );\n")
+            output.write("\tgameobjects.push_back(go);\n\n")
+        elif character == 'W':
+            # Wall (no need for rotation) (wood color)
+            output.write(f"\tgo = new shared_ptr<customGameObject>( new customRoom_wall( ofVec3f({size}*{x}, {size}*0, {size}*{y}), ofVec3f(0, 0, 0), ofVec3f({size}, {size}, {size}), ofVec3f(0.5, 0.25, 0.0) ) );\n")
             output.write("\tgameobjects.push_back(go);\n\n")
         
         # Door
@@ -74,8 +82,8 @@ def criar_mapa(name, input, output):
             output.write(f"\tgo = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f({size}*{x}, {size}*0, {size}*{y}), ofVec3f(0, 0, 0), ofVec3f({size}, {size}, {size}) ) );\n")
             output.write("\tgameobjects.push_back(go);\n\n")
         
-        if character == 'S':
-            # Spawn
+        if character == 'p':
+            # Spawn player
             spawn_x = x
             spawn_y = y
             output.write(f"\tgo = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f({size}*{x}, {size}*0, {size}*{y}), ofVec3f(0, 0, 0), ofVec3f({size}, {size}, {size}) ) );\n")
@@ -99,6 +107,10 @@ def criar_mapa(name, input, output):
 
 if __name__ == "__main__":
     # receber argumentos de linha de comando
+
+    if len(sys.argv) != 4:
+        print("Usage: python3 mapcreator.py <name> <input> <output>")
+        exit()
 
     name = sys.argv[1]
     input = open(sys.argv[2], "r")
