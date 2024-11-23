@@ -465,6 +465,7 @@ void ofApp::loadLevel(int level) {
 
     switch (level) {
         case 1:
+            kill_count = 0;
             enemy_count = wolfenstein(globalgameobjects, this->player);
             break;
         default:
