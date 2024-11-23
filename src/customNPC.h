@@ -34,11 +34,12 @@ class customNPC : public customPhysicsObjectMovable {
         shared_ptr<customPhysicsObject>* target;
 
 
-        void faceTarget();
+        void faceMovement();
         void idlestand();
         void idlemove();
         void checkTarget();
         bool attackTarget();
+        void animateWalking();
 
 
         uint64_t last_shot = 0;
@@ -60,6 +61,9 @@ class customNPC : public customPhysicsObjectMovable {
             ofVec3f aim_vec;
 
             ofVec3f movingto = ofVec3f(0, 0, 0);
+
+            GLfloat walking_animation = 0.0;
+            GLfloat walking_animation_speed = 0.1;
     
 };
 

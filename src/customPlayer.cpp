@@ -20,6 +20,8 @@ void customPlayer::update(int viewmode) {
     // run the physics update
     this->customPhysicsObjectMovable::update();
 
+    this->animateWalking();
+
     this->moving(viewmode);
     this->looking(viewmode);
     this->shoot();
@@ -54,12 +56,28 @@ void customPlayer::draw2D() {
 
         glColor3f(0.8, 0.8, 0.8); // light grey clothes
         cube_unit_posscale(ofVec3f(0, 0.05, 0), ofVec3f(0.35, 0.6, 0.35));  // body
-        cube_unit_posscale(ofVec3f(-0.1, -0.5, 0), ofVec3f(0.15, 0.5, 0.15));   // } legs
-        cube_unit_posscale(ofVec3f(0.1, -0.5, 0), ofVec3f(0.15, 0.5, 0.15));    // }
 
-        glColor3f(0.6, 0.3, 0.0); // brown boots
-        cube_unit_posscale(ofVec3f(-0.1, -0.65, 0), ofVec3f(0.17, 0.25, 0.17)); // } boots
-        cube_unit_posscale(ofVec3f(0.1, -0.65, 0), ofVec3f(0.17, 0.25, 0.17));  // }
+        glPushMatrix();
+            glTranslatef(0, -0.25, 0);        // move joint of the leg to y=0
+            glRotatef(-45.0*this->walking_animation, 1, 0, 0); // animate walking
+            glTranslatef(0, 0.25, 0);       // move joint of the leg back to original position  
+
+            glColor3f(0.8, 0.8, 0.8); // light grey clothes
+            cube_unit_posscale(ofVec3f(-0.1, -0.5, 0), ofVec3f(0.15, 0.5, 0.15));   // } left leg
+            glColor3f(0.6, 0.3, 0.0); // brown boots
+            cube_unit_posscale(ofVec3f(-0.1, -0.65, 0), ofVec3f(0.17, 0.25, 0.17)); // } left boot
+        glPopMatrix();
+
+        glPushMatrix();
+            glTranslatef(0, -0.25, 0);        // move joint of the leg to y=0
+            glRotatef(45.0*this->walking_animation, 1, 0, 0); // animate walking
+            glTranslatef(0, 0.25, 0);       // move joint of the leg back to original position  
+
+            glColor3f(0.8, 0.8, 0.8); // light grey clothes
+            cube_unit_posscale(ofVec3f(0.1, -0.5, 0), ofVec3f(0.15, 0.5, 0.15));    // } right leg
+            glColor3f(0.6, 0.3, 0.0); // brown boots
+            cube_unit_posscale(ofVec3f(0.1, -0.65, 0), ofVec3f(0.17, 0.25, 0.17));  // } right boot
+        glPopMatrix();
     glPopMatrix();
 }
 
@@ -74,12 +92,29 @@ void customPlayer::draw3D() {
 
         glColor3f(0.8, 0.8, 0.8); // light grey clothes
         cube_unit_posscale(ofVec3f(0, 0.05, 0), ofVec3f(0.35, 0.6, 0.35));  // body
-        cube_unit_posscale(ofVec3f(-0.1, -0.5, 0), ofVec3f(0.15, 0.5, 0.15));   // } legs
-        cube_unit_posscale(ofVec3f(0.1, -0.5, 0), ofVec3f(0.15, 0.5, 0.15));    // }
 
-        glColor3f(0.6, 0.3, 0.0); // brown boots
-        cube_unit_posscale(ofVec3f(-0.1, -0.65, 0), ofVec3f(0.17, 0.25, 0.17)); // } boots
-        cube_unit_posscale(ofVec3f(0.1, -0.65, 0), ofVec3f(0.17, 0.25, 0.17));  // }
+        glPushMatrix();
+            glTranslatef(0, -0.25, 0);        // move joint of the leg to y=0
+            glRotatef(-45.0*this->walking_animation, 1, 0, 0); // animate walking
+            glTranslatef(0, 0.25, 0);       // move joint of the leg back to original position  
+
+            glColor3f(0.8, 0.8, 0.8); // light grey clothes
+            cube_unit_posscale(ofVec3f(-0.1, -0.5, 0), ofVec3f(0.15, 0.5, 0.15));   // } left leg
+            glColor3f(0.6, 0.3, 0.0); // brown boots
+            cube_unit_posscale(ofVec3f(-0.1, -0.65, 0), ofVec3f(0.17, 0.25, 0.17)); // } left boot
+        glPopMatrix();
+
+        glPushMatrix();
+            glTranslatef(0, -0.25, 0);        // move joint of the leg to y=0
+            glRotatef(45.0*this->walking_animation, 1, 0, 0); // animate walking
+            glTranslatef(0, 0.25, 0);       // move joint of the leg back to original position  
+
+            glColor3f(0.8, 0.8, 0.8); // light grey clothes
+            cube_unit_posscale(ofVec3f(0.1, -0.5, 0), ofVec3f(0.15, 0.5, 0.15));    // } right leg
+            glColor3f(0.6, 0.3, 0.0); // brown boots
+            cube_unit_posscale(ofVec3f(0.1, -0.65, 0), ofVec3f(0.17, 0.25, 0.17));  // } right boot
+        glPopMatrix();
+
     glPopMatrix();
 
 
@@ -236,4 +271,24 @@ void customPlayer::shoot() {
         //cout << "missed" << endl;
     }
 
+}
+
+
+void customPlayer::animateWalking() {
+    // animate walking
+    if (this->velocity.x==0 && this->velocity.y==0 && this->velocity.z==0) {
+        // if not moving, finish the walking animation
+        if (this->walking_animation_speed != 0.0  &&  this->walking_animation > 0.0) {
+            this->walking_animation_speed = -0.1;
+        } else if (this->walking_animation_speed != 0.0  &&  this->walking_animation < 0.0) {
+            this->walking_animation_speed = 0.1;
+        }
+    } else if (this->walking_animation_speed == 0.0) {
+        // if moving, and animation speed is 0.0, restart the walking animation
+        this->walking_animation_speed = 0.1;
+    }
+    this->walking_animation += this->walking_animation_speed;
+    if (this->walking_animation > 1.0 || this->walking_animation < -1.0) {
+        this->walking_animation_speed *= -1;;
+    }
 }

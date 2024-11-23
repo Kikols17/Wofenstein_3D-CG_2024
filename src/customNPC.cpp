@@ -33,11 +33,14 @@ void customNPC::update() {
     }
     //cout << "NPC " << this << " AIstate: " << this->AIstate << endl;
 
-    this->faceTarget();
+    this->animateWalking();
+
     this->idlestand();
     this->idlemove();
     this->checkTarget();
     this->attackTarget();
+
+    this->faceMovement();
 }
 
 
@@ -55,17 +58,35 @@ void customNPC::draw2D() {
         cube_unit_posscale(ofVec3f(0, 0.615, 0), ofVec3f(0.32, 0.13, 0.32)); // helmet
 
         glColor3f(0.0, 0.0, 1.0);   // blue eyes
-        cube_unit_posscale(ofVec3f(-0.05, 0.5, 0.3), ofVec3f(0.05, 0.05, 0.05)); // } eyes
-        cube_unit_posscale(ofVec3f(0.05, 0.5, 0.3), ofVec3f(0.05, 0.05, 0.05));  // }
+        cube_unit_posscale(ofVec3f(-0.05, 0.5, 0.19), ofVec3f(0.05, 0.05, 0.05)); // } eyes
+        cube_unit_posscale(ofVec3f(0.05, 0.5, 0.19), ofVec3f(0.05, 0.05, 0.05));  // }
 
         glColor3f(0.4, 0.25, 0.1); // brown uniform
         cube_unit_posscale(ofVec3f(0, 0.05, 0), ofVec3f(0.35, 0.6, 0.35));  // body
-        cube_unit_posscale(ofVec3f(-0.1, -0.5, 0), ofVec3f(0.15, 0.5, 0.15));   // } legs
-        cube_unit_posscale(ofVec3f(0.1, -0.5, 0), ofVec3f(0.15, 0.5, 0.15));    // }
 
-        glColor3f(0.0, 0.0, 1.0); // blue boots
-        cube_unit_posscale(ofVec3f(-0.1, -0.65, 0), ofVec3f(0.17, 0.25, 0.17)); // } boots
-        cube_unit_posscale(ofVec3f(0.1, -0.65, 0), ofVec3f(0.17, 0.25, 0.17));  // }
+
+        glPushMatrix();
+            glTranslatef(0, -0.25, 0);        // move joint of the leg to y=0
+            glRotatef(-45.0*this->walking_animation, 1, 0, 0); // animate walking
+            glTranslatef(0, 0.25, 0);       // move joint of the leg back to original position  
+
+
+            glColor3f(0.4, 0.25, 0.1); // brown uniform
+            cube_unit_posscale(ofVec3f(-0.1, -0.5, 0), ofVec3f(0.15, 0.5, 0.15));   // } left leg
+            glColor3f(0.0, 0.0, 1.0); // blue boots
+            cube_unit_posscale(ofVec3f(-0.1, -0.65, 0), ofVec3f(0.17, 0.25, 0.17)); // } left boot
+        glPopMatrix();
+
+        glPushMatrix();
+            glTranslatef(0, -0.25, 0);        // move joint of the leg to y=0
+            glRotatef(45.0*this->walking_animation, 1, 0, 0); // animate walking
+            glTranslatef(0, 0.25, 0);       // move joint of the leg back to original position  
+
+            glColor3f(0.4, 0.25, 0.1); // brown uniform
+            cube_unit_posscale(ofVec3f(0.1, -0.5, 0), ofVec3f(0.15, 0.5, 0.15));    // } right leg
+            glColor3f(0.0, 0.0, 1.0); // blue boots
+            cube_unit_posscale(ofVec3f(0.1, -0.65, 0), ofVec3f(0.17, 0.25, 0.17));  // } right boot
+        glPopMatrix();
 
     glPopMatrix();
 }
@@ -83,26 +104,56 @@ void customNPC::draw3D() {
         cube_unit_posscale(ofVec3f(0, 0.615, 0), ofVec3f(0.32, 0.13, 0.32)); // helmet
 
         glColor3f(0.0, 0.0, 1.0);   // blue eyes
-        cube_unit_posscale(ofVec3f(-0.05, 0.5, 0.3), ofVec3f(0.05, 0.05, 0.05)); // } eyes
-        cube_unit_posscale(ofVec3f(0.05, 0.5, 0.3), ofVec3f(0.05, 0.05, 0.05));  // }
+        cube_unit_posscale(ofVec3f(-0.05, 0.5, 0.19), ofVec3f(0.05, 0.05, 0.05)); // } eyes
+        cube_unit_posscale(ofVec3f(0.05, 0.5, 0.19), ofVec3f(0.05, 0.05, 0.05));  // }
 
         glColor3f(0.4, 0.25, 0.1); // brown uniform
         cube_unit_posscale(ofVec3f(0, 0.05, 0), ofVec3f(0.35, 0.6, 0.35));  // body
-        cube_unit_posscale(ofVec3f(-0.1, -0.5, 0), ofVec3f(0.15, 0.5, 0.15));   // } legs
-        cube_unit_posscale(ofVec3f(0.1, -0.5, 0), ofVec3f(0.15, 0.5, 0.15));    // }
 
-        glColor3f(0.0, 0.0, 1.0); // blue boots
-        cube_unit_posscale(ofVec3f(-0.1, -0.65, 0), ofVec3f(0.17, 0.25, 0.17)); // } boots
-        cube_unit_posscale(ofVec3f(0.1, -0.65, 0), ofVec3f(0.17, 0.25, 0.17));  // }
+
+        glPushMatrix();
+            glTranslatef(0, -0.25, 0);        // move joint of the leg to y=0
+            glRotatef(-45.0*this->walking_animation, 1, 0, 0); // animate walking
+            glTranslatef(0, 0.25, 0);       // move joint of the leg back to original position  
+
+
+            glColor3f(0.4, 0.25, 0.1); // brown uniform
+            cube_unit_posscale(ofVec3f(-0.1, -0.5, 0), ofVec3f(0.15, 0.5, 0.15));   // } left leg
+            glColor3f(0.0, 0.0, 1.0); // blue boots
+            cube_unit_posscale(ofVec3f(-0.1, -0.65, 0), ofVec3f(0.17, 0.25, 0.17)); // } left boot
+        glPopMatrix();
+
+        glPushMatrix();
+            glTranslatef(0, -0.25, 0);        // move joint of the leg to y=0
+            glRotatef(45.0*this->walking_animation, 1, 0, 0); // animate walking
+            glTranslatef(0, 0.25, 0);       // move joint of the leg back to original position  
+
+            glColor3f(0.4, 0.25, 0.1); // brown uniform
+            cube_unit_posscale(ofVec3f(0.1, -0.5, 0), ofVec3f(0.15, 0.5, 0.15));    // } right leg
+            glColor3f(0.0, 0.0, 1.0); // blue boots
+            cube_unit_posscale(ofVec3f(0.1, -0.65, 0), ofVec3f(0.17, 0.25, 0.17));  // } right boot
+        glPopMatrix();
+
     glPopMatrix();
 
 }
 
 
-void customNPC::faceTarget() {
-    // face the target
-    ofVec3f playerpos = (*this->target)->position;
-    this->rotation.y = atan2(playerpos.x - this->position.x, playerpos.z - this->position.z) * 180 / PI;
+void customNPC::faceMovement() {
+    if (this->AIstate == 2) {
+        // if attacking, face the target
+        ofVec3f dir = (*this->target)->position - this->position;
+        dir.normalize();
+        this->rotation.y = glm::degrees(atan2(dir.x, dir.z));
+        return;
+    }
+    // face the direction the NPC is moving, if 0, keep the current rotation
+    if (this->velocity.x==0 && this->velocity.y==0 && this->velocity.z==0) {
+        return;
+    }
+    ofVec3f dir = this->velocity;
+    dir.normalize();
+    this->rotation.y = glm::degrees(atan2(dir.x, dir.z));
     //cout << this->rotation.y << endl;
 }
 
@@ -115,9 +166,9 @@ void customNPC::idlestand() {
     this->velocity = ofVec3f(0, 0, 0);
 
 
-    ofSeedRandom(ofGetElapsedTimeMillis());
-    // have a 1% change to change state to idle moving (1)
-    if (ofRandom(0, 100) < 1) {
+    ofSetRandomSeed(ofGetElapsedTimeMillis()*ofRandom(1, 1000));
+    // have a 10% change to change state to idle moving (1)
+    if (ofRandom(0, 100) < 10) {
         this->movingto = ofVec3f(this->position.x+ofRandom(-10, 10), this->position.y, this->position.x+ofRandom(-10, 10));
         this->AIstate = 1;
     }
@@ -278,4 +329,25 @@ bool customNPC::attackTarget() {
     }
 
     return true;
+}
+
+
+
+void customNPC::animateWalking() {
+    // animate walking
+    if (this->velocity.x==0 && this->velocity.y==0 && this->velocity.z==0) {
+        // if not moving, finish the walking animation
+        if (this->walking_animation_speed != 0.0  &&  this->walking_animation > 0.0) {
+            this->walking_animation_speed = -0.1;
+        } else if (this->walking_animation_speed != 0.0  &&  this->walking_animation < 0.0) {
+            this->walking_animation_speed = 0.1;
+        }
+    } else if (this->walking_animation_speed == 0.0) {
+        // if moving, and animation speed is 0.0, restart the walking animation
+        this->walking_animation_speed = 0.1;
+    }
+    this->walking_animation += this->walking_animation_speed;
+    if (this->walking_animation > 1.0 || this->walking_animation < -1.0) {
+        this->walking_animation_speed *= -1;;
+    }
 }

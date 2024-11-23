@@ -29,6 +29,7 @@ class customPlayer : public customPhysicsObjectMovable {
         void moving(int viewmode);
         void looking(int viewmode);
         void shoot();
+        void animateWalking();
 
         using customPhysicsObjectMovable::position;
         using customPhysicsObjectMovable::rotation;
@@ -57,6 +58,11 @@ class customPlayer : public customPhysicsObjectMovable {
         uint64_t shot_delay = 500;  // in milliseconds
 
         int health = 100;
+    
+    
+    private:
+        GLfloat walking_animation = 0.0;
+        GLfloat walking_animation_speed = 0.1;
 };
 
 #endif
