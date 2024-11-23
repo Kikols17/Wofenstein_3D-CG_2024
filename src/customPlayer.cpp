@@ -21,9 +21,6 @@ void customPlayer::update(int viewmode) {
 
 
     this->looking(viewmode);
-
-    // update the camara
-    this->cam.moveto(this->position.x, this->position.y+(this->scale.y/2)*0.8, this->position.z);
     this->cam.updatelooking();
     
     if (gamestate!=0) {
@@ -51,6 +48,10 @@ void customPlayer::update(int viewmode) {
             break;
         }
     }
+
+
+    // update the camara
+    this->cam.moveto(this->position.x, this->position.y+(this->scale.y/2)*0.8, this->position.z);
 }
 
 
