@@ -19,15 +19,24 @@ customPlayer::customPlayer(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale)
 void customPlayer::update(int viewmode) {
     // run this every cycle
 
+
+    this->looking(viewmode);
+
+    // update the camara
+    this->cam.moveto(this->position.x, this->position.y+(this->scale.y/2)*0.8, this->position.z);
+    this->cam.updatelooking();
+    
+    if (gamestate!=0) {
+        return;
+    }
+
     // run the physics update
     this->customPhysicsObjectMovable::update();
     
+    this->moving(viewmode);
+    this->shoot();
 
     this->animateWalking();
-
-    this->moving(viewmode);
-    this->looking(viewmode);
-    this->shoot();
 
     // check if the player was shot
     for (int i=0; i<(int)this->colisionBoxes.size(); i++) {
@@ -42,10 +51,6 @@ void customPlayer::update(int viewmode) {
             break;
         }
     }
-
-    // update the camara
-    this->cam.moveto(this->position.x, this->position.y+(this->scale.y/2)*0.8, this->position.z);
-    this->cam.updatelooking();
 }
 
 

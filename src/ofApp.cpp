@@ -2,7 +2,8 @@
 
 int enemy_count = 0;
 int kill_count = 0;
-int gamestate = 0;      // 0=playing, 1=player died, 2=end reached
+int gamestate = 0;      // -1=paused, 0=playing, 1=player died, 2=end reached
+int last_gamestate = 0;
 
 
 vector<customColisionBox*> globalcolisionBoxes;
@@ -194,6 +195,14 @@ void ofApp::keyPressed(int key) {
         case 'r':
             loadLevel(1);
             break;
+        case ' ':
+            if (gamestate == -1) {
+                gamestate = last_gamestate;
+            } else {
+                last_gamestate = gamestate;
+                gamestate = -1;
+            }
+            break;
         
         default:
             break;
@@ -213,9 +222,6 @@ void ofApp::keyPressed(int key) {
         this->player.walking_right = true;
     }
     if (key==OF_KEY_CONTROL) {
-        //this->player.walking_
-    }
-    if (key==' ') {
         //this->player.walking_
     }
     if (key==OF_KEY_SHIFT) {
@@ -354,7 +360,13 @@ void ofApp::drawUI() {
     int pos_x, pos_y;
     int color[3];
 
-    if (gamestate == 1) {
+    if (gamestate == -1) {
+        color[0] = 255; color[1] = 255; color[2] = 0;
+        pos_x = gw()/2*0.8;
+        pos_y = gh()/2*0.8;
+        s += "\tPAUSED\n\n\tpress 'space' to continue\n\tpress 'r' to restart\n";
+
+    } else if (gamestate == 1) {
         color[0] = 255; color[1] = 0; color[2] = 0;
         pos_x = gw()/2*0.8;
         pos_y = gh()/2*0.8;
@@ -388,6 +400,7 @@ void ofApp::drawUI() {
             s += "\th: toggle hitboxes (3D)\n";
             s += "\tc: toggle controls [THIS SCREEN]\n";
             s += "\tr: restart level\n\n";
+            s += "\tspace: pause\n\n";
 
             s += "\tw: walk forward\n";
             s += "\ts: walk backward\n";
