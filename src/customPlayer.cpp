@@ -20,8 +20,6 @@ void customPlayer::update(int viewmode) {
     // run this every cycle
 
 
-    this->looking(viewmode);
-    this->cam.updatelooking();
     
     if (gamestate!=0) {
         return;
@@ -30,6 +28,7 @@ void customPlayer::update(int viewmode) {
     // run the physics update
     this->customPhysicsObjectMovable::update();
     
+    this->looking(viewmode);
     this->moving(viewmode);
     this->shoot();
 
@@ -52,6 +51,7 @@ void customPlayer::update(int viewmode) {
 
     // update the camara
     this->cam.moveto(this->position.x, this->position.y+(this->scale.y/2)*0.8, this->position.z);
+    this->cam.updatelooking();
 }
 
 

@@ -459,4 +459,6 @@ void ofApp::loadLevel(int level) {
             cout << "[Error]: level \"" << level << "\" does not exist!!" << endl;
             break;
     }
+
+    gamestate = 0;
 }
