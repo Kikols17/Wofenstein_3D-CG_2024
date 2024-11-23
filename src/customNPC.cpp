@@ -53,6 +53,7 @@ void customNPC::draw2D() {
     glPushMatrix();
         this->customPhysicsObjectMovable::draw2D();      // move to the position, rotate, and scale the NPC
 
+        /* BODY */
         glColor3f(1.0, 0.8, 0.6);   // skin color
         cube_unit_posscale(ofVec3f(0, 0.5, 0), ofVec3f(0.3, 0.3, 0.3)); // head
         glColor3f(1.0, 0.85, 0.0);  // blonde hair
@@ -67,7 +68,7 @@ void customNPC::draw2D() {
         glColor3f(0.4, 0.25, 0.1); // brown uniform
         cube_unit_posscale(ofVec3f(0, 0.05, 0), ofVec3f(0.35, 0.6, 0.35));  // body
 
-
+        /* LEGS */
         glPushMatrix();
             glTranslatef(0, -0.25, 0);        // move joint of the leg to y=0
             glRotatef(-60.0*this->walking_animation, 1, 0, 0); // animate walking
@@ -81,14 +82,45 @@ void customNPC::draw2D() {
         glPopMatrix();
 
         glPushMatrix();
-            glTranslatef(0, -0.25, 0);        // move joint of the leg to y=0
+            glTranslatef(0, -0.25, 0);          // move joint of the leg to y=0
             glRotatef(60.0*this->walking_animation, 1, 0, 0); // animate walking
-            glTranslatef(0, 0.25, 0);       // move joint of the leg back to original position  
+            glTranslatef(0, 0.25, 0);           // move joint of the leg back to original position  
 
             glColor3f(0.4, 0.25, 0.1); // brown uniform
             cube_unit_posscale(ofVec3f(0.1, -0.5, 0), ofVec3f(0.15, 0.5, 0.15));    // } right leg
             glColor3f(0.0, 0.0, 1.0); // blue boots
             cube_unit_posscale(ofVec3f(0.1, -0.65, 0), ofVec3f(0.17, 0.25, 0.17));  // } right boot
+        glPopMatrix();
+
+
+        /* ARMS */
+        glPushMatrix();
+            glTranslatef(-0.25, 0.1, 0.0);             // move joint of the arm to x=0, y=0, z=0
+            glRotatef(85.0, 1, 0, 0);   // } rotate the arm
+            glRotatef(30.0, 0, 0, 1);   // }
+            glTranslatef(0.25, -0.1, 0.0);             // move joint of the arm back to original position
+
+            glColor3f(0.4, 0.25, 0.1); // brown uniform
+            cube_unit_posscale(ofVec3f(0.25, 0.15, 0), ofVec3f(0.12, 0.4, 0.12));    // } right arm
+            glColor3f(1.0, 0.8, 0.6);   // hands color
+            cube_unit_posscale(ofVec3f(0.25, 0.35, 0), ofVec3f(0.11, 0.11, 0.11));    // } right hand
+        glPopMatrix();
+
+        glPushMatrix();
+            glTranslatef(0.25, 0.1, 0.0);             // move joint of the arm to x=0, y=0, z=0
+            glRotatef(90.0, 1, 0, 0);   // } rotate the arm
+            glRotatef(-50.0, 0, 0, 1);   // }
+            glTranslatef(-0.25, -0.1, 0.0);             // move joint of the arm back to original position
+
+            glColor3f(0.35, 0.20, 0.05); // brown uniform
+            cube_unit_posscale(ofVec3f(-0.25, 0.15, 0), ofVec3f(0.12, 0.4, 0.12));    // } right arm
+            glColor3f(1.0, 0.8, 0.6);   // hands color
+            cube_unit_posscale(ofVec3f(-0.25, 0.35, 0), ofVec3f(0.11, 0.11, 0.11));    // } right hand
+        glPopMatrix();
+
+
+        /* WEAPON */
+        glPushMatrix();
         glPopMatrix();
 
     glPopMatrix();
@@ -135,6 +167,37 @@ void customNPC::draw3D() {
             cube_unit_posscale(ofVec3f(0.1, -0.5, 0), ofVec3f(0.15, 0.5, 0.15));    // } right leg
             glColor3f(0.0, 0.0, 1.0); // blue boots
             cube_unit_posscale(ofVec3f(0.1, -0.65, 0), ofVec3f(0.17, 0.25, 0.17));  // } right boot
+        glPopMatrix();
+
+        
+        /* ARMS */
+        glPushMatrix();
+            glTranslatef(-0.25, 0.2, 0.0);             // move joint of the arm to x=0, y=0, z=0
+            glRotatef(85.0, 1, 0, 0);   // } rotate the arm
+            glRotatef(30.0, 0, 0, 1);   // }
+            glTranslatef(0.25, -0.15, 0.0);             // move joint of the arm back to original position
+
+            glColor3f(0.35, 0.20, 0.05); // brown uniform
+            cube_unit_posscale(ofVec3f(0.25, 0.15, 0), ofVec3f(0.12, 0.4, 0.12));    // } right arm
+            glColor3f(1.0, 0.8, 0.6);   // hands color
+            cube_unit_posscale(ofVec3f(0.25, 0.35, 0), ofVec3f(0.11, 0.11, 0.11));    // } right hand
+        glPopMatrix();
+
+        glPushMatrix();
+            glTranslatef(0.25, 0.2, 0.0);             // move joint of the arm to x=0, y=0, z=0
+            glRotatef(90.0, 1, 0, 0);   // } rotate the arm
+            glRotatef(-50.0, 0, 0, 1);   // }
+            glTranslatef(-0.25, -0.2, 0.0);             // move joint of the arm back to original position
+
+            glColor3f(0.35, 0.20, 0.05); // brown uniform
+            cube_unit_posscale(ofVec3f(-0.25, 0.15, 0), ofVec3f(0.12, 0.4, 0.12));    // } right arm
+            glColor3f(1.0, 0.8, 0.6);   // hands color
+            cube_unit_posscale(ofVec3f(-0.25, 0.35, 0), ofVec3f(0.11, 0.11, 0.11));    // } right hand
+        glPopMatrix();
+
+
+        /* WEAPON */
+        glPushMatrix();
         glPopMatrix();
 
     glPopMatrix();

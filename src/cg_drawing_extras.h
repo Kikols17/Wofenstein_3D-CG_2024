@@ -104,6 +104,52 @@ inline void cube_unit() {
 
 }
 
+inline void cube_unit_outline() {
+	GLfloat p = 0.5;
+	glBegin(GL_LINE_LOOP);
+
+		//frente
+		//glColor3f(1, 0, 0);
+		glVertex3f(-p, -p, p);
+		glVertex3f(-p, p, p);
+		glVertex3f(p, p, p);
+		glVertex3f(p, -p, p);
+
+		//tras
+		//glColor3f(0, 1, 0);
+		glVertex3f(-p, -p, -p);
+		glVertex3f(p, -p, -p);
+		glVertex3f(p, p, -p);
+		glVertex3f(-p, p, -p);
+
+		//glColor3f(1, 1, 1);
+		//cima
+		glVertex3f(-p, -p, -p);
+		glVertex3f(-p, -p, p);
+		glVertex3f(p, -p, p);
+		glVertex3f(p, -p, -p);
+
+		//baixo
+		glVertex3f(-p, p, p);
+		glVertex3f(-p, p, -p);
+		glVertex3f(p, p, -p);
+		glVertex3f(p, p, p);
+
+		//esq
+		glVertex3f(-p, -p, p);
+		glVertex3f(-p, -p, -p);
+		glVertex3f(-p, p, -p);
+		glVertex3f(-p, p, p);
+
+		//dir
+		glVertex3f(p, -p, p);
+		glVertex3f(p, p, p);
+		glVertex3f(p, p, -p);
+		glVertex3f(p, -p, -p);
+
+	glEnd();
+}
+
 inline void cube_unit_posscale(ofVec3f position, ofVec3f scale) {
 	
 	glPushMatrix();
