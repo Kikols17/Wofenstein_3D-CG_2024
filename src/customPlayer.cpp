@@ -7,7 +7,7 @@ extern vector<shared_ptr<customGameObject>*> globalgameobjects;
 
 //--------------------------------------------------------------
 // public
-customPlayer::customPlayer(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale) : customPhysicsObjectMovable(_position, _rotation, _scale, vector<customColisionBox*>({new customColisionBox(_position, _rotation, _scale, ofVec3f(1.0,0.0,0.0), 0, vector<int>({1}), -0.35, -0.75, -0.35, 0.35, 0.75, 0.35)})) {
+customPlayer::customPlayer(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale) : customPhysicsObjectMovable(_position, _rotation, _scale, vector<customColisionBox*>({new customColisionBox(_position, _rotation, _scale, ofVec3f(1.0,0.0,0.0), 0, vector<int>({1}), -0.2, -0.7, -0.2, 0.2, 0.7, 0.2)})) {
     // run this to set up the object
 
     this->cam = customCamara();
