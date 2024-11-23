@@ -36,6 +36,7 @@ class ofApp : public ofBaseApp{
 		void gotMessage(ofMessage msg);
 
 		void drawUI();
+		void loadLevel(int level);
 
 
 		int viewmode = 1; // 0 = 2D, 1 = 3D

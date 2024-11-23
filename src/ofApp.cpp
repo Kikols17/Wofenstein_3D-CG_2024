@@ -22,26 +22,15 @@ void ofApp::setup(){
 	glPointSize(5);
 	glLineWidth(3);
 
-    globalcolisionBoxes = vector<customColisionBox*>({}); 
+    globalcolisionBoxes = vector<customColisionBox*>({});
+    globalcolisionBoxes_toremove = vector<customColisionBox*>({});
 
-    // setup the player
-    this->player = customPlayer(ofVec3f(0, 0.80, 0), ofVec3f(0, 0, 0), ofVec3f(1.0, 1.0, 1.0));
-    this->cam = &(this->player.cam);
 
     // setup the gameobjects
-    globalgameobjects = vector<shared_ptr<customGameObject>*>();
-    globalgameobjects_toremove = vector<shared_ptr<customGameObject>*>();
+    globalgameobjects = vector<shared_ptr<customGameObject>*>({});
+    globalgameobjects_toremove = vector<shared_ptr<customGameObject>*>({});
 
-
-    //test_level(globalgameobjects, this->player);
-
-    //circular_level(globalgameobjects, this->player);
-
-    //training_level(globalgameobjects, this->player);
-
-    //excapefromwolfenstein_level(globalgameobjects, this->player);
-
-    enemy_count = wolfenstein(globalgameobjects, this->player);
+    loadLevel(1);
 
     // add weapon to the floor
     //globalgameobjects.push_back( new shared_ptr<customGameObject>(new customWeapon(ofVec3f(2*4, 0.50, 2*32), ofVec3f(0, 0, 0), ofVec3f(0.5, 0.5, 0.5))) );
@@ -346,6 +335,7 @@ void ofApp::dragEvent(ofDragInfo dragInfo){
 
 
 
+
 //--------------------------------------------------------------
 // custom functions
 void ofApp::drawUI() {
@@ -368,4 +358,41 @@ void ofApp::drawUI() {
 
     ofSetColor(255, 255, 255);
     ofDrawBitmapString(s, 10, 50);
+}
+
+
+
+void ofApp::loadLevel(int level) {
+    // load the level
+
+    // remove all objects
+    for (int i=0; i<(int)globalgameobjects.size(); i++) {
+        globalgameobjects[i]->reset();
+    }
+    globalgameobjects.clear();
+    globalgameobjects_toremove.clear();
+
+    // remove all colisionBoxes
+    for (int i=0; i<(int)globalcolisionBoxes.size(); i++) {
+        free(globalcolisionBoxes[i]);
+    }
+    globalcolisionBoxes.clear();
+    globalcolisionBoxes_toremove.clear();
+
+
+
+    // setup the player
+    this->player = customPlayer(ofVec3f(0, 0.80, 0), ofVec3f(0, 0, 0), ofVec3f(1.0, 1.0, 1.0));
+    this->cam = &(this->player.cam);
+
+
+
+    switch (level) {
+        case 1:
+            enemy_count = wolfenstein(globalgameobjects, this->player);
+            break;
+        default:
+            cout << "[Error]: level \"" << level << "\" does not exist!!" << endl;
+            break;
+    }
 }
