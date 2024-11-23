@@ -3,6 +3,8 @@
 
 extern vector<shared_ptr<customGameObject>*> globalgameobjects;
 
+extern int gamestate;
+
 
 
 //--------------------------------------------------------------
@@ -19,6 +21,7 @@ void customPlayer::update(int viewmode) {
 
     // run the physics update
     this->customPhysicsObjectMovable::update();
+    
 
     this->animateWalking();
 
@@ -33,7 +36,8 @@ void customPlayer::update(int viewmode) {
             colisionBoxes[i]->hasBeenShot = false;
             health -= 5;
             if (health <= 0) {
-                cout << "player died!" << endl;
+                cout << "GAME OVER, player died!" << endl;
+                gamestate = 1;
             }
             break;
         }

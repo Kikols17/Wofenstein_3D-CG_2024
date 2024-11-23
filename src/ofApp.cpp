@@ -2,6 +2,7 @@
 
 int enemy_count = 0;
 int kill_count = 0;
+int gamestate = 0;      // 0=playing, 1=player died, 2=end reached
 
 
 vector<customColisionBox*> globalcolisionBoxes;
@@ -41,6 +42,14 @@ void ofApp::setup(){
 //--------------------------------------------------------------
 void ofApp::update(){
 
+    // update player
+    this->player.update(this->viewmode);
+
+    if (gamestate!=0) {
+        // game is over, either player is dead or end was reached
+        return;
+    }
+
     // remove all objects that need to be removed
     for (int i=0; i<(int)globalgameobjects_toremove.size(); i++) {
         for (int j=0; j<(int)globalgameobjects.size(); j++) {
@@ -72,9 +81,6 @@ void ofApp::update(){
     for (int i=0; i<gosize; i++) {
         (*globalgameobjects[i])->update();
     }
-
-    // update player
-    this->player.update(this->viewmode);
 }
 
 //--------------------------------------------------------------
@@ -184,6 +190,9 @@ void ofApp::keyPressed(int key) {
             break;
         case 'c':
             this->showcontrols = !this->showcontrols;
+            break;
+        case 'r':
+            loadLevel(1);
             break;
         
         default:
@@ -342,22 +351,64 @@ void ofApp::drawUI() {
     // draw the controls
 
     string s = "";
+    int pos_x, pos_y;
+    int color[3];
 
-    if (this->showcontrols) {
-        // draw the controls
-        ofSetColor(255, 255, 255);
-        s += "Controls:\n\t1: 2D view\n\t2: 3D view (1st person)\n\t3: 3D view (3rd person)\n\n\t+: zoom in (2D)\n\t-: zoom out (2D)\n\n\tm:toggle minimap (3D)\n\th: toggle hitboxes (3D)\n\tc: toggle controls [THIS SCREEN]\n\n\tw: walk forward\n\ts: walk backward\n\ta: walk left\n\td: walk right\n\tshift: run\n\n\tmouse: look around\n\tmouse left: shoot\n\n\n\n\n\n\n";
+    if (gamestate == 1) {
+        color[0] = 255; color[1] = 0; color[2] = 0;
+        pos_x = gw()/2*0.8;
+        pos_y = gh()/2*0.8;
+        //cout << pos_x << " " << pos_y << endl;
+        s += "\tGAME OVER\n\t""player died! :(\n\n\tpress 'r' to restart\n";
+
+    } else if (gamestate == 2) {
+        color[0] = 0; color[1] = 255; color[2] = 0;
+        pos_x = gw()/2*0.8;
+        pos_y = gh()/2*0.8;
+        s += "\tGAME OVER\n\tplayer won! :D\n\n\tpress 'r' to restart\n";
+
+        // stats
+        s += "Points (enemies defeated)x(health left) = " + to_string(kill_count) + "x" + to_string(this->player.health) + " = " + to_string(kill_count*this->player.health) + "\n";
+
     } else {
-        ofSetColor(255, 255, 255);
-        s += "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
+        color[0] = 255; color[1] = 255; color[2] = 255;
+        pos_x = 30;
+        pos_y = 30;
+        if (this->showcontrols) {
+            // draw the controls
+            s += "Controls:\n";
+            s += "\t1: 2D view\n";
+            s += "\t2: 3D view (1st person)\n";
+            s += "\t3: 3D view (3rd person)\n\n";
+
+            s += "\t+: zoom in (2D)\n";
+            s += "\t-: zoom out (2D)\n\n";
+
+            s += "\tm:toggle minimap (3D)\n";
+            s += "\th: toggle hitboxes (3D)\n";
+            s += "\tc: toggle controls [THIS SCREEN]\n";
+            s += "\tr: restart level\n\n";
+
+            s += "\tw: walk forward\n";
+            s += "\ts: walk backward\n";
+            s += "\ta: walk left\n";
+            s += "\td: walk right\n";
+            s += "\tshift: run\n\n";
+            s += "\tmouse: look around\n";
+            s += "\tmouse left: shoot\n\n\n\n\n\n\n";
+
+        } else {
+            s += "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
+        }
+
+        s += "Health: " + to_string(this->player.health) + "\n\n";
+        //s += "Ammo: " + to_string(this->player.ammo) + "\n";
+        s += "Enemies: " + to_string(kill_count) + "/" + to_string(enemy_count) + "\n";
+
     }
 
-    s += "Health: " + to_string(this->player.health) + "\n\n";
-    //s += "Ammo: " + to_string(this->player.ammo) + "\n";
-    s += "Enemies: " + to_string(kill_count) + "/" + to_string(enemy_count) + "\n";
-
-    ofSetColor(255, 255, 255);
-    ofDrawBitmapString(s, 10, 50);
+    ofSetColor(color[0], color[1], color[2]);
+    ofDrawBitmapString(s, pos_x, pos_y);
 }
 
 

@@ -1,6 +1,8 @@
 #include "customRoom_types.h"
 
 
+extern int gamestate;
+
 //--------------------------------------------------------------
 // customRoom_axis
 //--------------------------------------------------------------
@@ -1072,8 +1074,8 @@ void customRoom_end::update() {
     for (int i = 0; i < (int)this->colisionBoxes.size(); i++) {
         if (this->colisionBoxes[i]->hasCollided) {
             this->color = ofVec3f(0.9, 0.0, 0.0);
-        } else {
-            this->color = ofVec3f(0.0, 0.9, 0.0);
+            gamestate = 2;
+            cout << "GAME OVER, Player won!" << endl;
         }
         this->colisionBoxes[i]->hasCollided = false;
     }
