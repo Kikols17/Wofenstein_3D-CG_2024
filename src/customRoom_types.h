@@ -165,7 +165,7 @@ class customRoom_end : public customPhysicsObjectStatic {
         customRoom_end(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale);
         customRoom_end(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, ofVec3f _color);
 
-        using customPhysicsObjectStatic::update;
+        void update() override;
 
         void draw2D() override;
         void draw3D() override;

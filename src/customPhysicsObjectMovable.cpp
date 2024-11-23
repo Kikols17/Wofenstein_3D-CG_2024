@@ -54,6 +54,7 @@ void customPhysicsObjectMovable::update() {
                             //this->velocity = this->colisionBoxes[i]->checkCollision_SetVelocity(globalcolisionBoxes[j], this->velocity, deltaT);
                             this->spin = ofVec3f(0, 0, 0);
                             this->colisionBoxes[i]->hasCollided = true;
+                            globalcolisionBoxes[j]->hasCollided = true;
                         }
                     }
                 }

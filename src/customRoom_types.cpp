@@ -1056,8 +1056,27 @@ customRoom_end::customRoom_end(ofVec3f _position, ofVec3f _rotation, ofVec3f _sc
     // run this to call the true constructor with a default color
 }
 
-customRoom_end::customRoom_end(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, ofVec3f _color) : customPhysicsObjectStatic(_position, _rotation, _scale, _color, vector<customColisionBox*>( { new customColisionBox(_position, _rotation, _scale, 3, vector<int>({}), -0.5, -0.5, -0.5, 0.5, 0.5, 0.5) } )) {
+customRoom_end::customRoom_end(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, ofVec3f _color) : customPhysicsObjectStatic(_position, _rotation, _scale, _color, vector<customColisionBox*>( { new customColisionBox(_position, _rotation, _scale, 3, vector<int>({0}), -0.5, -0.5, -0.5, 0.5, 0.5, 0.5) } )) {
     // run this to set up the object
+}
+
+void customRoom_end::update() {
+    // run this every update cycle
+    this->customPhysicsObjectStatic::update();      // update the position, rotation, and scale of the room
+
+    for (int i = 0; i < (int)this->colisionBoxes.size(); i++) {
+        this->colisionBoxes[i]->position = this->position;
+        this->colisionBoxes[i]->update();
+    }
+
+    for (int i = 0; i < (int)this->colisionBoxes.size(); i++) {
+        if (this->colisionBoxes[i]->hasCollided) {
+            this->color = ofVec3f(0.9, 0.0, 0.0);
+        } else {
+            this->color = ofVec3f(0.0, 0.9, 0.0);
+        }
+        this->colisionBoxes[i]->hasCollided = false;
+    }
 }
 
 void customRoom_end::draw2D() {
