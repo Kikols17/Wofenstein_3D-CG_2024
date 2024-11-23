@@ -1041,3 +1041,43 @@ void customRoom_door::draw3D() {
         glEnd();
     glPopMatrix();
 }
+
+
+
+
+
+
+
+
+//--------------------------------------------------------------
+// customRoom_end
+//--------------------------------------------------------------
+customRoom_end::customRoom_end(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale) : customRoom_end(_position, _rotation, _scale, ofVec3f(0.0, 0.9, 0.0)) {
+    // run this to call the true constructor with a default color
+}
+
+customRoom_end::customRoom_end(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, ofVec3f _color) : customPhysicsObjectStatic(_position, _rotation, _scale, _color, vector<customColisionBox*>( { new customColisionBox(_position, _rotation, _scale, 3, vector<int>({}), -0.5, -0.5, -0.5, 0.5, 0.5, 0.5) } )) {
+    // run this to set up the object
+}
+
+void customRoom_end::draw2D() {
+    // run this every draw cycle
+    glPushMatrix();
+        this->customPhysicsObjectStatic::draw2D();      // move to the position, rotate, and scale the room
+
+        glColor3f(this->color.x, this->color.y, this->color.z);
+        cube_unit_posscale(ofVec3f(0.0, 0.0, 0.0), ofVec3f(1.1, 0.1, 1.1) );
+
+    glPopMatrix();
+}
+
+void customRoom_end::draw3D() {
+    // run this every draw cycle
+    glPushMatrix();
+        this->customPhysicsObjectStatic::draw3D();      // move to the position, rotate, and scale the room
+
+        glColor3f(this->color.x, this->color.y, this->color.z);
+        cube_unit_posscale(ofVec3f(0.0, 0.0, 0.0), ofVec3f(1.1, 0.1, 1.1) );
+
+    glPopMatrix();
+}

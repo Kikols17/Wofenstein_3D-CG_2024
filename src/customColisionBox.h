@@ -17,6 +17,7 @@
  *          0: para o player        (para colidir com paredes e receber tiros)
  *          1: para as paredes      (impedir player e inimigos de passar, e receber tiros)
  *          2: para os inimigos     (para colidir com paredes e receber tiros)
+ *          3: para os "end"        (se o player colidir com este objeto, o jogo acaba)
  *
  */
 
