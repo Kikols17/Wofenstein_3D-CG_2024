@@ -192,6 +192,9 @@ void ofApp::keyPressed(int key) {
         case 'c':
             this->showcontrols = !this->showcontrols;
             break;
+        case 'o':
+            this->showobjective = !this->showobjective;
+            break;
         case 'r':
             loadLevel(1);
             break;
@@ -399,7 +402,9 @@ void ofApp::drawUI() {
             s += "\tm:toggle minimap (3D)\n";
             s += "\th: toggle hitboxes (3D)\n";
             s += "\tc: toggle controls [THIS SCREEN]\n";
-            s += "\tr: restart level\n\n";
+            s += "\to: toggle objective\n\n";
+
+            s += "\tr: restart level\n";
             s += "\tspace: pause\n\n";
 
             s += "\tw: walk forward\n";
@@ -411,12 +416,19 @@ void ofApp::drawUI() {
             s += "\tmouse left: shoot\n\n\n\n\n\n\n";
 
         } else {
-            s += "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
+            s += "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
         }
 
         s += "Health: " + to_string(this->player.health) + "\n\n";
         //s += "Ammo: " + to_string(this->player.ammo) + "\n";
         s += "Enemies: " + to_string(kill_count) + "/" + to_string(enemy_count) + "\n";
+
+
+        if (this->showobjective) {
+            s += "\n\n\n\n\nObjective (\"o\" to hide):\n";
+            s += "\tB.J. Blazkowicz e um soldado americano aprisionado no castelo Wolfenstein num universo em que a Alemanha venceu a segunda guerra mundial.\n";
+            s += "\tEscape do castelo chegando a saida (marcado a verde no mapa 2D), enquanto serve violenta justica aos soldados alemaes para impedir o seu terrivel plano de dominacao e subjugacao.\n";
+        }
 
     }
 

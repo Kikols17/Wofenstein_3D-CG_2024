@@ -52,4 +52,5 @@ class ofApp : public ofBaseApp{
 		bool showcontrols = true;
 		bool showhitboxes = false;
 		bool showminimap = true;
+		bool showobjective = true;
 };;
