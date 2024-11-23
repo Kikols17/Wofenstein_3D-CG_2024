@@ -95,6 +95,8 @@ def criar_mapa(name, input, output):
             # customRoom_end
             output.write(f"\tgo = new shared_ptr<customGameObject>( new customRoom_end( ofVec3f({size}*{x}, {size}*0, {size}*{y}), ofVec3f(0, 0, 0), ofVec3f({size}, {size}, {size}) ) );\n")
             output.write("\tgameobjects.push_back(go);\n\n")
+            output.write(f"\tgo = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f({size}*{x}, {size}*0, {size}*{y}), ofVec3f(0, 0, 0), ofVec3f({size}, {size}, {size}) ) );\n")
+            output.write("\tgameobjects.push_back(go);\n\n")
 
         if character == '\n':
             x = 0

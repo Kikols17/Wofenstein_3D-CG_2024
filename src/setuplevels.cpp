@@ -4523,6 +4523,9 @@ int wolfenstein(vector<shared_ptr<customGameObject>*> &gameobjects, customPlayer
 	go = new shared_ptr<customGameObject>( new customRoom_end( ofVec3f(2*26, 2*0, 2*40), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) ) );
 	gameobjects.push_back(go);
 
+	go = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(2*26, 2*0, 2*40), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) ) );
+	gameobjects.push_back(go);
+
 	go = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(2*27, 2*0, 2*40), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) ) );
 	gameobjects.push_back(go);
 
