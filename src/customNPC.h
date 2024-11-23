@@ -44,7 +44,7 @@ class customNPC : public customPhysicsObjectMovable {
 
         uint64_t last_shot = 0;
         uint64_t shot_delay = 1500;  // in milliseconds
-        GLfloat range = 15.0;
+        GLfloat range = 10.0;
 
 
         GLfloat walking_speed = 3.0;    // } in units/second

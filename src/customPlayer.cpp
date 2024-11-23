@@ -95,7 +95,7 @@ void customPlayer::draw3D() {
 
         glPushMatrix();
             glTranslatef(0, -0.25, 0);        // move joint of the leg to y=0
-            glRotatef(-45.0*this->walking_animation, 1, 0, 0); // animate walking
+            glRotatef(-60.0*this->walking_animation, 1, 0, 0); // animate walking
             glTranslatef(0, 0.25, 0);       // move joint of the leg back to original position  
 
             glColor3f(0.8, 0.8, 0.8); // light grey clothes
@@ -106,7 +106,7 @@ void customPlayer::draw3D() {
 
         glPushMatrix();
             glTranslatef(0, -0.25, 0);        // move joint of the leg to y=0
-            glRotatef(45.0*this->walking_animation, 1, 0, 0); // animate walking
+            glRotatef(60.0*this->walking_animation, 1, 0, 0); // animate walking
             glTranslatef(0, 0.25, 0);       // move joint of the leg back to original position  
 
             glColor3f(0.8, 0.8, 0.8); // light grey clothes
