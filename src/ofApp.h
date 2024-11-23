@@ -35,6 +35,8 @@ class ofApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
 
+		void drawUI();
+
 
 		int viewmode = 1; // 0 = 2D, 1 = 3D
 

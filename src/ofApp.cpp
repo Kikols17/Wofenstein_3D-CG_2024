@@ -1,5 +1,8 @@
 #include "ofApp.h"
 
+int enemy_count = 0;
+int kill_count = 0;
+
 
 vector<customColisionBox*> globalcolisionBoxes;
 vector<customColisionBox*> globalcolisionBoxes_toremove;
@@ -38,7 +41,7 @@ void ofApp::setup(){
 
     //excapefromwolfenstein_level(globalgameobjects, this->player);
 
-    wolfenstein(globalgameobjects, this->player);
+    enemy_count = wolfenstein(globalgameobjects, this->player);
 
     // add weapon to the floor
     //globalgameobjects.push_back( new shared_ptr<customGameObject>(new customWeapon(ofVec3f(2*4, 0.50, 2*32), ofVec3f(0, 0, 0), ofVec3f(0.5, 0.5, 0.5))) );
@@ -89,15 +92,9 @@ void ofApp::update(){
 void ofApp::draw(){
     //cout << "hitscan_distance: " << hitscan_distance(this->player.cam.pos, this->player.cam.looking, vector<int>({1})) << endl;
     //this->cam->moveto(0, 0, -100);
-    
-    if (this->showcontrols) {
-        // draw the controls
-        ofSetColor(255, 255, 255);
-        ofDrawBitmapString("Controls:\n\t1: 2D view\n\t2: 3D view (1st person)\n\t3: 3D view (3rd person)\n\n\t+: zoom in (2D)\n\t-: zoom out (2D)\n\n\tm:toggle minimap (3D)\n\th: toggle hitboxes (3D)\n\tc: toggle controls [THIS SCREEN]\n\n\tw: walk forward\n\ts: walk backward\n\ta: walk left\n\td: walk right\n\tshift: run\n\n\tmouse: look around\n\tmouse left: shoot\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHealth: " + ofToString(this->player.health), 10, 70);
-    } else {
-        ofSetColor(255, 255, 255);
-        ofDrawBitmapString("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHealth: " + ofToString(this->player.health), 10, 70);
-    }
+
+    // draw the UI
+    drawUI();
 
     // draw all objects in the correct viewmode
     int gosize = (int)globalgameobjects.size();
@@ -342,4 +339,33 @@ void ofApp::gotMessage(ofMessage msg){
 //--------------------------------------------------------------
 void ofApp::dragEvent(ofDragInfo dragInfo){ 
 
+}
+
+
+
+
+
+
+//--------------------------------------------------------------
+// custom functions
+void ofApp::drawUI() {
+    // draw the controls
+
+    string s = "";
+
+    if (this->showcontrols) {
+        // draw the controls
+        ofSetColor(255, 255, 255);
+        s += "Controls:\n\t1: 2D view\n\t2: 3D view (1st person)\n\t3: 3D view (3rd person)\n\n\t+: zoom in (2D)\n\t-: zoom out (2D)\n\n\tm:toggle minimap (3D)\n\th: toggle hitboxes (3D)\n\tc: toggle controls [THIS SCREEN]\n\n\tw: walk forward\n\ts: walk backward\n\ta: walk left\n\td: walk right\n\tshift: run\n\n\tmouse: look around\n\tmouse left: shoot\n\n\n\n\n\n\n";
+    } else {
+        ofSetColor(255, 255, 255);
+        s += "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
+    }
+
+    s += "Health: " + to_string(this->player.health) + "\n\n";
+    //s += "Ammo: " + to_string(this->player.ammo) + "\n";
+    s += "Enemies: " + to_string(kill_count) + "/" + to_string(enemy_count) + "\n";
+
+    ofSetColor(255, 255, 255);
+    ofDrawBitmapString(s, 10, 50);
 }

@@ -3,11 +3,12 @@ import sys
 
 def criar_mapa(name, input, output):
     output.write("// CRIADO POR MAPCREATOR\n")
-    output.write(f"void {name}(vector<shared_ptr<customGameObject>*> &gameobjects, customPlayer &player) {{\n\n")
-    output.write("\t// clear vector\n")
-    output.write("\tgameobjects.clear();\n\n")
+    output.write(f"int {name}(vector<shared_ptr<customGameObject>*> &gameobjects, customPlayer &player) {{\n\n")
+    output.write("\t// clear vector and enemy_count\n")
+    output.write("\tgameobjects.clear();\n")
+    output.write("\tint enemy_count = 0;\n\n")
 
-    output.write("\tshared_ptr<customGameObject>* go;\n")
+    output.write("\tshared_ptr<customGameObject>* go;\n\n\n")
 
     character = ' '
     x = 0
@@ -78,9 +79,10 @@ def criar_mapa(name, input, output):
         if character == 'e':
             # Enemy
             output.write(f"\tgo = new shared_ptr<customGameObject>( new customNPC( ofVec3f({size}*{x}, 0.8, {size}*{y}), ofVec3f(0, 0, 0), ofVec3f(1.0, 1.0, 1.0), ofVec3f(1.0, 0.0, 0.0), new shared_ptr<customPhysicsObject>(&player) ) );\n")
-            output.write("\tgameobjects.push_back(go);\n\n")
+            output.write("\tgameobjects.push_back(go);\n")
             output.write(f"\tgo = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f({size}*{x}, {size}*0, {size}*{y}), ofVec3f(0, 0, 0), ofVec3f({size}, {size}, {size}) ) );\n")
-            output.write("\tgameobjects.push_back(go);\n\n")
+            output.write("\tgameobjects.push_back(go);\n")
+            output.write("\tenemy_count++;\n\n")
         
         if character == 'p':
             # Spawn player
@@ -98,6 +100,7 @@ def criar_mapa(name, input, output):
     # set player position and end function
     output.write("\n\n\n\t// set player position\n")
     output.write(f"\tplayer.position = ofVec3f({size}*{spawn_x}, 0.80, {size}*{spawn_y});\n")
+    output.write("\n\n\treturn enemy_count;\n")
     output.write("}\n")
 
 

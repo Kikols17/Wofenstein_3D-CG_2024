@@ -5,6 +5,8 @@ extern vector<shared_ptr<customGameObject>*> globalgameobjects;
 extern vector<shared_ptr<customGameObject>*> globalgameobjects_toremove;
 extern vector<customColisionBox*> globalcolisionBoxes_toremove;
 
+extern int kill_count;
+
 
 //--------------------------------------------------------------
 // public
@@ -27,6 +29,7 @@ void customNPC::update() {
         for (int i=0; i<(int)this->colisionBoxes.size(); i++) {
             globalcolisionBoxes_toremove.push_back(this->colisionBoxes[i]);
         }
+        kill_count++;
         globalgameobjects_toremove.push_back(new shared_ptr<customGameObject>(this));
 
         this->explode();

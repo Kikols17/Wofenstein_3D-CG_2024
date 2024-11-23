@@ -491,12 +491,15 @@ void excapefromwolfenstein_level(vector<shared_ptr<customGameObject>*> &gameobje
 
 
 // CRIADO POR MAPCREATOR
-void wolfenstein(vector<shared_ptr<customGameObject>*> &gameobjects, customPlayer &player) {
+int wolfenstein(vector<shared_ptr<customGameObject>*> &gameobjects, customPlayer &player) {
 
-	// clear vector
+	// clear vector and enemy_count
 	gameobjects.clear();
+	int enemy_count = 0;
 
 	shared_ptr<customGameObject>* go;
+
+
 	go = new shared_ptr<customGameObject>( new customRoom_wall( ofVec3f(2*33, 2*0, 2*0), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2), ofVec3f(0.5, 0.25, 0.0) ) );
 	gameobjects.push_back(go);
 
@@ -544,9 +547,9 @@ void wolfenstein(vector<shared_ptr<customGameObject>*> &gameobjects, customPlaye
 
 	go = new shared_ptr<customGameObject>( new customNPC( ofVec3f(2*35, 0.8, 2*1), ofVec3f(0, 0, 0), ofVec3f(1.0, 1.0, 1.0), ofVec3f(1.0, 0.0, 0.0), new shared_ptr<customPhysicsObject>(&player) ) );
 	gameobjects.push_back(go);
-
 	go = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(2*35, 2*0, 2*1), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) ) );
 	gameobjects.push_back(go);
+	enemy_count++;
 
 	go = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(2*36, 2*0, 2*1), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) ) );
 	gameobjects.push_back(go);
@@ -643,9 +646,9 @@ void wolfenstein(vector<shared_ptr<customGameObject>*> &gameobjects, customPlaye
 
 	go = new shared_ptr<customGameObject>( new customNPC( ofVec3f(2*43, 0.8, 2*2), ofVec3f(0, 0, 0), ofVec3f(1.0, 1.0, 1.0), ofVec3f(1.0, 0.0, 0.0), new shared_ptr<customPhysicsObject>(&player) ) );
 	gameobjects.push_back(go);
-
 	go = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(2*43, 2*0, 2*2), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) ) );
 	gameobjects.push_back(go);
+	enemy_count++;
 
 	go = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(2*44, 2*0, 2*2), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) ) );
 	gameobjects.push_back(go);
@@ -860,9 +863,9 @@ void wolfenstein(vector<shared_ptr<customGameObject>*> &gameobjects, customPlaye
 
 	go = new shared_ptr<customGameObject>( new customNPC( ofVec3f(2*29, 0.8, 2*5), ofVec3f(0, 0, 0), ofVec3f(1.0, 1.0, 1.0), ofVec3f(1.0, 0.0, 0.0), new shared_ptr<customPhysicsObject>(&player) ) );
 	gameobjects.push_back(go);
-
 	go = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(2*29, 2*0, 2*5), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) ) );
 	gameobjects.push_back(go);
+	enemy_count++;
 
 	go = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(2*30, 2*0, 2*5), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) ) );
 	gameobjects.push_back(go);
@@ -920,9 +923,9 @@ void wolfenstein(vector<shared_ptr<customGameObject>*> &gameobjects, customPlaye
 
 	go = new shared_ptr<customGameObject>( new customNPC( ofVec3f(2*48, 0.8, 2*5), ofVec3f(0, 0, 0), ofVec3f(1.0, 1.0, 1.0), ofVec3f(1.0, 0.0, 0.0), new shared_ptr<customPhysicsObject>(&player) ) );
 	gameobjects.push_back(go);
-
 	go = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(2*48, 2*0, 2*5), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) ) );
 	gameobjects.push_back(go);
+	enemy_count++;
 
 	go = new shared_ptr<customGameObject>( new customRoom_wall( ofVec3f(2*49, 2*0, 2*5), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2), ofVec3f(0.5, 0.25, 0.0) ) );
 	gameobjects.push_back(go);
@@ -1240,9 +1243,9 @@ void wolfenstein(vector<shared_ptr<customGameObject>*> &gameobjects, customPlaye
 
 	go = new shared_ptr<customGameObject>( new customNPC( ofVec3f(2*13, 0.8, 2*9), ofVec3f(0, 0, 0), ofVec3f(1.0, 1.0, 1.0), ofVec3f(1.0, 0.0, 0.0), new shared_ptr<customPhysicsObject>(&player) ) );
 	gameobjects.push_back(go);
-
 	go = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(2*13, 2*0, 2*9), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) ) );
 	gameobjects.push_back(go);
+	enemy_count++;
 
 	go = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(2*14, 2*0, 2*9), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) ) );
 	gameobjects.push_back(go);
@@ -1276,9 +1279,9 @@ void wolfenstein(vector<shared_ptr<customGameObject>*> &gameobjects, customPlaye
 
 	go = new shared_ptr<customGameObject>( new customNPC( ofVec3f(2*24, 0.8, 2*9), ofVec3f(0, 0, 0), ofVec3f(1.0, 1.0, 1.0), ofVec3f(1.0, 0.0, 0.0), new shared_ptr<customPhysicsObject>(&player) ) );
 	gameobjects.push_back(go);
-
 	go = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(2*24, 2*0, 2*9), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) ) );
 	gameobjects.push_back(go);
+	enemy_count++;
 
 	go = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(2*25, 2*0, 2*9), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) ) );
 	gameobjects.push_back(go);
@@ -1431,9 +1434,9 @@ void wolfenstein(vector<shared_ptr<customGameObject>*> &gameobjects, customPlaye
 
 	go = new shared_ptr<customGameObject>( new customNPC( ofVec3f(2*26, 0.8, 2*11), ofVec3f(0, 0, 0), ofVec3f(1.0, 1.0, 1.0), ofVec3f(1.0, 0.0, 0.0), new shared_ptr<customPhysicsObject>(&player) ) );
 	gameobjects.push_back(go);
-
 	go = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(2*26, 2*0, 2*11), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) ) );
 	gameobjects.push_back(go);
+	enemy_count++;
 
 	go = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(2*27, 2*0, 2*11), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) ) );
 	gameobjects.push_back(go);
@@ -1452,9 +1455,9 @@ void wolfenstein(vector<shared_ptr<customGameObject>*> &gameobjects, customPlaye
 
 	go = new shared_ptr<customGameObject>( new customNPC( ofVec3f(2*40, 0.8, 2*11), ofVec3f(0, 0, 0), ofVec3f(1.0, 1.0, 1.0), ofVec3f(1.0, 0.0, 0.0), new shared_ptr<customPhysicsObject>(&player) ) );
 	gameobjects.push_back(go);
-
 	go = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(2*40, 2*0, 2*11), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) ) );
 	gameobjects.push_back(go);
+	enemy_count++;
 
 	go = new shared_ptr<customGameObject>( new customRoom_wall( ofVec3f(2*41, 2*0, 2*11), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2), ofVec3f(0.5, 0.25, 0.0) ) );
 	gameobjects.push_back(go);
@@ -1485,9 +1488,9 @@ void wolfenstein(vector<shared_ptr<customGameObject>*> &gameobjects, customPlaye
 
 	go = new shared_ptr<customGameObject>( new customNPC( ofVec3f(2*13, 0.8, 2*12), ofVec3f(0, 0, 0), ofVec3f(1.0, 1.0, 1.0), ofVec3f(1.0, 0.0, 0.0), new shared_ptr<customPhysicsObject>(&player) ) );
 	gameobjects.push_back(go);
-
 	go = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(2*13, 2*0, 2*12), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) ) );
 	gameobjects.push_back(go);
+	enemy_count++;
 
 	go = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(2*14, 2*0, 2*12), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) ) );
 	gameobjects.push_back(go);
@@ -1620,9 +1623,9 @@ void wolfenstein(vector<shared_ptr<customGameObject>*> &gameobjects, customPlaye
 
 	go = new shared_ptr<customGameObject>( new customNPC( ofVec3f(2*7, 0.8, 2*14), ofVec3f(0, 0, 0), ofVec3f(1.0, 1.0, 1.0), ofVec3f(1.0, 0.0, 0.0), new shared_ptr<customPhysicsObject>(&player) ) );
 	gameobjects.push_back(go);
-
 	go = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(2*7, 2*0, 2*14), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) ) );
 	gameobjects.push_back(go);
+	enemy_count++;
 
 	go = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(2*8, 2*0, 2*14), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) ) );
 	gameobjects.push_back(go);
@@ -1730,9 +1733,9 @@ void wolfenstein(vector<shared_ptr<customGameObject>*> &gameobjects, customPlaye
 
 	go = new shared_ptr<customGameObject>( new customNPC( ofVec3f(2*37, 0.8, 2*15), ofVec3f(0, 0, 0), ofVec3f(1.0, 1.0, 1.0), ofVec3f(1.0, 0.0, 0.0), new shared_ptr<customPhysicsObject>(&player) ) );
 	gameobjects.push_back(go);
-
 	go = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(2*37, 2*0, 2*15), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) ) );
 	gameobjects.push_back(go);
+	enemy_count++;
 
 	go = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(2*38, 2*0, 2*15), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) ) );
 	gameobjects.push_back(go);
@@ -1748,9 +1751,9 @@ void wolfenstein(vector<shared_ptr<customGameObject>*> &gameobjects, customPlaye
 
 	go = new shared_ptr<customGameObject>( new customNPC( ofVec3f(2*42, 0.8, 2*15), ofVec3f(0, 0, 0), ofVec3f(1.0, 1.0, 1.0), ofVec3f(1.0, 0.0, 0.0), new shared_ptr<customPhysicsObject>(&player) ) );
 	gameobjects.push_back(go);
-
 	go = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(2*42, 2*0, 2*15), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) ) );
 	gameobjects.push_back(go);
+	enemy_count++;
 
 	go = new shared_ptr<customGameObject>( new customRoom_wall( ofVec3f(2*43, 2*0, 2*15), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2), ofVec3f(0.5, 0.25, 0.0) ) );
 	gameobjects.push_back(go);
@@ -1984,9 +1987,9 @@ void wolfenstein(vector<shared_ptr<customGameObject>*> &gameobjects, customPlaye
 
 	go = new shared_ptr<customGameObject>( new customNPC( ofVec3f(2*7, 0.8, 2*20), ofVec3f(0, 0, 0), ofVec3f(1.0, 1.0, 1.0), ofVec3f(1.0, 0.0, 0.0), new shared_ptr<customPhysicsObject>(&player) ) );
 	gameobjects.push_back(go);
-
 	go = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(2*7, 2*0, 2*20), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) ) );
 	gameobjects.push_back(go);
+	enemy_count++;
 
 	go = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(2*8, 2*0, 2*20), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) ) );
 	gameobjects.push_back(go);
@@ -2002,9 +2005,9 @@ void wolfenstein(vector<shared_ptr<customGameObject>*> &gameobjects, customPlaye
 
 	go = new shared_ptr<customGameObject>( new customNPC( ofVec3f(2*12, 0.8, 2*20), ofVec3f(0, 0, 0), ofVec3f(1.0, 1.0, 1.0), ofVec3f(1.0, 0.0, 0.0), new shared_ptr<customPhysicsObject>(&player) ) );
 	gameobjects.push_back(go);
-
 	go = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(2*12, 2*0, 2*20), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) ) );
 	gameobjects.push_back(go);
+	enemy_count++;
 
 	go = new shared_ptr<customGameObject>( new customRoom_wall( ofVec3f(2*13, 2*0, 2*20), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2), ofVec3f(0.3, 0.3, 0.3) ) );
 	gameobjects.push_back(go);
@@ -2014,9 +2017,9 @@ void wolfenstein(vector<shared_ptr<customGameObject>*> &gameobjects, customPlaye
 
 	go = new shared_ptr<customGameObject>( new customNPC( ofVec3f(2*15, 0.8, 2*20), ofVec3f(0, 0, 0), ofVec3f(1.0, 1.0, 1.0), ofVec3f(1.0, 0.0, 0.0), new shared_ptr<customPhysicsObject>(&player) ) );
 	gameobjects.push_back(go);
-
 	go = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(2*15, 2*0, 2*20), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) ) );
 	gameobjects.push_back(go);
+	enemy_count++;
 
 	go = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(2*16, 2*0, 2*20), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) ) );
 	gameobjects.push_back(go);
@@ -2162,9 +2165,9 @@ void wolfenstein(vector<shared_ptr<customGameObject>*> &gameobjects, customPlaye
 
 	go = new shared_ptr<customGameObject>( new customNPC( ofVec3f(2*11, 0.8, 2*22), ofVec3f(0, 0, 0), ofVec3f(1.0, 1.0, 1.0), ofVec3f(1.0, 0.0, 0.0), new shared_ptr<customPhysicsObject>(&player) ) );
 	gameobjects.push_back(go);
-
 	go = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(2*11, 2*0, 2*22), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) ) );
 	gameobjects.push_back(go);
+	enemy_count++;
 
 	go = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(2*12, 2*0, 2*22), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) ) );
 	gameobjects.push_back(go);
@@ -2252,9 +2255,9 @@ void wolfenstein(vector<shared_ptr<customGameObject>*> &gameobjects, customPlaye
 
 	go = new shared_ptr<customGameObject>( new customNPC( ofVec3f(2*60, 0.8, 2*22), ofVec3f(0, 0, 0), ofVec3f(1.0, 1.0, 1.0), ofVec3f(1.0, 0.0, 0.0), new shared_ptr<customPhysicsObject>(&player) ) );
 	gameobjects.push_back(go);
-
 	go = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(2*60, 2*0, 2*22), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) ) );
 	gameobjects.push_back(go);
+	enemy_count++;
 
 	go = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(2*61, 2*0, 2*22), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) ) );
 	gameobjects.push_back(go);
@@ -2336,9 +2339,9 @@ void wolfenstein(vector<shared_ptr<customGameObject>*> &gameobjects, customPlaye
 
 	go = new shared_ptr<customGameObject>( new customNPC( ofVec3f(2*34, 0.8, 2*23), ofVec3f(0, 0, 0), ofVec3f(1.0, 1.0, 1.0), ofVec3f(1.0, 0.0, 0.0), new shared_ptr<customPhysicsObject>(&player) ) );
 	gameobjects.push_back(go);
-
 	go = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(2*34, 2*0, 2*23), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) ) );
 	gameobjects.push_back(go);
+	enemy_count++;
 
 	go = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(2*35, 2*0, 2*23), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) ) );
 	gameobjects.push_back(go);
@@ -2492,9 +2495,9 @@ void wolfenstein(vector<shared_ptr<customGameObject>*> &gameobjects, customPlaye
 
 	go = new shared_ptr<customGameObject>( new customNPC( ofVec3f(2*42, 0.8, 2*24), ofVec3f(0, 0, 0), ofVec3f(1.0, 1.0, 1.0), ofVec3f(1.0, 0.0, 0.0), new shared_ptr<customPhysicsObject>(&player) ) );
 	gameobjects.push_back(go);
-
 	go = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(2*42, 2*0, 2*24), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) ) );
 	gameobjects.push_back(go);
+	enemy_count++;
 
 	go = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(2*43, 2*0, 2*24), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) ) );
 	gameobjects.push_back(go);
@@ -2723,9 +2726,9 @@ void wolfenstein(vector<shared_ptr<customGameObject>*> &gameobjects, customPlaye
 
 	go = new shared_ptr<customGameObject>( new customNPC( ofVec3f(2*65, 0.8, 2*25), ofVec3f(0, 0, 0), ofVec3f(1.0, 1.0, 1.0), ofVec3f(1.0, 0.0, 0.0), new shared_ptr<customPhysicsObject>(&player) ) );
 	gameobjects.push_back(go);
-
 	go = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(2*65, 2*0, 2*25), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) ) );
 	gameobjects.push_back(go);
+	enemy_count++;
 
 	go = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(2*66, 2*0, 2*25), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) ) );
 	gameobjects.push_back(go);
@@ -2930,9 +2933,9 @@ void wolfenstein(vector<shared_ptr<customGameObject>*> &gameobjects, customPlaye
 
 	go = new shared_ptr<customGameObject>( new customNPC( ofVec3f(2*15, 0.8, 2*27), ofVec3f(0, 0, 0), ofVec3f(1.0, 1.0, 1.0), ofVec3f(1.0, 0.0, 0.0), new shared_ptr<customPhysicsObject>(&player) ) );
 	gameobjects.push_back(go);
-
 	go = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(2*15, 2*0, 2*27), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) ) );
 	gameobjects.push_back(go);
+	enemy_count++;
 
 	go = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(2*16, 2*0, 2*27), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) ) );
 	gameobjects.push_back(go);
@@ -3152,9 +3155,9 @@ void wolfenstein(vector<shared_ptr<customGameObject>*> &gameobjects, customPlaye
 
 	go = new shared_ptr<customGameObject>( new customNPC( ofVec3f(2*45, 0.8, 2*28), ofVec3f(0, 0, 0), ofVec3f(1.0, 1.0, 1.0), ofVec3f(1.0, 0.0, 0.0), new shared_ptr<customPhysicsObject>(&player) ) );
 	gameobjects.push_back(go);
-
 	go = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(2*45, 2*0, 2*28), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) ) );
 	gameobjects.push_back(go);
+	enemy_count++;
 
 	go = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(2*46, 2*0, 2*28), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) ) );
 	gameobjects.push_back(go);
@@ -3218,9 +3221,9 @@ void wolfenstein(vector<shared_ptr<customGameObject>*> &gameobjects, customPlaye
 
 	go = new shared_ptr<customGameObject>( new customNPC( ofVec3f(2*66, 0.8, 2*28), ofVec3f(0, 0, 0), ofVec3f(1.0, 1.0, 1.0), ofVec3f(1.0, 0.0, 0.0), new shared_ptr<customPhysicsObject>(&player) ) );
 	gameobjects.push_back(go);
-
 	go = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(2*66, 2*0, 2*28), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) ) );
 	gameobjects.push_back(go);
+	enemy_count++;
 
 	go = new shared_ptr<customGameObject>( new customRoom_wall( ofVec3f(2*67, 2*0, 2*28), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2), ofVec3f(0.0, 0.0, 0.5) ) );
 	gameobjects.push_back(go);
@@ -3407,9 +3410,9 @@ void wolfenstein(vector<shared_ptr<customGameObject>*> &gameobjects, customPlaye
 
 	go = new shared_ptr<customGameObject>( new customNPC( ofVec3f(2*18, 0.8, 2*30), ofVec3f(0, 0, 0), ofVec3f(1.0, 1.0, 1.0), ofVec3f(1.0, 0.0, 0.0), new shared_ptr<customPhysicsObject>(&player) ) );
 	gameobjects.push_back(go);
-
 	go = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(2*18, 2*0, 2*30), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) ) );
 	gameobjects.push_back(go);
+	enemy_count++;
 
 	go = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(2*19, 2*0, 2*30), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) ) );
 	gameobjects.push_back(go);
@@ -3774,9 +3777,9 @@ void wolfenstein(vector<shared_ptr<customGameObject>*> &gameobjects, customPlaye
 
 	go = new shared_ptr<customGameObject>( new customNPC( ofVec3f(2*7, 0.8, 2*34), ofVec3f(0, 0, 0), ofVec3f(1.0, 1.0, 1.0), ofVec3f(1.0, 0.0, 0.0), new shared_ptr<customPhysicsObject>(&player) ) );
 	gameobjects.push_back(go);
-
 	go = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(2*7, 2*0, 2*34), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) ) );
 	gameobjects.push_back(go);
+	enemy_count++;
 
 	go = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(2*8, 2*0, 2*34), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) ) );
 	gameobjects.push_back(go);
@@ -3789,9 +3792,9 @@ void wolfenstein(vector<shared_ptr<customGameObject>*> &gameobjects, customPlaye
 
 	go = new shared_ptr<customGameObject>( new customNPC( ofVec3f(2*11, 0.8, 2*34), ofVec3f(0, 0, 0), ofVec3f(1.0, 1.0, 1.0), ofVec3f(1.0, 0.0, 0.0), new shared_ptr<customPhysicsObject>(&player) ) );
 	gameobjects.push_back(go);
-
 	go = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(2*11, 2*0, 2*34), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) ) );
 	gameobjects.push_back(go);
+	enemy_count++;
 
 	go = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(2*12, 2*0, 2*34), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) ) );
 	gameobjects.push_back(go);
@@ -3834,9 +3837,9 @@ void wolfenstein(vector<shared_ptr<customGameObject>*> &gameobjects, customPlaye
 
 	go = new shared_ptr<customGameObject>( new customNPC( ofVec3f(2*53, 0.8, 2*34), ofVec3f(0, 0, 0), ofVec3f(1.0, 1.0, 1.0), ofVec3f(1.0, 0.0, 0.0), new shared_ptr<customPhysicsObject>(&player) ) );
 	gameobjects.push_back(go);
-
 	go = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(2*53, 2*0, 2*34), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) ) );
 	gameobjects.push_back(go);
+	enemy_count++;
 
 	go = new shared_ptr<customGameObject>( new customRoom_wall( ofVec3f(2*54, 2*0, 2*34), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2), ofVec3f(0.0, 0.0, 0.5) ) );
 	gameobjects.push_back(go);
@@ -4163,9 +4166,9 @@ void wolfenstein(vector<shared_ptr<customGameObject>*> &gameobjects, customPlaye
 
 	go = new shared_ptr<customGameObject>( new customNPC( ofVec3f(2*64, 0.8, 2*37), ofVec3f(0, 0, 0), ofVec3f(1.0, 1.0, 1.0), ofVec3f(1.0, 0.0, 0.0), new shared_ptr<customPhysicsObject>(&player) ) );
 	gameobjects.push_back(go);
-
 	go = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(2*64, 2*0, 2*37), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) ) );
 	gameobjects.push_back(go);
+	enemy_count++;
 
 	go = new shared_ptr<customGameObject>( new customRoom_wall( ofVec3f(2*65, 2*0, 2*37), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2), ofVec3f(0.0, 0.0, 0.5) ) );
 	gameobjects.push_back(go);
@@ -4253,9 +4256,9 @@ void wolfenstein(vector<shared_ptr<customGameObject>*> &gameobjects, customPlaye
 
 	go = new shared_ptr<customGameObject>( new customNPC( ofVec3f(2*39, 0.8, 2*38), ofVec3f(0, 0, 0), ofVec3f(1.0, 1.0, 1.0), ofVec3f(1.0, 0.0, 0.0), new shared_ptr<customPhysicsObject>(&player) ) );
 	gameobjects.push_back(go);
-
 	go = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(2*39, 2*0, 2*38), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) ) );
 	gameobjects.push_back(go);
+	enemy_count++;
 
 	go = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(2*40, 2*0, 2*38), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) ) );
 	gameobjects.push_back(go);
@@ -4271,9 +4274,9 @@ void wolfenstein(vector<shared_ptr<customGameObject>*> &gameobjects, customPlaye
 
 	go = new shared_ptr<customGameObject>( new customNPC( ofVec3f(2*53, 0.8, 2*38), ofVec3f(0, 0, 0), ofVec3f(1.0, 1.0, 1.0), ofVec3f(1.0, 0.0, 0.0), new shared_ptr<customPhysicsObject>(&player) ) );
 	gameobjects.push_back(go);
-
 	go = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(2*53, 2*0, 2*38), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) ) );
 	gameobjects.push_back(go);
+	enemy_count++;
 
 	go = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(2*54, 2*0, 2*38), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) ) );
 	gameobjects.push_back(go);
@@ -4358,9 +4361,9 @@ void wolfenstein(vector<shared_ptr<customGameObject>*> &gameobjects, customPlaye
 
 	go = new shared_ptr<customGameObject>( new customNPC( ofVec3f(2*20, 0.8, 2*39), ofVec3f(0, 0, 0), ofVec3f(1.0, 1.0, 1.0), ofVec3f(1.0, 0.0, 0.0), new shared_ptr<customPhysicsObject>(&player) ) );
 	gameobjects.push_back(go);
-
 	go = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(2*20, 2*0, 2*39), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) ) );
 	gameobjects.push_back(go);
+	enemy_count++;
 
 	go = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(2*21, 2*0, 2*39), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) ) );
 	gameobjects.push_back(go);
@@ -4436,9 +4439,9 @@ void wolfenstein(vector<shared_ptr<customGameObject>*> &gameobjects, customPlaye
 
 	go = new shared_ptr<customGameObject>( new customNPC( ofVec3f(2*61, 0.8, 2*39), ofVec3f(0, 0, 0), ofVec3f(1.0, 1.0, 1.0), ofVec3f(1.0, 0.0, 0.0), new shared_ptr<customPhysicsObject>(&player) ) );
 	gameobjects.push_back(go);
-
 	go = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(2*61, 2*0, 2*39), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) ) );
 	gameobjects.push_back(go);
+	enemy_count++;
 
 	go = new shared_ptr<customGameObject>( new customRoom_wall( ofVec3f(2*62, 2*0, 2*39), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2), ofVec3f(0.0, 0.0, 0.5) ) );
 	gameobjects.push_back(go);
@@ -4585,9 +4588,9 @@ void wolfenstein(vector<shared_ptr<customGameObject>*> &gameobjects, customPlaye
 
 	go = new shared_ptr<customGameObject>( new customNPC( ofVec3f(2*9, 0.8, 2*41), ofVec3f(0, 0, 0), ofVec3f(1.0, 1.0, 1.0), ofVec3f(1.0, 0.0, 0.0), new shared_ptr<customPhysicsObject>(&player) ) );
 	gameobjects.push_back(go);
-
 	go = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(2*9, 2*0, 2*41), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) ) );
 	gameobjects.push_back(go);
+	enemy_count++;
 
 	go = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(2*10, 2*0, 2*41), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) ) );
 	gameobjects.push_back(go);
@@ -5267,9 +5270,9 @@ void wolfenstein(vector<shared_ptr<customGameObject>*> &gameobjects, customPlaye
 
 	go = new shared_ptr<customGameObject>( new customNPC( ofVec3f(2*34, 0.8, 2*54), ofVec3f(0, 0, 0), ofVec3f(1.0, 1.0, 1.0), ofVec3f(1.0, 0.0, 0.0), new shared_ptr<customPhysicsObject>(&player) ) );
 	gameobjects.push_back(go);
-
 	go = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(2*34, 2*0, 2*54), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) ) );
 	gameobjects.push_back(go);
+	enemy_count++;
 
 	go = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(2*35, 2*0, 2*54), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) ) );
 	gameobjects.push_back(go);
@@ -5300,9 +5303,9 @@ void wolfenstein(vector<shared_ptr<customGameObject>*> &gameobjects, customPlaye
 
 	go = new shared_ptr<customGameObject>( new customNPC( ofVec3f(2*44, 0.8, 2*54), ofVec3f(0, 0, 0), ofVec3f(1.0, 1.0, 1.0), ofVec3f(1.0, 0.0, 0.0), new shared_ptr<customPhysicsObject>(&player) ) );
 	gameobjects.push_back(go);
-
 	go = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(2*44, 2*0, 2*54), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) ) );
 	gameobjects.push_back(go);
+	enemy_count++;
 
 	go = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(2*45, 2*0, 2*54), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2) ) );
 	gameobjects.push_back(go);
@@ -5405,4 +5408,7 @@ void wolfenstein(vector<shared_ptr<customGameObject>*> &gameobjects, customPlaye
 
 	// set player position
 	player.position = ofVec3f(2*34, 0.80, 2*50);
+
+
+	return enemy_count;
 }

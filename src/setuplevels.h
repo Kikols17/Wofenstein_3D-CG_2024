@@ -15,7 +15,7 @@ void training_level(vector<shared_ptr<customGameObject>*> &gameobjects, customPl
 
 void excapefromwolfenstein_level(vector<shared_ptr<customGameObject>*> &gameobjects, customPlayer &player);
 
-void wolfenstein(vector<shared_ptr<customGameObject>*> &gameobjects, customPlayer &player);
+int wolfenstein(vector<shared_ptr<customGameObject>*> &gameobjects, customPlayer &player);
 
 
 
