@@ -327,7 +327,7 @@ void customPlayer::shoot() {
 
     // spawn particles as mussle flash
     for (int i=0; i<10; i++) {
-        customParticle* p = new customParticle(this->cam.target, ofVec3f(0, 0, 0), ofVec3f(0.07, 0.07, 0.07), ofVec3f(0.3, 0.3, 0.3), ofRandom(0.95f, 0.99f), ofRandom(1000, 3000));
+        customParticle* p = new customParticle(this->cam.target, ofVec3f(0, 0, 0), ofVec3f(0.07, 0.07, 0.07), ofVec3f(0.1, 0.1, 0.1), ofRandom(0.95f, 0.99f), ofRandom(1000, 3000));
         p->velocity = this->velocity+ofVec3f(ofRandom(-1, 1), ofRandom(-1, 1), ofRandom(-1, 1));
         p->spin = ofVec3f(ofRandom(-180, 180), ofRandom(-180, 180), ofRandom(-180, 180));
         globalgameobjects.push_back(new shared_ptr<customGameObject>(p));
