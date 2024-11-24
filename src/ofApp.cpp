@@ -427,9 +427,8 @@ void ofApp::drawUI() {
         if (this->showobjective) {
             s += "\n\n\n\n\nObjective (\"o\" to hide):\n";
             s += "\tB.J. Blazkowicz e um soldado americano aprisionado no castelo Wolfenstein num universo em que a Alemanha venceu a segunda guerra mundial.\n";
-            s += "\tEscape do castelo chegando a saida (marcado a verde no mapa 2D), enquanto serve violenta justica aos soldados alemaes para impedir o seu terrivel plano de dominacao e subjugacao.\n";
+            s += "\tEscape do castelo chegando a saida (marcado a verde no mapa 2D), enquanto serve violenta justica aos soldados alemaes para destruir o seu terrivel regime e plano de dominacao.\n";
         }
-
     }
 
     ofSetColor(color[0], color[1], color[2]);
