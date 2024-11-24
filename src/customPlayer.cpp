@@ -155,7 +155,7 @@ void customPlayer::draw3D() {
         /* ARMS */
         glPushMatrix();
             glTranslatef(-0.25, 0.1, 0.0);             // move joint of the arm to x=0, y=0, z=0
-            glRotatef(85.0, 1, 0, 0);   // } rotate the arm
+            glRotatef(this->cam.looking_angleX+85.0, 1, 0, 0);   // } rotate the arm
             glRotatef(30.0, 0, 0, 1);   // }
             glTranslatef(0.25, -0.1, 0.0);             // move joint of the arm back to original position
 
@@ -167,7 +167,7 @@ void customPlayer::draw3D() {
 
         glPushMatrix();
             glTranslatef(0.25, 0.1, 0.0);             // move joint of the arm to x=0, y=0, z=0
-            glRotatef(90.0, 1, 0, 0);   // } rotate the arm
+            glRotatef(this->cam.looking_angleX+90.0, 1, 0, 0);   // } rotate the arm
             glRotatef(-50.0, 0, 0, 1);   // }
             glTranslatef(-0.25, -0.1, 0.0);             // move joint of the arm back to original position
 
