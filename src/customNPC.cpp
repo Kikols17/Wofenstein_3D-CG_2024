@@ -108,8 +108,8 @@ void customNPC::draw2D() {
 
         glPushMatrix();
             glTranslatef(0.25, 0.1, 0.0);             // move joint of the arm to x=0, y=0, z=0
-            glRotatef(90.0, 1, 0, 0);   // } rotate the arm
-            glRotatef(-50.0, 0, 0, 1);   // }
+            glRotatef(85.0, 1, 0, 0);   // } rotate the arm
+            glRotatef(-30.0, 0, 0, 1);   // }
             glTranslatef(-0.25, -0.1, 0.0);             // move joint of the arm back to original position
 
             glColor3f(0.35, 0.20, 0.05); // brown uniform
@@ -119,9 +119,16 @@ void customNPC::draw2D() {
         glPopMatrix();
 
 
-        /* WEAPON */
+        /* Weapon */
         glPushMatrix();
+            glTranslatef(0.0, 0.1, 0.0);             // move joint of the weapon to x=0, y=0, z=0
+            glRotatef(90.0, 1, 0, 0);   // } rotate the arm
+            glTranslatef(0.0, -0.1, 0.0);             // move joint of the arm back to original position
+
+            glColor3f(0.15, 0.15, 0.15);    // dark grey weapon
+            cube_unit_posscale(ofVec3f(0.05, 0.65, -0.13), ofVec3f(0.05, 0.3, 0.05));    // } weapon
         glPopMatrix();
+
 
     glPopMatrix();
 }
@@ -172,10 +179,10 @@ void customNPC::draw3D() {
         
         /* ARMS */
         glPushMatrix();
-            glTranslatef(-0.25, 0.2, 0.0);             // move joint of the arm to x=0, y=0, z=0
+            glTranslatef(-0.25, 0.1, 0.0);             // move joint of the arm to x=0, y=0, z=0
             glRotatef(85.0, 1, 0, 0);   // } rotate the arm
             glRotatef(30.0, 0, 0, 1);   // }
-            glTranslatef(0.25, -0.15, 0.0);             // move joint of the arm back to original position
+            glTranslatef(0.25, -0.1, 0.0);             // move joint of the arm back to original position
 
             glColor3f(0.35, 0.20, 0.05); // brown uniform
             cube_unit_posscale(ofVec3f(0.25, 0.15, 0), ofVec3f(0.12, 0.4, 0.12));    // } right arm
@@ -184,10 +191,10 @@ void customNPC::draw3D() {
         glPopMatrix();
 
         glPushMatrix();
-            glTranslatef(0.25, 0.2, 0.0);             // move joint of the arm to x=0, y=0, z=0
-            glRotatef(90.0, 1, 0, 0);   // } rotate the arm
-            glRotatef(-50.0, 0, 0, 1);   // }
-            glTranslatef(-0.25, -0.2, 0.0);             // move joint of the arm back to original position
+            glTranslatef(0.25, 0.1, 0.0);             // move joint of the arm to x=0, y=0, z=0
+            glRotatef(85.0, 1, 0, 0);   // } rotate the arm
+            glRotatef(-30.0, 0, 0, 1);   // }
+            glTranslatef(-0.25, -0.1, 0.0);             // move joint of the arm back to original position
 
             glColor3f(0.35, 0.20, 0.05); // brown uniform
             cube_unit_posscale(ofVec3f(-0.25, 0.15, 0), ofVec3f(0.12, 0.4, 0.12));    // } right arm
@@ -196,8 +203,14 @@ void customNPC::draw3D() {
         glPopMatrix();
 
 
-        /* WEAPON */
+        /* Weapon */
         glPushMatrix();
+            glTranslatef(0.0, 0.1, 0.0);             // move joint of the weapon to x=0, y=0, z=0
+            glRotatef(90.0, 1, 0, 0);   // } rotate the arm
+            glTranslatef(0.0, -0.1, 0.0);             // move joint of the arm back to original position
+
+            glColor3f(0.15, 0.15, 0.15);    // dark grey weapon
+            cube_unit_posscale(ofVec3f(0.05, 0.65, -0.13), ofVec3f(0.05, 0.3, 0.05));    // } weapon
         glPopMatrix();
 
     glPopMatrix();

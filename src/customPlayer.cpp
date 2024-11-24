@@ -114,6 +114,19 @@ void customPlayer::draw2D() {
             glColor3f(1.0, 0.8, 0.6);   // hands color
             cube_unit_posscale(ofVec3f(-0.25, 0.35, 0), ofVec3f(0.11, 0.11, 0.11));    // } right hand
         glPopMatrix();
+
+
+        /* Weapon */
+        glPushMatrix();
+            glTranslatef(0.0, 0.1, 0.0);             // move joint of the weapon to x=0, y=0, z=0
+            glRotatef(90.0, 1, 0, 0);   // } rotate the arm
+            glTranslatef(0.0, -0.1, 0.0);             // move joint of the arm back to original position
+
+            glColor3f(0.15, 0.15, 0.15);    // dark grey weapon
+            cube_unit_posscale(ofVec3f(0.05, 0.65, -0.13), ofVec3f(0.05, 0.3, 0.05));    // } weapon
+        glPopMatrix();
+
+
     glPopMatrix();
 }
 
@@ -176,6 +189,18 @@ void customPlayer::draw3D() {
             glColor3f(1.0, 0.8, 0.6);   // hands color
             cube_unit_posscale(ofVec3f(-0.25, 0.35, 0), ofVec3f(0.11, 0.11, 0.11));    // } right hand
         glPopMatrix();
+
+
+        /* Weapon */
+        glPushMatrix();
+            glTranslatef(0.0, 0.1, 0.0);             // move joint of the weapon to x=0, y=0, z=0
+            glRotatef(this->cam.looking_angleX+90.0, 1, 0, 0);   // } rotate the arm
+            glTranslatef(0.0, -0.1, 0.0);             // move joint of the arm back to original position
+
+            glColor3f(0.15, 0.15, 0.15);    // dark grey weapon
+            cube_unit_posscale(ofVec3f(0.05, 0.65, -0.13), ofVec3f(0.05, 0.3, 0.05));    // } weapon
+        glPopMatrix();
+
 
     glPopMatrix();
 
