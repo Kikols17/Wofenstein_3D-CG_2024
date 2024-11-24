@@ -15,5 +15,5 @@ python3 mapcreator.py <nome_do_mapa> <nome_ficheiro_entrada> <nome_ficheiro_said
 
 Como no exemplo:
 ```bash
-python3 mapcreator.py wolfenstein wolfenstein.in wolfenstein.out
+python3 mapcreator.py wolfenstein escape_from_wolfenstein.in escape_from_wolfenstein.out
 ```
