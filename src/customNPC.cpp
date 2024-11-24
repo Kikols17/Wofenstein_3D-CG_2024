@@ -246,9 +246,9 @@ void customNPC::idlestand() {
 
 
     ofSetRandomSeed(ofGetElapsedTimeMillis()*ofRandom(1, 1000));
-    // have a 10% change to change state to idle moving (1)
-    if (ofRandom(0, 100) < 10) {
-        this->movingto = ofVec3f(this->position.x+ofRandom(-10, 10), this->position.y, this->position.x+ofRandom(-10, 10));
+    // have a 0.2% change to change state to idle moving (1)
+    if (ofRandom(0, 100) < 0.2) {
+        this->movingto = ofVec3f(this->position.x+ofRandom(-10, 10), this->position.y, this->position.z+ofRandom(-10, 10));
         this->AIstate = 1;
     }
 }
@@ -325,7 +325,7 @@ bool customNPC::checkShotsReceived() {
 
 void customNPC::explode() {
     // explode the NPC
-    for (int i=0; i<300; i++) {
+    for (int i=0; i<200; i++) {
         // create particles that stick to the walls
         customParticle* p = new customParticle(this->position, ofVec3f(0, 0, 0), ofVec3f(0.2, 0.2, 0.2), this->color*ofRandom(0.60, 0.70), ofRandom(0.99f, 0.999f), ofRandom(15000, 20000), -1, vector<int>({1}));
         //customParticle* p = new customParticle(this->position, ofVec3f(0, 0, 0), ofVec3f(0.2, 0.2, 0.2), ofVec3f(ofRandom(0.0,1.0),ofRandom(0.0,1.0),ofRandom(0.0,1.0)), ofRandom(0.99f, 0.999f), ofRandom(15000, 20000), -1, vector<int>({1}));
