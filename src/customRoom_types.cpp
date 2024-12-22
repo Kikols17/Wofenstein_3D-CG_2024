@@ -931,7 +931,7 @@ void customRoom_door::update() {
     this->customPhysicsObjectStatic::update();      // update the position, rotation, and scale of the room
 
     if (this->open) {
-        if (this->open_percent < 0.99f) {
+        if (this->open_percent < 0.95f) {
             this->open_percent += 0.01f;
             this->position = this->position + (0.01 * this->scale.x) * rotateY(ofVec3f(1, 0, 0), glm::radians(this->rotation.y));
         } else {
