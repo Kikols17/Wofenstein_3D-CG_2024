@@ -48,6 +48,15 @@ def criar_mapa(name, input, output):
             # Wall (no need for rotation) (wood color)
             output.write(f"\tgo = new shared_ptr<customGameObject>( new customRoom_wall( ofVec3f({size}*{x}, {size}*0, {size}*{y}), ofVec3f(0, 0, 0), ofVec3f({size}, {size}, {size}), ofVec3f(0.5, 0.25, 0.0) ) );\n")
             output.write("\tgameobjects.push_back(go);\n\n")
+        elif character == 'R':
+            # Wall (no need for rotation) (red)
+            output.write(f"\tgo = new shared_ptr<customGameObject>( new customRoom_wall( ofVec3f({size}*{x}, {size}*0, {size}*{y}), ofVec3f(0, 0, 0), ofVec3f({size}, {size}, {size}), ofVec3f(0.8, 0.1, 0.1) ) );\n")
+            output.write("\tgameobjects.push_back(go);\n\n")
+        elif character == 'M':
+            # Wall (no need for rotation) (moss)
+            output.write(f"\tgo = new shared_ptr<customGameObject>( new customRoom_wall( ofVec3f({size}*{x}, {size}*0, {size}*{y}), ofVec3f(0, 0, 0), ofVec3f({size}, {size}, {size}), ofVec3f(0.0, 0.5, 0.0) ) );\n")
+            output.write("\tgameobjects.push_back(go);\n\n")
+
         
         # Door
         if character == '>':

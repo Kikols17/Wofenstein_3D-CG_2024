@@ -32,7 +32,7 @@ void ofApp::setup(){
     globalgameobjects = vector<shared_ptr<customGameObject>*>({});
     globalgameobjects_toremove = vector<shared_ptr<customGameObject>*>({});
 
-    loadLevel(1);
+    loadLevel(2);
 
     // add weapon to the floor
     //globalgameobjects.push_back( new shared_ptr<customGameObject>(new customWeapon(ofVec3f(2*4, 0.50, 2*32), ofVec3f(0, 0, 0), ofVec3f(0.5, 0.5, 0.5))) );
@@ -463,9 +463,12 @@ void ofApp::loadLevel(int level) {
 
 
     switch (level) {
+        kill_count = 0;
         case 1:
-            kill_count = 0;
             enemy_count = wolfenstein(globalgameobjects, this->player);
+            break;
+        case 2:
+            enemy_count = eisenfaust(globalgameobjects, this->player);
             break;
         default:
             cout << "[Error]: level \"" << level << "\" does not exist!!" << endl;

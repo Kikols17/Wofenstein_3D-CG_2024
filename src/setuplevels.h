@@ -17,6 +17,8 @@ void excapefromwolfenstein_level(vector<shared_ptr<customGameObject>*> &gameobje
 
 int wolfenstein(vector<shared_ptr<customGameObject>*> &gameobjects, customPlayer &player);
 
+int eisenfaust(vector<shared_ptr<customGameObject>*> &gameobjects, customPlayer &player);
+
 
 
 #endif
