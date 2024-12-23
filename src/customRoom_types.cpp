@@ -947,8 +947,9 @@ void customRoom_door::update() {
     }
 
     for (int i = 0; i < (int)this->colisionBoxes.size(); i++) {
-        if (this->colisionBoxes[i]->hasCollided) {
-            this->colisionBoxes[i]->hasCollided = false;
+        if (this->colisionBoxes[i]->hasCollided==0) {
+            // player touched the door
+            this->colisionBoxes[i]->hasCollided = -2;
             //cout << "Player touching door" << endl;
             this->open = true;
         }
@@ -1077,12 +1078,12 @@ void customRoom_end::update() {
     }
 
     for (int i = 0; i < (int)this->colisionBoxes.size(); i++) {
-        if (this->colisionBoxes[i]->hasCollided) {
+        if (this->colisionBoxes[i]->hasCollided==0) {
             this->color = ofVec3f(0.9, 0.0, 0.0);
             gamestate = 2;
             cout << "GAME OVER, Player won!" << endl;
         }
-        this->colisionBoxes[i]->hasCollided = false;
+        this->colisionBoxes[i]->hasCollided = -2;
     }
 }
 

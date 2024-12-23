@@ -19,7 +19,7 @@ void customPhysicsObjectMovable::update() {
     
     bool collision = false;
     for (int i=0; i<(int)this->colisionBoxes.size(); i++) {
-        if (this->colisionBoxes[i]->hasCollided) {
+        if (this->colisionBoxes[i]->hasCollided!=-2) {
             collision = true;
             break;
         }
@@ -53,8 +53,8 @@ void customPhysicsObjectMovable::update() {
                             this->velocity = ofVec3f(0, 0, 0);
                             //this->velocity = this->colisionBoxes[i]->checkCollision_SetVelocity(globalcolisionBoxes[j], this->velocity, deltaT);
                             this->spin = ofVec3f(0, 0, 0);
-                            this->colisionBoxes[i]->hasCollided = true;
-                            globalcolisionBoxes[j]->hasCollided = true;
+                            this->colisionBoxes[i]->hasCollided = globalcolisionBoxes[j]->group;
+                            globalcolisionBoxes[j]->hasCollided = this->colisionBoxes[i]->group;
                         }
                     }
                 }

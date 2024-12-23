@@ -267,10 +267,10 @@ void customNPC::idlemove() {
         
         // if the NPC hit a wall, change state to standing (0)
         for (int i=0; i<(int)this->colisionBoxes.size(); i++) {
-            if (this->colisionBoxes[i]->hasCollided) {
+            if (this->colisionBoxes[i]->hasCollided!=-2) {
                 this->AIstate = 0;
                 //cout << "stuck" << endl;
-                this->colisionBoxes[i]->hasCollided = false;
+                this->colisionBoxes[i]->hasCollided = -2;
                 return;
             }
         }

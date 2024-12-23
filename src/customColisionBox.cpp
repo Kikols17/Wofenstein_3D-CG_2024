@@ -187,8 +187,8 @@ bool customColisionBox::checkCollision(customColisionBox* other, ofVec3f velocit
         this->abs_minZ+(velocity.z*(deltaT/1000.0f)) < other->abs_maxZ  &&  this->abs_maxZ+(velocity.z*(deltaT/1000.0f)) > other->abs_minZ);
     
     if (result) {
-        this->hasCollided = true;
-        other->hasCollided = true;
+        this->hasCollided = other->group;
+        other->hasCollided = this->group;
     }
     return result;
 }
