@@ -399,24 +399,25 @@ void ofApp::drawUI() {
             s += "\t+: zoom in (2D)\n";
             s += "\t-: zoom out (2D)\n\n";
 
-            s += "\tm:toggle minimap (3D)\n";
+            s += "\tm: toggle minimap (3D)\n";
             s += "\th: toggle hitboxes (3D)\n";
-            s += "\tc: toggle controls [THIS SCREEN]\n";
-            s += "\to: toggle objective\n\n";
+            //s += "\to: toggle objective\n";
+            s += "\tc: toggle controls [THIS SCREEN]\n\n";
 
             s += "\tr: restart level\n";
             s += "\tspace: pause\n\n";
 
-            s += "\tw: walk forward\n";
-            s += "\ts: walk backward\n";
-            s += "\ta: walk left\n";
-            s += "\td: walk right\n";
+            s += "\t[w,a,s,d]: walk around\n";
             s += "\tshift: run\n\n";
+
             s += "\tmouse: look around\n";
-            s += "\tmouse left: shoot\n\n\n\n\n\n\n";
+            s += "\tmouse left: shoot\n\n";
+
+            s += "\t(walk into doors to open)\n";
+            s += "\t(reach green pad to end) [CHECK 2D]\n\n\n\n\n\n\n\n\n\n\n";
 
         } else {
-            s += "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
+            s += "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
         }
 
         s += "Health: " + to_string(this->player.health) + "\n\n";
