@@ -456,6 +456,10 @@ void ofApp::loadLevel(int level) {
     globalcolisionBoxes_toremove.clear();
 
 
+    // reset stats
+    enemy_count = 0;
+    kill_count = 0;
+
 
     // setup the player
     this->player = customPlayer(ofVec3f(0, 0.80, 0), ofVec3f(0, 0, 0), ofVec3f(1.0, 1.0, 1.0));
@@ -464,7 +468,6 @@ void ofApp::loadLevel(int level) {
 
 
     switch (level) {
-        kill_count = 0;
         case 1:
             enemy_count = wolfenstein(globalgameobjects, this->player);
             break;
