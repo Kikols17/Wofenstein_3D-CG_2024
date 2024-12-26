@@ -2,4 +2,8 @@
 !src/
 !src/**
 
+!bin
+!bin/data/
+!bin/data/**
+
 !.gitignore
