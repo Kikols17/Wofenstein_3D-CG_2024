@@ -22,17 +22,7 @@ def criar_mapa(name, input, output):
         # Xhallway
         if character == '.':
             # Xhallway (no need for rotation)
-            output.write(f"\tgo = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f({size}*{x}, {size}*0, {size}*{y}), ofVec3f(0, 0, 0), ofVec3f({size}, {size}, {size}) ) );\n")
-            output.write("\tgameobjects.push_back(go);\n\n")
-        
-        # Hallway
-        if character == '|':
-            # Hallway (rotation 0/180)
-            output.write(f"\tgo = new shared_ptr<customGameObject>( new customRoom_hallway( ofVec3f({size}*{x}, {size}*0, {size}*{y}), ofVec3f(0, 0, 0), ofVec3f({size}, {size}, {size}) ) );\n")
-            output.write("\tgameobjects.push_back(go);\n\n")
-        elif character == '-':
-            # Hallway (rotation 90/270)
-            output.write(f"\tgo = new shared_ptr<customGameObject>( new customRoom_hallway( ofVec3f({size}*{x}, {size}*0, {size}*{y}), ofVec3f(0, 90, 0), ofVec3f({size}, {size}, {size}) ) );\n")
+            output.write(f"\tgo = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f({size}*{x}, {size}*0, {size}*{y}), ofVec3f(0, 0, 0), ofVec3f({size}, {size}, {size}), ofVec3f(0.4, 0.4, 0.4) ) );\n")
             output.write("\tgameobjects.push_back(go);\n\n")
         
         # Wall
@@ -61,27 +51,27 @@ def criar_mapa(name, input, output):
         # Door
         if character == '>':
             # Door (rotation 0)
-            output.write(f"\tgo = new shared_ptr<customGameObject>( new customRoom_door( ofVec3f({size}*{x}, {size}*0, {size}*{y}), ofVec3f(0, 0, 0), ofVec3f({size}, {size}, {size}) ) );\n")
+            output.write(f"\tgo = new shared_ptr<customGameObject>( new customRoom_door( ofVec3f({size}*{x}, {size}*0, {size}*{y}), ofVec3f(0, 0, 0), ofVec3f({size}, {size}, {size}), ofVec3f(0.0, 0.7, 0.7) ) );\n")
             output.write("\tgameobjects.push_back(go);\n")
-            output.write(f"\tgo = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f({size}*{x}, {size}*0, {size}*{y}), ofVec3f(0, 0, 0), ofVec3f({size}, {size}, {size}) ) );\n")
+            output.write(f"\tgo = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f({size}*{x}, {size}*0, {size}*{y}), ofVec3f(0, 0, 0), ofVec3f({size}, {size}, {size}), ofVec3f(0.4, 0.4, 0.4) ) );\n")
             output.write("\tgameobjects.push_back(go);\n\n")
         elif character == '^':
             # Door (rotation 90)
-            output.write(f"\tgo = new shared_ptr<customGameObject>( new customRoom_door( ofVec3f({size}*{x}, {size}*0, {size}*{y}), ofVec3f(0, 90, 0), ofVec3f({size}, {size}, {size}) ) );\n")
+            output.write(f"\tgo = new shared_ptr<customGameObject>( new customRoom_door( ofVec3f({size}*{x}, {size}*0, {size}*{y}), ofVec3f(0, 90, 0), ofVec3f({size}, {size}, {size}), ofVec3f(0.0, 0.7, 0.7) ) );\n")
             output.write("\tgameobjects.push_back(go);\n")
-            output.write(f"\tgo = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f({size}*{x}, {size}*0, {size}*{y}), ofVec3f(0, 0, 0), ofVec3f({size}, {size}, {size}) ) );\n")
+            output.write(f"\tgo = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f({size}*{x}, {size}*0, {size}*{y}), ofVec3f(0, 0, 0), ofVec3f({size}, {size}, {size}), ofVec3f(0.4, 0.4, 0.4) ) );\n")
             output.write("\tgameobjects.push_back(go);\n\n")
         elif character == '<':
             # Door (rotation 180)
-            output.write(f"\tgo = new shared_ptr<customGameObject>( new customRoom_door( ofVec3f({size}*{x}, {size}*0, {size}*{y}), ofVec3f(0, 180, 0), ofVec3f({size}, {size}, {size}) ) );\n")
+            output.write(f"\tgo = new shared_ptr<customGameObject>( new customRoom_door( ofVec3f({size}*{x}, {size}*0, {size}*{y}), ofVec3f(0, 180, 0), ofVec3f({size}, {size}, {size}), ofVec3f(0.0, 0.7, 0.7) ) );\n")
             output.write("\tgameobjects.push_back(go);\n")
-            output.write(f"\tgo = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f({size}*{x}, {size}*0, {size}*{y}), ofVec3f(0, 0, 0), ofVec3f({size}, {size}, {size}) ) );\n")
+            output.write(f"\tgo = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f({size}*{x}, {size}*0, {size}*{y}), ofVec3f(0, 0, 0), ofVec3f({size}, {size}, {size}), ofVec3f(0.4, 0.4, 0.4) ) );\n")
             output.write("\tgameobjects.push_back(go);\n\n")
         elif character == '~':
             # Door (rotation 270)
-            output.write(f"\tgo = new shared_ptr<customGameObject>( new customRoom_door( ofVec3f({size}*{x}, {size}*0, {size}*{y}), ofVec3f(0, 270, 0), ofVec3f({size}, {size}, {size}) ) );\n")
+            output.write(f"\tgo = new shared_ptr<customGameObject>( new customRoom_door( ofVec3f({size}*{x}, {size}*0, {size}*{y}), ofVec3f(0, 270, 0), ofVec3f({size}, {size}, {size}), ofVec3f(0.0, 0.7, 0.7) ) );\n")
             output.write("\tgameobjects.push_back(go);\n")
-            output.write(f"\tgo = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f({size}*{x}, {size}*0, {size}*{y}), ofVec3f(0, 0, 0), ofVec3f({size}, {size}, {size}) ) );\n")
+            output.write(f"\tgo = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f({size}*{x}, {size}*0, {size}*{y}), ofVec3f(0, 0, 0), ofVec3f({size}, {size}, {size}), ofVec3f(0.4, 0.4, 0.4) ) );\n")
             output.write("\tgameobjects.push_back(go);\n\n")
                 
         # enemy
@@ -89,7 +79,7 @@ def criar_mapa(name, input, output):
             # Enemy
             output.write(f"\tgo = new shared_ptr<customGameObject>( new customNPC( ofVec3f({size}*{x}, 0.8, {size}*{y}), ofVec3f(0, 0, 0), ofVec3f(1.0, 1.0, 1.0), ofVec3f(1.0, 0.0, 0.0), new shared_ptr<customPhysicsObject>(&player) ) );\n")
             output.write("\tgameobjects.push_back(go);\n")
-            output.write(f"\tgo = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f({size}*{x}, {size}*0, {size}*{y}), ofVec3f(0, 0, 0), ofVec3f({size}, {size}, {size}) ) );\n")
+            output.write(f"\tgo = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f({size}*{x}, {size}*0, {size}*{y}), ofVec3f(0, 0, 0), ofVec3f({size}, {size}, {size}), ofVec3f(0.4, 0.4, 0.4) ) );\n")
             output.write("\tgameobjects.push_back(go);\n")
             output.write("\tenemy_count++;\n\n")
         
@@ -97,14 +87,14 @@ def criar_mapa(name, input, output):
             # Spawn player
             spawn_x = x
             spawn_y = y
-            output.write(f"\tgo = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f({size}*{x}, {size}*0, {size}*{y}), ofVec3f(0, 0, 0), ofVec3f({size}, {size}, {size}) ) );\n")
+            output.write(f"\tgo = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f({size}*{x}, {size}*0, {size}*{y}), ofVec3f(0, 0, 0), ofVec3f({size}, {size}, {size}), ofVec3f(0.4, 0.4, 0.4) ) );\n")
             output.write("\tgameobjects.push_back(go);\n\n")
         
         if character == 'f':
             # customRoom_end
-            output.write(f"\tgo = new shared_ptr<customGameObject>( new customRoom_end( ofVec3f({size}*{x}, {size}*0, {size}*{y}), ofVec3f(0, 0, 0), ofVec3f({size}, {size}, {size}) ) );\n")
+            output.write(f"\tgo = new shared_ptr<customGameObject>( new customRoom_end( ofVec3f({size}*{x}, {size}*0, {size}*{y}), ofVec3f(0, 0, 0), ofVec3f({size}, {size}, {size}), ofVec3f(0.0, 0.9, 0.0) ) );\n")
             output.write("\tgameobjects.push_back(go);\n\n")
-            output.write(f"\tgo = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f({size}*{x}, {size}*0, {size}*{y}), ofVec3f(0, 0, 0), ofVec3f({size}, {size}, {size}) ) );\n")
+            output.write(f"\tgo = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f({size}*{x}, {size}*0, {size}*{y}), ofVec3f(0, 0, 0), ofVec3f({size}, {size}, {size}), ofVec3f(0.4, 0.4, 0.4) ) );\n")
             output.write("\tgameobjects.push_back(go);\n\n")
 
         if character == '\n':

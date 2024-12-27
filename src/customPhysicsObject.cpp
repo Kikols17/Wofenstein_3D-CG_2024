@@ -4,17 +4,8 @@
 
 //--------------------------------------------------------------
 // public
-customPhysicsObject::customPhysicsObject(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale) : customPhysicsObject(_position, _rotation, _scale, ofVec3f(0.5,0.5,0.5), vector<customColisionBox*>({})) {
-    // do nothing, call true constructor
-}
-customPhysicsObject::customPhysicsObject(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, ofVec3f _color) : customPhysicsObject(_position, _rotation, _scale, _color, vector<customColisionBox*>({})) {
-    // do nothing, call true constructor
-}
-customPhysicsObject::customPhysicsObject(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, vector<customColisionBox*> _colisionBoxes) : customPhysicsObject(_position, _rotation, _scale, ofVec3f(0.5,0.5,0.5), _colisionBoxes) {
-    // do nothing, call true constructor
-}
 customPhysicsObject::customPhysicsObject(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, ofVec3f _color, vector<customColisionBox*> _colisionBoxes) : customGameObject(_position, _rotation, _scale, _color) {
-    // run this to set up the object
+    // run this to set up the physics object
 
     this->velocity = ofVec3f(0, 0, 0);
     this->spin = ofVec3f(0, 0, 0);
