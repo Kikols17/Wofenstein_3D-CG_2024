@@ -25,7 +25,6 @@
 class customColisionBox : public customGameObject {
 
     public:
-        customColisionBox(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, int group, vector<int> groups, GLfloat _minX, GLfloat _minY, GLfloat _minZ, GLfloat _maxX, GLfloat _maxY, GLfloat _maxZ);
         customColisionBox(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, ofVec3f _color, int group, vector<int> groups, GLfloat _minX, GLfloat _minY, GLfloat _minZ, GLfloat _maxX, GLfloat _maxY, GLfloat _maxZ);
 
         void update() override;
