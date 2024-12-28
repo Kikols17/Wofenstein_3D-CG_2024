@@ -71,14 +71,26 @@ void customRoom_Xhallway::draw2D() {
     glPushMatrix();
         this->customPhysicsObjectStatic::draw2D();      // move to the position, rotate, and scale the room
 
+        glEnable(GL_TEXTURE);
+        this->texture->bind();
+        glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_DECAL);
+        glTexParameteri(GL_TEXTURE, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+        glTexParameteri(GL_TEXTURE, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+        glTexParameteri(GL_TEXTURE, GL_TEXTURE_WRAP_S, GL_CLAMP);
+        glTexParameteri(GL_TEXTURE, GL_TEXTURE_WRAP_T, GL_CLAMP);
+
         glColor3f(this->color.x, this->color.y, this->color.z);
         glBegin(GL_QUADS);
             // floor
-            glVertex3f(-0.5, -0.1, -0.5);
-            glVertex3f(0.5, -0.1, -0.5);
-            glVertex3f(0.5, -0.1, 0.5);
-            glVertex3f(-0.5, -0.1, 0.5);
+            glNormal3f(0, 1, 0);
+            glTexCoord2f(0, 0);     glVertex3f(-0.5, -0.1, -0.5);
+            glTexCoord2f(64, 0);    glVertex3f(0.5, -0.1, -0.5);
+            glTexCoord2f(64, 64);   glVertex3f(0.5, -0.1, 0.5);
+            glTexCoord2f(0, 64);    glVertex3f(-0.5, -0.1, 0.5);
         glEnd();
+
+        this->texture->unbind();
+        glDisable(GL_TEXTURE);
 
     glPopMatrix();
 }
@@ -88,20 +100,33 @@ void customRoom_Xhallway::draw3D() {
     glPushMatrix();
         this->customPhysicsObjectStatic::draw3D();      // move to the position, rotate, and scale the room
 
+        glEnable(GL_TEXTURE);
+        this->texture->bind();
+        glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_DECAL);
+        glTexParameteri(GL_TEXTURE, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+        glTexParameteri(GL_TEXTURE, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+        glTexParameteri(GL_TEXTURE, GL_TEXTURE_WRAP_S, GL_CLAMP);
+        glTexParameteri(GL_TEXTURE, GL_TEXTURE_WRAP_T, GL_CLAMP);
+
         glColor3f(this->color.x, this->color.y, this->color.z);
         glBegin(GL_QUADS);
             // floor
-            glVertex3f(-0.5, 0, -0.5);
-            glVertex3f(0.5, 0, -0.5);
-            glVertex3f(0.5, 0, 0.5);
-            glVertex3f(-0.5, 0, 0.5);
+            glNormal3f(0, 1, 0);
+            glTexCoord2f(0, 64);    glVertex3f(-0.5, 0, -0.5);
+            glTexCoord2f(0, 0);     glVertex3f(0.5, 0, -0.5);
+            glTexCoord2f(64, 0);    glVertex3f(0.5, 0, 0.5);
+            glTexCoord2f(64, 64);   glVertex3f(-0.5, 0, 0.5);
 
             // ceiling
-            glVertex3f(-0.5, 1, -0.5);
-            glVertex3f(0.5, 1, -0.5);
-            glVertex3f(0.5, 1, 0.5);
-            glVertex3f(-0.5, 1, 0.5);
+            glNormal3f(0, -1, 0);
+            glTexCoord2f(0, 64);    glVertex3f(-0.5, 1, -0.5);
+            glTexCoord2f(0, 0);     glVertex3f(0.5, 1, -0.5);
+            glTexCoord2f(64, 0);    glVertex3f(0.5, 1, 0.5);
+            glTexCoord2f(64, 64);   glVertex3f(-0.5, 1, 0.5);
         glEnd();
+
+        this->texture->unbind();
+        glDisable(GL_TEXTURE);
 
     glPopMatrix();
 }
@@ -125,44 +150,26 @@ void customRoom_wall::draw2D() {
     glPushMatrix();
         this->customPhysicsObjectStatic::draw2D();      // move to the position, rotate, and scale the room
 
+        glEnable(GL_TEXTURE);
+        this->texture->bind();
+        glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_DECAL);
+        glTexParameteri(GL_TEXTURE, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+        glTexParameteri(GL_TEXTURE, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+        glTexParameteri(GL_TEXTURE, GL_TEXTURE_WRAP_S, GL_CLAMP);
+        glTexParameteri(GL_TEXTURE, GL_TEXTURE_WRAP_T, GL_CLAMP);
+
         glColor3f(this->color.x, this->color.y, this->color.z);
         glBegin(GL_QUADS);
-            // floor
-            glVertex3f(-0.5, 0, -0.5);
-            glVertex3f(0.5, 0, -0.5);
-            glVertex3f(0.5, 0, 0.5);
-            glVertex3f(-0.5, 0, 0.5);
-
-            // left wall
-            glVertex3f(-0.5, 0, -0.5);
-            glVertex3f(-0.5, 1, -0.5);
-            glVertex3f(-0.5, 1, 0.5);
-            glVertex3f(-0.5, 0, 0.5);
-
-            // right wall
-            glVertex3f(0.5, 0, -0.5);
-            glVertex3f(0.5, 1, -0.5);
-            glVertex3f(0.5, 1, 0.5);
-            glVertex3f(0.5, 0, 0.5);
-
-            // front wall
-            glVertex3f(-0.5, 0, 0.5);
-            glVertex3f(-0.5, 1, 0.5);
-            glVertex3f(0.5, 1, 0.5);
-            glVertex3f(0.5, 0, 0.5);
-
-            // back wall
-            glVertex3f(-0.5, 0, -0.5);
-            glVertex3f(-0.5, 1, -0.5);
-            glVertex3f(0.5, 1, -0.5);
-            glVertex3f(0.5, 0, -0.5);
-
             // ceiling
-            glVertex3f(-0.5, 1, -0.5);
-            glVertex3f(0.5, 1, -0.5);
-            glVertex3f(0.5, 1, 0.5);
-            glVertex3f(-0.5, 1, 0.5);
+            glNormal3f(0, 1, 0);
+            glTexCoord2f(0, 0);     glVertex3f(-0.5, 1, -0.5);
+            glTexCoord2f(64, 0);    glVertex3f(0.5, 1, -0.5);
+            glTexCoord2f(64, 64);   glVertex3f(0.5, 1, 0.5);
+            glTexCoord2f(0, 64);    glVertex3f(-0.5, 1, 0.5);
         glEnd();
+
+        this->texture->unbind();
+        glDisable(GL_TEXTURE);
 
     glPopMatrix();
 }
@@ -170,46 +177,49 @@ void customRoom_wall::draw3D() {
     // run this every draw cycle
     
     glPushMatrix();
-        this->customPhysicsObjectStatic::draw3D();      // move to the position, rotate, and scale the 
+        this->customPhysicsObjectStatic::draw3D();      // move to the position, rotate, and scale the room
+
+        glEnable(GL_TEXTURE);
+        this->texture->bind();
+        glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_DECAL);
+        glTexParameteri(GL_TEXTURE, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+        glTexParameteri(GL_TEXTURE, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+        glTexParameteri(GL_TEXTURE, GL_TEXTURE_WRAP_S, GL_CLAMP);
+        glTexParameteri(GL_TEXTURE, GL_TEXTURE_WRAP_T, GL_CLAMP);
 
         glColor3f(this->color.x, this->color.y, this->color.z);
         glBegin(GL_QUADS);
-            // floor
-            glVertex3f(-0.5, 0, -0.5);
-            glVertex3f(0.5, 0, -0.5);
-            glVertex3f(0.5, 0, 0.5);
-            glVertex3f(-0.5, 0, 0.5);
-
             // left wall
-            glVertex3f(-0.5, 0, -0.5);
-            glVertex3f(-0.5, 1, -0.5);
-            glVertex3f(-0.5, 1, 0.5);
-            glVertex3f(-0.5, 0, 0.5);
+            glNormal3f(0, 0, -1);
+            glTexCoord2f(0, 64);    glVertex3f(-0.5, 0, -0.5);
+            glTexCoord2f(0, 0);     glVertex3f(-0.5, 1, -0.5);
+            glTexCoord2f(64, 0);    glVertex3f(-0.5, 1, 0.5);
+            glTexCoord2f(64, 64);   glVertex3f(-0.5, 0, 0.5);
 
             // right wall
-            glVertex3f(0.5, 0, -0.5);
-            glVertex3f(0.5, 1, -0.5);
-            glVertex3f(0.5, 1, 0.5);
-            glVertex3f(0.5, 0, 0.5);
+            glNormal3f(0, 0, 1);
+            glTexCoord2f(0, 64);    glVertex3f(0.5, 0, -0.5);
+            glTexCoord2f(0, 0);     glVertex3f(0.5, 1, -0.5);
+            glTexCoord2f(64, 0);    glVertex3f(0.5, 1, 0.5);
+            glTexCoord2f(64, 64);   glVertex3f(0.5, 0, 0.5);
 
             // front wall
-            glVertex3f(-0.5, 0, 0.5);
-            glVertex3f(-0.5, 1, 0.5);
-            glVertex3f(0.5, 1, 0.5);
-            glVertex3f(0.5, 0, 0.5);
+            glNormal3f(1, 0, 0);
+            glTexCoord2f(0, 64);    glVertex3f(-0.5, 0, 0.5);
+            glTexCoord2f(0, 0);     glVertex3f(-0.5, 1, 0.5);
+            glTexCoord2f(64, 0);    glVertex3f(0.5, 1, 0.5);
+            glTexCoord2f(64, 64);   glVertex3f(0.5, 0, 0.5);
 
             // back wall
-            glVertex3f(-0.5, 0, -0.5);
-            glVertex3f(-0.5, 1, -0.5);
-            glVertex3f(0.5, 1, -0.5);
-            glVertex3f(0.5, 0, -0.5);
-
-            // ceiling
-            glVertex3f(-0.5, 1, -0.5);
-            glVertex3f(0.5, 1, -0.5);
-            glVertex3f(0.5, 1, 0.5);
-            glVertex3f(-0.5, 1, 0.5);
+            glNormal3f(-1, 0, 0);
+            glTexCoord2f(0, 64);    glVertex3f(-0.5, 0, -0.5);
+            glTexCoord2f(0, 0);     glVertex3f(-0.5, 1, -0.5);
+            glTexCoord2f(64, 0);    glVertex3f(0.5, 1, -0.5);
+            glTexCoord2f(64, 64);   glVertex3f(0.5, 0, -0.5);
         glEnd();
+
+        this->texture->unbind();
+        glDisable(GL_TEXTURE);
 
     glPopMatrix();
 }
@@ -266,44 +276,27 @@ void customRoom_door::draw2D() {
     glPushMatrix();
         this->customPhysicsObjectStatic::draw2D();      // move to the position, rotate, and scale the room
 
+        glEnable(GL_TEXTURE);
+        this->texture->bind();
+        glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_DECAL);
+        glTexParameteri(GL_TEXTURE, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+        glTexParameteri(GL_TEXTURE, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+        glTexParameteri(GL_TEXTURE, GL_TEXTURE_WRAP_S, GL_CLAMP);
+        glTexParameteri(GL_TEXTURE, GL_TEXTURE_WRAP_T, GL_CLAMP);
+
         glColor3f(this->color.x, this->color.y, this->color.z);
         glBegin(GL_QUADS);
-            // door bottom
-            glVertex3f(-0.5, 0, -0.2);
-            glVertex3f(0.5, 0, -0.2);
-            glVertex3f(0.5, 0, 0.2);
-            glVertex3f(-0.5, 0, 0.2);
-
             // door top
-            glVertex3f(-0.5, 0.9, -0.2);
-            glVertex3f(0.5, 0.9, -0.2);
-            glVertex3f(0.5, 0.9, 0.2);
-            glVertex3f(-0.5, 0.9, 0.2);
-
-            // door left
-            glVertex3f(-0.5, 0, -0.2);
-            glVertex3f(-0.5, 0.9, -0.2);
-            glVertex3f(-0.5, 0.9, 0.2);
-            glVertex3f(-0.5, 0, 0.2);
-
-            // door right
-            glVertex3f(0.5, 0, -0.2);
-            glVertex3f(0.5, 0.9, -0.2);
-            glVertex3f(0.5, 0.9, 0.2);
-            glVertex3f(0.5, 0, 0.2);
-
-            // door back
-            glVertex3f(-0.5, 0, -0.2);
-            glVertex3f(-0.5, 0.9, -0.2);
-            glVertex3f(0.5, 0.9, -0.2);
-            glVertex3f(0.5, 0, -0.2);
-
-            // door front
-            glVertex3f(-0.5, 0, 0.2);
-            glVertex3f(-0.5, 0.9, 0.2);
-            glVertex3f(0.5, 0.9, 0.2);
-            glVertex3f(0.5, 0, 0.2);
+            glNormal3f(0, 1, 0);
+            glTexCoord2f(64, 64);   glVertex3f(-0.5, 0.9, -0.2);
+            glTexCoord2f(64, 0);    glVertex3f(0.5, 0.9, -0.2);
+            glTexCoord2f(94, 0);    glVertex3f(0.5, 0.9, 0.2);
+            glTexCoord2f(94, 64);   glVertex3f(-0.5, 0.9, 0.2);
         glEnd();
+
+        this->texture->unbind();
+        glDisable(GL_TEXTURE);
+
     glPopMatrix();
 }
 
@@ -312,44 +305,48 @@ void customRoom_door::draw3D() {
     glPushMatrix();
         this->customPhysicsObjectStatic::draw3D();      // move to the position, rotate, and scale the room
 
+        glEnable(GL_TEXTURE);
+        this->texture->bind();
+        glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_DECAL);
+        glTexParameteri(GL_TEXTURE, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+        glTexParameteri(GL_TEXTURE, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+        glTexParameteri(GL_TEXTURE, GL_TEXTURE_WRAP_S, GL_CLAMP);
+        glTexParameteri(GL_TEXTURE, GL_TEXTURE_WRAP_T, GL_CLAMP);
+
         glColor3f(this->color.x, this->color.y, this->color.z);
         glBegin(GL_QUADS);
-            // door bottom
-            glVertex3f(-0.5, 0, -0.2);
-            glVertex3f(0.5, 0, -0.2);
-            glVertex3f(0.5, 0, 0.2);
-            glVertex3f(-0.5, 0, 0.2);
-
-            // door top
-            glVertex3f(-0.5, 1, -0.2);
-            glVertex3f(0.5, 1, -0.2);
-            glVertex3f(0.5, 1, 0.2);
-            glVertex3f(-0.5, 1, 0.2);
-
             // door left
-            glVertex3f(-0.5, 0, -0.2);
-            glVertex3f(-0.5, 1, -0.2);
-            glVertex3f(-0.5, 1, 0.2);
-            glVertex3f(-0.5, 0, 0.2);
+            glNormal3f(0, 0, -1);
+            glTexCoord2f(64, 64);   glVertex3f(-0.5, 0, -0.2);
+            glTexCoord2f(64, 0);    glVertex3f(-0.5, 1, -0.2);
+            glTexCoord2f(94, 0);    glVertex3f(-0.5, 1, 0.2);
+            glTexCoord2f(94, 64);   glVertex3f(-0.5, 0, 0.2);
 
             // door right
-            glVertex3f(0.5, 0, -0.2);
-            glVertex3f(0.5, 1, -0.2);
-            glVertex3f(0.5, 1, 0.2);
-            glVertex3f(0.5, 0, 0.2);
+            glNormal3f(0, 0, 1);
+            glTexCoord2f(64, 64);   glVertex3f(0.5, 0, -0.2);
+            glTexCoord2f(64, 0);    glVertex3f(0.5, 1, -0.2);
+            glTexCoord2f(94, 0);    glVertex3f(0.5, 1, 0.2);
+            glTexCoord2f(94, 64);   glVertex3f(0.5, 0, 0.2);
 
             // door back
-            glVertex3f(-0.5, 0, -0.2);
-            glVertex3f(-0.5, 1, -0.2);
-            glVertex3f(0.5, 1, -0.2);
-            glVertex3f(0.5, 0, -0.2);
+            glNormal3f(0, -1, 0);
+            glTexCoord2f(0, 64);    glVertex3f(-0.5, 0, -0.2);
+            glTexCoord2f(0, 0);     glVertex3f(-0.5, 1, -0.2);
+            glTexCoord2f(64, 0);    glVertex3f(0.5, 1, -0.2);
+            glTexCoord2f(64, 64);   glVertex3f(0.5, 0, -0.2);
 
             // door front
-            glVertex3f(-0.5, 0, 0.2);
-            glVertex3f(-0.5, 1, 0.2);
-            glVertex3f(0.5, 1, 0.2);
-            glVertex3f(0.5, 0, 0.2);
+            glNormal3f(0, 1, 0);
+            glTexCoord2f(0, 64);    glVertex3f(-0.5, 0, 0.2);
+            glTexCoord2f(0, 0);     glVertex3f(-0.5, 1, 0.2);
+            glTexCoord2f(64, 0);    glVertex3f(0.5, 1, 0.2);
+            glTexCoord2f(64, 64);   glVertex3f(0.5, 0, 0.2);
         glEnd();
+
+        this->texture->unbind();
+        glDisable(GL_TEXTURE);
+
     glPopMatrix();
 }
 
