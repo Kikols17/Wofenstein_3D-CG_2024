@@ -5,7 +5,7 @@
 class customGameObject {
 
     public:
-        customGameObject(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, ofVec3f _color);
+        customGameObject(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, ofVec3f _color, ofImage *_texture);
         
         virtual void update();
 
@@ -18,5 +18,6 @@ class customGameObject {
         ofVec3f scale;
 
         ofVec3f color;
+        ofImage *texture;
         
 };

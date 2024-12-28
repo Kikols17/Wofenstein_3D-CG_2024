@@ -15,7 +15,7 @@
 class customPhysicsObject : public customGameObject {
 
     public:
-        customPhysicsObject(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, ofVec3f _color, vector<customColisionBox*> _colisionBoxes);
+        customPhysicsObject(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, ofVec3f _color, ofImage *_texture, vector<customColisionBox*> _colisionBoxes);
 
         void update() override;
 

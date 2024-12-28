@@ -4,7 +4,7 @@
 
 //--------------------------------------------------------------
 // public
-customPhysicsObject::customPhysicsObject(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, ofVec3f _color, vector<customColisionBox*> _colisionBoxes) : customGameObject(_position, _rotation, _scale, _color) {
+customPhysicsObject::customPhysicsObject(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, ofVec3f _color, ofImage *_texture, vector<customColisionBox*> _colisionBoxes) : customGameObject(_position, _rotation, _scale, _color, _texture) {
     // run this to set up the physics object
 
     this->velocity = ofVec3f(0, 0, 0);

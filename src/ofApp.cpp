@@ -13,6 +13,16 @@ vector<shared_ptr<customGameObject>*> globalgameobjects;
 vector<shared_ptr<customGameObject>*> globalgameobjects_toremove;
 
 
+ofImage tex_BlueBricks;
+ofImage tex_GreyBricks;
+ofImage tex_MossBricks;
+ofImage tex_RedBricks;
+ofImage tex_WoodWall;
+ofImage tex_Floor;
+ofImage tex_Door;
+
+
+
 //--------------------------------------------------------------
 void ofApp::setup(){
     
@@ -23,6 +33,15 @@ void ofApp::setup(){
 
 	glPointSize(5);
 	glLineWidth(3);
+
+    tex_BlueBricks.load("BlueBricks.png");
+    tex_GreyBricks.load("GreyBricks.png");
+    tex_MossBricks.load("MossBricks.png");
+    tex_RedBricks.load("RedBricks.png");
+    tex_WoodWall.load("WoodWall.png");
+    tex_Floor.load("Floor.png");
+    tex_Door.load("Door.png");
+
 
     globalcolisionBoxes = vector<customColisionBox*>({});
     globalcolisionBoxes_toremove = vector<customColisionBox*>({});

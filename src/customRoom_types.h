@@ -15,7 +15,7 @@
 class customRoom_axis : public customPhysicsObjectStatic {
     // axis, only 3 vertices: x, y, z
     public:
-        customRoom_axis(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, ofVec3f _color);
+        customRoom_axis(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, ofVec3f _color, ofImage *_texture);
 
         using customPhysicsObjectStatic::update;
 
@@ -29,7 +29,7 @@ class customRoom_Xhallway : public customPhysicsObjectStatic {
     // X hallway room, 1x1x1 block, door on all sides
     
     public:
-        customRoom_Xhallway(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, ofVec3f _color);
+        customRoom_Xhallway(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, ofVec3f _color, ofImage *_texture);
 
         using customPhysicsObjectStatic::update;
 
@@ -43,7 +43,7 @@ class customRoom_wall : public customPhysicsObjectStatic {
     // wall room, 1x1x1 block, no doors
     
     public:
-        customRoom_wall(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, ofVec3f _color);
+        customRoom_wall(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, ofVec3f _color, ofImage *_texture);
 
         using customPhysicsObjectStatic::update;
 
@@ -57,7 +57,7 @@ class customRoom_door : public customPhysicsObjectStatic {
     // door
     
     public:
-        customRoom_door(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, ofVec3f _color);
+        customRoom_door(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, ofVec3f _color, ofImage *_texture);
 
         void update() override;
 
@@ -80,7 +80,7 @@ class customRoom_end : public customPhysicsObjectStatic {
     // end room, 1x1x1 block, no doors
     
     public:
-        customRoom_end(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, ofVec3f _color);
+        customRoom_end(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, ofVec3f _color, ofImage *_texture);
 
         void update() override;
 

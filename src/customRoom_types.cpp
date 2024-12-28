@@ -6,7 +6,7 @@ extern int gamestate;
 //--------------------------------------------------------------
 // customRoom_axis
 //--------------------------------------------------------------
-customRoom_axis::customRoom_axis(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, ofVec3f _color) : customPhysicsObjectStatic(_position, _rotation, _scale, _color, vector<customColisionBox*>({})) {
+customRoom_axis::customRoom_axis(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, ofVec3f _color, ofImage *_texture) : customPhysicsObjectStatic(_position, _rotation, _scale, _color, _texture, vector<customColisionBox*>({})) {
     // run this to set up the object
 }
 void customRoom_axis::draw2D() {
@@ -61,7 +61,7 @@ void customRoom_axis::draw3D() {
 //--------------------------------------------------------------
 // customRoom_Xhallway
 //--------------------------------------------------------------
-customRoom_Xhallway::customRoom_Xhallway(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, ofVec3f _color) : customPhysicsObjectStatic(_position, _rotation, _scale, _color, vector<customColisionBox*>( {new customColisionBox(_position, _rotation, _scale, _color, 1, vector<int>({}), -0.5, -0.04, -0.5, 0.5, 0.0, 0.5), new customColisionBox(_position, _rotation, _scale, _color, 1, vector<int>({}), -0.5, 1.0, -0.5, 0.5, 1.04, 0.5)} )) {
+customRoom_Xhallway::customRoom_Xhallway(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, ofVec3f _color, ofImage *_texture) : customPhysicsObjectStatic(_position, _rotation, _scale, _color, _texture, vector<customColisionBox*>( {new customColisionBox(_position, _rotation, _scale, _color, 1, vector<int>({}), -0.5, -0.04, -0.5, 0.5, 0.0, 0.5), new customColisionBox(_position, _rotation, _scale, _color, 1, vector<int>({}), -0.5, 1.0, -0.5, 0.5, 1.04, 0.5)} )) {
     //ofVec3f(0.4, 0.4, 0.4)
     // run this to set up the object
 }
@@ -116,7 +116,7 @@ void customRoom_Xhallway::draw3D() {
 //--------------------------------------------------------------
 // customRoom_wall
 //--------------------------------------------------------------
-customRoom_wall::customRoom_wall(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, ofVec3f _color) : customPhysicsObjectStatic(_position, _rotation, _scale, _color, vector<customColisionBox*>( {new customColisionBox(_position, _rotation, _scale, _color, 1, vector<int>({}), -0.5, 0.0, -0.5, 0.5, 1.0, 0.5)} )) {
+customRoom_wall::customRoom_wall(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, ofVec3f _color, ofImage *_texture) : customPhysicsObjectStatic(_position, _rotation, _scale, _color, _texture, vector<customColisionBox*>( {new customColisionBox(_position, _rotation, _scale, _color, 1, vector<int>({}), -0.5, 0.0, -0.5, 0.5, 1.0, 0.5)} )) {
     // run this to set up the object
 }
 void customRoom_wall::draw2D() {
@@ -224,7 +224,7 @@ void customRoom_wall::draw3D() {
 //--------------------------------------------------------------
 // customRoom_door
 //--------------------------------------------------------------
-customRoom_door::customRoom_door(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, ofVec3f _color) : customPhysicsObjectStatic(_position, _rotation, _scale, _color, vector<customColisionBox*>( { new customColisionBox(_position, _rotation, _scale, _color, 1, vector<int>({}), -0.5, 0.0, -0.2, 0.5, 1.0, 0.2), } )) {
+customRoom_door::customRoom_door(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, ofVec3f _color, ofImage *_texture) : customPhysicsObjectStatic(_position, _rotation, _scale, _color, _texture, vector<customColisionBox*>( { new customColisionBox(_position, _rotation, _scale, _color, 1, vector<int>({}), -0.5, 0.0, -0.2, 0.5, 1.0, 0.2), } )) {
     //ofVec3f(0.0, 0.7, 0.7)
     // run this to set up the object
 }
@@ -363,7 +363,7 @@ void customRoom_door::draw3D() {
 //--------------------------------------------------------------
 // customRoom_end
 //--------------------------------------------------------------
-customRoom_end::customRoom_end(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, ofVec3f _color) : customPhysicsObjectStatic(_position, _rotation, _scale, _color, vector<customColisionBox*>( { new customColisionBox(_position, _rotation, _scale, _color, 3, vector<int>({0}), -0.5, -0.5, -0.5, 0.5, 0.5, 0.5) } )) {
+customRoom_end::customRoom_end(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, ofVec3f _color, ofImage *_texture) : customPhysicsObjectStatic(_position, _rotation, _scale, _color, _texture, vector<customColisionBox*>( { new customColisionBox(_position, _rotation, _scale, _color, 3, vector<int>({0}), -0.5, -0.5, -0.5, 0.5, 0.5, 0.5) } )) {
     // run this to set up the object
 }
 

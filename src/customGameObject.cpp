@@ -2,7 +2,7 @@
 
 
 //--------------------------------------------------------------
-customGameObject::customGameObject(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, ofVec3f _color){
+customGameObject::customGameObject(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, ofVec3f _color, ofImage *_texture){
     // run this to set up the object
 
     this->position = _position;
@@ -10,6 +10,7 @@ customGameObject::customGameObject(ofVec3f _position, ofVec3f _rotation, ofVec3f
     this->scale = _scale;
 
     this->color = _color;
+    this->texture = _texture;
 }
 
 
