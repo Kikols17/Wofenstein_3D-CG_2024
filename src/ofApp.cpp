@@ -28,9 +28,11 @@ ofImage tex_Door;
 void ofApp::setup(){
     
     // setup the window
-	ofSetFrameRate(60);
-	glEnable(GL_DEPTH_TEST);
-	ofBackground(0.05, 0.05, 0.05);
+    ofSetFrameRate(60);
+    glEnable(GL_DEPTH_TEST);
+    glEnable(GL_CULL_FACE);
+    glCullFace(GL_FRONT);
+    ofBackground(0.05, 0.05, 0.05);
 
 	glPointSize(5);
 	glLineWidth(3);
@@ -107,10 +109,19 @@ void ofApp::draw(){
     //this->cam->moveto(0, 0, -100);
 
     // draw the UI
+    glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_DECAL);
     drawUI();
 
     // draw all objects in the correct viewmode
     int gosize = (int)globalgameobjects.size();
+
+    // stuff for textures
+    glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_DECAL);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+
     switch (this->viewmode) {
         case 0:
             /* 2D */

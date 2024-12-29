@@ -73,20 +73,15 @@ void customRoom_Xhallway::draw2D() {
 
         glEnable(GL_TEXTURE);
         this->texture->bind();
-        glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_DECAL);
-        glTexParameteri(GL_TEXTURE, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-        glTexParameteri(GL_TEXTURE, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-        glTexParameteri(GL_TEXTURE, GL_TEXTURE_WRAP_S, GL_CLAMP);
-        glTexParameteri(GL_TEXTURE, GL_TEXTURE_WRAP_T, GL_CLAMP);
 
         glColor3f(this->color.x, this->color.y, this->color.z);
         glBegin(GL_QUADS);
             // floor
             glNormal3f(0, 1, 0);
-            glTexCoord2f(0, 0);     glVertex3f(-0.5, -0.1, -0.5);
-            glTexCoord2f(64, 0);    glVertex3f(0.5, -0.1, -0.5);
-            glTexCoord2f(64, 64);   glVertex3f(0.5, -0.1, 0.5);
-            glTexCoord2f(0, 64);    glVertex3f(-0.5, -0.1, 0.5);
+            glTexCoord2f(0, 0);     glVertex3f(0.5, 0, -0.5);
+            glTexCoord2f(64, 0);    glVertex3f(0.5, 0, 0.5);
+            glTexCoord2f(64, 64);   glVertex3f(-0.5, 0, 0.5);
+            glTexCoord2f(0, 64);    glVertex3f(-0.5, 0, -0.5);
         glEnd();
 
         this->texture->unbind();
@@ -102,11 +97,6 @@ void customRoom_Xhallway::draw3D() {
 
         glEnable(GL_TEXTURE);
         this->texture->bind();
-        glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_DECAL);
-        glTexParameteri(GL_TEXTURE, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-        glTexParameteri(GL_TEXTURE, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-        glTexParameteri(GL_TEXTURE, GL_TEXTURE_WRAP_S, GL_CLAMP);
-        glTexParameteri(GL_TEXTURE, GL_TEXTURE_WRAP_T, GL_CLAMP);
 
         glColor3f(this->color.x, this->color.y, this->color.z);
         glBegin(GL_QUADS);
@@ -152,11 +142,6 @@ void customRoom_wall::draw2D() {
 
         glEnable(GL_TEXTURE);
         this->texture->bind();
-        glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_DECAL);
-        glTexParameteri(GL_TEXTURE, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-        glTexParameteri(GL_TEXTURE, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-        glTexParameteri(GL_TEXTURE, GL_TEXTURE_WRAP_S, GL_CLAMP);
-        glTexParameteri(GL_TEXTURE, GL_TEXTURE_WRAP_T, GL_CLAMP);
 
         glColor3f(this->color.x, this->color.y, this->color.z);
         glBegin(GL_QUADS);
@@ -166,6 +151,34 @@ void customRoom_wall::draw2D() {
             glTexCoord2f(64, 0);    glVertex3f(0.5, 1, -0.5);
             glTexCoord2f(64, 64);   glVertex3f(0.5, 1, 0.5);
             glTexCoord2f(0, 64);    glVertex3f(-0.5, 1, 0.5);
+
+            // left wall
+            glNormal3f(0, 0, -1);
+            glTexCoord2f(0, 0);     glVertex3f(-0.5, 1, -0.5);
+            glTexCoord2f(64, 0);    glVertex3f(-0.5, 1, 0.5);
+            glTexCoord2f(64, 64);   glVertex3f(-0.5, 0, 0.5);
+            glTexCoord2f(0, 64);    glVertex3f(-0.5, 0, -0.5);
+
+            // right wall
+            glNormal3f(0, 0, 1);
+            glTexCoord2f(0, 0);     glVertex3f(0.5, 1, 0.5);
+            glTexCoord2f(64, 0);    glVertex3f(0.5, 1, -0.5);
+            glTexCoord2f(64, 64);   glVertex3f(0.5, 0, -0.5);
+            glTexCoord2f(0, 64);    glVertex3f(0.5, 0, 0.5);
+
+            // front wall
+            glNormal3f(1, 0, 0);
+            glTexCoord2f(0, 0);     glVertex3f(-0.5, 1, 0.5);
+            glTexCoord2f(64, 0);    glVertex3f(0.5, 1, 0.5);
+            glTexCoord2f(64, 64);   glVertex3f(0.5, 0, 0.5);
+            glTexCoord2f(0, 64);    glVertex3f(-0.5, 0, 0.5);
+
+            // back wall
+            glNormal3f(-1, 0, 0);
+            glTexCoord2f(0, 0);     glVertex3f(0.5, 1, -0.5);
+            glTexCoord2f(64, 0);    glVertex3f(-0.5, 1, -0.5);
+            glTexCoord2f(64, 64);   glVertex3f(-0.5, 0, -0.5);
+            glTexCoord2f(0, 64);    glVertex3f(0.5, 0, -0.5);
         glEnd();
 
         this->texture->unbind();
@@ -181,14 +194,16 @@ void customRoom_wall::draw3D() {
 
         glEnable(GL_TEXTURE);
         this->texture->bind();
-        glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_DECAL);
-        glTexParameteri(GL_TEXTURE, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-        glTexParameteri(GL_TEXTURE, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-        glTexParameteri(GL_TEXTURE, GL_TEXTURE_WRAP_S, GL_CLAMP);
-        glTexParameteri(GL_TEXTURE, GL_TEXTURE_WRAP_T, GL_CLAMP);
 
         glColor3f(this->color.x, this->color.y, this->color.z);
         glBegin(GL_QUADS);
+            // ceiling
+            glNormal3f(0, 1, 0);
+            glTexCoord2f(0, 0);     glVertex3f(-0.5, 1, -0.5);
+            glTexCoord2f(64, 0);    glVertex3f(0.5, 1, -0.5);
+            glTexCoord2f(64, 64);   glVertex3f(0.5, 1, 0.5);
+            glTexCoord2f(0, 64);    glVertex3f(-0.5, 1, 0.5);
+
             // left wall
             glNormal3f(0, 0, -1);
             glTexCoord2f(0, 0);     glVertex3f(-0.5, 1, -0.5);
@@ -278,11 +293,6 @@ void customRoom_door::draw2D() {
 
         glEnable(GL_TEXTURE);
         this->texture->bind();
-        glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_DECAL);
-        glTexParameteri(GL_TEXTURE, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-        glTexParameteri(GL_TEXTURE, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-        glTexParameteri(GL_TEXTURE, GL_TEXTURE_WRAP_S, GL_CLAMP);
-        glTexParameteri(GL_TEXTURE, GL_TEXTURE_WRAP_T, GL_CLAMP);
 
         glColor3f(this->color.x, this->color.y, this->color.z);
         glBegin(GL_QUADS);
@@ -292,29 +302,7 @@ void customRoom_door::draw2D() {
             glTexCoord2f(94, 0);    glVertex3f(0.5, 0.9, 0.2);
             glTexCoord2f(94, 64);   glVertex3f(-0.5, 0.9, 0.2);
             glTexCoord2f(64, 64);   glVertex3f(-0.5, 0.9, -0.2);
-        glEnd();
 
-        this->texture->unbind();
-        glDisable(GL_TEXTURE);
-
-    glPopMatrix();
-}
-
-void customRoom_door::draw3D() {
-    // run this every draw cycle
-    glPushMatrix();
-        this->customPhysicsObjectStatic::draw3D();      // move to the position, rotate, and scale the room
-
-        glEnable(GL_TEXTURE);
-        this->texture->bind();
-        glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_DECAL);
-        glTexParameteri(GL_TEXTURE, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-        glTexParameteri(GL_TEXTURE, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-        glTexParameteri(GL_TEXTURE, GL_TEXTURE_WRAP_S, GL_CLAMP);
-        glTexParameteri(GL_TEXTURE, GL_TEXTURE_WRAP_T, GL_CLAMP);
-
-        glColor3f(this->color.x, this->color.y, this->color.z);
-        glBegin(GL_QUADS);
             // door left
             glNormal3f(0, 0, -1);
             glTexCoord2f(64, 0);    glVertex3f(-0.5, 1, -0.2);
@@ -335,6 +323,58 @@ void customRoom_door::draw3D() {
             glTexCoord2f(64, 0);    glVertex3f(0.5, 1, -0.2);
             glTexCoord2f(64, 64);   glVertex3f(0.5, 0, -0.2);
             glTexCoord2f(0, 64);    glVertex3f(-0.5, 0, -0.2);
+
+            // door front
+            glNormal3f(0, 1, 0);
+            glTexCoord2f(0, 0);     glVertex3f(-0.5, 1, 0.2);
+            glTexCoord2f(64, 0);    glVertex3f(0.5, 1, 0.2);
+            glTexCoord2f(64, 64);   glVertex3f(0.5, 0, 0.2);
+            glTexCoord2f(0, 64);    glVertex3f(-0.5, 0, 0.2);
+        glEnd();
+
+        this->texture->unbind();
+        glDisable(GL_TEXTURE);
+
+    glPopMatrix();
+}
+
+void customRoom_door::draw3D() {
+    // run this every draw cycle
+    glPushMatrix();
+        this->customPhysicsObjectStatic::draw3D();      // move to the position, rotate, and scale the room
+
+        glEnable(GL_TEXTURE);
+        this->texture->bind();
+
+        glColor3f(this->color.x, this->color.y, this->color.z);
+        glBegin(GL_QUADS);
+            // door top
+            glNormal3f(0, 1, 0);
+            glTexCoord2f(64, 0);    glVertex3f(0.5, 0.9, -0.2);
+            glTexCoord2f(94, 0);    glVertex3f(0.5, 0.9, 0.2);
+            glTexCoord2f(94, 64);   glVertex3f(-0.5, 0.9, 0.2);
+            glTexCoord2f(64, 64);   glVertex3f(-0.5, 0.9, -0.2);
+
+            // door left
+            glNormal3f(0, 0, -1);
+            glTexCoord2f(64, 0);    glVertex3f(-0.5, 1, -0.2);
+            glTexCoord2f(94, 0);    glVertex3f(-0.5, 1, 0.2);
+            glTexCoord2f(94, 64);   glVertex3f(-0.5, 0, 0.2);
+            glTexCoord2f(64, 64);   glVertex3f(-0.5, 0, -0.2);
+
+            // door right
+            glNormal3f(0, 0, 1);
+            glTexCoord2f(64, 0);    glVertex3f(0.5, 1, -0.2);
+            glTexCoord2f(94, 0);    glVertex3f(0.5, 1, 0.2);
+            glTexCoord2f(94, 64);   glVertex3f(0.5, 0, 0.2);
+            glTexCoord2f(64, 64);   glVertex3f(0.5, 0, -0.2);
+
+            // door back
+            glNormal3f(0, -1, 0);
+            glTexCoord2f(0, 64);    glVertex3f(-0.5, 0, -0.2);
+            glTexCoord2f(64, 64);   glVertex3f(0.5, 0, -0.2);
+            glTexCoord2f(64, 0);    glVertex3f(0.5, 1, -0.2);
+            glTexCoord2f(0, 0);     glVertex3f(-0.5, 1, -0.2);
 
             // door front
             glNormal3f(0, 1, 0);
