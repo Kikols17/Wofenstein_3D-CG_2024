@@ -109,10 +109,10 @@ void customRoom_Xhallway::draw3D() {
 
             // ceiling
             glNormal3f(0, -1, 0);
-            glTexCoord2f(0, 0);     glVertex3f(0.5, 1, -0.5);
-            glTexCoord2f(64, 0);    glVertex3f(0.5, 1, 0.5);
-            glTexCoord2f(64, 64);   glVertex3f(-0.5, 1, 0.5);
             glTexCoord2f(0, 64);    glVertex3f(-0.5, 1, -0.5);
+            glTexCoord2f(64, 64);   glVertex3f(-0.5, 1, 0.5);
+            glTexCoord2f(64, 0);    glVertex3f(0.5, 1, 0.5);
+            glTexCoord2f(0, 0);     glVertex3f(0.5, 1, -0.5);
         glEnd();
 
         this->texture->unbind();
