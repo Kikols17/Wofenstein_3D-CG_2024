@@ -194,10 +194,10 @@ void ofApp::keyPressed(int key) {
             break;
 
         case '-':
-            this->cam->zoom /= 0.5;
+            this->cam->zoom /= 0.9;
             break;
         case '+':
-            this->cam->zoom *= 0.5;
+            this->cam->zoom *= 0.9;
             break;
 
         case 'm':
@@ -347,7 +347,19 @@ void ofApp::mouseEntered(int x, int y){
 
 //--------------------------------------------------------------
 void ofApp::mouseExited(int x, int y){
+    // mouse outside the window, pause the game
+    last_gamestate = gamestate;
+    gamestate = -1;
+}
 
+//--------------------------------------------------------------
+void ofApp::mouseScrolled(int x, int y, float scrollX, float scrollY) {
+    // mouse scrolled, zoom in/out
+    if (scrollY < 0) {
+        this->cam->zoom /= 0.95*abs(scrollY);
+    } else if (scrollY > 0) {
+        this->cam->zoom *= 0.95*abs(scrollY);
+    }
 }
 
 //--------------------------------------------------------------
