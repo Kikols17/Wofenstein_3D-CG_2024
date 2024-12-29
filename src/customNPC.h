@@ -63,7 +63,7 @@ class customNPC : public customPhysicsObjectMovable {
             ofVec3f movingto = ofVec3f(0, 0, 0);
 
             GLfloat walking_animation = 0.0;
-            GLfloat walking_animation_speed = 0.1;
+            GLfloat walking_animation_speed = 0.0;
     
 };
 

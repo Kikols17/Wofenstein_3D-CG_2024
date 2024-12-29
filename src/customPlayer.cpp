@@ -363,12 +363,14 @@ void customPlayer::shoot() {
 
 void customPlayer::animateWalking() {
     // animate walking
-    if (this->velocity.x==0 && this->velocity.y==0 && this->velocity.z==0) {
+    if (this->velocity.x==0.0 && this->velocity.z==0.0) {
         // if not moving, finish the walking animation
-        if (this->walking_animation_speed != 0.0  &&  this->walking_animation > 0.0) {
+        if (this->walking_animation > 0.0) {
             this->walking_animation_speed = -0.1;
-        } else if (this->walking_animation_speed != 0.0  &&  this->walking_animation < 0.0) {
+        } else if (this->walking_animation < 0.0) {
             this->walking_animation_speed = 0.1;
+        } else {
+            this->walking_animation_speed = 0.0;
         }
     } else if (this->walking_animation_speed == 0.0) {
         // if moving, and animation speed is 0.0, restart the walking animation
