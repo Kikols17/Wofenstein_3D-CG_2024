@@ -7,7 +7,7 @@ extern vector<customColisionBox*> globalcolisionBoxes_toremove;
 
 //--------------------------------------------------------------
 // public
-customParticle::customParticle(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, ofVec3f _color, GLfloat fadeout, uint64_t _lifetime, int _group, vector<int> _groups) : customPhysicsObjectMovable(_position, _rotation, _scale, _color, NULL, vector<customColisionBox*>({new customColisionBox(_position, _rotation, _scale, _color, _group, _groups, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5)})) {
+customParticle::customParticle(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, ofVec3f _color, struct custommaterial *_material, GLfloat fadeout, uint64_t _lifetime, int _group, vector<int> _groups) : customPhysicsObjectMovable(_position, _rotation, _scale, _color, NULL, _material, vector<customColisionBox*>({new customColisionBox(_position, _rotation, _scale, _color, _material, _group, _groups, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5)})) {
     // run this to set up the object
     this->fadeout = fadeout;
     this->lifetime = _lifetime;

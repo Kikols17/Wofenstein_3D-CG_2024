@@ -5,6 +5,7 @@
 #include "customGameObject.h"
 #include "customPhysicsObjectMovable.h"
 #include "customColisionBox.h"
+#include "customMaterials.h"
 
 #include "ofMain.h"
 
@@ -12,7 +13,7 @@
 class customParticle : public customPhysicsObjectMovable {
 
     public:
-        customParticle(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, ofVec3f _color, GLfloat _fadeout, uint64_t _lifetime, int _group, vector<int> _groups);
+        customParticle(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, ofVec3f _color, struct custommaterial *_material, GLfloat _fadeout, uint64_t _lifetime, int _group, vector<int> _groups);
 
         void update() override;
 

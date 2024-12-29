@@ -4,6 +4,7 @@
 
 #include "customGameObject.h"
 #include "customPhysicsObjectStatic.h"
+#include "customMaterials.h"
 
 #include "cg_extras.h"
 #include "cg_drawing_extras.h"
@@ -15,7 +16,7 @@
 class customRoom_axis : public customPhysicsObjectStatic {
     // axis, only 3 vertices: x, y, z
     public:
-        customRoom_axis(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, ofVec3f _color, ofImage *_texture);
+        customRoom_axis(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, ofVec3f _color, ofImage *_texture, struct custommaterial *_material);
 
         using customPhysicsObjectStatic::update;
 
@@ -29,7 +30,7 @@ class customRoom_Xhallway : public customPhysicsObjectStatic {
     // X hallway room, 1x1x1 block, door on all sides
     
     public:
-        customRoom_Xhallway(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, ofVec3f _color, ofImage *_texture);
+        customRoom_Xhallway(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, ofVec3f _color, ofImage *_texture, struct custommaterial *_material);
 
         using customPhysicsObjectStatic::update;
 
@@ -43,7 +44,7 @@ class customRoom_wall : public customPhysicsObjectStatic {
     // wall room, 1x1x1 block, no doors
     
     public:
-        customRoom_wall(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, ofVec3f _color, ofImage *_texture);
+        customRoom_wall(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, ofVec3f _color, ofImage *_texture, struct custommaterial *_material);
 
         using customPhysicsObjectStatic::update;
 
@@ -57,7 +58,7 @@ class customRoom_door : public customPhysicsObjectStatic {
     // door
     
     public:
-        customRoom_door(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, ofVec3f _color, ofImage *_texture);
+        customRoom_door(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, ofVec3f _color, ofImage *_texture, struct custommaterial *_material);
 
         void update() override;
 
@@ -80,7 +81,7 @@ class customRoom_end : public customPhysicsObjectStatic {
     // end room, 1x1x1 block, no doors
     
     public:
-        customRoom_end(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, ofVec3f _color, ofImage *_texture);
+        customRoom_end(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, ofVec3f _color, ofImage *_texture, struct custommaterial *_material);
 
         void update() override;
 

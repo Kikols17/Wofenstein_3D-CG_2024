@@ -9,7 +9,7 @@ extern int gamestate;
 
 //--------------------------------------------------------------
 // public
-customPlayer::customPlayer(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale) : customPhysicsObjectMovable(_position, _rotation, _scale, ofVec3f(1.0,0.0,0.0), NULL, vector<customColisionBox*>({new customColisionBox(_position, _rotation, _scale, ofVec3f(1.0,0.0,0.0), 0, vector<int>({1,2,3}), -0.2, -0.7, -0.2, 0.2, 0.7, 0.2)})) {
+customPlayer::customPlayer(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale) : customPhysicsObjectMovable(_position, _rotation, _scale, ofVec3f(1.0,0.0,0.0), NULL, NULL, vector<customColisionBox*>({new customColisionBox(_position, _rotation, _scale, ofVec3f(1.0,0.0,0.0), NULL, 0, vector<int>({1,2,3}), -0.2, -0.7, -0.2, 0.2, 0.7, 0.2)})) {
     // run this to set up the object
 
     this->cam = customCamara();
@@ -327,7 +327,7 @@ void customPlayer::shoot() {
 
     // spawn particles as mussle flash
     for (int i=0; i<10; i++) {
-        customParticle* p = new customParticle(this->cam.target, ofVec3f(0, 0, 0), ofVec3f(0.07, 0.07, 0.07), ofVec3f(0.1, 0.1, 0.1), ofRandom(0.95f, 0.99f), ofRandom(1000, 3000), -1, vector<int>({}));
+        customParticle* p = new customParticle(this->cam.target, ofVec3f(0, 0, 0), ofVec3f(0.07, 0.07, 0.07), ofVec3f(0.1, 0.1, 0.1), NULL, ofRandom(0.95f, 0.99f), ofRandom(1000, 3000), -1, vector<int>({}));
         p->velocity = this->velocity+ofVec3f(ofRandom(-1, 1), ofRandom(-1, 1), ofRandom(-1, 1));
         p->spin = ofVec3f(ofRandom(-180, 180), ofRandom(-180, 180), ofRandom(-180, 180));
         globalgameobjects.push_back(new shared_ptr<customGameObject>(p));
@@ -343,11 +343,11 @@ void customPlayer::shoot() {
         }
 
         // add bullet hole
-        globalgameobjects.push_back(new shared_ptr<customGameObject>(new customParticle(hitpos, ofVec3f(0, 0, 0), ofVec3f(0.05, 0.05, 0.05), hitbox->color*0.70, 1.0f, ofRandom(15000, 20000), -1, vector<int>({1}) )));
+        globalgameobjects.push_back(new shared_ptr<customGameObject>(new customParticle(hitpos, ofVec3f(0, 0, 0), ofVec3f(0.05, 0.05, 0.05), hitbox->color*0.70, hitbox->material, 1.0f, ofRandom(15000, 20000), -1, vector<int>({1}) )));
         //cout << "hitpos: " << hitpos.x << " " << hitpos.y << " " << hitpos.z << endl;
         // add particles
         for (int i=0; i<25; i++) {
-            customParticle* p = new customParticle(hitpos, ofVec3f(0, 0, 0), ofVec3f(0.2, 0.2, 0.2), hitbox->color*0.75, ofRandom(0.95f, 0.99f), ofRandom(2000, 5000), -1, vector<int>({}) );
+            customParticle* p = new customParticle(hitpos, ofVec3f(0, 0, 0), ofVec3f(0.2, 0.2, 0.2), hitbox->color*0.75, NULL, ofRandom(0.95f, 0.99f), ofRandom(2000, 5000), -1, vector<int>({}) );
             p->velocity = ofVec3f(ofRandom(-1, 1), ofRandom(-1, 1), ofRandom(-1, 1));
             p->spin = ofVec3f(ofRandom(-180, 180), ofRandom(-180, 180), ofRandom(-180, 180));
             globalgameobjects.push_back(new shared_ptr<customGameObject>(p));
