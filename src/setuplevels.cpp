@@ -6,6 +6,7 @@ extern ofImage tex_BlueBricks;
 extern ofImage tex_GreyBricks;
 extern ofImage tex_MossBricks;
 extern ofImage tex_RedBricks;
+extern ofImage tex_CyanMetal;
 extern ofImage tex_WoodWall;
 extern ofImage tex_Floor;
 extern ofImage tex_Door;
@@ -5122,11 +5123,8 @@ int eisenfaust(vector<shared_ptr<customGameObject>*> &gameobjects, customPlayer 
 	go = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(2*1, 2*0, 2*2), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2), ofVec3f(0.4, 0.4, 0.4), &tex_Floor ) );
 	gameobjects.push_back(go);
 
-	go = new shared_ptr<customGameObject>( new customNPC( ofVec3f(2*2, 0.8, 2*2), ofVec3f(0, 0, 0), ofVec3f(1.0, 1.0, 1.0), ofVec3f(1.0, 0.0, 0.0), new shared_ptr<customPhysicsObject>(&player) ) );
-	gameobjects.push_back(go);
 	go = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(2*2, 2*0, 2*2), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2), ofVec3f(0.4, 0.4, 0.4), &tex_Floor ) );
 	gameobjects.push_back(go);
-	enemy_count++;
 
 	go = new shared_ptr<customGameObject>( new customRoom_wall( ofVec3f(2*3, 2*0, 2*2), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2), ofVec3f(0.0, 0.5, 0.0), &tex_MossBricks ) );
 	gameobjects.push_back(go);
@@ -5269,8 +5267,11 @@ int eisenfaust(vector<shared_ptr<customGameObject>*> &gameobjects, customPlayer 
 	go = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(2*1, 2*0, 2*3), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2), ofVec3f(0.4, 0.4, 0.4), &tex_Floor ) );
 	gameobjects.push_back(go);
 
+	go = new shared_ptr<customGameObject>( new customNPC( ofVec3f(2*2, 0.8, 2*3), ofVec3f(0, 0, 0), ofVec3f(1.0, 1.0, 1.0), ofVec3f(1.0, 0.0, 0.0), new shared_ptr<customPhysicsObject>(&player) ) );
+	gameobjects.push_back(go);
 	go = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(2*2, 2*0, 2*3), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2), ofVec3f(0.4, 0.4, 0.4), &tex_Floor ) );
 	gameobjects.push_back(go);
+	enemy_count++;
 
 	go = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(2*3, 2*0, 2*3), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2), ofVec3f(0.4, 0.4, 0.4), &tex_Floor ) );
 	gameobjects.push_back(go);
@@ -5611,7 +5612,7 @@ int eisenfaust(vector<shared_ptr<customGameObject>*> &gameobjects, customPlayer 
 	go = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(2*11, 2*0, 2*5), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2), ofVec3f(0.4, 0.4, 0.4), &tex_Floor ) );
 	gameobjects.push_back(go);
 
-	go = new shared_ptr<customGameObject>( new customRoom_wall( ofVec3f(2*12, 2*0, 2*5), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2), ofVec3f(0.0, 0.0, 0.5), &tex_BlueBricks ) );
+	go = new shared_ptr<customGameObject>( new customRoom_wall( ofVec3f(2*12, 2*0, 2*5), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2), ofVec3f(0.0, 0.7, 0.7), &tex_CyanMetal ) );
 	gameobjects.push_back(go);
 
 	go = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(2*13, 2*0, 2*5), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2), ofVec3f(0.4, 0.4, 0.4), &tex_Floor ) );
@@ -5970,8 +5971,11 @@ int eisenfaust(vector<shared_ptr<customGameObject>*> &gameobjects, customPlayer 
 	go = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(2*1, 2*0, 2*7), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2), ofVec3f(0.4, 0.4, 0.4), &tex_Floor ) );
 	gameobjects.push_back(go);
 
+	go = new shared_ptr<customGameObject>( new customNPC( ofVec3f(2*2, 0.8, 2*7), ofVec3f(0, 0, 0), ofVec3f(1.0, 1.0, 1.0), ofVec3f(1.0, 0.0, 0.0), new shared_ptr<customPhysicsObject>(&player) ) );
+	gameobjects.push_back(go);
 	go = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(2*2, 2*0, 2*7), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2), ofVec3f(0.4, 0.4, 0.4), &tex_Floor ) );
 	gameobjects.push_back(go);
+	enemy_count++;
 
 	go = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(2*3, 2*0, 2*7), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2), ofVec3f(0.4, 0.4, 0.4), &tex_Floor ) );
 	gameobjects.push_back(go);
@@ -6148,11 +6152,8 @@ int eisenfaust(vector<shared_ptr<customGameObject>*> &gameobjects, customPlayer 
 	go = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(2*1, 2*0, 2*8), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2), ofVec3f(0.4, 0.4, 0.4), &tex_Floor ) );
 	gameobjects.push_back(go);
 
-	go = new shared_ptr<customGameObject>( new customNPC( ofVec3f(2*2, 0.8, 2*8), ofVec3f(0, 0, 0), ofVec3f(1.0, 1.0, 1.0), ofVec3f(1.0, 0.0, 0.0), new shared_ptr<customPhysicsObject>(&player) ) );
-	gameobjects.push_back(go);
 	go = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(2*2, 2*0, 2*8), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2), ofVec3f(0.4, 0.4, 0.4), &tex_Floor ) );
 	gameobjects.push_back(go);
-	enemy_count++;
 
 	go = new shared_ptr<customGameObject>( new customRoom_wall( ofVec3f(2*3, 2*0, 2*8), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2), ofVec3f(0.0, 0.5, 0.0), &tex_MossBricks ) );
 	gameobjects.push_back(go);

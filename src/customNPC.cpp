@@ -416,7 +416,6 @@ bool customNPC::attackTarget() {
 
 void customNPC::animateWalking() {
     // animate walking
-    cout << "x: " << this->velocity.x << "  y: " << this->velocity.y << "  z: " << this->velocity.z << endl;
     if (this->velocity.x==0.0 && this->velocity.z==0.0) {
         // if not moving, finish the walking animation
         if (this->walking_animation > 0.0) {

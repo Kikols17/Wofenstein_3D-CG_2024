@@ -46,6 +46,10 @@ def criar_mapa(name, input, output):
             # Wall (no need for rotation) (moss)
             output.write(f"\tgo = new shared_ptr<customGameObject>( new customRoom_wall( ofVec3f({size}*{x}, {size}*0, {size}*{y}), ofVec3f(0, 0, 0), ofVec3f({size}, {size}, {size}), ofVec3f(0.0, 0.5, 0.0), &tex_MossBricks ) );\n")
             output.write("\tgameobjects.push_back(go);\n\n")
+        elif character == 'C':
+            # Wall (no need for rotation) (cyan metal)
+            output.write(f"\tgo = new shared_ptr<customGameObject>( new customRoom_wall( ofVec3f({size}*{x}, {size}*0, {size}*{y}), ofVec3f(0, 0, 0), ofVec3f({size}, {size}, {size}), ofVec3f(0.0, 0.7, 0.7), &tex_CyanMetal ) );\n")
+            output.write("\tgameobjects.push_back(go);\n\n")
 
         
         # Door

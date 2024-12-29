@@ -17,6 +17,7 @@ ofImage tex_BlueBricks;
 ofImage tex_GreyBricks;
 ofImage tex_MossBricks;
 ofImage tex_RedBricks;
+ofImage tex_CyanMetal;
 ofImage tex_WoodWall;
 ofImage tex_Floor;
 ofImage tex_Door;
@@ -38,6 +39,7 @@ void ofApp::setup(){
     tex_GreyBricks.load("GreyBricks.png");
     tex_MossBricks.load("MossBricks.png");
     tex_RedBricks.load("RedBricks.png");
+    tex_CyanMetal.load("CyanMetal.png");
     tex_WoodWall.load("WoodWall.png");
     tex_Floor.load("Floor.png");
     tex_Door.load("Door.png");
