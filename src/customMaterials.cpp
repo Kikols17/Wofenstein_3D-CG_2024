@@ -49,3 +49,13 @@ custommaterial mat_emerald = {
     .spec = { 0.633, 0.727811, 0.633, 0.55 },
     .coef = (GLint)(0.6 * 128)
 };
+
+
+
+
+void loadmaterial(struct custommaterial *material) {
+	glMaterialfv(GL_FRONT, GL_AMBIENT, material->ambi);
+	glMaterialfv(GL_FRONT, GL_DIFFUSE, material->difu);
+	glMaterialfv(GL_FRONT, GL_SPECULAR, material->spec);
+	glMaterialf(GL_FRONT, GL_SHININESS, material->coef);
+}

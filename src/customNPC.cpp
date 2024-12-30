@@ -1,5 +1,7 @@
 #include "customNPC.h"
 
+#include "customMaterials.h"
+
 
 extern vector<shared_ptr<customGameObject>*> globalgameobjects;
 extern vector<shared_ptr<customGameObject>*> globalgameobjects_toremove;
@@ -7,10 +9,12 @@ extern vector<customColisionBox*> globalcolisionBoxes_toremove;
 
 extern int kill_count;
 
+extern struct custommaterial mat_clothes;
+
 
 //--------------------------------------------------------------
 // public
-customNPC::customNPC(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, ofVec3f _color, shared_ptr<customPhysicsObject>* _target) : customPhysicsObjectMovable(_position, _rotation, _scale, _color, NULL, NULL, vector<customColisionBox*>({new customColisionBox(_position, _rotation, _scale, _color, NULL, 2, vector<int>({1}), -0.2, -0.7, -0.2, 0.2, 0.7, 0.2)})) {
+customNPC::customNPC(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, ofVec3f _color, shared_ptr<customPhysicsObject>* _target) : customPhysicsObjectMovable(_position, _rotation, _scale, _color, NULL, &mat_clothes, vector<customColisionBox*>({new customColisionBox(_position, _rotation, _scale, _color, &mat_clothes, 2, vector<int>({1}), -0.2, -0.7, -0.2, 0.2, 0.7, 0.2)})) {
     // run this to set up the object
 
     this->target = _target;
@@ -375,7 +379,7 @@ bool customNPC::attackTarget() {
 
     // spawn particles as mussle flash
     for (int i=0; i<10; i++) {
-        customParticle* p = new customParticle(this->position+this->aim_vec, ofVec3f(0, 0, 0), ofVec3f(0.1, 0.1, 0.1), ofVec3f(0.1, 0.1, 0.1), NULL, ofRandom(0.95f, 0.99f), ofRandom(1000, 3000), -1, vector<int>({}));
+        customParticle* p = new customParticle(this->position+this->aim_vec, ofVec3f(0, 0, 0), ofVec3f(0.1, 0.1, 0.1), ofVec3f(0.1, 0.1, 0.1), this->material, ofRandom(0.95f, 0.99f), ofRandom(1000, 3000), -1, vector<int>({}));
         p->velocity = this->velocity+ofVec3f(ofRandom(-1, 1), ofRandom(-1, 1), ofRandom(-1, 1));
         p->spin = ofVec3f(ofRandom(-180, 180), ofRandom(-180, 180), ofRandom(-180, 180));
         globalgameobjects.push_back(new shared_ptr<customGameObject>(p));

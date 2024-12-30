@@ -12,6 +12,9 @@ struct custommaterial {
 };
 
 
+void loadmaterial(struct custommaterial *material);
+
+
 
 
 //struct custommaterial mat_greybricks;

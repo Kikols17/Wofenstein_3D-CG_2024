@@ -31,6 +31,8 @@ void customGameObject::draw2D(){
     glRotatef(this->rotation.x, 1, 0, 0);
     glRotatef(this->rotation.y, 0, 1, 0);
     glRotatef(this->rotation.z, 0, 0, 1);
+
+    loadmaterial(this->material);
 }
 
 void customGameObject::draw3D(){
@@ -40,4 +42,6 @@ void customGameObject::draw3D(){
     glRotatef(this->rotation.x, 1, 0, 0);
     glRotatef(this->rotation.y, 0, 1, 0);
     glRotatef(this->rotation.z, 0, 0, 1);
+    
+    loadmaterial(this->material);
 }
