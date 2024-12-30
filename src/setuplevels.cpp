@@ -2,6 +2,7 @@
 
 
 
+extern ofImage tex_JailBlueBricks;
 extern ofImage tex_BlueBricks;
 extern ofImage tex_GreyBricks;
 extern ofImage tex_MossBricks;

@@ -13,6 +13,7 @@ vector<shared_ptr<customGameObject>*> globalgameobjects;
 vector<shared_ptr<customGameObject>*> globalgameobjects_toremove;
 
 
+ofImage tex_JailBlueBricks;
 ofImage tex_BlueBricks;
 ofImage tex_GreyBricks;
 ofImage tex_MossBricks;
@@ -37,6 +38,7 @@ void ofApp::setup(){
 	glPointSize(5);
 	glLineWidth(3);
 
+    tex_JailBlueBricks.load("JailBlueBricks.png");
     tex_BlueBricks.load("BlueBricks.png");
     tex_GreyBricks.load("GreyBricks.png");
     tex_MossBricks.load("MossBricks.png");
