@@ -41,12 +41,6 @@ void customPhysicsObject::update() {
 }
 
 
-void customPhysicsObject::draw3D() {
-    // draw all collision boxes
-    this->customGameObject::draw3D();
-}
-
-
 
 
 

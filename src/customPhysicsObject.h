@@ -21,7 +21,7 @@ class customPhysicsObject : public customGameObject {
         void update() override;
 
         using customGameObject::draw2D;
-        void draw3D() override;
+        using customGameObject::draw3D;
 
 
         using customGameObject::position;
