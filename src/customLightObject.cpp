@@ -14,8 +14,8 @@ customLightObject::customLightObject(ofVec3f _position, ofVec3f _rotation, ofVec
     this->type = _type;
 
     this->Dir[0] = .0;
-    this->Dir[1] = .0;
-    this->Dir[2] = 1.0;
+    this->Dir[1] = 1.0;
+    this->Dir[2] = .0;
     this->Dir[3] = 1.0;
 
     this->Pos[0] = (GLfloat)_position[0];
@@ -63,7 +63,7 @@ void customLightObject::update() {
 
 
 void customLightObject::draw2D() {
-    draw3D();       // same thing anyway
+    this->draw3D();       // same thing anyway
 }
 
 void customLightObject::draw3D() {
@@ -95,9 +95,9 @@ void customLightObject::draw3D() {
             glLightfv(this->light_id, GL_DIFFUSE, this->Dif);
             glLightfv(this->light_id, GL_SPECULAR, this->Spec);
 
-	        glLightf(this->light_id, GL_CONSTANT_ATTENUATION, 1);
-	        glLightf(this->light_id, GL_LINEAR_ATTENUATION, 0.0001);
-	        glLightf(this->light_id, GL_QUADRATIC_ATTENUATION, 0.00001);
+            glLightf(this->light_id, GL_CONSTANT_ATTENUATION, 1);
+            glLightf(this->light_id, GL_LINEAR_ATTENUATION, 0.0001);
+            glLightf(this->light_id, GL_QUADRATIC_ATTENUATION, 0.00001);
 
             glEnable(this->light_id);
             break;
@@ -142,16 +142,16 @@ int customLightObject::lightOn() {
     switch (this->type) {
         case 0:
             this->light_id = 0;
-            cout << "ambient light" << endl;
+            //cout << "ambient light" << endl;
             break;
         
         case 1:
         case 2:
         case 3:
-            cout << "trying to turn on " << this << " with type " << this->type << " and light " << this->color[0] << "," << this->color[1] << "," << this->color[2] << "," << endl;
+            //cout << "trying to turn on " << this << " with type " << this->type << " and light " << this->color[0] << "," << this->color[1] << "," << this->color[2] << "," << endl;
             for (int i=0; i<NLIGHTS; i++) {
                 if (!globallightqueue[i].used) {
-                    cout << "found available " << i << endl;
+                    //cout << "found available " << i << endl;
                     globallightqueue[i].used = true;
                     this->light_id = globallightqueue[i].light_id;
                     break;
@@ -177,13 +177,19 @@ int customLightObject::lightOff() {
     }
     if (this->light_id<GL_LIGHT0) {
         // ambient light
-        this->light_id = -1;
     } else {
         glDisable(this->light_id);
         globallightqueue[this->light_id-GL_LIGHT0].used = false;
-        this->light_id=-1;
     }
 
+    // reset light
+    glLightf(this->light_id, GL_SPOT_EXPONENT, 0.0);
+    glLightf(this->light_id, GL_SPOT_CUTOFF, 180.0);
+    glLightf(this->light_id, GL_CONSTANT_ATTENUATION, 1.0);
+    glLightf(this->light_id, GL_LINEAR_ATTENUATION, 0.0);
+    glLightf(this->light_id, GL_QUADRATIC_ATTENUATION, 0.0);
+
+    this->light_id = -1;
     return this->light_id;
 }
 

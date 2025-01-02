@@ -61,6 +61,7 @@ class customPlayer : public customPhysicsObjectMovable {
         int health = 100;
 
         customLightObject *flashlight;
+        customLightObject *musslelight;
     
     
     private:

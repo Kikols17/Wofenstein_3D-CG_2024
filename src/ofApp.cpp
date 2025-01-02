@@ -180,19 +180,19 @@ void ofApp::draw(){
                 this->player.draw3D();
             glPopMatrix();
 
-            // mini-map (2D)
-            if (this->showminimap) {
-                glViewport(3*gw()/4, 3*gh()/4, gw()/4, gh()/4);
-                glMatrixMode(GL_PROJECTION);
-                glLoadIdentity();
-                glPushMatrix();
-                    this->cam->draw2D();    // apply the 2D camara's transformations
-                    for (int i=0; i<gosize; i++) {
-                        (*globalgameobjects[i])->draw2D();
-                    }
-                    this->player.draw2D();
-                glPopMatrix();
-            }
+            // mini-map (2D) n se pode ter minimapa :(
+            //if (this->showminimap) {
+            //    glViewport(3*gw()/4, 3*gh()/4, gw()/4, gh()/4);
+            //    glMatrixMode(GL_PROJECTION);
+            //    glLoadIdentity();
+            //    glPushMatrix();
+            //        this->cam->draw2D();    // apply the 2D camara's transformations
+            //        for (int i=0; i<gosize; i++) {
+            //            (*globalgameobjects[i])->draw2D();
+            //        }
+            //        this->player.draw2D();
+            //    glPopMatrix();
+            //}
             break;
         
 
@@ -533,7 +533,7 @@ void ofApp::loadLevel(int level) {
     // setup the player
     this->player = customPlayer(ofVec3f(0, 0.80, 0), ofVec3f(0, 0, 0), ofVec3f(1.0, 1.0, 1.0));
     this->cam = &(this->player.cam);
-    this->player.flashlight->lightOn();
+    //this->player.flashlight->lightOn();
 
 
 

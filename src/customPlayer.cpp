@@ -18,6 +18,7 @@ customPlayer::customPlayer(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale)
     // run this to set up the object
 
     this->flashlight = new customLightObject( ofVec3f(0, 0, 0), ofVec3f(0, 0, 0), ofVec3f(1, 1, 0.8), ofVec3f(1, 1, 0.8), 3, 0 );
+    this->musslelight = new customLightObject( ofVec3f(0, 0, 0), ofVec3f(0, 0, 0), ofVec3f(1, 1, 1), ofVec3f(1, 0.5, 0.2), 2, 500 );
 
 
 }
@@ -59,13 +60,15 @@ void customPlayer::update(int viewmode) {
 
     // update the flashlight
     this->flashlight->update();
+    this->musslelight->update();
 }
 
 
 void customPlayer::draw2D() {
     // draw the player in 2D
     glPushMatrix();
-        this->customPhysicsObjectMovable::draw2D();      // move to the position, rotate, and scale the player
+        this->customPhysicsObjectMovable::draw2D();
+        this->musslelight->draw2D();
         glEnable(GL_COLOR_MATERIAL);
 
         glColor3f(1.0, 0.8, 0.6); // skin color
@@ -78,7 +81,7 @@ void customPlayer::draw2D() {
 
         glPushMatrix();
             glTranslatef(0, -0.25, 0);        // move joint of the leg to y=0
-            glRotatef(-45.0*this->walking_animation, 1, 0, 0); // animate walking
+            glRotatef(-60.0*this->walking_animation, 1, 0, 0); // animate walking
             glTranslatef(0, 0.25, 0);       // move joint of the leg back to original position  
 
             glColor3f(0.8, 0.8, 0.8); // light grey clothes
@@ -89,7 +92,7 @@ void customPlayer::draw2D() {
 
         glPushMatrix();
             glTranslatef(0, -0.25, 0);        // move joint of the leg to y=0
-            glRotatef(45.0*this->walking_animation, 1, 0, 0); // animate walking
+            glRotatef(60.0*this->walking_animation, 1, 0, 0); // animate walking
             glTranslatef(0, 0.25, 0);       // move joint of the leg back to original position  
 
             glColor3f(0.8, 0.8, 0.8); // light grey clothes
@@ -102,7 +105,7 @@ void customPlayer::draw2D() {
         /* ARMS */
         glPushMatrix();
             glTranslatef(-0.25, 0.1, 0.0);             // move joint of the arm to x=0, y=0, z=0
-            glRotatef(85.0, 1, 0, 0);   // } rotate the arm
+            glRotatef(this->cam.looking_angleX+85.0, 1, 0, 0);   // } rotate the arm
             glRotatef(30.0, 0, 0, 1);   // }
             glTranslatef(0.25, -0.1, 0.0);             // move joint of the arm back to original position
 
@@ -114,7 +117,7 @@ void customPlayer::draw2D() {
 
         glPushMatrix();
             glTranslatef(0.25, 0.1, 0.0);             // move joint of the arm to x=0, y=0, z=0
-            glRotatef(90.0, 1, 0, 0);   // } rotate the arm
+            glRotatef(this->cam.looking_angleX+90.0, 1, 0, 0);   // } rotate the arm
             glRotatef(-50.0, 0, 0, 1);   // }
             glTranslatef(-0.25, -0.1, 0.0);             // move joint of the arm back to original position
 
@@ -128,9 +131,8 @@ void customPlayer::draw2D() {
         /* Weapon */
         glPushMatrix();
             glTranslatef(0.0, 0.1, 0.0);             // move joint of the weapon to x=0, y=0, z=0
-            glRotatef(90.0, 1, 0, 0);   // } rotate the arm
+            glRotatef(this->cam.looking_angleX+90.0, 1, 0, 0);   // } rotate the arm
             glTranslatef(0.0, -0.1, 0.0);             // move joint of the arm back to original position
-
 
             this->flashlight->draw2D();
             glColor3f(0.15, 0.15, 0.15);    // dark grey weapon
@@ -145,6 +147,7 @@ void customPlayer::draw3D() {
     // draw the player in 3D
     glPushMatrix();
         this->customPhysicsObjectMovable::draw3D();
+        this->musslelight->draw3D();
         glEnable(GL_COLOR_MATERIAL);
 
         glColor3f(1.0, 0.8, 0.6); // skin color
@@ -211,7 +214,6 @@ void customPlayer::draw3D() {
             glTranslatef(0.0, -0.1, 0.0);             // move joint of the arm back to original position
 
             this->flashlight->draw3D();
-            //cube_unit_posscale(ofVec3f(0.0, 0.0, 0.0), ofVec3f(0.05, 0.05, 0.05));    // } weapon
             glColor3f(0.15, 0.15, 0.15);    // dark grey weapon
             cube_unit_posscale(ofVec3f(0.05, 0.65, -0.13), ofVec3f(0.05, 0.3, 0.05));    // } weapon
         glPopMatrix();
@@ -332,6 +334,7 @@ void customPlayer::shoot() {
         return;
     }
     this->last_shot = ofGetElapsedTimeMillis();
+    this->musslelight->lightOn();
 
     //cout << "bang!" << endl;
 
