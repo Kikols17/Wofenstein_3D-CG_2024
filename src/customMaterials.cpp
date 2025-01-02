@@ -50,6 +50,13 @@ custommaterial mat_emerald = {
     .coef = (GLint)(0.6 * 128)
 };
 
+custommaterial mat_blood = {
+    .ambi = { 0.3, 0.0, 0.0, 1.0 },
+    .difu = { 0.6, 0.0, 0.0, 1.0 },
+    .spec = { 0.3, 0.0, 0.0, 1.0 },
+    .coef = (GLint)(0.1 * 128)
+};
+
 
 
 
