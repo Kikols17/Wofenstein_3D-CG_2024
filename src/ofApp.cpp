@@ -12,6 +12,8 @@ vector<customColisionBox*> globalcolisionBoxes_toremove;
 vector<shared_ptr<customGameObject>*> globalgameobjects;
 vector<shared_ptr<customGameObject>*> globalgameobjects_toremove;
 
+extern struct lightqueue globallightqueue[8];
+
 
 ofImage tex_JailBlueBricks;
 ofImage tex_BlueBricks;
@@ -59,6 +61,10 @@ void ofApp::setup(){
 
     loadLevel(2);
 
+    //cout << "light queue" << endl;
+    //for (int i=0; i<NLIGHTS; i++) {
+    //    cout << globallightqueue[i].used << " " << globallightqueue[i].light_id << endl;
+    //}
 }
 
 //--------------------------------------------------------------
@@ -129,6 +135,7 @@ void ofApp::draw(){
     glEnable(GL_NORMALIZE);//utiliza versores para normais (normais normalizadas)
     glLightModeli(GL_LIGHT_MODEL_LOCAL_VIEWER, true);
     glShadeModel(GL_FLAT);
+    //glShadeModel(GL_SMOOTH);
 
 
     switch (this->viewmode) {
@@ -516,6 +523,7 @@ void ofApp::loadLevel(int level) {
     // setup the player
     this->player = customPlayer(ofVec3f(0, 0.80, 0), ofVec3f(0, 0, 0), ofVec3f(1.0, 1.0, 1.0));
     this->cam = &(this->player.cam);
+    this->player.flashlight->lightOn();
 
 
 

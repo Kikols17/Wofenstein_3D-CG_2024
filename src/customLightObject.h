@@ -43,5 +43,11 @@ class customLightObject : public customGameObject {
 };
 
 
+struct lightqueue {
+    bool used;
+    int light_id;
+};
+
+
 
 #endif

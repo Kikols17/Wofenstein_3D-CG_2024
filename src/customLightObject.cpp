@@ -1,6 +1,12 @@
 #include "customLightObject.h"
 
 
+#ifndef NLIGHTS
+#define NLIGHTS 8
+#endif
+struct lightqueue globallightqueue[NLIGHTS] = {{false,GL_LIGHT0}, {false,GL_LIGHT1}, {false,GL_LIGHT2}, {false,GL_LIGHT3}, {false,GL_LIGHT4}, {false,GL_LIGHT5}, {false,GL_LIGHT6}, {false,GL_LIGHT7}};
+
+
 
 //--------------------------------------------------------------
 // public
@@ -120,12 +126,21 @@ int customLightObject::lightOn() {
     switch (this->type) {
         case 0:
             this->light_id = 0;
+            cout << "ambient light" << endl;
             break;
         
         case 1:
         case 2:
         case 3:
-            this->light_id = GL_LIGHT0;
+            cout << "trying to turn on " << this << " with type " << this->type << " and light " << this->color[0] << "," << this->color[1] << "," << this->color[2] << "," << endl;
+            for (int i=0; i<NLIGHTS; i++) {
+                if (!globallightqueue[i].used) {
+                    cout << "found available " << i << endl;
+                    globallightqueue[i].used = true;
+                    this->light_id = globallightqueue[i].light_id;
+                    break;
+                }
+            }
             break;
 
         default:
@@ -143,6 +158,7 @@ int customLightObject::lightOff() {
     if (this->light_id!=0) {
         glDisable(this->light_id);
     }
+    globallightqueue[this->light_id-GL_LIGHT0].used = false;
     this->light_id==-1;
 
     return this->light_id;

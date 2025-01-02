@@ -17,7 +17,7 @@ customPlayer::customPlayer(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale)
     // run this to set up the object
 
     this->flashlight = new customLightObject( ofVec3f(0, 0, 0), ofVec3f(0, 0, 0), ofVec3f(1, 1, 0.8), ofVec3f(1, 1, 0.8), 3 );
-	this->flashlight->lightOn();
+	//this->flashlight->lightOn();
     //shared_ptr<customGameObject>* flashlight_temp = new shared_ptr<customGameObject>( this->flashlight );
 	//dynamic_pointer_cast<customLightObject>(*flashlight_temp)->lightOn();
 	//globalgameobjects.push_back(flashlight_temp);
