@@ -10,7 +10,7 @@ struct lightqueue globallightqueue[NLIGHTS] = {{false,GL_LIGHT0}, {false,GL_LIGH
 
 //--------------------------------------------------------------
 // public
-customLightObject::customLightObject(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, ofVec3f _color, int _type) : customGameObject(_position, _rotation, _scale, _color, NULL, NULL) {
+customLightObject::customLightObject(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, ofVec3f _color, int _type, uint64_t _lifetime) : customGameObject(_position, _rotation, _scale, _color, NULL, NULL) {
     this->type = _type;
 
     this->Dir[0] = .0;
@@ -38,11 +38,27 @@ customLightObject::customLightObject(ofVec3f _position, ofVec3f _rotation, ofVec
     this->Spec[2] = 1.0;
     this->Spec[3] = 1.0;
 
+
+    this->lifetime = _lifetime;
+    this->birthtime = ofGetElapsedTimeMillis();     // record birthtime again when turning the light on
+
 }
 
 
 void customLightObject::update() {
-    // maybe i dont need this
+    this->Pos[0] = (GLfloat)this->position[0];
+    this->Pos[1] = (GLfloat)this->position[1];
+    this->Pos[2] = (GLfloat)this->position[2];
+    this->Pos[3] = 1.;
+
+    this->Amb[0] = (GLfloat)this->color[0];
+    this->Amb[1] = (GLfloat)this->color[1];
+    this->Amb[2] = (GLfloat)this->color[2];
+    this->Amb[3] = 1.;
+
+    if (this->light_id!=0  &&  this->lifetime!=0  &&  (ofGetElapsedTimeMillis()-this->birthtime > this->lifetime)) {
+        this->lightOff();
+    }
 }
 
 
@@ -145,6 +161,10 @@ int customLightObject::lightOn() {
 
         default:
             break;
+    }
+
+    if (this->light_id!=-1) {
+        this->birthtime = ofGetElapsedTimeMillis();
     }
 
     return this->light_id;

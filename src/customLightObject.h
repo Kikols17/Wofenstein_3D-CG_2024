@@ -12,7 +12,7 @@
 class customLightObject : public customGameObject {
 
     public:
-        customLightObject(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, ofVec3f _color, int _type);
+        customLightObject(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, ofVec3f _color, int _type, uint64_t lifetime);
 
         void update() override;
 
@@ -30,6 +30,9 @@ class customLightObject : public customGameObject {
         using customGameObject::color;
 
         bool debounce = false;
+
+        uint64_t lifetime;
+        uint64_t birthtime;
 
     
 

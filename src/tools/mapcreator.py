@@ -10,7 +10,7 @@ def criar_mapa(name, input, output):
 
     output.write("\tshared_ptr<customGameObject>* go;\n\n")
     
-    output.write("\tgo = new shared_ptr<customGameObject>( new customLightObject( ofVec3f(0, 0, 0), ofVec3f(0, 0, 0), ofVec3f(1, 1, 1), ofVec3f(1, 1, 1), 0 ) );\n")
+    output.write("\tgo = new shared_ptr<customGameObject>( new customLightObject( ofVec3f(0, 0, 0), ofVec3f(0, 0, 0), ofVec3f(1, 1, 1), ofVec3f(1, 1, 1), 0, 0 ) );\n")
     output.write("\tdynamic_pointer_cast<customLightObject>(*go)->lightOn();\n")
     output.write("\tgameobjects.push_back(go);\n\n\n")
 

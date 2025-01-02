@@ -41,7 +41,7 @@ int wolfenstein(vector<shared_ptr<customGameObject>*> &gameobjects, customPlayer
 
 	shared_ptr<customGameObject>* go;
 
-	go = new shared_ptr<customGameObject>( new customLightObject( ofVec3f(0, 0, 0), ofVec3f(0, 0, 0), ofVec3f(1, 1, 1), ofVec3f(1, 1, 1), 0 ) );
+	go = new shared_ptr<customGameObject>( new customLightObject( ofVec3f(0, 0, 0), ofVec3f(0, 0, 0), ofVec3f(1, 1, 1), ofVec3f(1, 1, 1), 0, 0 ) );
 	dynamic_pointer_cast<customLightObject>(*go)->lightOn();
 	gameobjects.push_back(go);
 
@@ -4975,7 +4975,7 @@ int eisenfaust(vector<shared_ptr<customGameObject>*> &gameobjects, customPlayer 
 
 	shared_ptr<customGameObject>* go;
 
-	go = new shared_ptr<customGameObject>( new customLightObject( ofVec3f(0, 0, 0), ofVec3f(0, 0, 0), ofVec3f(1, 1, 1), ofVec3f(1, 1, 1), 0 ) );
+	go = new shared_ptr<customGameObject>( new customLightObject( ofVec3f(0, 0, 0), ofVec3f(0, 0, 0), ofVec3f(1, 1, 1), ofVec3f(1, 1, 1), 0, 0 ) );
 	dynamic_pointer_cast<customLightObject>(*go)->lightOn();
 	gameobjects.push_back(go);
 
