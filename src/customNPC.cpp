@@ -56,6 +56,7 @@ void customNPC::draw2D() {
     // draw the NPC in 2D
     glPushMatrix();
         this->customPhysicsObjectMovable::draw2D();      // move to the position, rotate, and scale the NPC
+        glEnable(GL_COLOR_MATERIAL);
 
         /* BODY */
         glColor3f(1.0, 0.8, 0.6);   // skin color
@@ -133,7 +134,7 @@ void customNPC::draw2D() {
             cube_unit_posscale(ofVec3f(0.05, 0.65, -0.13), ofVec3f(0.05, 0.3, 0.05));    // } weapon
         glPopMatrix();
 
-
+        glDisable(GL_COLOR_MATERIAL);
     glPopMatrix();
 }
 
@@ -141,6 +142,7 @@ void customNPC::draw3D() {
     // draw the NPC in 3D
     glPushMatrix();
         this->customPhysicsObjectMovable::draw3D();      // move to the position, rotate, and scale the NPC
+        glEnable(GL_COLOR_MATERIAL);
 
         glColor3f(1.0, 0.8, 0.6);   // skin color
         cube_unit_posscale(ofVec3f(0, 0.5, 0), ofVec3f(0.3, 0.3, 0.3)); // head
@@ -217,6 +219,7 @@ void customNPC::draw3D() {
             cube_unit_posscale(ofVec3f(0.05, 0.65, -0.13), ofVec3f(0.05, 0.3, 0.05));    // } weapon
         glPopMatrix();
 
+        glDisable(GL_COLOR_MATERIAL);
     glPopMatrix();
 
 }

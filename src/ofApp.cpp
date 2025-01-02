@@ -133,7 +133,7 @@ void ofApp::draw(){
 
     glEnable(GL_LIGHTING);//habilita o uso de ilumina��o
     glEnable(GL_NORMALIZE);//utiliza versores para normais (normais normalizadas)
-    glLightModeli(GL_LIGHT_MODEL_LOCAL_VIEWER, true);
+    glLightModeli(GL_LIGHT_MODEL_LOCAL_VIEWER, GL_TRUE);
     glShadeModel(GL_FLAT);
     //glShadeModel(GL_SMOOTH);
 

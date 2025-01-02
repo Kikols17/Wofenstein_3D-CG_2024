@@ -72,6 +72,8 @@ void customPlayer::draw2D() {
     // draw the player in 2D
     glPushMatrix();
         this->customPhysicsObjectMovable::draw2D();      // move to the position, rotate, and scale the player
+        glEnable(GL_COLOR_MATERIAL);
+
         glColor3f(1.0, 0.8, 0.6); // skin color
         cube_unit_posscale(ofVec3f(0, 0.5, 0), ofVec3f(0.3, 0.3, 0.3)); // head
         glColor3f(0.8, 0.4, 0.0); // ginger hair
@@ -141,7 +143,7 @@ void customPlayer::draw2D() {
             cube_unit_posscale(ofVec3f(0.05, 0.65, -0.13), ofVec3f(0.05, 0.3, 0.05));    // } weapon
         glPopMatrix();
 
-
+        glDisable(GL_COLOR_MATERIAL);
     glPopMatrix();
 }
 
@@ -149,6 +151,8 @@ void customPlayer::draw3D() {
     // draw the player in 3D
     glPushMatrix();
         this->customPhysicsObjectMovable::draw3D();
+        glEnable(GL_COLOR_MATERIAL);
+
         glColor3f(1.0, 0.8, 0.6); // skin color
         cube_unit_posscale(ofVec3f(0, 0.5, 0), ofVec3f(0.3, 0.3, 0.3)); // head
         glColor3f(0.8, 0.4, 0.0); // ginger hair
@@ -218,7 +222,7 @@ void customPlayer::draw3D() {
             cube_unit_posscale(ofVec3f(0.05, 0.65, -0.13), ofVec3f(0.05, 0.3, 0.05));    // } weapon
         glPopMatrix();
 
-
+        glDisable(GL_COLOR_MATERIAL);
     glPopMatrix();
 
 
