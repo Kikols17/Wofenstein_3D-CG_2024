@@ -17,8 +17,8 @@ extern struct custommaterial mat_smoke;
 customPlayer::customPlayer(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale) : customPhysicsObjectMovable(_position, _rotation, _scale, ofVec3f(1.0,0.0,0.0), NULL, &mat_blood, vector<customColisionBox*>({new customColisionBox(_position, _rotation, _scale, ofVec3f(1.0,0.0,0.0), &mat_blood, 0, vector<int>({1,2,3}), -0.2, -0.7, -0.2, 0.2, 0.7, 0.2)})) {
     // run this to set up the object
 
-    this->flashlight = new customLightObject( ofVec3f(0, 0, 0), ofVec3f(0, 0, 0), ofVec3f(1, 1, 0.8), ofVec3f(1, 1, 0.8), 3, 0 );
-    this->musslelight = new customLightObject( ofVec3f(0, 0, 0), ofVec3f(0, 0, 0), ofVec3f(1, 1, 1), ofVec3f(1, 0.5, 0.2), 2, 500 );
+    this->flashlight = new customLightObject( ofVec3f(0, 0, 0), ofVec3f(0, 0, 0), ofVec3f(1, 1, 1), ofVec3f(1, 1, 0.8), 3, 0 );
+    this->musslelight = new customLightObject( ofVec3f(0, 0, 0), ofVec3f(0, 0, 0), ofVec3f(1, 1, 1), ofVec3f(1, 0.2, 0.2), 2, 500 );
 
 
 }

@@ -50,6 +50,8 @@ class customNPC : public customPhysicsObjectMovable {
         GLfloat walking_speed = 3.0;    // } in units/second
         GLfloat running_speed = 5.0;    // }
 
+        customLightObject *musslelight;
+
         private:
             bool checkShotsReceived();
             void explode();

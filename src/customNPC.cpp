@@ -21,6 +21,8 @@ customNPC::customNPC(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, ofVec
 
     this->target = _target;
     this->movingto = ofVec3f(_position.x, _position.y, _position.z);
+
+    this->musslelight = new customLightObject( ofVec3f(0, 0, 0), ofVec3f(0, 0, 0), ofVec3f(1, 1, 1), ofVec3f(1, 0.2, 0.2), 2, 500 );
 }
 
 void customNPC::update() {
@@ -28,6 +30,9 @@ void customNPC::update() {
 
     // run the physics update
     this->customPhysicsObjectMovable::update();
+
+    // update light
+    this->musslelight->update();
 
     if (this->checkShotsReceived()) {
         // if the NPC has been shot, remove it from the game and explode
@@ -38,7 +43,9 @@ void customNPC::update() {
         kill_count++;
         globalgameobjects_toremove.push_back(new shared_ptr<customGameObject>(this));
 
+        this->musslelight->lightOff();
         this->explode();
+        return;     // dead
     }
     //cout << "NPC " << this << " AIstate: " << this->AIstate << endl;
 
@@ -58,6 +65,7 @@ void customNPC::draw2D() {
     // draw the NPC in 2D
     glPushMatrix();
         this->customPhysicsObjectMovable::draw2D();      // move to the position, rotate, and scale the NPC
+        this->musslelight->draw2D();
         glEnable(GL_COLOR_MATERIAL);
 
         /* BODY */
@@ -144,6 +152,7 @@ void customNPC::draw3D() {
     // draw the NPC in 3D
     glPushMatrix();
         this->customPhysicsObjectMovable::draw3D();      // move to the position, rotate, and scale the NPC
+        this->musslelight->draw3D();
         glEnable(GL_COLOR_MATERIAL);
 
         glColor3f(1.0, 0.8, 0.6);   // skin color
@@ -376,6 +385,7 @@ bool customNPC::attackTarget() {
         return false;
     }
     this->last_shot = ofGetElapsedTimeMillis();
+    this->musslelight->lightOn();
 
     
     pair<customColisionBox*, GLfloat> hit = hitscan_all(this->position, this->aim_vec, vector<int>({0,1}));
