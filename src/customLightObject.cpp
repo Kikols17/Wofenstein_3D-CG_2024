@@ -7,6 +7,11 @@
 customLightObject::customLightObject(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, ofVec3f _color, int _type) : customGameObject(_position, _rotation, _scale, _color, NULL, NULL) {
     this->type = _type;
 
+    this->Dir[0] = .0;
+    this->Dir[1] = .0;
+    this->Dir[2] = 1.0;
+    this->Dir[3] = 1.0;
+
     this->Pos[0] = (GLfloat)_position[0];
     this->Pos[1] = (GLfloat)_position[1];
     this->Pos[2] = (GLfloat)_position[2];
@@ -17,6 +22,21 @@ customLightObject::customLightObject(ofVec3f _position, ofVec3f _rotation, ofVec
     this->Amb[2] = (GLfloat)_color[2];
     this->Amb[3] = 1.;
 
+    this->Dif[0] = 1.0;
+    this->Dif[1] = 1.0;
+    this->Dif[2] = 1.0;
+    this->Dif[3] = 1.0;
+
+    this->Spec[0] = 1.0;
+    this->Spec[1] = 1.0;
+    this->Spec[2] = 1.0;
+    this->Spec[3] = 1.0;
+
+}
+
+
+void customLightObject::update() {
+    // maybe i dont need this
 }
 
 
@@ -25,8 +45,6 @@ void customLightObject::draw2D() {
 }
 
 void customLightObject::draw3D() {
-    GLfloat lightcolor[4];
-
     if (this->light_id==-1) {
         // light not turned on
         return;
@@ -71,12 +89,12 @@ void customLightObject::draw3D() {
             glLightfv(this->light_id, GL_DIFFUSE, this->Dif);
             glLightfv(this->light_id, GL_SPECULAR, this->Spec);
 
-            glLightf(this->light_id, GL_SPOT_EXPONENT, 64.);
-            glLightf(this->light_id, GL_SPOT_CUTOFF, 45.);
+            glLightf(this->light_id, GL_SPOT_EXPONENT, 256.);
+            glLightf(this->light_id, GL_SPOT_CUTOFF, 30.);
 
-	        glLightf(this->light_id, GL_CONSTANT_ATTENUATION, 1.);
-	        glLightf(this->light_id, GL_LINEAR_ATTENUATION, 0.);
-	        glLightf(this->light_id, GL_QUADRATIC_ATTENUATION, 0.);
+            glLightf(this->light_id, GL_CONSTANT_ATTENUATION, 1.);
+            glLightf(this->light_id, GL_LINEAR_ATTENUATION, 0.);
+            glLightf(this->light_id, GL_QUADRATIC_ATTENUATION, 0.);
 
             glEnable(this->light_id);
             break;
@@ -98,14 +116,28 @@ int customLightObject::lightOn() {
         }
         return this->light_id;
     }
-    this->light_id = 0;
+
+    switch (this->type) {
+        case 0:
+            this->light_id = 0;
+            break;
+        
+        case 1:
+        case 2:
+        case 3:
+            this->light_id = GL_LIGHT0;
+            break;
+
+        default:
+            break;
+    }
 
     return this->light_id;
 }
 
 int customLightObject::lightOff() {
     if (this->light_id==-1) {
-        // light already off, disable it just in case
+        // light already off
         return light_id;
     }
     if (this->light_id!=0) {

@@ -7,6 +7,7 @@
 #include "customColisionBox.h"
 #include "customCamara.h"
 #include "customParticle.h"
+#include "customLightObject.h"
 
 #include "utils_hitscan.h"
 
@@ -58,6 +59,8 @@ class customPlayer : public customPhysicsObjectMovable {
         uint64_t shot_delay = 500;  // in milliseconds
 
         int health = 100;
+
+        customLightObject *flashlight;
     
     
     private:

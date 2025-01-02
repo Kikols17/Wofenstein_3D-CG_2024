@@ -14,7 +14,7 @@ class customLightObject : public customGameObject {
     public:
         customLightObject(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, ofVec3f _color, int _type);
 
-        using customGameObject::update;
+        void update() override;
 
         void draw2D() override;
         void draw3D() override;

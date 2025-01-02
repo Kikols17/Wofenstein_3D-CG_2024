@@ -81,7 +81,6 @@ void customRoom_Xhallway::draw2D() {
         glColor3f(this->color.x, this->color.y, this->color.z);
         glBegin(GL_QUADS);
             // floor
-            glNormal3f(0, 1, 0);
             glTexCoord2f(0, 0);                 glVertex3f(0.5, 0, -0.5);
             glTexCoord2f(TEX_SIZE, 0);          glVertex3f(0.5, 0, 0.5);
             glTexCoord2f(TEX_SIZE, TEX_SIZE);   glVertex3f(-0.5, 0, 0.5);
@@ -105,14 +104,12 @@ void customRoom_Xhallway::draw3D() {
         glColor3f(this->color.x, this->color.y, this->color.z);
         glBegin(GL_QUADS);
             // floor
-            glNormal3f(0, 1, 0);
             glTexCoord2f(0, 0);                 glVertex3f(0.5, 0, -0.5);
             glTexCoord2f(TEX_SIZE, 0);          glVertex3f(0.5, 0, 0.5);
             glTexCoord2f(TEX_SIZE, TEX_SIZE);   glVertex3f(-0.5, 0, 0.5);
             glTexCoord2f(0, TEX_SIZE);          glVertex3f(-0.5, 0, -0.5);
 
             // ceiling
-            glNormal3f(0, -1, 0);
             glTexCoord2f(0, TEX_SIZE);          glVertex3f(-0.5, 1, -0.5);
             glTexCoord2f(TEX_SIZE, TEX_SIZE);   glVertex3f(-0.5, 1, 0.5);
             glTexCoord2f(TEX_SIZE, 0);          glVertex3f(0.5, 1, 0.5);
@@ -150,35 +147,30 @@ void customRoom_wall::draw2D() {
         glColor3f(this->color.x, this->color.y, this->color.z);
         glBegin(GL_QUADS);
             // ceiling
-            glNormal3f(0, 1, 0);
             glTexCoord2f(0, 0);                 glVertex3f(-0.5, 1, -0.5);
             glTexCoord2f(TEX_SIZE, 0);          glVertex3f(0.5, 1, -0.5);
             glTexCoord2f(TEX_SIZE, TEX_SIZE);   glVertex3f(0.5, 1, 0.5);
             glTexCoord2f(0, TEX_SIZE);          glVertex3f(-0.5, 1, 0.5);
 
             // left wall
-            glNormal3f(0, 0, -1);
             glTexCoord2f(0, 0);                 glVertex3f(-0.5, 1, -0.5);
             glTexCoord2f(TEX_SIZE, 0);          glVertex3f(-0.5, 1, 0.5);
             glTexCoord2f(TEX_SIZE, TEX_SIZE);   glVertex3f(-0.5, 0, 0.5);
             glTexCoord2f(0, TEX_SIZE);          glVertex3f(-0.5, 0, -0.5);
 
             // right wall
-            glNormal3f(0, 0, 1);
             glTexCoord2f(0, 0);                 glVertex3f(0.5, 1, 0.5);
             glTexCoord2f(TEX_SIZE, 0);          glVertex3f(0.5, 1, -0.5);
             glTexCoord2f(TEX_SIZE, TEX_SIZE);   glVertex3f(0.5, 0, -0.5);
             glTexCoord2f(0, TEX_SIZE);          glVertex3f(0.5, 0, 0.5);
 
             // front wall
-            glNormal3f(1, 0, 0);
             glTexCoord2f(0, 0);                 glVertex3f(-0.5, 1, 0.5);
             glTexCoord2f(TEX_SIZE, 0);          glVertex3f(0.5, 1, 0.5);
             glTexCoord2f(TEX_SIZE, TEX_SIZE);   glVertex3f(0.5, 0, 0.5);
             glTexCoord2f(0, TEX_SIZE);          glVertex3f(-0.5, 0, 0.5);
 
             // back wall
-            glNormal3f(-1, 0, 0);
             glTexCoord2f(0, 0);                 glVertex3f(0.5, 1, -0.5);
             glTexCoord2f(TEX_SIZE, 0);          glVertex3f(-0.5, 1, -0.5);
             glTexCoord2f(TEX_SIZE, TEX_SIZE);   glVertex3f(-0.5, 0, -0.5);
@@ -202,35 +194,30 @@ void customRoom_wall::draw3D() {
         glColor3f(this->color.x, this->color.y, this->color.z);
         glBegin(GL_QUADS);
             // ceiling
-            glNormal3f(0, 1, 0);
             glTexCoord2f(0, 0);                 glVertex3f(-0.5, 1, -0.5);
             glTexCoord2f(TEX_SIZE, 0);          glVertex3f(0.5, 1, -0.5);
             glTexCoord2f(TEX_SIZE, TEX_SIZE);   glVertex3f(0.5, 1, 0.5);
             glTexCoord2f(0, TEX_SIZE);          glVertex3f(-0.5, 1, 0.5);
 
             // left wall
-            glNormal3f(0, 0, -1);
             glTexCoord2f(0, 0);                 glVertex3f(-0.5, 1, -0.5);
             glTexCoord2f(TEX_SIZE, 0);          glVertex3f(-0.5, 1, 0.5);
             glTexCoord2f(TEX_SIZE, TEX_SIZE);   glVertex3f(-0.5, 0, 0.5);
             glTexCoord2f(0, TEX_SIZE);          glVertex3f(-0.5, 0, -0.5);
 
             // right wall
-            glNormal3f(0, 0, 1);
             glTexCoord2f(0, 0);                 glVertex3f(0.5, 1, 0.5);
             glTexCoord2f(TEX_SIZE, 0);          glVertex3f(0.5, 1, -0.5);
             glTexCoord2f(TEX_SIZE, TEX_SIZE);   glVertex3f(0.5, 0, -0.5);
             glTexCoord2f(0, TEX_SIZE);          glVertex3f(0.5, 0, 0.5);
 
             // front wall
-            glNormal3f(1, 0, 0);
             glTexCoord2f(0, 0);                 glVertex3f(-0.5, 1, 0.5);
             glTexCoord2f(TEX_SIZE, 0);          glVertex3f(0.5, 1, 0.5);
             glTexCoord2f(TEX_SIZE, TEX_SIZE);   glVertex3f(0.5, 0, 0.5);
             glTexCoord2f(0, TEX_SIZE);          glVertex3f(-0.5, 0, 0.5);
 
             // back wall
-            glNormal3f(-1, 0, 0);
             glTexCoord2f(0, 0);                 glVertex3f(0.5, 1, -0.5);
             glTexCoord2f(TEX_SIZE, 0);          glVertex3f(-0.5, 1, -0.5);
             glTexCoord2f(TEX_SIZE, TEX_SIZE);   glVertex3f(-0.5, 0, -0.5);
@@ -301,35 +288,30 @@ void customRoom_door::draw2D() {
         glColor3f(this->color.x, this->color.y, this->color.z);
         glBegin(GL_QUADS);
             // door top
-            glNormal3f(0, 1, 0);
             glTexCoord2f(TEX_SIZE, 0);          glVertex3f(0.5, 0.9, -0.2);
             glTexCoord2f(TEX_SIZE2, 0);         glVertex3f(0.5, 0.9, 0.2);
             glTexCoord2f(TEX_SIZE2, TEX_SIZE);  glVertex3f(-0.5, 0.9, 0.2);
             glTexCoord2f(TEX_SIZE, TEX_SIZE);   glVertex3f(-0.5, 0.9, -0.2);
 
             // door left
-            glNormal3f(0, 0, -1);
             glTexCoord2f(TEX_SIZE, 0);          glVertex3f(-0.5, 1, -0.2);
             glTexCoord2f(TEX_SIZE2, 0);         glVertex3f(-0.5, 1, 0.2);
             glTexCoord2f(TEX_SIZE2, TEX_SIZE);  glVertex3f(-0.5, 0, 0.2);
             glTexCoord2f(TEX_SIZE, TEX_SIZE);   glVertex3f(-0.5, 0, -0.2);
 
             // door right
-            glNormal3f(0, 0, 1);
             glTexCoord2f(TEX_SIZE, 0);          glVertex3f(0.5, 1, -0.2);
             glTexCoord2f(TEX_SIZE2, 0);         glVertex3f(0.5, 1, 0.2);
             glTexCoord2f(TEX_SIZE2, TEX_SIZE);  glVertex3f(0.5, 0, 0.2);
             glTexCoord2f(TEX_SIZE, TEX_SIZE);   glVertex3f(0.5, 0, -0.2);
 
             // door back
-            glNormal3f(0, -1, 0);
             glTexCoord2f(0, 0);                 glVertex3f(-0.5, 1, -0.2);
             glTexCoord2f(TEX_SIZE, 0);          glVertex3f(0.5, 1, -0.2);
             glTexCoord2f(TEX_SIZE, TEX_SIZE);   glVertex3f(0.5, 0, -0.2);
             glTexCoord2f(0, TEX_SIZE);          glVertex3f(-0.5, 0, -0.2);
 
             // door front
-            glNormal3f(0, 1, 0);
             glTexCoord2f(0, 0);                 glVertex3f(-0.5, 1, 0.2);
             glTexCoord2f(TEX_SIZE, 0);          glVertex3f(0.5, 1, 0.2);
             glTexCoord2f(TEX_SIZE, TEX_SIZE);   glVertex3f(0.5, 0, 0.2);
@@ -353,35 +335,30 @@ void customRoom_door::draw3D() {
         glColor3f(this->color.x, this->color.y, this->color.z);
         glBegin(GL_QUADS);
             // door top
-            glNormal3f(0, 1, 0);
             glTexCoord2f(TEX_SIZE, 0);          glVertex3f(0.5, 0.9, -0.2);
             glTexCoord2f(TEX_SIZE2, 0);         glVertex3f(0.5, 0.9, 0.2);
             glTexCoord2f(TEX_SIZE2, TEX_SIZE);  glVertex3f(-0.5, 0.9, 0.2);
             glTexCoord2f(TEX_SIZE, TEX_SIZE);   glVertex3f(-0.5, 0.9, -0.2);
 
             // door left
-            glNormal3f(0, 0, -1);
             glTexCoord2f(TEX_SIZE, 0);          glVertex3f(-0.5, 1, -0.2);
             glTexCoord2f(TEX_SIZE2, 0);         glVertex3f(-0.5, 1, 0.2);
             glTexCoord2f(TEX_SIZE2, TEX_SIZE);  glVertex3f(-0.5, 0, 0.2);
             glTexCoord2f(TEX_SIZE, TEX_SIZE);   glVertex3f(-0.5, 0, -0.2);
 
             // door right
-            glNormal3f(0, 0, 1);
             glTexCoord2f(TEX_SIZE, 0);          glVertex3f(0.5, 1, -0.2);
             glTexCoord2f(TEX_SIZE2, 0);         glVertex3f(0.5, 1, 0.2);
             glTexCoord2f(TEX_SIZE2, TEX_SIZE);  glVertex3f(0.5, 0, 0.2);
             glTexCoord2f(TEX_SIZE, TEX_SIZE);   glVertex3f(0.5, 0, -0.2);
 
             // door back
-            glNormal3f(0, -1, 0);
             glTexCoord2f(0, TEX_SIZE);          glVertex3f(-0.5, 0, -0.2);
             glTexCoord2f(TEX_SIZE, TEX_SIZE);   glVertex3f(0.5, 0, -0.2);
             glTexCoord2f(TEX_SIZE, 0);          glVertex3f(0.5, 1, -0.2);
             glTexCoord2f(0, 0);                 glVertex3f(-0.5, 1, -0.2);
 
             // door front
-            glNormal3f(0, 1, 0);
             glTexCoord2f(0, 0);                 glVertex3f(-0.5, 1, 0.2);
             glTexCoord2f(TEX_SIZE, 0);          glVertex3f(0.5, 1, 0.2);
             glTexCoord2f(TEX_SIZE, TEX_SIZE);   glVertex3f(0.5, 0, 0.2);

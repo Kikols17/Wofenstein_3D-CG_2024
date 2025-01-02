@@ -7,16 +7,20 @@ extern vector<shared_ptr<customGameObject>*> globalgameobjects;
 
 extern int gamestate;
 
-extern struct custommaterial mat_clothes;
+extern struct custommaterial mat_blood;
 
 
 
 //--------------------------------------------------------------
 // public
-customPlayer::customPlayer(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale) : customPhysicsObjectMovable(_position, _rotation, _scale, ofVec3f(1.0,0.0,0.0), NULL, &mat_clothes, vector<customColisionBox*>({new customColisionBox(_position, _rotation, _scale, ofVec3f(1.0,0.0,0.0), &mat_clothes, 0, vector<int>({1,2,3}), -0.2, -0.7, -0.2, 0.2, 0.7, 0.2)})) {
+customPlayer::customPlayer(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale) : customPhysicsObjectMovable(_position, _rotation, _scale, ofVec3f(1.0,0.0,0.0), NULL, &mat_blood, vector<customColisionBox*>({new customColisionBox(_position, _rotation, _scale, ofVec3f(1.0,0.0,0.0), &mat_blood, 0, vector<int>({1,2,3}), -0.2, -0.7, -0.2, 0.2, 0.7, 0.2)})) {
     // run this to set up the object
 
-    this->cam = customCamara();
+    this->flashlight = new customLightObject( ofVec3f(0, 0, 0), ofVec3f(0, 0, 0), ofVec3f(1, 1, 0.8), ofVec3f(1, 1, 0.8), 3 );
+	this->flashlight->lightOn();
+    //shared_ptr<customGameObject>* flashlight_temp = new shared_ptr<customGameObject>( this->flashlight );
+	//dynamic_pointer_cast<customLightObject>(*flashlight_temp)->lightOn();
+	//globalgameobjects.push_back(flashlight_temp);
 
 }
 
@@ -56,6 +60,11 @@ void customPlayer::update(int viewmode) {
     // update the camara
     this->cam.moveto(this->position.x, this->position.y+(this->scale.y/2)*0.8, this->position.z);
     this->cam.updatelooking();
+
+    // update the flashlight
+    this->flashlight->position[0] = this->position[0];
+    this->flashlight->position[1] = this->position[1];
+    this->flashlight->position[2] = this->position[2];
 }
 
 
@@ -126,6 +135,8 @@ void customPlayer::draw2D() {
             glRotatef(90.0, 1, 0, 0);   // } rotate the arm
             glTranslatef(0.0, -0.1, 0.0);             // move joint of the arm back to original position
 
+
+            this->flashlight->draw2D();
             glColor3f(0.15, 0.15, 0.15);    // dark grey weapon
             cube_unit_posscale(ofVec3f(0.05, 0.65, -0.13), ofVec3f(0.05, 0.3, 0.05));    // } weapon
         glPopMatrix();
@@ -201,6 +212,8 @@ void customPlayer::draw3D() {
             glRotatef(this->cam.looking_angleX+90.0, 1, 0, 0);   // } rotate the arm
             glTranslatef(0.0, -0.1, 0.0);             // move joint of the arm back to original position
 
+            this->flashlight->draw3D();
+            //cube_unit_posscale(ofVec3f(0.0, 0.0, 0.0), ofVec3f(0.05, 0.05, 0.05));    // } weapon
             glColor3f(0.15, 0.15, 0.15);    // dark grey weapon
             cube_unit_posscale(ofVec3f(0.05, 0.65, -0.13), ofVec3f(0.05, 0.3, 0.05));    // } weapon
         glPopMatrix();
