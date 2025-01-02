@@ -18,17 +18,12 @@ customPlayer::customPlayer(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale)
     // run this to set up the object
 
     this->flashlight = new customLightObject( ofVec3f(0, 0, 0), ofVec3f(0, 0, 0), ofVec3f(1, 1, 0.8), ofVec3f(1, 1, 0.8), 3, 0 );
-	//this->flashlight->lightOn();
-    //shared_ptr<customGameObject>* flashlight_temp = new shared_ptr<customGameObject>( this->flashlight );
-	//dynamic_pointer_cast<customLightObject>(*flashlight_temp)->lightOn();
-	//globalgameobjects.push_back(flashlight_temp);
+
 
 }
 
 void customPlayer::update(int viewmode) {
     // run this every cycle
-
-
     
     if (gamestate!=0) {
         return;
@@ -243,7 +238,7 @@ void customPlayer::moving(int viewmode) {
     this->velocity = ofVec3f(0, this->velocity.y, 0);
     if (this->walking_forward) {
         if (viewmode == 0) {
-            this->velocity.z += -moving_speed;
+            this->velocity.z += -moving_speed;      // 2D
         } else {
             this->velocity.x += (this->cam.front * moving_speed).x;   // 3D
             this->velocity.z += (this->cam.front * moving_speed).z;
@@ -253,7 +248,7 @@ void customPlayer::moving(int viewmode) {
 
     if (this->walking_backward) {
         if (viewmode == 0) {
-            this->velocity.z += moving_speed;
+            this->velocity.z += moving_speed;       // 2D
         } else {
             this->velocity.x += -(this->cam.front * moving_speed).x;   // 3D
             this->velocity.z += -(this->cam.front * moving_speed).z;
