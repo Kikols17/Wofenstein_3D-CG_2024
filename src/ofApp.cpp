@@ -231,20 +231,34 @@ void ofApp::keyPressed(int key) {
             break;
 
         case 'm':
+        case 'M':
             this->showminimap = !this->showminimap;
             break;
         case 'h':
+        case 'H':
             this->showhitboxes = !this->showhitboxes;
             break;
         case 'c':
+        case 'C':
             this->showcontrols = !this->showcontrols;
             break;
         case 'o':
+        case 'O':
             this->showobjective = !this->showobjective;
             break;
         case 'r':
+        case 'R':
             loadLevel(1);
             break;
+        
+        case 'f':
+        case 'F':
+            if (!this->player.flashlight->debounce) {
+                this->player.flashlight->lightToggle();
+                this->player.flashlight->debounce = true;
+            }
+            break;
+        
         case ' ':
             if (gamestate == -1) {
                 gamestate = last_gamestate;
@@ -254,41 +268,33 @@ void ofApp::keyPressed(int key) {
             }
             break;
         
+
+        case 'w':
+        case 'W':
+            this->player.walking_forward = true;
+            break;
+        
+        case 's':
+        case 'S':
+            this->player.walking_backward = true;
+            break;
+        
+        case 'a':
+        case 'A':
+            this->player.walking_left = true;
+            break;
+        
+        case 'd':
+        case 'D':
+            this->player.walking_right = true;
+            break;
+        
+        case OF_KEY_SHIFT:
+            this->player.running = true;
+
+        
         default:
             break;
-    }
-
-
-    if (key=='w' || key=='W') {
-        this->player.walking_forward = true;
-    }
-    if (key=='s' || key=='S') {
-        this->player.walking_backward = true;
-    }
-    if (key=='a' || key=='A') {
-        this->player.walking_left = true;
-    }
-    if (key=='d' || key=='D') {
-        this->player.walking_right = true;
-    }
-    if (key==OF_KEY_CONTROL) {
-        //this->player.walking_
-    }
-    if (key==OF_KEY_SHIFT) {
-        this->player.running = true;
-    }
-
-    if (key==OF_KEY_LEFT) {
-        this->player.looking_left = true;
-    }
-    if (key==OF_KEY_RIGHT) {
-        this->player.looking_right = true;
-    }
-    if (key==OF_KEY_UP) {
-        this->player.looking_up = true;
-    }
-    if (key==OF_KEY_DOWN) {
-        this->player.looking_down = true;
     }
     this->cam->updatelooking();
     //cout << endl;
@@ -334,6 +340,10 @@ void ofApp::keyReleased(int key){
     }
     if (key==OF_KEY_DOWN) {
         this->player.looking_down = false;
+    }
+
+    if (key=='f') {
+        this->player.flashlight->debounce = false;
     }
 }
 

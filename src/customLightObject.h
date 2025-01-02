@@ -21,12 +21,15 @@ class customLightObject : public customGameObject {
 
         int lightOn();
         int lightOff();
+        int lightToggle();
 
 
         using customGameObject::position;
         using customGameObject::rotation;
         using customGameObject::scale;
         using customGameObject::color;
+
+        bool debounce = false;
 
     
 

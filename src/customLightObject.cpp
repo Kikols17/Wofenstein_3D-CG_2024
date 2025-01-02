@@ -157,9 +157,19 @@ int customLightObject::lightOff() {
     }
     if (this->light_id!=0) {
         glDisable(this->light_id);
+        this->light_id = -1;
+    } else {
+        globallightqueue[this->light_id-GL_LIGHT0].used = false;
+        this->light_id==-1;
     }
-    globallightqueue[this->light_id-GL_LIGHT0].used = false;
-    this->light_id==-1;
 
     return this->light_id;
+}
+
+int customLightObject::lightToggle() {
+    if (this->light_id==-1) {
+        return this->lightOn();
+    } else {
+        return this->lightOff();
+    }
 }
