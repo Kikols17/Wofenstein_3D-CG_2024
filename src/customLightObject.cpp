@@ -95,7 +95,7 @@ void customLightObject::draw3D() {
             glLightfv(this->light_id, GL_DIFFUSE, this->Dif);
             glLightfv(this->light_id, GL_SPECULAR, this->Spec);
 
-            glLightf(this->light_id, GL_SPOT_EXPONENT, 256.);
+            glLightf(this->light_id, GL_SPOT_EXPONENT, 192.);
             glLightf(this->light_id, GL_SPOT_CUTOFF, 30.);
 
             glLightf(this->light_id, GL_CONSTANT_ATTENUATION, 1.);
@@ -155,12 +155,13 @@ int customLightObject::lightOff() {
         // light already off
         return light_id;
     }
-    if (this->light_id!=0) {
-        glDisable(this->light_id);
+    if (this->light_id<GL_LIGHT0) {
+        // ambient light
         this->light_id = -1;
     } else {
+        glDisable(this->light_id);
         globallightqueue[this->light_id-GL_LIGHT0].used = false;
-        this->light_id==-1;
+        this->light_id=-1;
     }
 
     return this->light_id;
