@@ -110,6 +110,7 @@ inline void cube_unit_outline() {
 
 		//frente
 		//glColor3f(1, 0, 0);
+		glNormal3f(0, 0, 1);
 		glVertex3f(-p, -p, p);
 		glVertex3f(-p, p, p);
 		glVertex3f(p, p, p);
@@ -117,6 +118,7 @@ inline void cube_unit_outline() {
 
 		//tras
 		//glColor3f(0, 1, 0);
+		glNormal3f(0, 0, -1);
 		glVertex3f(-p, -p, -p);
 		glVertex3f(p, -p, -p);
 		glVertex3f(p, p, -p);
@@ -124,24 +126,28 @@ inline void cube_unit_outline() {
 
 		//glColor3f(1, 1, 1);
 		//cima
+		glNormal3f(0, -1, 0);
 		glVertex3f(-p, -p, -p);
 		glVertex3f(-p, -p, p);
 		glVertex3f(p, -p, p);
 		glVertex3f(p, -p, -p);
 
 		//baixo
+		glNormal3f(0, 1, 0);
 		glVertex3f(-p, p, p);
 		glVertex3f(-p, p, -p);
 		glVertex3f(p, p, -p);
 		glVertex3f(p, p, p);
 
 		//esq
+		glNormal3f(-1, 0, 0);
 		glVertex3f(-p, -p, p);
 		glVertex3f(-p, -p, -p);
 		glVertex3f(-p, p, -p);
 		glVertex3f(-p, p, p);
 
 		//dir
+		glNormal3f(1, 0, 0);
 		glVertex3f(p, -p, p);
 		glVertex3f(p, p, p);
 		glVertex3f(p, p, -p);
