@@ -26,6 +26,12 @@ ofImage tex_Floor;
 ofImage tex_Door;
 
 
+bool global_ambientbool = true;
+bool global_directionalbool = true;
+bool global_pontualbool = true;
+bool global_spotlightbool = true;
+
+
 
 //--------------------------------------------------------------
 void ofApp::setup(){
@@ -134,8 +140,8 @@ void ofApp::draw(){
     glEnable(GL_LIGHTING);//habilita o uso de ilumina��o
     glEnable(GL_NORMALIZE);//utiliza versores para normais (normais normalizadas)
     glLightModeli(GL_LIGHT_MODEL_LOCAL_VIEWER, GL_TRUE);
-    glShadeModel(GL_FLAT);
-    //glShadeModel(GL_SMOOTH);
+    //glShadeModel(GL_FLAT);
+    glShadeModel(GL_SMOOTH);
 
 
     switch (this->viewmode) {
@@ -291,6 +297,25 @@ void ofApp::keyPressed(int key) {
         
         case OF_KEY_SHIFT:
             this->player.running = true;
+            break;
+
+
+
+        // lights
+        // ambient
+        case OF_KEY_F1:
+            global_ambientbool = !global_ambientbool;
+            break;
+
+        // directional
+        case OF_KEY_F5:
+            global_directionalbool = !global_directionalbool;
+            break;
+
+        // pontual
+        case OF_KEY_F9:
+            global_pontualbool = !global_pontualbool;
+            break;
 
         
         default:

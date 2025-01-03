@@ -7,6 +7,10 @@
 struct lightqueue globallightqueue[NLIGHTS] = {{false,GL_LIGHT0}, {false,GL_LIGHT1}, {false,GL_LIGHT2}, {false,GL_LIGHT3}, {false,GL_LIGHT4}, {false,GL_LIGHT5}, {false,GL_LIGHT6}, {false,GL_LIGHT7}};
 
 
+extern bool global_ambientbool;
+extern bool global_directionalbool;
+extern bool global_pontualbool;
+extern bool global_spotlightbool;
 
 //--------------------------------------------------------------
 // public
@@ -75,50 +79,71 @@ void customLightObject::draw3D() {
     switch (type) {
         case 0:
             // ambient
-            glLightModelfv(GL_LIGHT_MODEL_AMBIENT, this->Amb);
+            if (global_ambientbool) {
+                glLightModelfv(GL_LIGHT_MODEL_AMBIENT, this->Amb);
+            } else {
+                GLfloat null_Amb[4];
+                null_Amb[0] = 0.;
+                null_Amb[1] = 0.;
+                null_Amb[2] = 0.;
+                null_Amb[3] = 0.;
+                glLightModelfv(GL_LIGHT_MODEL_AMBIENT, null_Amb);
+            }
             break;
         
         case 1:
             // directional
-            glLightfv(this->light_id, GL_POSITION, this->Dir);
-            glLightfv(this->light_id, GL_AMBIENT, this->Amb);
-            glLightfv(this->light_id, GL_DIFFUSE, this->Dif);
-            glLightfv(this->light_id, GL_SPECULAR, this->Spec);
+            if (global_directionalbool) {
+                glLightfv(this->light_id, GL_POSITION, this->Dir);
+                glLightfv(this->light_id, GL_AMBIENT, this->Amb);
+                glLightfv(this->light_id, GL_DIFFUSE, this->Dif);
+                glLightfv(this->light_id, GL_SPECULAR, this->Spec);
 
-            glEnable(this->light_id);
+                glEnable(this->light_id);
+            } else {
+                glDisable(this->light_id);
+            }
             break;
         
         case 2:
             // pontual
-            glLightfv(this->light_id, GL_POSITION, this->Pos);
-            glLightfv(this->light_id, GL_AMBIENT, this->Amb);
-            glLightfv(this->light_id, GL_DIFFUSE, this->Dif);
-            glLightfv(this->light_id, GL_SPECULAR, this->Spec);
+            if (global_pontualbool) {
+                glLightfv(this->light_id, GL_POSITION, this->Pos);
+                glLightfv(this->light_id, GL_AMBIENT, this->Amb);
+                glLightfv(this->light_id, GL_DIFFUSE, this->Dif);
+                glLightfv(this->light_id, GL_SPECULAR, this->Spec);
 
-            glLightf(this->light_id, GL_CONSTANT_ATTENUATION, 0.5);
-            glLightf(this->light_id, GL_LINEAR_ATTENUATION, 0.2);
-            glLightf(this->light_id, GL_QUADRATIC_ATTENUATION, 0.05);
+                glLightf(this->light_id, GL_CONSTANT_ATTENUATION, 0.5);
+                glLightf(this->light_id, GL_LINEAR_ATTENUATION, 0.2);
+                glLightf(this->light_id, GL_QUADRATIC_ATTENUATION, 0.05);
 
-            glEnable(this->light_id);
+                glEnable(this->light_id);
+            } else {
+                glDisable(this->light_id);
+            }
             break;
         
         case 3:
             // spotlight
-            glLightfv(this->light_id, GL_POSITION, this->Pos);
-            glLightfv(this->light_id, GL_SPOT_DIRECTION, this->Dir);
+            if (global_spotlightbool) {
+                glLightfv(this->light_id, GL_POSITION, this->Pos);
+                glLightfv(this->light_id, GL_SPOT_DIRECTION, this->Dir);
 
-            glLightfv(this->light_id, GL_AMBIENT, this->Amb);
-            glLightfv(this->light_id, GL_DIFFUSE, this->Dif);
-            glLightfv(this->light_id, GL_SPECULAR, this->Spec);
+                glLightfv(this->light_id, GL_AMBIENT, this->Amb);
+                glLightfv(this->light_id, GL_DIFFUSE, this->Dif);
+                glLightfv(this->light_id, GL_SPECULAR, this->Spec);
 
-            glLightf(this->light_id, GL_SPOT_EXPONENT, 192.);
-            glLightf(this->light_id, GL_SPOT_CUTOFF, 30.);
+                glLightf(this->light_id, GL_SPOT_EXPONENT, 160.);
+                glLightf(this->light_id, GL_SPOT_CUTOFF, 30.);
 
-            glLightf(this->light_id, GL_CONSTANT_ATTENUATION, 0.);
-            glLightf(this->light_id, GL_LINEAR_ATTENUATION, 0.1);
-            glLightf(this->light_id, GL_QUADRATIC_ATTENUATION, 0.);
+                glLightf(this->light_id, GL_CONSTANT_ATTENUATION, 0.);
+                glLightf(this->light_id, GL_LINEAR_ATTENUATION, 0.1);
+                glLightf(this->light_id, GL_QUADRATIC_ATTENUATION, 0.);
 
-            glEnable(this->light_id);
+                glEnable(this->light_id);
+            } else {
+                glDisable(this->light_id);
+            }
             break;
         
         default:
