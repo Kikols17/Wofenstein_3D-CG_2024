@@ -95,9 +95,9 @@ void customLightObject::draw3D() {
             glLightfv(this->light_id, GL_DIFFUSE, this->Dif);
             glLightfv(this->light_id, GL_SPECULAR, this->Spec);
 
-            glLightf(this->light_id, GL_CONSTANT_ATTENUATION, 1);
-            glLightf(this->light_id, GL_LINEAR_ATTENUATION, 0.0001);
-            glLightf(this->light_id, GL_QUADRATIC_ATTENUATION, 0.00001);
+            glLightf(this->light_id, GL_CONSTANT_ATTENUATION, 0.5);
+            glLightf(this->light_id, GL_LINEAR_ATTENUATION, 0.2);
+            glLightf(this->light_id, GL_QUADRATIC_ATTENUATION, 0.05);
 
             glEnable(this->light_id);
             break;
@@ -114,8 +114,8 @@ void customLightObject::draw3D() {
             glLightf(this->light_id, GL_SPOT_EXPONENT, 192.);
             glLightf(this->light_id, GL_SPOT_CUTOFF, 30.);
 
-            glLightf(this->light_id, GL_CONSTANT_ATTENUATION, 1.);
-            glLightf(this->light_id, GL_LINEAR_ATTENUATION, 0.);
+            glLightf(this->light_id, GL_CONSTANT_ATTENUATION, 0.);
+            glLightf(this->light_id, GL_LINEAR_ATTENUATION, 0.1);
             glLightf(this->light_id, GL_QUADRATIC_ATTENUATION, 0.);
 
             glEnable(this->light_id);
