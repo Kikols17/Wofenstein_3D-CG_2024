@@ -45,6 +45,10 @@ int wolfenstein(vector<shared_ptr<customGameObject>*> &gameobjects, customPlayer
 	dynamic_pointer_cast<customLightObject>(*go)->lightOn();
 	gameobjects.push_back(go);
 
+	go = new shared_ptr<customGameObject>( new customLightObject( ofVec3f(0, 0, 0), ofVec3f(45, 45, 0), ofVec3f(1, 1, 1), ofVec3f(1, 1, 1), 1, 0 ) );
+	dynamic_pointer_cast<customLightObject>(*go)->lightOn();
+	gameobjects.push_back(go);
+
 
 	go = new shared_ptr<customGameObject>( new customRoom_wall( ofVec3f(2*33, 2*0, 2*0), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2), ofVec3f(0.5, 0.25, 0.0), &tex_WoodWall, &mat_wood ) );
 	gameobjects.push_back(go);
@@ -4966,6 +4970,7 @@ int wolfenstein(vector<shared_ptr<customGameObject>*> &gameobjects, customPlayer
 
 
 
+
 // CRIADO POR MAPCREATOR
 int eisenfaust(vector<shared_ptr<customGameObject>*> &gameobjects, customPlayer &player) {
 
@@ -4976,6 +4981,10 @@ int eisenfaust(vector<shared_ptr<customGameObject>*> &gameobjects, customPlayer 
 	shared_ptr<customGameObject>* go;
 
 	go = new shared_ptr<customGameObject>( new customLightObject( ofVec3f(0, 0, 0), ofVec3f(0, 0, 0), ofVec3f(1, 1, 1), ofVec3f(1, 1, 1), 0, 0 ) );
+	dynamic_pointer_cast<customLightObject>(*go)->lightOn();
+	gameobjects.push_back(go);
+
+	go = new shared_ptr<customGameObject>( new customLightObject( ofVec3f(0, 0, 0), ofVec3f(45, 45, 0), ofVec3f(1, 1, 1), ofVec3f(1, 1, 1), 1, 0 ) );
 	dynamic_pointer_cast<customLightObject>(*go)->lightOn();
 	gameobjects.push_back(go);
 
