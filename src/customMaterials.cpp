@@ -58,9 +58,9 @@ custommaterial mat_blood = {
 };
 
 custommaterial mat_smoke = {
-    .ambi = { 0.1, 0.1, 0.1, 1.0 },
-    .difu = { 0.3, 0.3, 0.3, 1.0 },
-    .spec = { 0.2, 0.2, 0.2, 1.0 },
+    .ambi = { 0.0, 0.0, 0.0, 1.0 },
+    .difu = { 0.1, 0.1, 0.1, 1.0 },
+    .spec = { 0.05, 0.05, 0.05, 1.0 },
     .coef = (GLint)(0.05 * 128)
 };
 
