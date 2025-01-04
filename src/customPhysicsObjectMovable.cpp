@@ -3,6 +3,8 @@
 
 extern vector<customColisionBox*> globalcolisionBoxes;
 
+#define MAX_DELTAT 100
+
 
 //--------------------------------------------------------------
 // public
@@ -11,6 +13,7 @@ void customPhysicsObjectMovable::update() {
 
     // calculate deltaT
     uint64_t deltaT = ofGetCurrentTime().getAsMilliseconds() - lastUpdateTime;
+    deltaT = (deltaT*(deltaT<MAX_DELTAT)) + (MAX_DELTAT*(deltaT>MAX_DELTAT));    // cap deltaT at 100miliseconds
     //cout << deltaT << endl;
 
     // code from "https://www.delftstack.com/howto/cpp/how-to-get-time-in-milliseconds-cpp/"
