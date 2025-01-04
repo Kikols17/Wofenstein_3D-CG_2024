@@ -140,8 +140,9 @@ void ofApp::draw(){
     glEnable(GL_LIGHTING);//habilita o uso de ilumina��o
     glEnable(GL_NORMALIZE);//utiliza versores para normais (normais normalizadas)
     glLightModeli(GL_LIGHT_MODEL_LOCAL_VIEWER, GL_TRUE);
-    //glShadeModel(GL_FLAT);
-    glShadeModel(GL_SMOOTH);
+    glDisable(GL_COLOR_MATERIAL);
+    glShadeModel(GL_FLAT);
+    //glShadeModel(GL_SMOOTH);
 
 
     switch (this->viewmode) {
@@ -495,7 +496,8 @@ void ofApp::drawUI() {
             s += "\tm: toggle minimap (3D)\n";
             s += "\th: toggle hitboxes (3D)\n";
             //s += "\to: toggle objective\n";
-            s += "\tc: toggle controls [THIS SCREEN]\n\n";
+            s += "\tc: toggle controls [THIS SCREEN]\n";
+            s += "\tf: use flashlight\n\n";
 
             s += "\tr: restart level\n";
             s += "\tspace: pause\n\n";
@@ -511,7 +513,7 @@ void ofApp::drawUI() {
             s += "\t(reach green pad to end) [CHECK 2D]\n\n\n\n\n\n\n\n\n\n\n";
 
         } else {
-            s += "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
+            s += "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
         }
 
         s += "Health: " + to_string(this->player.health) + "\n\n";
