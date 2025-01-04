@@ -549,6 +549,12 @@ void ofApp::loadLevel(int level) {
     globalcolisionBoxes.clear();
     globalcolisionBoxes_toremove.clear();
 
+    // reset all lights
+    for (int i=0; i<8; i++) {
+        globallightqueue[i].used = false;
+    }
+
+
 
     // reset stats
     enemy_count = 0;
