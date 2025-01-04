@@ -17,10 +17,14 @@ extern bool global_spotlightbool;
 customLightObject::customLightObject(ofVec3f _position, ofVec3f _rotation, ofVec3f _scale, ofVec3f _color, int _type, uint64_t _lifetime) : customGameObject(_position, _rotation, _scale, _color, NULL, NULL) {
     this->type = _type;
 
-    this->Dir[0] = .0;
-    this->Dir[1] = 1.0;
-    this->Dir[2] = .0;
-    this->Dir[3] = 1.0;
+    ofVec3f tempdir = ofVec3f(0, 1, 0);
+    tempdir = rotateX(tempdir, this->rotation.x);
+    tempdir = rotateY(tempdir, this->rotation.y);
+    tempdir = rotateZ(tempdir, this->rotation.z);
+    this->Dir[0] = (GLfloat)tempdir[0];
+    this->Dir[1] = (GLfloat)tempdir[1];
+    this->Dir[2] = (GLfloat)tempdir[2];
+    this->Dir[3] = 1.;
 
     this->Pos[0] = (GLfloat)_position[0];
     this->Pos[1] = (GLfloat)_position[1];
@@ -50,6 +54,20 @@ customLightObject::customLightObject(ofVec3f _position, ofVec3f _rotation, ofVec
 
 
 void customLightObject::update() {
+    ofVec3f tempdir = ofVec3f(0, 1, 0);
+    tempdir = rotateX(tempdir, this->rotation.x);
+    tempdir = rotateY(tempdir, this->rotation.y);
+    tempdir = rotateZ(tempdir, this->rotation.z);
+    this->Dir[0] = (GLfloat)tempdir[0];
+    this->Dir[1] = (GLfloat)tempdir[1];
+    this->Dir[2] = (GLfloat)tempdir[2];
+    if (this->type == 1) {
+        this->Dir[3] = 0.;
+    } else {
+        this->Dir[3] = 1.;
+
+    }
+
     this->Pos[0] = (GLfloat)this->position[0];
     this->Pos[1] = (GLfloat)this->position[1];
     this->Pos[2] = (GLfloat)this->position[2];
@@ -63,6 +81,10 @@ void customLightObject::update() {
     if (this->light_id!=0  &&  this->lifetime!=0  &&  (ofGetElapsedTimeMillis()-this->birthtime > this->lifetime)) {
         this->lightOff();
     }
+
+    //this->rotation.x += 0.1;
+    //this->rotation.y += 0.1;
+    //this->rotation.z += 0.1;
 }
 
 
@@ -133,7 +155,7 @@ void customLightObject::draw3D() {
                 glLightfv(this->light_id, GL_DIFFUSE, this->Dif);
                 glLightfv(this->light_id, GL_SPECULAR, this->Spec);
 
-                glLightf(this->light_id, GL_SPOT_EXPONENT, 160.);
+                glLightf(this->light_id, GL_SPOT_EXPONENT, 160.);   // 160.
                 glLightf(this->light_id, GL_SPOT_CUTOFF, 30.);
 
                 glLightf(this->light_id, GL_CONSTANT_ATTENUATION, 0.);

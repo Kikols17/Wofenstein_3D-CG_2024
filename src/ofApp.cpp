@@ -123,7 +123,7 @@ void ofApp::draw(){
     //this->cam->moveto(0, 0, -100);
 
     // draw the UI
-    glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_DECAL);
+    //glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_DECAL);
     drawUI();
 
     // draw all objects in the correct viewmode
@@ -490,8 +490,7 @@ void ofApp::drawUI() {
             s += "\t2: 3D view (1st person)\n";
             s += "\t3: 3D view (3rd person)\n\n";
 
-            s += "\t+: zoom in (2D)\n";
-            s += "\t-: zoom out (2D)\n\n";
+            s += "\t+/-: zoom in/out (2D)\n\n";
 
             s += "\tm: toggle minimap (3D)\n";
             s += "\th: toggle hitboxes (3D)\n";
@@ -505,7 +504,8 @@ void ofApp::drawUI() {
             s += "\tshift: run\n\n";
 
             s += "\tmouse: look around\n";
-            s += "\tmouse left: shoot\n\n";
+            s += "\tmouse left: shoot\n";
+            s += "\tmouse scroll: zoom in/out (2D)\n\n";
 
             s += "\t(walk into doors to open)\n";
             s += "\t(reach green pad to end) [CHECK 2D]\n\n\n\n\n\n\n\n\n\n\n";
@@ -552,6 +552,7 @@ void ofApp::loadLevel(int level) {
     // reset all lights
     for (int i=0; i<8; i++) {
         globallightqueue[i].used = false;
+        glDisable(globallightqueue[i].light_id);
     }
 
 

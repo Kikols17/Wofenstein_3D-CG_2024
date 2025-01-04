@@ -5,6 +5,7 @@
 
 
 #include "customGameObject.h"
+#include "cg_extras.h"
 
 #include "ofMain.h"
 
