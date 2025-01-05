@@ -24,6 +24,7 @@ ofImage tex_CyanMetal;
 ofImage tex_WoodWall;
 ofImage tex_Floor;
 ofImage tex_Door;
+ofImage tex_Background;
 
 
 bool global_ambientbool = true;
@@ -58,7 +59,9 @@ void ofApp::setup(){
     glEnable(GL_CULL_FACE);
     glCullFace(GL_FRONT);
     ofBackground(0.05, 0.05, 0.05);
+    ofBackground(1.0, 1.0, 1.0);
 
+    ofDisableArbTex();
 	glPointSize(5);
 	glLineWidth(3);
 
@@ -71,6 +74,7 @@ void ofApp::setup(){
     tex_WoodWall.load("WoodWall.png");
     tex_Floor.load("Floor.png");
     tex_Door.load("Door.png");
+    tex_Background.load("Background.png");
 
 
     globalcolisionBoxes = vector<customColisionBox*>({});
@@ -147,10 +151,8 @@ void ofApp::draw(){
 
     // stuff for textures
     glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
-    glTexParameteri(GL_TEXTURE, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-    glTexParameteri(GL_TEXTURE, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-    glTexParameteri(GL_TEXTURE, GL_TEXTURE_WRAP_S, GL_CLAMP);
-    glTexParameteri(GL_TEXTURE, GL_TEXTURE_WRAP_T, GL_CLAMP);
+    glTexParameteri(GL_TEXTURE, GL_TEXTURE_WRAP_S, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE, GL_TEXTURE_WRAP_T, GL_REPEAT);
 
 
     glEnable(GL_LIGHTING);//habilita o uso de ilumina��o
@@ -160,7 +162,6 @@ void ofApp::draw(){
     glShadeModel(GL_FLAT);
     //glShadeModel(GL_SMOOTH);
 
-
     switch (this->viewmode) {
         case 0:
             /* 2D */
@@ -168,8 +169,25 @@ void ofApp::draw(){
             glMatrixMode(GL_PROJECTION);
             glLoadIdentity();
 
+
             glPushMatrix();
                 this->cam->draw2D();    // apply the 2D camara's transformations
+
+                // Enable 2D texturing
+                glEnable(GL_TEXTURE);
+                tex_Background.bind();
+                glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+                glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+                // Draw the background as a tiled texture
+                glBegin(GL_QUADS);
+                    glTexCoord2f(0, 0);         glVertex3f(-200, -5, -200);
+                    glTexCoord2f(512, 0);       glVertex3f(300, -5, -200);
+                    glTexCoord2f(512, 512);     glVertex3f(300, -5, 300);
+                    glTexCoord2f(0, 512);       glVertex3f(-200, -5, 300);
+                glEnd();
+                tex_Background.unbind();
+                glDisable(GL_TEXTURE);
+
                 for (int i=0; i<gosize; i++) {
                     (*globalgameobjects[i])->draw2D();
                 }

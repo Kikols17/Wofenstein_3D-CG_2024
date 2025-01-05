@@ -1,9 +1,6 @@
 #include "customRoom_types.h"
 
 
-#define TEX_SIZE 1024
-#define TEX_SIZE2 1504
-
 #define LIGHT_RES 8
 
 
@@ -86,10 +83,10 @@ void customRoom_Xhallway::draw2D() {
             glNormal3f(0, 1, 0);
             for (int i = 0; i < LIGHT_RES; ++i) {
                 for (int j = 0; j < LIGHT_RES; ++j) {
-                    glTexCoord2f(i * (TEX_SIZE / LIGHT_RES), (j + 1) * (TEX_SIZE / LIGHT_RES));               glVertex3f(0.5f - i * (1.0f / LIGHT_RES), 0.0f, -0.5f + (j + 1) * (1.0f / LIGHT_RES));
-                    glTexCoord2f((i + 1) * (TEX_SIZE / LIGHT_RES), (j + 1) * (TEX_SIZE / LIGHT_RES));         glVertex3f(0.5f - (i + 1) * (1.0f / LIGHT_RES), 0.0f, -0.5f + (j + 1) * (1.0f / LIGHT_RES));
-                    glTexCoord2f((i + 1) * (TEX_SIZE / LIGHT_RES), j * (TEX_SIZE / LIGHT_RES));               glVertex3f(0.5f - (i + 1) * (1.0f / LIGHT_RES), 0.0f, -0.5f + j * (1.0f / LIGHT_RES));
-                    glTexCoord2f(i * (TEX_SIZE / LIGHT_RES), j * (TEX_SIZE / LIGHT_RES));                     glVertex3f(0.5f - i * (1.0f / LIGHT_RES), 0.0f, -0.5f + j * (1.0f / LIGHT_RES));
+                    glTexCoord2f(i * (1.0 / LIGHT_RES), (j + 1) * (1.0 / LIGHT_RES));       glVertex3f(0.5f - i * (1.0f / LIGHT_RES), 0.0f, -0.5f + (j + 1) * (1.0f / LIGHT_RES));
+                    glTexCoord2f((i + 1) * (1.0 / LIGHT_RES), (j + 1) * (1.0 / LIGHT_RES)); glVertex3f(0.5f - (i + 1) * (1.0f / LIGHT_RES), 0.0f, -0.5f + (j + 1) * (1.0f / LIGHT_RES));
+                    glTexCoord2f((i + 1) * (1.0 / LIGHT_RES), j * (1.0 / LIGHT_RES));       glVertex3f(0.5f - (i + 1) * (1.0f / LIGHT_RES), 0.0f, -0.5f + j * (1.0f / LIGHT_RES));
+                    glTexCoord2f(i * (1.0 / LIGHT_RES), j * (1.0 / LIGHT_RES));             glVertex3f(0.5f - i * (1.0f / LIGHT_RES), 0.0f, -0.5f + j * (1.0f / LIGHT_RES));
                 }
             }
         glEnd();
@@ -114,10 +111,10 @@ void customRoom_Xhallway::draw3D() {
             glNormal3f(0, 1, 0);
             for (int i = 0; i < LIGHT_RES; ++i) {
                 for (int j = 0; j < LIGHT_RES; ++j) {
-                    glTexCoord2f(i * (TEX_SIZE / LIGHT_RES), (j + 1) * (TEX_SIZE / LIGHT_RES));       glVertex3f(0.5f - i * (1.0f / LIGHT_RES), 0.0f, -0.5f + (j + 1) * (1.0f / LIGHT_RES));
-                    glTexCoord2f((i + 1) * (TEX_SIZE / LIGHT_RES), (j + 1) * (TEX_SIZE / LIGHT_RES)); glVertex3f(0.5f - (i + 1) * (1.0f / LIGHT_RES), 0.0f, -0.5f + (j + 1) * (1.0f / LIGHT_RES));
-                    glTexCoord2f((i + 1) * (TEX_SIZE / LIGHT_RES), j * (TEX_SIZE / LIGHT_RES));       glVertex3f(0.5f - (i + 1) * (1.0f / LIGHT_RES), 0.0f, -0.5f + j * (1.0f / LIGHT_RES));
-                    glTexCoord2f(i * (TEX_SIZE / LIGHT_RES), j * (TEX_SIZE / LIGHT_RES));             glVertex3f(0.5f - i * (1.0f / LIGHT_RES), 0.0f, -0.5f + j * (1.0f / LIGHT_RES));
+                    glTexCoord2f(i * (1.0 / LIGHT_RES), (j + 1) * (1.0 / LIGHT_RES));       glVertex3f(0.5f - i * (1.0f / LIGHT_RES), 0.0f, -0.5f + (j + 1) * (1.0f / LIGHT_RES));
+                    glTexCoord2f((i + 1) * (1.0 / LIGHT_RES), (j + 1) * (1.0 / LIGHT_RES)); glVertex3f(0.5f - (i + 1) * (1.0f / LIGHT_RES), 0.0f, -0.5f + (j + 1) * (1.0f / LIGHT_RES));
+                    glTexCoord2f((i + 1) * (1.0 / LIGHT_RES), j * (1.0 / LIGHT_RES));       glVertex3f(0.5f - (i + 1) * (1.0f / LIGHT_RES), 0.0f, -0.5f + j * (1.0f / LIGHT_RES));
+                    glTexCoord2f(i * (1.0 / LIGHT_RES), j * (1.0 / LIGHT_RES));             glVertex3f(0.5f - i * (1.0f / LIGHT_RES), 0.0f, -0.5f + j * (1.0f / LIGHT_RES));
                 }
             }
 
@@ -125,10 +122,10 @@ void customRoom_Xhallway::draw3D() {
             glNormal3f(0, -1, 0);
             for (int i = 0; i < LIGHT_RES; ++i) {
                 for (int j = 0; j < LIGHT_RES; ++j) {
-                    glTexCoord2f(i * (TEX_SIZE / LIGHT_RES), (j + 1) * (TEX_SIZE / LIGHT_RES));       glVertex3f(-0.5f + i * (1.0f / LIGHT_RES), 1.0f, -0.5f + (j + 1) * (1.0f / LIGHT_RES));
-                    glTexCoord2f((i + 1) * (TEX_SIZE / LIGHT_RES), (j + 1) * (TEX_SIZE / LIGHT_RES)); glVertex3f(-0.5f + (i + 1) * (1.0f / LIGHT_RES), 1.0f, -0.5f + (j + 1) * (1.0f / LIGHT_RES));
-                    glTexCoord2f((i + 1) * (TEX_SIZE / LIGHT_RES), j * (TEX_SIZE / LIGHT_RES));       glVertex3f(-0.5f + (i + 1) * (1.0f / LIGHT_RES), 1.0f, -0.5f + j * (1.0f / LIGHT_RES));
-                    glTexCoord2f(i * (TEX_SIZE / LIGHT_RES), j * (TEX_SIZE / LIGHT_RES));             glVertex3f(-0.5f + i * (1.0f / LIGHT_RES), 1.0f, -0.5f + j * (1.0f / LIGHT_RES));
+                    glTexCoord2f(i * (1.0 / LIGHT_RES), (j + 1) * (1.0 / LIGHT_RES));       glVertex3f(-0.5f + i * (1.0f / LIGHT_RES), 1.0f, -0.5f + (j + 1) * (1.0f / LIGHT_RES));
+                    glTexCoord2f((i + 1) * (1.0 / LIGHT_RES), (j + 1) * (1.0 / LIGHT_RES)); glVertex3f(-0.5f + (i + 1) * (1.0f / LIGHT_RES), 1.0f, -0.5f + (j + 1) * (1.0f / LIGHT_RES));
+                    glTexCoord2f((i + 1) * (1.0 / LIGHT_RES), j * (1.0 / LIGHT_RES));       glVertex3f(-0.5f + (i + 1) * (1.0f / LIGHT_RES), 1.0f, -0.5f + j * (1.0f / LIGHT_RES));
+                    glTexCoord2f(i * (1.0 / LIGHT_RES), j * (1.0 / LIGHT_RES));             glVertex3f(-0.5f + i * (1.0f / LIGHT_RES), 1.0f, -0.5f + j * (1.0f / LIGHT_RES));
                 }
             }
         glEnd();
@@ -167,10 +164,10 @@ void customRoom_wall::draw2D() {
             glNormal3f(0, 1, 0);
             for (int i = 0; i < LIGHT_RES; ++i) {
                 for (int j = 0; j < LIGHT_RES; ++j) {
-                    glTexCoord2f(i * (TEX_SIZE / LIGHT_RES), j * (TEX_SIZE / LIGHT_RES));             glVertex3f(-0.5f + i * (1.0f / LIGHT_RES), 1.0f, -0.5f + j * (1.0f / LIGHT_RES));
-                    glTexCoord2f((i + 1) * (TEX_SIZE / LIGHT_RES), j * (TEX_SIZE / LIGHT_RES));       glVertex3f(-0.5f + (i + 1) * (1.0f / LIGHT_RES), 1.0f, -0.5f + j * (1.0f / LIGHT_RES));
-                    glTexCoord2f((i + 1) * (TEX_SIZE / LIGHT_RES), (j + 1) * (TEX_SIZE / LIGHT_RES)); glVertex3f(-0.5f + (i + 1) * (1.0f / LIGHT_RES), 1.0f, -0.5f + (j + 1) * (1.0f / LIGHT_RES));
-                    glTexCoord2f(i * (TEX_SIZE / LIGHT_RES), (j + 1) * (TEX_SIZE / LIGHT_RES));       glVertex3f(-0.5f + i * (1.0f / LIGHT_RES), 1.0f, -0.5f + (j + 1) * (1.0f / LIGHT_RES));
+                    glTexCoord2f(i * (1.0 / LIGHT_RES), j * (1.0 / LIGHT_RES));             glVertex3f(-0.5f + i * (1.0f / LIGHT_RES), 1.0f, -0.5f + j * (1.0f / LIGHT_RES));
+                    glTexCoord2f((i + 1) * (1.0 / LIGHT_RES), j * (1.0 / LIGHT_RES));       glVertex3f(-0.5f + (i + 1) * (1.0f / LIGHT_RES), 1.0f, -0.5f + j * (1.0f / LIGHT_RES));
+                    glTexCoord2f((i + 1) * (1.0 / LIGHT_RES), (j + 1) * (1.0 / LIGHT_RES)); glVertex3f(-0.5f + (i + 1) * (1.0f / LIGHT_RES), 1.0f, -0.5f + (j + 1) * (1.0f / LIGHT_RES));
+                    glTexCoord2f(i * (1.0 / LIGHT_RES), (j + 1) * (1.0 / LIGHT_RES));       glVertex3f(-0.5f + i * (1.0f / LIGHT_RES), 1.0f, -0.5f + (j + 1) * (1.0f / LIGHT_RES));
                 }
             }
         glEnd();
@@ -194,18 +191,18 @@ void customRoom_wall::draw3D() {
             // ceiling
             //glNormal3f(0, 1, 0);
             //glTexCoord2f(0, 0);                 glVertex3f(-0.5, 1, -0.5);
-            //glTexCoord2f(TEX_SIZE, 0);          glVertex3f(0.5, 1, -0.5);
-            //glTexCoord2f(TEX_SIZE, TEX_SIZE);   glVertex3f(0.5, 1, 0.5);
-            //glTexCoord2f(0, TEX_SIZE);          glVertex3f(-0.5, 1, 0.5);
+            //glTexCoord2f(1.0, 0);          glVertex3f(0.5, 1, -0.5);
+            //glTexCoord2f(1.0, 1.0);   glVertex3f(0.5, 1, 0.5);
+            //glTexCoord2f(0, 1.0);          glVertex3f(-0.5, 1, 0.5);
 
             // left wall
             glNormal3f(-1, 0, 0);
             for (int i = 0; i < LIGHT_RES; ++i) {
                 for (int j = 0; j < LIGHT_RES; ++j) {
-                    glTexCoord2f(i * (TEX_SIZE / LIGHT_RES), j * (TEX_SIZE / LIGHT_RES));             glVertex3f(-0.5f, 1.0f - j * (1.0f / LIGHT_RES), -0.5f + i * (1.0f / LIGHT_RES));
-                    glTexCoord2f((i + 1) * (TEX_SIZE / LIGHT_RES), j * (TEX_SIZE / LIGHT_RES));       glVertex3f(-0.5f, 1.0f - j * (1.0f / LIGHT_RES), -0.5f + (i + 1) * (1.0f / LIGHT_RES));
-                    glTexCoord2f((i + 1) * (TEX_SIZE / LIGHT_RES), (j + 1) * (TEX_SIZE / LIGHT_RES)); glVertex3f(-0.5f, 1.0f - (j + 1) * (1.0f / LIGHT_RES), -0.5f + (i + 1) * (1.0f / LIGHT_RES));
-                    glTexCoord2f(i * (TEX_SIZE / LIGHT_RES), (j + 1) * (TEX_SIZE / LIGHT_RES));       glVertex3f(-0.5f, 1.0f - (j + 1) * (1.0f / LIGHT_RES), -0.5f + i * (1.0f / LIGHT_RES));
+                    glTexCoord2f(i * (1.0 / LIGHT_RES), j * (1.0 / LIGHT_RES));             glVertex3f(-0.5f, 1.0f - j * (1.0f / LIGHT_RES), -0.5f + i * (1.0f / LIGHT_RES));
+                    glTexCoord2f((i + 1) * (1.0 / LIGHT_RES), j * (1.0 / LIGHT_RES));       glVertex3f(-0.5f, 1.0f - j * (1.0f / LIGHT_RES), -0.5f + (i + 1) * (1.0f / LIGHT_RES));
+                    glTexCoord2f((i + 1) * (1.0 / LIGHT_RES), (j + 1) * (1.0 / LIGHT_RES)); glVertex3f(-0.5f, 1.0f - (j + 1) * (1.0f / LIGHT_RES), -0.5f + (i + 1) * (1.0f / LIGHT_RES));
+                    glTexCoord2f(i * (1.0 / LIGHT_RES), (j + 1) * (1.0 / LIGHT_RES));       glVertex3f(-0.5f, 1.0f - (j + 1) * (1.0f / LIGHT_RES), -0.5f + i * (1.0f / LIGHT_RES));
                 }
             }
 
@@ -213,10 +210,10 @@ void customRoom_wall::draw3D() {
             glNormal3f(1, 0, 0);
             for (int i = 0; i < LIGHT_RES; ++i) {
                 for (int j = 0; j < LIGHT_RES; ++j) {
-                    glTexCoord2f(i * (TEX_SIZE / LIGHT_RES), j * (TEX_SIZE / LIGHT_RES));             glVertex3f(0.5f, 1.0f - j * (1.0f / LIGHT_RES), 0.5f - i * (1.0f / LIGHT_RES));
-                    glTexCoord2f((i + 1) * (TEX_SIZE / LIGHT_RES), j * (TEX_SIZE / LIGHT_RES));       glVertex3f(0.5f, 1.0f - j * (1.0f / LIGHT_RES), 0.5f - (i + 1) * (1.0f / LIGHT_RES));
-                    glTexCoord2f((i + 1) * (TEX_SIZE / LIGHT_RES), (j + 1) * (TEX_SIZE / LIGHT_RES)); glVertex3f(0.5f, 1.0f - (j + 1) * (1.0f / LIGHT_RES), 0.5f - (i + 1) * (1.0f / LIGHT_RES));
-                    glTexCoord2f(i * (TEX_SIZE / LIGHT_RES), (j + 1) * (TEX_SIZE / LIGHT_RES));       glVertex3f(0.5f, 1.0f - (j + 1) * (1.0f / LIGHT_RES), 0.5f - i * (1.0f / LIGHT_RES));
+                    glTexCoord2f(i * (1.0 / LIGHT_RES), j * (1.0 / LIGHT_RES));             glVertex3f(0.5f, 1.0f - j * (1.0f / LIGHT_RES), 0.5f - i * (1.0f / LIGHT_RES));
+                    glTexCoord2f((i + 1) * (1.0 / LIGHT_RES), j * (1.0 / LIGHT_RES));       glVertex3f(0.5f, 1.0f - j * (1.0f / LIGHT_RES), 0.5f - (i + 1) * (1.0f / LIGHT_RES));
+                    glTexCoord2f((i + 1) * (1.0 / LIGHT_RES), (j + 1) * (1.0 / LIGHT_RES)); glVertex3f(0.5f, 1.0f - (j + 1) * (1.0f / LIGHT_RES), 0.5f - (i + 1) * (1.0f / LIGHT_RES));
+                    glTexCoord2f(i * (1.0 / LIGHT_RES), (j + 1) * (1.0 / LIGHT_RES));       glVertex3f(0.5f, 1.0f - (j + 1) * (1.0f / LIGHT_RES), 0.5f - i * (1.0f / LIGHT_RES));
                 }
             }
 
@@ -224,10 +221,10 @@ void customRoom_wall::draw3D() {
             glNormal3f(0, 0, 1);
             for (int i = 0; i < LIGHT_RES; ++i) {
                 for (int j = 0; j < LIGHT_RES; ++j) {
-                    glTexCoord2f(i * (TEX_SIZE / LIGHT_RES), j * (TEX_SIZE / LIGHT_RES));             glVertex3f(-0.5f + i * (1.0f / LIGHT_RES), 1.0f - j * (1.0f / LIGHT_RES), 0.5f);
-                    glTexCoord2f((i + 1) * (TEX_SIZE / LIGHT_RES), j * (TEX_SIZE / LIGHT_RES));       glVertex3f(-0.5f + (i + 1) * (1.0f / LIGHT_RES), 1.0f - j * (1.0f / LIGHT_RES), 0.5f);
-                    glTexCoord2f((i + 1) * (TEX_SIZE / LIGHT_RES), (j + 1) * (TEX_SIZE / LIGHT_RES)); glVertex3f(-0.5f + (i + 1) * (1.0f / LIGHT_RES), 1.0f - (j + 1) * (1.0f / LIGHT_RES), 0.5f);
-                    glTexCoord2f(i * (TEX_SIZE / LIGHT_RES), (j + 1) * (TEX_SIZE / LIGHT_RES));       glVertex3f(-0.5f + i * (1.0f / LIGHT_RES), 1.0f - (j + 1) * (1.0f / LIGHT_RES), 0.5f);
+                    glTexCoord2f(i * (1.0 / LIGHT_RES), j * (1.0 / LIGHT_RES));             glVertex3f(-0.5f + i * (1.0f / LIGHT_RES), 1.0f - j * (1.0f / LIGHT_RES), 0.5f);
+                    glTexCoord2f((i + 1) * (1.0 / LIGHT_RES), j * (1.0 / LIGHT_RES));       glVertex3f(-0.5f + (i + 1) * (1.0f / LIGHT_RES), 1.0f - j * (1.0f / LIGHT_RES), 0.5f);
+                    glTexCoord2f((i + 1) * (1.0 / LIGHT_RES), (j + 1) * (1.0 / LIGHT_RES)); glVertex3f(-0.5f + (i + 1) * (1.0f / LIGHT_RES), 1.0f - (j + 1) * (1.0f / LIGHT_RES), 0.5f);
+                    glTexCoord2f(i * (1.0 / LIGHT_RES), (j + 1) * (1.0 / LIGHT_RES));       glVertex3f(-0.5f + i * (1.0f / LIGHT_RES), 1.0f - (j + 1) * (1.0f / LIGHT_RES), 0.5f);
                 }
             }
 
@@ -235,10 +232,10 @@ void customRoom_wall::draw3D() {
             glNormal3f(0, 0, -1);
             for (int i = 0; i < LIGHT_RES; ++i) {
                 for (int j = 0; j < LIGHT_RES; ++j) {
-                    glTexCoord2f(i * (TEX_SIZE / LIGHT_RES), j * (TEX_SIZE / LIGHT_RES));             glVertex3f(0.5f - i * (1.0f / LIGHT_RES), 1.0f - j * (1.0f / LIGHT_RES), -0.5f);
-                    glTexCoord2f((i + 1) * (TEX_SIZE / LIGHT_RES), j * (TEX_SIZE / LIGHT_RES));       glVertex3f(0.5f - (i + 1) * (1.0f / LIGHT_RES), 1.0f - j * (1.0f / LIGHT_RES), -0.5f);
-                    glTexCoord2f((i + 1) * (TEX_SIZE / LIGHT_RES), (j + 1) * (TEX_SIZE / LIGHT_RES)); glVertex3f(0.5f - (i + 1) * (1.0f / LIGHT_RES), 1.0f - (j + 1) * (1.0f / LIGHT_RES), -0.5f);
-                    glTexCoord2f(i * (TEX_SIZE / LIGHT_RES), (j + 1) * (TEX_SIZE / LIGHT_RES));       glVertex3f(0.5f - i * (1.0f / LIGHT_RES), 1.0f - (j + 1) * (1.0f / LIGHT_RES), -0.5f);
+                    glTexCoord2f(i * (1.0 / LIGHT_RES), j * (1.0 / LIGHT_RES));             glVertex3f(0.5f - i * (1.0f / LIGHT_RES), 1.0f - j * (1.0f / LIGHT_RES), -0.5f);
+                    glTexCoord2f((i + 1) * (1.0 / LIGHT_RES), j * (1.0 / LIGHT_RES));       glVertex3f(0.5f - (i + 1) * (1.0f / LIGHT_RES), 1.0f - j * (1.0f / LIGHT_RES), -0.5f);
+                    glTexCoord2f((i + 1) * (1.0 / LIGHT_RES), (j + 1) * (1.0 / LIGHT_RES)); glVertex3f(0.5f - (i + 1) * (1.0f / LIGHT_RES), 1.0f - (j + 1) * (1.0f / LIGHT_RES), -0.5f);
+                    glTexCoord2f(i * (1.0 / LIGHT_RES), (j + 1) * (1.0 / LIGHT_RES));       glVertex3f(0.5f - i * (1.0f / LIGHT_RES), 1.0f - (j + 1) * (1.0f / LIGHT_RES), -0.5f);
                 }
             }
         glEnd();
@@ -310,12 +307,16 @@ void customRoom_door::draw2D() {
             glNormal3f(0, 1, 0);
             for (int i = 0; i < LIGHT_RES; ++i) {
                 for (int j = 0; j < LIGHT_RES; ++j) {
-                    glTexCoord2f(TEX_SIZE + i * ((TEX_SIZE2 - TEX_SIZE) / LIGHT_RES), (j + 1) * (TEX_SIZE / LIGHT_RES));               glVertex3f(0.5f - i * (1.0f / LIGHT_RES), 0.9f, -0.2f + (j + 1) * (0.4f / LIGHT_RES));
-                    glTexCoord2f(TEX_SIZE + (i + 1) * ((TEX_SIZE2 - TEX_SIZE) / LIGHT_RES), (j + 1) * (TEX_SIZE / LIGHT_RES));         glVertex3f(0.5f - (i + 1) * (1.0f / LIGHT_RES), 0.9f, -0.2f + (j + 1) * (0.4f / LIGHT_RES));
-                    glTexCoord2f(TEX_SIZE + (i + 1) * ((TEX_SIZE2 - TEX_SIZE) / LIGHT_RES), j * (TEX_SIZE / LIGHT_RES));               glVertex3f(0.5f - (i + 1) * (1.0f / LIGHT_RES), 0.9f, -0.2f + j * (0.4f / LIGHT_RES));
-                    glTexCoord2f(TEX_SIZE + i * ((TEX_SIZE2 - TEX_SIZE) / LIGHT_RES), j * (TEX_SIZE / LIGHT_RES));                     glVertex3f(0.5f - i * (1.0f / LIGHT_RES), 0.9f, -0.2f + j * (0.4f / LIGHT_RES));
+                    glTexCoord2f(i * (1.0 / LIGHT_RES), j * (1.0 / LIGHT_RES));             glVertex3f(0.5f - i * (1.0f / LIGHT_RES), 0.9f, -0.2f + j * (0.4f / LIGHT_RES));
+                    glTexCoord2f(i * (1.0 / LIGHT_RES), (j + 1) * (1.0 / LIGHT_RES));       glVertex3f(0.5f - i * (1.0f / LIGHT_RES), 0.9f, -0.2f + (j + 1) * (0.4f / LIGHT_RES));
+                    glTexCoord2f((i + 1) * (1.0 / LIGHT_RES), (j + 1) * (1.0 / LIGHT_RES)); glVertex3f(0.5f - (i + 1) * (1.0f / LIGHT_RES), 0.9f, -0.2f + (j + 1) * (0.4f / LIGHT_RES));
+                    glTexCoord2f((i + 1) * (1.0 / LIGHT_RES), j * (1.0 / LIGHT_RES));       glVertex3f(0.5f - (i + 1) * (1.0f / LIGHT_RES), 0.9f, -0.2f + j * (0.4f / LIGHT_RES));
                 }
             }
+            //                                                  glTexCoord2f(0.680851064, 0);       glVertex3f(0.5f - i * (1.0f / LIGHT_RES), 0.9f, -0.2f + j * (0.4f / LIGHT_RES));
+            //                                                  glTexCoord2f(1.0, 0);               glVertex3f(0.5f - i * (1.0f / LIGHT_RES), 0.9f, -0.2f + (j + 1) * (0.4f / LIGHT_RES));
+            //                                                  glTexCoord2f(1.0, 1.0);             glVertex3f(0.5f - (i + 1) * (1.0f / LIGHT_RES), 0.9f, -0.2f + (j + 1) * (0.4f / LIGHT_RES));
+            //                                                  glTexCoord2f(0.680851064, 1.0);     glVertex3f(0.5f - (i + 1) * (1.0f / LIGHT_RES), 0.9f, -0.2f + j * (0.4f / LIGHT_RES));
         glEnd();
 
         this->texture->unbind();
@@ -337,26 +338,26 @@ void customRoom_door::draw3D() {
 
             // door left
             glNormal3f(-1, 0, 0);
-            glTexCoord2f(TEX_SIZE, 0);          glVertex3f(-0.5, 1, -0.2);
-            glTexCoord2f(TEX_SIZE2, 0);         glVertex3f(-0.5, 1, 0.2);
-            glTexCoord2f(TEX_SIZE2, TEX_SIZE);  glVertex3f(-0.5, 0, 0.2);
-            glTexCoord2f(TEX_SIZE, TEX_SIZE);   glVertex3f(-0.5, 0, -0.2);
+            glTexCoord2f(0, 0);                 glVertex3f(-0.5, 1, -0.2);
+            glTexCoord2f(1.0, 0);               glVertex3f(-0.5, 1, 0.2);
+            glTexCoord2f(1.0, 1.0);             glVertex3f(-0.5, 0, 0.2);
+            glTexCoord2f(0, 1.0);               glVertex3f(-0.5, 0, -0.2);
 
             // door right
             glNormal3f(1, 0, 0);
-            glTexCoord2f(TEX_SIZE, 0);          glVertex3f(0.5, 1, -0.2);
-            glTexCoord2f(TEX_SIZE2, 0);         glVertex3f(0.5, 1, 0.2);
-            glTexCoord2f(TEX_SIZE2, TEX_SIZE);  glVertex3f(0.5, 0, 0.2);
-            glTexCoord2f(TEX_SIZE, TEX_SIZE);   glVertex3f(0.5, 0, -0.2);
+            glTexCoord2f(0, 0);                 glVertex3f(0.5, 1, -0.2);
+            glTexCoord2f(1.0, 0);               glVertex3f(0.5, 1, 0.2);
+            glTexCoord2f(1.0, 1.0);             glVertex3f(0.5, 0, 0.2);
+            glTexCoord2f(0, 1.0);               glVertex3f(0.5, 0, -0.2);
 
             // door back
             glNormal3f(0, 0, -1);
             for (int i = 0; i < LIGHT_RES; ++i) {
                 for (int j = 0; j < LIGHT_RES; ++j) {
-                    glTexCoord2f(i * (TEX_SIZE / LIGHT_RES), (j + 1) * (TEX_SIZE / LIGHT_RES));       glVertex3f(-0.5f + i * (1.0f / LIGHT_RES), 1.0f - (j + 1) * (1.0f / LIGHT_RES), -0.2f);
-                    glTexCoord2f((i + 1) * (TEX_SIZE / LIGHT_RES), (j + 1) * (TEX_SIZE / LIGHT_RES)); glVertex3f(-0.5f + (i + 1) * (1.0f / LIGHT_RES), 1.0f - (j + 1) * (1.0f / LIGHT_RES), -0.2f);
-                    glTexCoord2f((i + 1) * (TEX_SIZE / LIGHT_RES), j * (TEX_SIZE / LIGHT_RES));       glVertex3f(-0.5f + (i + 1) * (1.0f / LIGHT_RES), 1.0f - j * (1.0f / LIGHT_RES), -0.2f);
-                    glTexCoord2f(i * (TEX_SIZE / LIGHT_RES), j * (TEX_SIZE / LIGHT_RES));             glVertex3f(-0.5f + i * (1.0f / LIGHT_RES), 1.0f - j * (1.0f / LIGHT_RES), -0.2f);
+                    glTexCoord2f(i * (1.0 / LIGHT_RES), (j + 1) * (1.0 / LIGHT_RES));       glVertex3f(-0.5f + i * (1.0f / LIGHT_RES), 1.0f - (j + 1) * (1.0f / LIGHT_RES), -0.2f);
+                    glTexCoord2f((i + 1) * (1.0 / LIGHT_RES), (j + 1) * (1.0 / LIGHT_RES)); glVertex3f(-0.5f + (i + 1) * (1.0f / LIGHT_RES), 1.0f - (j + 1) * (1.0f / LIGHT_RES), -0.2f);
+                    glTexCoord2f((i + 1) * (1.0 / LIGHT_RES), j * (1.0 / LIGHT_RES));       glVertex3f(-0.5f + (i + 1) * (1.0f / LIGHT_RES), 1.0f - j * (1.0f / LIGHT_RES), -0.2f);
+                    glTexCoord2f(i * (1.0 / LIGHT_RES), j * (1.0 / LIGHT_RES));             glVertex3f(-0.5f + i * (1.0f / LIGHT_RES), 1.0f - j * (1.0f / LIGHT_RES), -0.2f);
                 }
             }
 
@@ -364,10 +365,10 @@ void customRoom_door::draw3D() {
             glNormal3f(0, 0, 1);
             for (int i = 0; i < LIGHT_RES; ++i) {
                 for (int j = 0; j < LIGHT_RES; ++j) {
-                    glTexCoord2f(i * (TEX_SIZE / LIGHT_RES), j * (TEX_SIZE / LIGHT_RES));             glVertex3f(-0.5f + i * (1.0f / LIGHT_RES), 1.0f - j * (1.0f / LIGHT_RES), 0.2f);
-                    glTexCoord2f((i + 1) * (TEX_SIZE / LIGHT_RES), j * (TEX_SIZE / LIGHT_RES));       glVertex3f(-0.5f + (i + 1) * (1.0f / LIGHT_RES), 1.0f - j * (1.0f / LIGHT_RES), 0.2f);
-                    glTexCoord2f((i + 1) * (TEX_SIZE / LIGHT_RES), (j + 1) * (TEX_SIZE / LIGHT_RES)); glVertex3f(-0.5f + (i + 1) * (1.0f / LIGHT_RES), 1.0f - (j + 1) * (1.0f / LIGHT_RES), 0.2f);
-                    glTexCoord2f(i * (TEX_SIZE / LIGHT_RES), (j + 1) * (TEX_SIZE / LIGHT_RES));       glVertex3f(-0.5f + i * (1.0f / LIGHT_RES), 1.0f - (j + 1) * (1.0f / LIGHT_RES), 0.2f);
+                    glTexCoord2f(i * (1.0 / LIGHT_RES), j * (1.0 / LIGHT_RES));             glVertex3f(-0.5f + i * (1.0f / LIGHT_RES), 1.0f - j * (1.0f / LIGHT_RES), 0.2f);
+                    glTexCoord2f((i + 1) * (1.0 / LIGHT_RES), j * (1.0 / LIGHT_RES));       glVertex3f(-0.5f + (i + 1) * (1.0f / LIGHT_RES), 1.0f - j * (1.0f / LIGHT_RES), 0.2f);
+                    glTexCoord2f((i + 1) * (1.0 / LIGHT_RES), (j + 1) * (1.0 / LIGHT_RES)); glVertex3f(-0.5f + (i + 1) * (1.0f / LIGHT_RES), 1.0f - (j + 1) * (1.0f / LIGHT_RES), 0.2f);
+                    glTexCoord2f(i * (1.0 / LIGHT_RES), (j + 1) * (1.0 / LIGHT_RES));       glVertex3f(-0.5f + i * (1.0f / LIGHT_RES), 1.0f - (j + 1) * (1.0f / LIGHT_RES), 0.2f);
                 }
             }
         glEnd();
