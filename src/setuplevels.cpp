@@ -7532,15 +7532,6 @@ int eisenfaust(vector<shared_ptr<customGameObject>*> &gameobjects, customPlayer 
 	go = new shared_ptr<customGameObject>( new customRoom_wall( ofVec3f(2*10, 2*0, 2*17), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2), ofVec3f(0.0, 0.5, 0.0), &tex_MossBricks, &mat_greybricks ) );
 	gameobjects.push_back(go);
 
-	go = new shared_ptr<customGameObject>( new customRoom_wall( ofVec3f(2*17, 2*0, 2*17), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2), ofVec3f(0.0, 0.0, 0.5), &tex_BlueBricks, &mat_bluebricks ) );
-	gameobjects.push_back(go);
-
-	go = new shared_ptr<customGameObject>( new customRoom_wall( ofVec3f(2*18, 2*0, 2*17), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2), ofVec3f(0.0, 0.0, 0.5), &tex_BlueBricks, &mat_bluebricks ) );
-	gameobjects.push_back(go);
-
-	go = new shared_ptr<customGameObject>( new customRoom_wall( ofVec3f(2*19, 2*0, 2*17), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2), ofVec3f(0.0, 0.0, 0.5), &tex_BlueBricks, &mat_bluebricks ) );
-	gameobjects.push_back(go);
-
 	go = new shared_ptr<customGameObject>( new customRoom_wall( ofVec3f(2*22, 2*0, 2*17), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2), ofVec3f(0.0, 0.0, 0.5), &tex_BlueBricks, &mat_bluebricks ) );
 	gameobjects.push_back(go);
 
@@ -7703,15 +7694,6 @@ int eisenfaust(vector<shared_ptr<customGameObject>*> &gameobjects, customPlayer 
 	go = new shared_ptr<customGameObject>( new customRoom_wall( ofVec3f(2*9, 2*0, 2*18), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2), ofVec3f(0.0, 0.5, 0.0), &tex_MossBricks, &mat_greybricks ) );
 	gameobjects.push_back(go);
 
-	go = new shared_ptr<customGameObject>( new customRoom_wall( ofVec3f(2*17, 2*0, 2*18), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2), ofVec3f(0.0, 0.0, 0.5), &tex_BlueBricks, &mat_bluebricks ) );
-	gameobjects.push_back(go);
-
-	go = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(2*18, 2*0, 2*18), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2), ofVec3f(0.4, 0.4, 0.4), &tex_Floor, &mat_greybricks ) );
-	gameobjects.push_back(go);
-
-	go = new shared_ptr<customGameObject>( new customRoom_wall( ofVec3f(2*19, 2*0, 2*18), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2), ofVec3f(0.0, 0.0, 0.5), &tex_BlueBricks, &mat_bluebricks ) );
-	gameobjects.push_back(go);
-
 	go = new shared_ptr<customGameObject>( new customRoom_wall( ofVec3f(2*22, 2*0, 2*18), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2), ofVec3f(0.0, 0.0, 0.5), &tex_BlueBricks, &mat_bluebricks ) );
 	gameobjects.push_back(go);
 
@@ -7817,15 +7799,6 @@ int eisenfaust(vector<shared_ptr<customGameObject>*> &gameobjects, customPlayer 
 	gameobjects.push_back(go);
 
 	go = new shared_ptr<customGameObject>( new customRoom_wall( ofVec3f(2*6, 2*0, 2*19), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2), ofVec3f(0.0, 0.5, 0.0), &tex_MossBricks, &mat_greybricks ) );
-	gameobjects.push_back(go);
-
-	go = new shared_ptr<customGameObject>( new customRoom_wall( ofVec3f(2*17, 2*0, 2*19), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2), ofVec3f(0.0, 0.0, 0.5), &tex_BlueBricks, &mat_bluebricks ) );
-	gameobjects.push_back(go);
-
-	go = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(2*18, 2*0, 2*19), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2), ofVec3f(0.4, 0.4, 0.4), &tex_Floor, &mat_greybricks ) );
-	gameobjects.push_back(go);
-
-	go = new shared_ptr<customGameObject>( new customRoom_wall( ofVec3f(2*19, 2*0, 2*19), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2), ofVec3f(0.0, 0.0, 0.5), &tex_BlueBricks, &mat_bluebricks ) );
 	gameobjects.push_back(go);
 
 	go = new shared_ptr<customGameObject>( new customRoom_wall( ofVec3f(2*22, 2*0, 2*19), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2), ofVec3f(0.0, 0.0, 0.5), &tex_BlueBricks, &mat_bluebricks ) );
@@ -7936,15 +7909,6 @@ int eisenfaust(vector<shared_ptr<customGameObject>*> &gameobjects, customPlayer 
 	go = new shared_ptr<customGameObject>( new customRoom_wall( ofVec3f(2*6, 2*0, 2*20), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2), ofVec3f(0.0, 0.5, 0.0), &tex_MossBricks, &mat_greybricks ) );
 	gameobjects.push_back(go);
 
-	go = new shared_ptr<customGameObject>( new customRoom_wall( ofVec3f(2*17, 2*0, 2*20), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2), ofVec3f(0.0, 0.0, 0.5), &tex_BlueBricks, &mat_bluebricks ) );
-	gameobjects.push_back(go);
-
-	go = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(2*18, 2*0, 2*20), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2), ofVec3f(0.4, 0.4, 0.4), &tex_Floor, &mat_greybricks ) );
-	gameobjects.push_back(go);
-
-	go = new shared_ptr<customGameObject>( new customRoom_wall( ofVec3f(2*19, 2*0, 2*20), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2), ofVec3f(0.0, 0.0, 0.5), &tex_BlueBricks, &mat_bluebricks ) );
-	gameobjects.push_back(go);
-
 	go = new shared_ptr<customGameObject>( new customRoom_wall( ofVec3f(2*22, 2*0, 2*20), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2), ofVec3f(0.0, 0.0, 0.5), &tex_BlueBricks, &mat_bluebricks ) );
 	gameobjects.push_back(go);
 
@@ -8051,15 +8015,6 @@ int eisenfaust(vector<shared_ptr<customGameObject>*> &gameobjects, customPlayer 
 	gameobjects.push_back(go);
 
 	go = new shared_ptr<customGameObject>( new customRoom_wall( ofVec3f(2*6, 2*0, 2*21), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2), ofVec3f(0.0, 0.5, 0.0), &tex_MossBricks, &mat_greybricks ) );
-	gameobjects.push_back(go);
-
-	go = new shared_ptr<customGameObject>( new customRoom_wall( ofVec3f(2*17, 2*0, 2*21), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2), ofVec3f(0.0, 0.0, 0.5), &tex_BlueBricks, &mat_bluebricks ) );
-	gameobjects.push_back(go);
-
-	go = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(2*18, 2*0, 2*21), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2), ofVec3f(0.4, 0.4, 0.4), &tex_Floor, &mat_greybricks ) );
-	gameobjects.push_back(go);
-
-	go = new shared_ptr<customGameObject>( new customRoom_wall( ofVec3f(2*19, 2*0, 2*21), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2), ofVec3f(0.0, 0.0, 0.5), &tex_BlueBricks, &mat_bluebricks ) );
 	gameobjects.push_back(go);
 
 	go = new shared_ptr<customGameObject>( new customRoom_wall( ofVec3f(2*21, 2*0, 2*21), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2), ofVec3f(0.0, 0.0, 0.5), &tex_BlueBricks, &mat_bluebricks ) );
@@ -8190,18 +8145,6 @@ int eisenfaust(vector<shared_ptr<customGameObject>*> &gameobjects, customPlayer 
 	gameobjects.push_back(go);
 
 	go = new shared_ptr<customGameObject>( new customRoom_wall( ofVec3f(2*6, 2*0, 2*22), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2), ofVec3f(0.0, 0.5, 0.0), &tex_MossBricks, &mat_greybricks ) );
-	gameobjects.push_back(go);
-
-	go = new shared_ptr<customGameObject>( new customRoom_wall( ofVec3f(2*17, 2*0, 2*22), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2), ofVec3f(0.0, 0.0, 0.5), &tex_BlueBricks, &mat_bluebricks ) );
-	gameobjects.push_back(go);
-
-	go = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(2*18, 2*0, 2*22), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2), ofVec3f(0.4, 0.4, 0.4), &tex_Floor, &mat_greybricks ) );
-	gameobjects.push_back(go);
-
-	go = new shared_ptr<customGameObject>( new customRoom_wall( ofVec3f(2*19, 2*0, 2*22), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2), ofVec3f(0.0, 0.0, 0.5), &tex_BlueBricks, &mat_bluebricks ) );
-	gameobjects.push_back(go);
-
-	go = new shared_ptr<customGameObject>( new customRoom_wall( ofVec3f(2*20, 2*0, 2*22), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2), ofVec3f(0.0, 0.0, 0.5), &tex_BlueBricks, &mat_bluebricks ) );
 	gameobjects.push_back(go);
 
 	go = new shared_ptr<customGameObject>( new customRoom_wall( ofVec3f(2*21, 2*0, 2*22), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2), ofVec3f(0.0, 0.0, 0.5), &tex_BlueBricks, &mat_bluebricks ) );
@@ -8345,19 +8288,7 @@ int eisenfaust(vector<shared_ptr<customGameObject>*> &gameobjects, customPlayer 
 	go = new shared_ptr<customGameObject>( new customRoom_wall( ofVec3f(2*6, 2*0, 2*23), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2), ofVec3f(0.0, 0.5, 0.0), &tex_MossBricks, &mat_greybricks ) );
 	gameobjects.push_back(go);
 
-	go = new shared_ptr<customGameObject>( new customRoom_wall( ofVec3f(2*17, 2*0, 2*23), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2), ofVec3f(0.0, 0.0, 0.5), &tex_BlueBricks, &mat_bluebricks ) );
-	gameobjects.push_back(go);
-
-	go = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(2*18, 2*0, 2*23), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2), ofVec3f(0.4, 0.4, 0.4), &tex_Floor, &mat_greybricks ) );
-	gameobjects.push_back(go);
-
-	go = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(2*19, 2*0, 2*23), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2), ofVec3f(0.4, 0.4, 0.4), &tex_Floor, &mat_greybricks ) );
-	gameobjects.push_back(go);
-
-	go = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(2*20, 2*0, 2*23), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2), ofVec3f(0.4, 0.4, 0.4), &tex_Floor, &mat_greybricks ) );
-	gameobjects.push_back(go);
-
-	go = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(2*21, 2*0, 2*23), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2), ofVec3f(0.4, 0.4, 0.4), &tex_Floor, &mat_greybricks ) );
+	go = new shared_ptr<customGameObject>( new customRoom_wall( ofVec3f(2*21, 2*0, 2*23), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2), ofVec3f(0.0, 0.0, 0.5), &tex_BlueBricks, &mat_bluebricks ) );
 	gameobjects.push_back(go);
 
 	go = new shared_ptr<customGameObject>( new customRoom_Xhallway( ofVec3f(2*22, 2*0, 2*23), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2), ofVec3f(0.4, 0.4, 0.4), &tex_Floor, &mat_greybricks ) );
@@ -8475,18 +8406,6 @@ int eisenfaust(vector<shared_ptr<customGameObject>*> &gameobjects, customPlayer 
 	gameobjects.push_back(go);
 
 	go = new shared_ptr<customGameObject>( new customRoom_wall( ofVec3f(2*64, 2*0, 2*23), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2), ofVec3f(0.8, 0.1, 0.1), &tex_RedBricks, &mat_redbricks ) );
-	gameobjects.push_back(go);
-
-	go = new shared_ptr<customGameObject>( new customRoom_wall( ofVec3f(2*17, 2*0, 2*24), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2), ofVec3f(0.0, 0.0, 0.5), &tex_BlueBricks, &mat_bluebricks ) );
-	gameobjects.push_back(go);
-
-	go = new shared_ptr<customGameObject>( new customRoom_wall( ofVec3f(2*18, 2*0, 2*24), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2), ofVec3f(0.0, 0.0, 0.5), &tex_BlueBricks, &mat_bluebricks ) );
-	gameobjects.push_back(go);
-
-	go = new shared_ptr<customGameObject>( new customRoom_wall( ofVec3f(2*19, 2*0, 2*24), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2), ofVec3f(0.0, 0.0, 0.5), &tex_BlueBricks, &mat_bluebricks ) );
-	gameobjects.push_back(go);
-
-	go = new shared_ptr<customGameObject>( new customRoom_wall( ofVec3f(2*20, 2*0, 2*24), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2), ofVec3f(0.0, 0.0, 0.5), &tex_BlueBricks, &mat_bluebricks ) );
 	gameobjects.push_back(go);
 
 	go = new shared_ptr<customGameObject>( new customRoom_wall( ofVec3f(2*21, 2*0, 2*24), ofVec3f(0, 0, 0), ofVec3f(2, 2, 2), ofVec3f(0.0, 0.0, 0.5), &tex_BlueBricks, &mat_bluebricks ) );
