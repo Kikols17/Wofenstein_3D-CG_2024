@@ -206,7 +206,7 @@ void customLightObject::draw3D() {
             glLightfv(this->light_id, GL_DIFFUSE, temp_Dif);
             glLightfv(this->light_id, GL_SPECULAR, temp_Spec);
 
-            glLightf(this->light_id, GL_SPOT_EXPONENT, 160.);   // 160.
+            glLightf(this->light_id, GL_SPOT_EXPONENT, 136.);   // 160.
             glLightf(this->light_id, GL_SPOT_CUTOFF, 30.);
 
             glLightf(this->light_id, GL_CONSTANT_ATTENUATION, 0.);
