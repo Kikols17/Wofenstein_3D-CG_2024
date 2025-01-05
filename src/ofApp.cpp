@@ -2,8 +2,8 @@
 
 int enemy_count = 0;
 int kill_count = 0;
-int gamestate = 0;      // -1=paused, 0=playing, 1=player died, 2=end reached
-int last_gamestate = 0;
+int gamestate = 3;      // -1=paused, 0=playing, 1=player died, 2=end reached, 3=level select menu
+int last_gamestate = 3;
 
 
 vector<customColisionBox*> globalcolisionBoxes;
@@ -81,7 +81,7 @@ void ofApp::setup(){
     globalgameobjects = vector<shared_ptr<customGameObject>*>({});
     globalgameobjects_toremove = vector<shared_ptr<customGameObject>*>({});
 
-    loadLevel(2);
+    loadLevel(1);
 
     //cout << "light queue" << endl;
     //for (int i=0; i<NLIGHTS; i++) {
@@ -234,12 +234,20 @@ void ofApp::draw(){
 void ofApp::keyPressed(int key) {
     switch (key) {
         case '1':
-            ofSetWindowTitle("2D");
-            this->viewmode = 0;
+            if (gamestate==3) {
+                loadLevel(1);
+            } else {
+                ofSetWindowTitle("2D");
+                this->viewmode = 0;
+            }
             break;
         case '2':
-            ofSetWindowTitle("3D (1st person)");
-            this->viewmode = 1;
+            if (gamestate==3) {
+                loadLevel(2);
+            } else {
+                ofSetWindowTitle("3D (1st person)");
+                this->viewmode = 1;
+            }
             break;
         case '3':
             ofSetWindowTitle("3D (3rd person)");
@@ -271,7 +279,8 @@ void ofApp::keyPressed(int key) {
             break;
         case 'r':
         case 'R':
-            loadLevel(1);
+            // choose level
+            gamestate = 3;
             break;
         
         case 'f':
@@ -516,6 +525,12 @@ void ofApp::drawUI() {
         pos_x = gw()/2*0.8;
         pos_y = gh()/2*0.8;
         s += "\tPAUSED\n\n\tpress 'space' to continue\n\tpress 'r' to restart\n";
+
+    } else if (gamestate == 3) {
+        color[0] = 255; color[1] = 255; color[2] = 255;
+        pos_x = gw()/2*0.8;
+        pos_y = gh()/2*0.8;
+        s += "\tChoose gamemode: press 1 or 2\n";
 
     } else if (gamestate == 1) {
         color[0] = 255; color[1] = 0; color[2] = 0;
