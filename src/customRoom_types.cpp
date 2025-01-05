@@ -6,6 +6,8 @@
 
 extern int gamestate;
 
+extern ofImage tex_Door1;
+
 //--------------------------------------------------------------
 // customRoom_axis
 //--------------------------------------------------------------
@@ -299,7 +301,7 @@ void customRoom_door::draw2D() {
         this->customPhysicsObjectStatic::draw2D();      // move to the position, rotate, and scale the room
 
         glEnable(GL_TEXTURE);
-        this->texture->bind();
+        tex_Door1.bind();
 
         glColor3f(this->color.x, this->color.y, this->color.z);
         glBegin(GL_QUADS);
@@ -307,19 +309,15 @@ void customRoom_door::draw2D() {
             glNormal3f(0, 1, 0);
             for (int i = 0; i < LIGHT_RES; ++i) {
                 for (int j = 0; j < LIGHT_RES; ++j) {
-                    glTexCoord2f(i * (1.0 / LIGHT_RES), j * (1.0 / LIGHT_RES));             glVertex3f(0.5f - i * (1.0f / LIGHT_RES), 0.9f, -0.2f + j * (0.4f / LIGHT_RES));
-                    glTexCoord2f(i * (1.0 / LIGHT_RES), (j + 1) * (1.0 / LIGHT_RES));       glVertex3f(0.5f - i * (1.0f / LIGHT_RES), 0.9f, -0.2f + (j + 1) * (0.4f / LIGHT_RES));
-                    glTexCoord2f((i + 1) * (1.0 / LIGHT_RES), (j + 1) * (1.0 / LIGHT_RES)); glVertex3f(0.5f - (i + 1) * (1.0f / LIGHT_RES), 0.9f, -0.2f + (j + 1) * (0.4f / LIGHT_RES));
-                    glTexCoord2f((i + 1) * (1.0 / LIGHT_RES), j * (1.0 / LIGHT_RES));       glVertex3f(0.5f - (i + 1) * (1.0f / LIGHT_RES), 0.9f, -0.2f + j * (0.4f / LIGHT_RES));
-                }
+                    glTexCoord2f(j * (1.0 / LIGHT_RES), (1.0 - i * (1.0 / LIGHT_RES)));             glVertex3f(0.5f - i * (1.0f / LIGHT_RES), 0.9f, -0.2f + j * (0.4f / LIGHT_RES));
+                    glTexCoord2f((j + 1) * (1.0 / LIGHT_RES), (1.0 - i * (1.0 / LIGHT_RES)));       glVertex3f(0.5f - i * (1.0f / LIGHT_RES), 0.9f, -0.2f + (j + 1) * (0.4f / LIGHT_RES));
+                    glTexCoord2f((j + 1) * (1.0 / LIGHT_RES), (1.0 - (i + 1) * (1.0 / LIGHT_RES))); glVertex3f(0.5f - (i + 1) * (1.0f / LIGHT_RES), 0.9f, -0.2f + (j + 1) * (0.4f / LIGHT_RES));
+                    glTexCoord2f(j * (1.0 / LIGHT_RES), (1.0 - (i + 1) * (1.0 / LIGHT_RES)));       glVertex3f(0.5f - (i + 1) * (1.0f / LIGHT_RES), 0.9f, -0.2f + j * (0.4f / LIGHT_RES));
+                }        
             }
-            //                                                  glTexCoord2f(0.680851064, 0);       glVertex3f(0.5f - i * (1.0f / LIGHT_RES), 0.9f, -0.2f + j * (0.4f / LIGHT_RES));
-            //                                                  glTexCoord2f(1.0, 0);               glVertex3f(0.5f - i * (1.0f / LIGHT_RES), 0.9f, -0.2f + (j + 1) * (0.4f / LIGHT_RES));
-            //                                                  glTexCoord2f(1.0, 1.0);             glVertex3f(0.5f - (i + 1) * (1.0f / LIGHT_RES), 0.9f, -0.2f + (j + 1) * (0.4f / LIGHT_RES));
-            //                                                  glTexCoord2f(0.680851064, 1.0);     glVertex3f(0.5f - (i + 1) * (1.0f / LIGHT_RES), 0.9f, -0.2f + j * (0.4f / LIGHT_RES));
         glEnd();
 
-        this->texture->unbind();
+        tex_Door1.unbind();
         glDisable(GL_TEXTURE);
 
     glPopMatrix();
@@ -331,25 +329,25 @@ void customRoom_door::draw3D() {
         this->customPhysicsObjectStatic::draw3D();      // move to the position, rotate, and scale the room
 
         glEnable(GL_TEXTURE);
-        this->texture->bind();
-
+        
+        tex_Door1.bind();
         glColor3f(this->color.x, this->color.y, this->color.z);
         glBegin(GL_QUADS);
-
             // door left
             glNormal3f(-1, 0, 0);
-            glTexCoord2f(0, 0);                 glVertex3f(-0.5, 1, -0.2);
-            glTexCoord2f(1.0, 0);               glVertex3f(-0.5, 1, 0.2);
-            glTexCoord2f(1.0, 1.0);             glVertex3f(-0.5, 0, 0.2);
-            glTexCoord2f(0, 1.0);               glVertex3f(-0.5, 0, -0.2);
+            for (int i = 0; i < LIGHT_RES; ++i) {
+                for (int j = 0; j < LIGHT_RES; ++j) {
+                    glTexCoord2f(j * (1.0 / LIGHT_RES), i * (1.0 / LIGHT_RES));             glVertex3f(-0.5f, 1.0f - i * (1.0f / LIGHT_RES), -0.2f + j * (0.4f / LIGHT_RES));
+                    glTexCoord2f((j + 1) * (1.0 / LIGHT_RES), i * (1.0 / LIGHT_RES));       glVertex3f(-0.5f, 1.0f - i * (1.0f / LIGHT_RES), -0.2f + (j + 1) * (0.4f / LIGHT_RES));
+                    glTexCoord2f((j + 1) * (1.0 / LIGHT_RES), (i + 1) * (1.0 / LIGHT_RES)); glVertex3f(-0.5f, 1.0f - (i + 1) * (1.0f / LIGHT_RES), -0.2f + (j + 1) * (0.4f / LIGHT_RES));
+                    glTexCoord2f(j * (1.0 / LIGHT_RES), (i + 1) * (1.0 / LIGHT_RES));       glVertex3f(-0.5f, 1.0f - (i + 1) * (1.0f / LIGHT_RES), -0.2f + j * (0.4f / LIGHT_RES));
+                }
+            }
+        glEnd();
+        tex_Door1.unbind();
 
-            // door right
-            glNormal3f(1, 0, 0);
-            glTexCoord2f(0, 0);                 glVertex3f(0.5, 1, -0.2);
-            glTexCoord2f(1.0, 0);               glVertex3f(0.5, 1, 0.2);
-            glTexCoord2f(1.0, 1.0);             glVertex3f(0.5, 0, 0.2);
-            glTexCoord2f(0, 1.0);               glVertex3f(0.5, 0, -0.2);
-
+        this->texture->bind();
+        glBegin(GL_QUADS);
             // door back
             glNormal3f(0, 0, -1);
             for (int i = 0; i < LIGHT_RES; ++i) {

@@ -23,6 +23,7 @@ ofImage tex_RedBricks;
 ofImage tex_CyanMetal;
 ofImage tex_WoodWall;
 ofImage tex_Floor;
+ofImage tex_Door1;
 ofImage tex_Door;
 ofImage tex_Background;
 
@@ -73,6 +74,7 @@ void ofApp::setup(){
     tex_CyanMetal.load("CyanMetal.png");
     tex_WoodWall.load("WoodWall.png");
     tex_Floor.load("Floor.png");
+    tex_Door1.load("Door1.png");
     tex_Door.load("Door.png");
     tex_Background.load("Background.png");
 
