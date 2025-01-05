@@ -67,6 +67,61 @@ custommaterial mat_smoke = {
 
 
 
+// materials for player + enemy
+custommaterial mat_skin = {
+    .ambi = { 0.2, 0.15, 0.1, 1.0 },
+    .difu = { 0.8, 0.6, 0.5, 1.0 },
+    .spec = { 0.3, 0.3, 0.3, 1.0 },
+    .coef = (GLint)(0.2 * 128)
+};
+custommaterial mat_greymetal = {
+    .ambi = { 0.1, 0.1, 0.1, 1.0 },
+    .difu = { 0.3, 0.3, 0.3, 1.0 },
+    .spec = { 0.4, 0.4, 0.4, 1.0 },
+    .coef = (GLint)(0.25 * 128)
+};
+
+custommaterial mat_gingerhair = {
+    .ambi = { 0.3, 0.1, 0.0, 1.0 },
+    .difu = { 0.8, 0.3, 0.1, 1.0 },
+    .spec = { 0.2, 0.1, 0.0, 1.0 },
+    .coef = (GLint)(0.2 * 128)
+};
+custommaterial mat_whiteclothes = {
+    .ambi = { 0.7, 0.7, 0.7, 1.0 },
+    .difu = { 0.8, 0.8, 0.8, 1.0 },
+    .spec = { 0.3, 0.3, 0.3, 1.0 },
+    .coef = (GLint)(0.2 * 128)
+};
+custommaterial mat_brownboots = {
+    .ambi = { 0.2, 0.1, 0.0, 1.0 },
+    .difu = { 0.4, 0.2, 0.1, 1.0 },
+    .spec = { 0.1, 0.05, 0.025, 1.0 },
+    .coef = (GLint)(0.1 * 128)
+};
+
+custommaterial mat_blondhair = {
+    .ambi = { 0.3, 0.3, 0.1, 1.0 },
+    .difu = { 0.9, 0.8, 0.5, 1.0 },
+    .spec = { 0.3, 0.3, 0.1, 1.0 },
+    .coef = (GLint)(0.2 * 128)
+};
+custommaterial mat_browclothes = {
+    .ambi = { 0.2, 0.1, 0.0, 1.0 },
+    .difu = { 0.4, 0.2, 0.1, 1.0 },
+    .spec = { 0.1, 0.05, 0.025, 1.0 },
+    .coef = (GLint)(0.1 * 128)
+};
+custommaterial mat_blueboots = {
+    .ambi = { 0.0, 0.0, 0.2, 1.0 },
+    .difu = { 0.0, 0.0, 0.4, 1.0 },
+    .spec = { 0.1, 0.1, 0.2, 1.0 },
+    .coef = (GLint)(0.1 * 128)
+};
+
+
+
+
 void loadmaterial(struct custommaterial *material) {
 	glMaterialfv(GL_FRONT, GL_AMBIENT, material->ambi);
 	glMaterialfv(GL_FRONT, GL_DIFFUSE, material->difu);

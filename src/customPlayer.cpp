@@ -9,6 +9,11 @@ extern int gamestate;
 
 extern struct custommaterial mat_blood;
 extern struct custommaterial mat_smoke;
+extern struct custommaterial mat_skin;
+extern struct custommaterial mat_greymetal;
+extern struct custommaterial mat_gingerhair;
+extern struct custommaterial mat_whiteclothes;
+extern struct custommaterial mat_brownboots;
 
 
 
@@ -69,14 +74,16 @@ void customPlayer::draw2D() {
     glPushMatrix();
         this->customPhysicsObjectMovable::draw2D();
         this->musslelight->draw2D();
-        glEnable(GL_COLOR_MATERIAL);
 
         glColor3f(1.0, 0.8, 0.6); // skin color
+        loadmaterial(&mat_skin);
         cube_unit_posscale(ofVec3f(0, 0.5, 0), ofVec3f(0.3, 0.3, 0.3)); // head
         glColor3f(0.8, 0.4, 0.0); // ginger hair
+        loadmaterial(&mat_gingerhair);
         cube_unit_posscale(ofVec3f(0, 0.6, 0), ofVec3f(0.31, 0.12, 0.31)); // hair
 
         glColor3f(0.8, 0.8, 0.8); // light grey clothes
+        loadmaterial(&mat_whiteclothes);
         cube_unit_posscale(ofVec3f(0, 0.05, 0), ofVec3f(0.35, 0.6, 0.35));  // body
 
         glPushMatrix();
@@ -85,8 +92,10 @@ void customPlayer::draw2D() {
             glTranslatef(0, 0.25, 0);       // move joint of the leg back to original position  
 
             glColor3f(0.8, 0.8, 0.8); // light grey clothes
+            loadmaterial(&mat_whiteclothes);
             cube_unit_posscale(ofVec3f(-0.1, -0.5, 0), ofVec3f(0.15, 0.5, 0.15));   // } left leg
             glColor3f(0.6, 0.3, 0.0); // brown boots
+            loadmaterial(&mat_brownboots);
             cube_unit_posscale(ofVec3f(-0.1, -0.65, 0), ofVec3f(0.17, 0.25, 0.17)); // } left boot
         glPopMatrix();
 
@@ -96,8 +105,10 @@ void customPlayer::draw2D() {
             glTranslatef(0, 0.25, 0);       // move joint of the leg back to original position  
 
             glColor3f(0.8, 0.8, 0.8); // light grey clothes
+            loadmaterial(&mat_whiteclothes);
             cube_unit_posscale(ofVec3f(0.1, -0.5, 0), ofVec3f(0.15, 0.5, 0.15));    // } right leg
             glColor3f(0.6, 0.3, 0.0); // brown boots
+            loadmaterial(&mat_brownboots);
             cube_unit_posscale(ofVec3f(0.1, -0.65, 0), ofVec3f(0.17, 0.25, 0.17));  // } right boot
         glPopMatrix();
 
@@ -110,8 +121,10 @@ void customPlayer::draw2D() {
             glTranslatef(0.25, -0.1, 0.0);             // move joint of the arm back to original position
 
             glColor3f(0.8, 0.8, 0.8); // light grey clothes
+            loadmaterial(&mat_whiteclothes);
             cube_unit_posscale(ofVec3f(0.25, 0.15, 0), ofVec3f(0.12, 0.4, 0.12));    // } right arm
             glColor3f(1.0, 0.8, 0.6);   // hands color
+            loadmaterial(&mat_skin);
             cube_unit_posscale(ofVec3f(0.25, 0.35, 0), ofVec3f(0.11, 0.11, 0.11));    // } right hand
         glPopMatrix();
 
@@ -122,8 +135,10 @@ void customPlayer::draw2D() {
             glTranslatef(-0.25, -0.1, 0.0);             // move joint of the arm back to original position
 
             glColor3f(0.8, 0.8, 0.8); // light grey clothes
+            loadmaterial(&mat_whiteclothes);
             cube_unit_posscale(ofVec3f(-0.25, 0.15, 0), ofVec3f(0.12, 0.4, 0.12));    // } right arm
             glColor3f(1.0, 0.8, 0.6);   // hands color
+            loadmaterial(&mat_skin);
             cube_unit_posscale(ofVec3f(-0.25, 0.35, 0), ofVec3f(0.11, 0.11, 0.11));    // } right hand
         glPopMatrix();
 
@@ -136,10 +151,10 @@ void customPlayer::draw2D() {
 
             this->flashlight->draw2D();
             glColor3f(0.15, 0.15, 0.15);    // dark grey weapon
+            loadmaterial(&mat_greymetal);
             cube_unit_posscale(ofVec3f(0.05, 0.65, -0.13), ofVec3f(0.05, 0.3, 0.05));    // } weapon
         glPopMatrix();
 
-        glDisable(GL_COLOR_MATERIAL);
     glPopMatrix();
 }
 
@@ -148,14 +163,16 @@ void customPlayer::draw3D() {
     glPushMatrix();
         this->customPhysicsObjectMovable::draw3D();
         this->musslelight->draw3D();
-        glEnable(GL_COLOR_MATERIAL);
 
         glColor3f(1.0, 0.8, 0.6); // skin color
+        loadmaterial(&mat_skin);
         cube_unit_posscale(ofVec3f(0, 0.5, 0), ofVec3f(0.3, 0.3, 0.3)); // head
         glColor3f(0.8, 0.4, 0.0); // ginger hair
+        loadmaterial(&mat_gingerhair);
         cube_unit_posscale(ofVec3f(0, 0.6, 0), ofVec3f(0.31, 0.12, 0.31)); // hair
 
         glColor3f(0.8, 0.8, 0.8); // light grey clothes
+        loadmaterial(&mat_whiteclothes);
         cube_unit_posscale(ofVec3f(0, 0.05, 0), ofVec3f(0.35, 0.6, 0.35));  // body
 
         glPushMatrix();
@@ -164,8 +181,10 @@ void customPlayer::draw3D() {
             glTranslatef(0, 0.25, 0);       // move joint of the leg back to original position  
 
             glColor3f(0.8, 0.8, 0.8); // light grey clothes
+            loadmaterial(&mat_whiteclothes);
             cube_unit_posscale(ofVec3f(-0.1, -0.5, 0), ofVec3f(0.15, 0.5, 0.15));   // } left leg
             glColor3f(0.6, 0.3, 0.0); // brown boots
+            loadmaterial(&mat_brownboots);
             cube_unit_posscale(ofVec3f(-0.1, -0.65, 0), ofVec3f(0.17, 0.25, 0.17)); // } left boot
         glPopMatrix();
 
@@ -175,8 +194,10 @@ void customPlayer::draw3D() {
             glTranslatef(0, 0.25, 0);       // move joint of the leg back to original position  
 
             glColor3f(0.8, 0.8, 0.8); // light grey clothes
+            loadmaterial(&mat_whiteclothes);
             cube_unit_posscale(ofVec3f(0.1, -0.5, 0), ofVec3f(0.15, 0.5, 0.15));    // } right leg
             glColor3f(0.6, 0.3, 0.0); // brown boots
+            loadmaterial(&mat_brownboots);
             cube_unit_posscale(ofVec3f(0.1, -0.65, 0), ofVec3f(0.17, 0.25, 0.17));  // } right boot
         glPopMatrix();
 
@@ -189,8 +210,10 @@ void customPlayer::draw3D() {
             glTranslatef(0.25, -0.1, 0.0);             // move joint of the arm back to original position
 
             glColor3f(0.8, 0.8, 0.8); // light grey clothes
+            loadmaterial(&mat_whiteclothes);
             cube_unit_posscale(ofVec3f(0.25, 0.15, 0), ofVec3f(0.12, 0.4, 0.12));    // } right arm
             glColor3f(1.0, 0.8, 0.6);   // hands color
+            loadmaterial(&mat_skin);
             cube_unit_posscale(ofVec3f(0.25, 0.35, 0), ofVec3f(0.11, 0.11, 0.11));    // } right hand
         glPopMatrix();
 
@@ -201,8 +224,10 @@ void customPlayer::draw3D() {
             glTranslatef(-0.25, -0.1, 0.0);             // move joint of the arm back to original position
 
             glColor3f(0.8, 0.8, 0.8); // light grey clothes
+            loadmaterial(&mat_whiteclothes);
             cube_unit_posscale(ofVec3f(-0.25, 0.15, 0), ofVec3f(0.12, 0.4, 0.12));    // } right arm
             glColor3f(1.0, 0.8, 0.6);   // hands color
+            loadmaterial(&mat_skin);
             cube_unit_posscale(ofVec3f(-0.25, 0.35, 0), ofVec3f(0.11, 0.11, 0.11));    // } right hand
         glPopMatrix();
 
@@ -213,12 +238,12 @@ void customPlayer::draw3D() {
             glRotatef(this->cam.looking_angleX+90.0, 1, 0, 0);   // } rotate the arm
             glTranslatef(0.0, -0.1, 0.0);             // move joint of the arm back to original position
 
-            this->flashlight->draw3D();
+            this->flashlight->draw2D();
             glColor3f(0.15, 0.15, 0.15);    // dark grey weapon
+            loadmaterial(&mat_greymetal);
             cube_unit_posscale(ofVec3f(0.05, 0.65, -0.13), ofVec3f(0.05, 0.3, 0.05));    // } weapon
         glPopMatrix();
 
-        glDisable(GL_COLOR_MATERIAL);
     glPopMatrix();
 
 
