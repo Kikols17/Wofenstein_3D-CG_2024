@@ -524,7 +524,7 @@ void ofApp::drawUI() {
         color[0] = 255; color[1] = 255; color[2] = 0;
         pos_x = gw()/2*0.8;
         pos_y = gh()/2*0.8;
-        s += "\tPAUSED\n\n\tpress 'space' to continue\n\tpress 'r' to restart\n";
+        s += "\tPAUSED\n\n\tpress 'space' to continue\n\tpress 'r' to restart/choose level\n";
 
     } else if (gamestate == 3) {
         color[0] = 255; color[1] = 255; color[2] = 255;
@@ -537,7 +537,7 @@ void ofApp::drawUI() {
         pos_x = gw()/2*0.8;
         pos_y = gh()/2*0.8;
         //cout << pos_x << " " << pos_y << endl;
-        s += "\tGAME OVER\n\t""player died! :(\n\n\tpress 'r' to restart\n";
+        s += "\tGAME OVER\n\t""player died! :(\n\n\tpress 'r' to restart/choose level\n";
 
     } else if (gamestate == 2) {
         color[0] = 0; color[1] = 255; color[2] = 0;
@@ -567,7 +567,7 @@ void ofApp::drawUI() {
             s += "\tc: toggle controls [THIS SCREEN]\n";
             s += "\tf: use flashlight\n\n";
 
-            s += "\tr: restart level\n";
+            s += "\tr: restart/choose level\n";
             s += "\tspace: pause\n\n";
 
             s += "\t[w,a,s,d]: walk around\n";
