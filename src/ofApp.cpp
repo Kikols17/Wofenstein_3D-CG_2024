@@ -27,9 +27,25 @@ ofImage tex_Door;
 
 
 bool global_ambientbool = true;
+bool global_ambient_ambbool = true;
+bool global_ambient_difbool = true;
+bool global_ambient_specbool = true;
+
 bool global_directionalbool = true;
+bool global_directional_ambbool = true;
+bool global_directional_difbool = true;
+bool global_directional_specbool = true;
+
 bool global_pontualbool = true;
+bool global_pontual_ambbool = true;
+bool global_pontual_difbool = true;
+bool global_pontual_specbool = true;
+
 bool global_spotlightbool = true;
+bool global_spotlight_ambbool = true;
+bool global_spotlight_difbool = true;
+bool global_spotlight_specbool = true;
+
 
 
 
@@ -264,6 +280,9 @@ void ofApp::keyPressed(int key) {
                 this->player.flashlight->lightToggle();
                 this->player.flashlight->debounce = true;
             }
+            global_spotlight_ambbool = true;
+            global_spotlight_difbool = true;
+            global_spotlight_specbool = true;
             break;
         
         case ' ':
@@ -307,15 +326,49 @@ void ofApp::keyPressed(int key) {
         case OF_KEY_F1:
             global_ambientbool = !global_ambientbool;
             break;
+        case OF_KEY_F2:
+            global_spotlight_difbool = !global_spotlight_difbool;
+            break;
+        case OF_KEY_F3:
+            global_spotlight_specbool = !global_spotlight_specbool;
+            break;
+        case OF_KEY_F4:
+            global_spotlight_ambbool = !global_spotlight_ambbool;
+            break;
 
         // directional
         case OF_KEY_F5:
             global_directionalbool = !global_directionalbool;
+            global_directional_ambbool = true;
+            global_directional_difbool = true;
+            global_directional_specbool = true;
+            cout << true << endl;
+            break;
+        case OF_KEY_F6:
+            global_directional_ambbool = !global_directional_ambbool;
+            break;
+        case OF_KEY_F7:
+            global_directional_difbool = !global_directional_difbool;
+            break;
+        case OF_KEY_F8:
+            global_directional_specbool = !global_directional_specbool;
             break;
 
         // pontual
         case OF_KEY_F9:
             global_pontualbool = !global_pontualbool;
+            global_pontual_ambbool = true;
+            global_pontual_difbool = true;
+            global_pontual_specbool = true;
+            break;
+        case OF_KEY_F10:
+            global_pontual_ambbool = !global_pontual_ambbool;
+            break;
+        case OF_KEY_F11:
+            global_pontual_difbool = !global_pontual_difbool;
+            break;
+        case OF_KEY_F12:
+            global_pontual_specbool = !global_pontual_specbool;
             break;
 
         
