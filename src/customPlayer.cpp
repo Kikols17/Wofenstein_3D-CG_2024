@@ -167,10 +167,10 @@ void customPlayer::draw2D() {
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
         // Draw the background as a tiled texture
         glBegin(GL_QUADS);
-            glTexCoord2f(0, 0);         glVertex3f(-100, -5, -100);
-            glTexCoord2f(128, 0);       glVertex3f(100, -5, -100);
-            glTexCoord2f(128, 128);     glVertex3f(100, -5, 100);
-            glTexCoord2f(0, 128);       glVertex3f(-100, -5, 100);
+            glTexCoord2f(0, 0);         glVertex3f(-100, -50, -100);
+            glTexCoord2f(128, 0);       glVertex3f(100, -50, -100);
+            glTexCoord2f(128, 128);     glVertex3f(100, -50, 100);
+            glTexCoord2f(0, 128);       glVertex3f(-100, -50, 100);
         glEnd();
         tex_Background.unbind();
         glDisable(GL_TEXTURE);
