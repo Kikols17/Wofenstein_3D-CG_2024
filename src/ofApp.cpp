@@ -174,22 +174,6 @@ void ofApp::draw(){
 
             glPushMatrix();
                 this->cam->draw2D();    // apply the 2D camara's transformations
-
-                // Enable 2D texturing
-                glEnable(GL_TEXTURE);
-                tex_Background.bind();
-                glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-                glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-                // Draw the background as a tiled texture
-                glBegin(GL_QUADS);
-                    glTexCoord2f(0, 0);         glVertex3f(-200, -5, -200);
-                    glTexCoord2f(512, 0);       glVertex3f(300, -5, -200);
-                    glTexCoord2f(512, 512);     glVertex3f(300, -5, 300);
-                    glTexCoord2f(0, 512);       glVertex3f(-200, -5, 300);
-                glEnd();
-                tex_Background.unbind();
-                glDisable(GL_TEXTURE);
-
                 for (int i=0; i<gosize; i++) {
                     (*globalgameobjects[i])->draw2D();
                 }

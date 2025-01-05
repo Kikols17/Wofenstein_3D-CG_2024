@@ -15,6 +15,8 @@ extern struct custommaterial mat_gingerhair;
 extern struct custommaterial mat_whiteclothes;
 extern struct custommaterial mat_brownboots;
 
+extern ofImage tex_Background;
+
 
 
 //--------------------------------------------------------------
@@ -155,6 +157,23 @@ void customPlayer::draw2D() {
             cube_unit_posscale(ofVec3f(0.05, 0.65, -0.13), ofVec3f(0.05, 0.3, 0.05));    // } weapon
         glPopMatrix();
 
+    glPopMatrix();
+
+    // draw background
+    glPushMatrix();
+        glTranslatef(this->position.x*0.8, this->position.y*0.8, this->position.z*0.8);
+        tex_Background.bind();
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+        // Draw the background as a tiled texture
+        glBegin(GL_QUADS);
+            glTexCoord2f(0, 0);         glVertex3f(-100, -5, -100);
+            glTexCoord2f(128, 0);       glVertex3f(100, -5, -100);
+            glTexCoord2f(128, 128);     glVertex3f(100, -5, 100);
+            glTexCoord2f(0, 128);       glVertex3f(-100, -5, 100);
+        glEnd();
+        tex_Background.unbind();
+        glDisable(GL_TEXTURE);
     glPopMatrix();
 }
 
