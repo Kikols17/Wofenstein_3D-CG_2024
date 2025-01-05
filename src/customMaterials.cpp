@@ -1,5 +1,7 @@
 #include "customMaterials.h"
 
+// Eu uso http://www.it.hiof.no/~borres/j3d/explain/light/p-materials.html para encontrar os materiais,
+// e uso o Github Copilot para melhorar e modificar para ficar melhor
 
 custommaterial mat_greybricks = {
     .ambi = { 0.3, 0.3, 0.3, 1.0 },
